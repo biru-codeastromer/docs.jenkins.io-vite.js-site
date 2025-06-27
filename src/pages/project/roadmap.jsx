@@ -205,7 +205,7 @@ const RoadmapPage = () => {
   );
 };
 
-// Mobile View Component
+// Mobile View
 const MobileView = ({ filteredCategories, roadmapData, statusColors, theme }) => (
   <Box sx={{ 
     border: `1px solid ${theme.palette.divider}`,
@@ -301,7 +301,7 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, theme }) =>
   </Box>
 );
 
-// Desktop View Component
+// Desktop View
 const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusColors, theme }) => (
   <Box sx={{ 
     border: `1px solid ${theme.palette.divider}`,
@@ -404,7 +404,7 @@ const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusC
   </Box>
 );
 
-// References Section Component
+// References Section
 const ReferencesSection = ({ theme }) => (
   <>
     <Typography variant="h2" component="h2" gutterBottom sx={{
