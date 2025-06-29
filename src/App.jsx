@@ -11,6 +11,8 @@ import Hacktoberfest from './pages/events/hacktoberfest';
 import HacktoberfestFaq from './pages/events/faq';
 import HacktoberfestEventKit from './pages/events/event-kit';
 import JamPage from './pages/projects/jam';
+import AwardsPage from './pages/awards/index';
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
         <Route path="events/hacktoberfest/faq" element={<HacktoberfestFaq />} />
         <Route path="events/hacktoberfest/event-kit" element={<HacktoberfestEventKit />} />
         <Route path="projects/jam" element={<JamPage />} />
+        <Route path="awards" element={<AwardsPage />} />
       </Route>
     </Routes>
   );
