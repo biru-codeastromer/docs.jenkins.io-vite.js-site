@@ -25,6 +25,11 @@ export default function Home() {
           Events
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/awards" variant="body1">
+          Awards
+        </Link>
+      </Typography>
     </Box>
   );
 }
