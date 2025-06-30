@@ -3,6 +3,8 @@ import Layout from './components/layout';
 import Home from './Home';
 import RoadmapPage from './pages/project/roadmap';
 import DownloadPage from './pages/download';
+import PressPage from './pages/press';
+
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="project/roadmap" element={<RoadmapPage />} />
         <Route path="download" element={<DownloadPage />} />
+        <Route path="press" element={<PressPage />} />
       </Route>
     </Routes>
   );
