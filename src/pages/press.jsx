@@ -259,8 +259,8 @@ export default function PressPage() {
         our "fun logo" variations like Ninja or Superhero Jenkins in publications.
       </Typography>
       <Typography variant="body1" sx={{ mb: 2, fontSize: '1rem', fontWeight: 500 }}>
-        When embedding our logo in an article, we prefer the <code>logo.png</code> (see Figure 1)
-        to be used over the <code>headshot.png</code> image.
+        When embedding our logo in an article, we prefer the <code style={{ color: 'red' }}>logo.png</code> (see Figure 1)
+        to be used over the <code style={{ color: 'red' }}>headshot.png</code> image.
       </Typography>
       <Typography variant="body1" sx={{ mb: 2, fontSize: '1rem', fontWeight: 500 }}>
         If you have any questions about artwork, please ask our <Link href="#press-contact">Press Contact</Link>.
