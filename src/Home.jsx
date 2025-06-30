@@ -35,6 +35,11 @@ export default function Home() {
           Press Information
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/project/conduct" variant="body1">
+          Code of Conduct
+        </Link>
+      </Typography>
     </Box>
   );
 }

@@ -13,6 +13,7 @@ import HacktoberfestEventKit from './pages/events/event-kit';
 import JamPage from './pages/projects/jam';
 import AwardsPage from './pages/awards/index';
 import PressPage from './pages/press';
+import ConductPage from './pages/project/conduct';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="projects/jam" element={<JamPage />} />
         <Route path="awards" element={<AwardsPage />} />
         <Route path="press" element={<PressPage />} />
+        <Route path="project/conduct" element={<ConductPage />} />
       </Route>
     </Routes>
   );
