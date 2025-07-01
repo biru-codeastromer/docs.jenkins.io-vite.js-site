@@ -14,6 +14,7 @@ import JamPage from './pages/projects/jam';
 import AwardsPage from './pages/awards/index';
 import PressPage from './pages/press';
 import ConductPage from './pages/project/conduct';
+import ArtworkPage from './pages/artwork';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="awards" element={<AwardsPage />} />
         <Route path="press" element={<PressPage />} />
         <Route path="project/conduct" element={<ConductPage />} />
+        <Route path="artwork" element={<ArtworkPage />} />
       </Route>
     </Routes>
   );
