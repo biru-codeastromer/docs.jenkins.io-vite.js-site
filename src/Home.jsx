@@ -15,6 +15,11 @@ export default function Home() {
           View Roadmap
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/download" variant="body1">
+          Download Jenkins
+        </Link>
+      </Typography>
     </Box>
   );
 }
