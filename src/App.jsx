@@ -15,7 +15,15 @@ import AwardsPage from './pages/awards/index';
 import PressPage from './pages/press';
 import ConductPage from './pages/project/conduct';
 import ArtworkPage from './pages/artwork';
-
+import ParticipatePage from './pages/participate/index';
+import CodePage from './pages/participate/code';
+import ConnectPage from './pages/participate/connect';
+import DesignPage from './pages/participate/design';
+import DocumentPage from './pages/participate/document';
+import HelpPage from './pages/participate/help';
+import MeetPage from './pages/participate/meet';
+import ReviewChangesPage from './pages/participate/review-changes';
+import TestPage from './pages/participate/test';
 
 function App() {
   return (
@@ -36,6 +44,15 @@ function App() {
         <Route path="press" element={<PressPage />} />
         <Route path="project/conduct" element={<ConductPage />} />
         <Route path="artwork" element={<ArtworkPage />} />
+        <Route path="participate" element={<ParticipatePage />} />
+        <Route path="participate/code" element={<CodePage />} />
+        <Route path="participate/connect" element={<ConnectPage />} />
+        <Route path="participate/design" element={<DesignPage />} />
+        <Route path="participate/document" element={<DocumentPage />} />
+        <Route path="participate/help" element={<HelpPage />} />
+        <Route path="participate/meet" element={<MeetPage />} />
+        <Route path="participate/review-changes" element={<ReviewChangesPage />} />
+        <Route path="participate/test" element={<TestPage />} />
       </Route>
     </Routes>
   );
