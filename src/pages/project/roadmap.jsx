@@ -7,16 +7,13 @@ import {
   Box,
   Checkbox,
   FormControlLabel,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
   useMediaQuery,
   useTheme,
   CircularProgress,
   Alert
 } from "@mui/material";
 import { loadYamlData } from "../../utils/loadData";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const statusColors = {
   'released': '#2dbda8',
@@ -25,6 +22,15 @@ const statusColors = {
   'near-term': '#9677df',
   'future': '#2c97de',
   'withdrawn': '#e16070',
+};
+
+const statusGradients = {
+  'released': 'linear-gradient(90deg, #2dbda8 0%, #1aab40 100%)',
+  'preview': 'linear-gradient(90deg, #7b817c 0%, #6b816f 100%)',
+  'current': 'linear-gradient(90deg, #efc663 0%, #eab53a 100%)',
+  'near-term': 'linear-gradient(90deg, #9677df 0%, #7347d5 100%)',
+  'future': 'linear-gradient(90deg, #2c97de 0%, #2378b1 100%)',
+  'withdrawn': 'linear-gradient(90deg, #e16070 0%, #d83941 100%)',
 };
 
 const RoadmapPage = () => {
@@ -92,8 +98,15 @@ const RoadmapPage = () => {
 
   if (isLoading) {
     return (
-      <Box sx={{ p: 3, textAlign: 'center' }}>
-        <CircularProgress sx={{ mt: 4 }} />
+      <Box sx={{ 
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '60vh',
+        textAlign: 'center'
+      }}>
+        <CircularProgress />
         <Typography variant="body1" sx={{ mt: 2 }}>
           Loading roadmap data...
         </Typography>
@@ -104,7 +117,7 @@ const RoadmapPage = () => {
   if (hasError || !roadmapData) {
     return (
       <Box sx={{ p: 3 }}>
-        <Alert severity="error" sx={{ mb: 2 }}>
+        <Alert severity="error">
           Failed to load roadmap data. Please try again later.
         </Alert>
       </Box>
@@ -112,115 +125,140 @@ const RoadmapPage = () => {
   }
 
   return (
-    <Box sx={{ 
-      maxWidth: 1200, 
-      mx: "auto", 
-      p: 3,
-      fontFamily: theme.typography.fontFamily
-    }}>
-      <Typography variant="h1" component="h1" gutterBottom sx={{ 
-        fontFamily: '"Georgia", serif',
-        fontWeight: 'bold',
-        fontSize: isMobile ? '1.5rem' : '2rem',
-        marginBottom: '1.5rem',
-        color: theme.palette.text.primary
-      }}>
-        Jenkins Roadmap
-      </Typography>
+    <HelmetProvider>
+      <Box
+        sx={{
+          maxWidth: '1320px',
+          margin: '0 auto',
+          padding: { xs: 2, sm: 4 },
+          fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+          lineHeight: 1.65,
+          color: '#212529',
+        }}
+      >
+        <Helmet>
+          <title>Jenkins Roadmap</title>
+          <meta name="description" content="Jenkins project offers a public community-driven roadmap. It aggregates key initiatives in all areas: features, infrastructure, documentation, community, etc." />
+        </Helmet>
 
-      <Typography paragraph sx={{ 
-        fontSize: '1rem',
-        lineHeight: '1.6',
-        marginBottom: '2rem',
-        color: theme.palette.text.secondary
-      }}>
-        Jenkins project offers a public community-driven roadmap. It aggregates key initiatives in all areas: features, infrastructure, documentation, community, etc. See JEP-14 for more information about the public roadmap process. We do NOT commit on delivery dates, all initiatives depend on contributions. Anyone is welcome to participate and help us to deliver the initiatives below! Contributing to Jenkins
-      </Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 800,
+            fontSize: '2rem',
+            mb: '0.5rem',
+            color: '#212529',
+          }}
+        >
+          Jenkins Roadmap
+        </Typography>
 
-      {roadmapData.labels && (
-        <Paper elevation={0} sx={{ 
-          p: 2, 
-          mb: 3,
-          backgroundColor: theme.palette.grey[100],
-          borderRadius: theme.shape.borderRadius
+        <Typography variant="body1" sx={{ 
+          mb: 2, 
+          fontSize: '1rem', 
+          fontWeight: 500,
+          color: '#212529',
         }}>
-          <Typography variant="h6" component="h2" sx={{ 
-            fontSize: '1rem',
-            fontWeight: 600,
-            mb: 1,
-            color: theme.palette.text.primary
+          Jenkins project offers a public community-driven roadmap. It aggregates key initiatives in all areas: features, infrastructure, documentation, community, etc. See JEP-14 for more information about the public roadmap process. We do NOT commit on delivery dates, all initiatives depend on contributions. Anyone is welcome to participate and help us to deliver the initiatives below! <Link href="/participate" sx={{ color: '#2378b1', '&:hover': { color: '#2c97de' } }}>Contributing to Jenkins</Link>
+        </Typography>
+
+        {roadmapData.labels && (
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            flexWrap: 'wrap', 
+            gap: '8px', 
+            mb: '16px',
+            padding: '10px',
+            borderRadius: '3px',
           }}>
-            Filter by category:
-          </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+            <Typography
+              variant="h6"
+              component="span"
+              sx={{
+                fontSize: '1rem',
+                fontWeight: 500,
+                color: '#212529',
+              }}
+            >
+              Filters:
+            </Typography>
+            
             {roadmapData.labels.map((label) => (
               <FormControlLabel
                 key={label.name}
                 control={
                   <Checkbox
                     onChange={() => handleFilterChange(label.name)}
-                    size="small"
                     color="primary"
                     sx={{
-                        color: theme.palette.text.primary,
+                      color: '#212529',
+                      padding: '4px',
                       '&.Mui-checked': {
-                        color: theme.palette.text.primary,
+                        color: '#1A73E8',
                       },
                     }}
                   />
                 }
                 label={label.displayName}
-                sx={{ 
-                  mr: 0,
+                sx={{
+                  margin: 0,
                   '& .MuiTypography-root': {
-                    fontSize: '0.875rem',
-                    color: theme.palette.text.primary
-                  }
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                    color: '#212529',
+                  },
                 }}
               />
             ))}
           </Box>
-        </Paper>
-      )}
+        )}
 
-      {isMobile ? (
-        <MobileView 
-          filteredCategories={filteredCategories} 
-          roadmapData={roadmapData} 
-          statusColors={statusColors}
-          theme={theme}
-        />
-      ) : (
-        <DesktopView 
-          filteredCategories={filteredCategories}
-          visibleStatuses={visibleStatuses}
-          roadmapData={roadmapData}
-          statusColors={statusColors}
-          theme={theme}
-        />
-      )}
+        {isMobile ? (
+          <MobileView 
+            filteredCategories={filteredCategories} 
+            roadmapData={roadmapData} 
+            statusColors={statusColors}
+            statusGradients={statusGradients}
+            theme={theme}
+          />
+        ) : (
+          <DesktopView 
+            filteredCategories={filteredCategories}
+            visibleStatuses={visibleStatuses}
+            roadmapData={roadmapData}
+            statusColors={statusColors}
+            statusGradients={statusGradients}
+            theme={theme}
+          />
+        )}
 
-      <ReferencesSection theme={theme} />
-    </Box>
+        <ReferencesSection theme={theme} />
+      </Box>
+    </HelmetProvider>
   );
 };
 
 // Mobile View
-const MobileView = ({ filteredCategories, roadmapData, statusColors, theme }) => (
+const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradients, theme }) => (
   <Box sx={{ 
-    border: `1px solid ${theme.palette.divider}`,
-    borderRadius: theme.shape.borderRadius,
+    border: '1px solid rgba(0, 0, 0, 0.05)',
+    borderRadius: '3px',
     mb: 4,
     overflow: 'hidden'
   }}>
     {filteredCategories.map((category) => (
       <Box key={category.name}>
         <Box sx={{ 
-          backgroundColor: theme.palette.grey[100],
+          backgroundColor: 'rgba(0, 0, 0, 0.025)',
           fontWeight: 600,
-          p: 2,
-          borderBottom: `1px solid ${theme.palette.divider}`,
-          color: theme.palette.text.primary
+          padding: '10px 16px',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+          color: '#212529',
+          fontSize: '14px',
+          height: '40px',
+          display: 'flex',
+          alignItems: 'center'
         }}>
           {category.name}
         </Box>
@@ -231,8 +269,9 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, theme }) =>
             <Box 
               key={initiative.name} 
               sx={{ 
-                p: 2, 
-                borderBottom: `1px solid ${theme.palette.divider}`,
+                padding: '8px 16px', 
+                borderBottom: '1px solid #e6eaee',
+                position: 'relative',
                 '&:last-child': {
                   borderBottom: 'none'
                 }
@@ -242,55 +281,134 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, theme }) =>
                 title={initiative.description || (status?.description || '')} 
                 arrow
                 placement="right"
+                componentsProps={{
+                  tooltip: {
+                    sx: {
+                      backgroundColor: '#212529',
+                      padding: '6px 12px',
+                      fontSize: '14px',
+                      maxWidth: '260px'
+                    }
+                  },
+                  arrow: {
+                    sx: {
+                      color: '#212529'
+                    }
+                  }
+                }}
               >
-                <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                <Box sx={{ 
+                  display: "flex", 
+                  alignItems: "center", 
+                  mb: 1,
+                  paddingLeft: '50%'
+                }}>
+                  <Box sx={{ 
+                    position: 'absolute',
+                    top: '8px',
+                    left: '8px',
+                    width: '45%',
+                    paddingRight: '8px',
+                    whiteSpace: 'nowrap',
+                    color: '#6c757d',
+                    fontSize: '14px'
+                  }}>
+                    {status?.displayName || 'Status'}
+                  </Box>
                   {status && (
                     <Box sx={{ 
-                      background: statusColors[status.id] || theme.palette.grey[500],
+                      background: statusGradients[status.id] || statusColors[status.id],
                       color: "white",
                       fontWeight: "bold",
-                      borderRadius: "4px",
+                      borderRadius: "10px",
                       padding: "4px 8px",
-                      mr: 1,
-                      fontSize: '0.75rem'
+                      margin: '8px 4px',
+                      fontSize: '14px',
+                      minHeight: '32px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}>
                       {status.displayName}
                     </Box>
                   )}
-                  <Link
-                    href={initiative.link || '#'}
-                    target="_blank"
-                    rel="noopener"
-                    sx={{ 
-                      fontWeight: 600,
-                      color: theme.palette.primary.main,
-                      '&:hover': {
-                        textDecoration: 'underline'
-                      }
-                    }}
-                  >
-                    {initiative.name}
-                  </Link>
                 </Box>
               </Tooltip>
+              
+              <Box sx={{ 
+                position: 'relative',
+                paddingLeft: '50%'
+              }}>
+                <Box sx={{ 
+                  position: 'absolute',
+                  top: '8px',
+                  left: '8px',
+                  width: '45%',
+                  paddingRight: '8px',
+                  whiteSpace: 'nowrap',
+                  color: '#6c757d',
+                  fontSize: '14px'
+                }}>
+                  Initiative
+                </Box>
+                <Link
+                  href={initiative.link || '#'}
+                  target="_blank"
+                  rel="noopener"
+                  sx={{ 
+                    fontWeight: 400,
+                    color: '#2378b1',
+                    fontSize: '14px',
+                    lineHeight: '16px',
+                    '&:hover': {
+                      color: '#2c97de',
+                      textDecoration: 'none'
+                    },
+                    display: 'flex',
+                    alignItems: 'center',
+                    minHeight: '48px'
+                  }}
+                >
+                  {initiative.name}
+                </Link>
+              </Box>
+
               {initiative.labels && (
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 1 }}>
-                  {initiative.labels.map((label) => {
-                    const labelData = roadmapData.labels.find(l => l.name === label);
-                    return (
-                      <Chip
-                        key={label}
-                        label={labelData?.displayName || label}
-                        size="small"
-                        sx={{
-                          backgroundColor: theme.palette.grey[200],
-                          color: theme.palette.text.primary,
-                          fontSize: '0.75rem',
-                          height: '24px'
-                        }}
-                      />
-                    );
-                  })}
+                <Box sx={{ 
+                  position: 'relative',
+                  paddingLeft: '50%'
+                }}>
+                  <Box sx={{ 
+                    position: 'absolute',
+                    top: '8px',
+                    left: '8px',
+                    width: '45%',
+                    paddingRight: '8px',
+                    whiteSpace: 'nowrap',
+                    color: '#6c757d',
+                    fontSize: '14px'
+                  }}>
+                    Labels
+                  </Box>
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 1 }}>
+                    {initiative.labels.map((label) => {
+                      const labelData = roadmapData.labels.find(l => l.name === label);
+                      return (
+                        <Chip
+                          key={label}
+                          label={labelData?.displayName || label}
+                          size="small"
+                          sx={{
+                            backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                            color: '#212529',
+                            fontSize: '12px',
+                            height: '24px',
+                            fontWeight: 500
+                          }}
+                        />
+                      );
+                    })}
+                  </Box>
                 </Box>
               )}
             </Box>
@@ -302,126 +420,188 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, theme }) =>
 );
 
 // Desktop View
-const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusColors, theme }) => (
-  <Box sx={{ 
-    border: `1px solid ${theme.palette.divider}`,
-    borderRadius: theme.shape.borderRadius,
-    mb: 4,
-    overflow: 'auto'
-  }}>
-    <Box sx={{ 
-      display: 'grid', 
-      gridTemplateColumns: `repeat(${visibleStatuses.length}, 1fr)`,
-      backgroundColor: theme.palette.grey[100]
-    }}>
-      {visibleStatuses.map((status) => (
-        <Box 
-          key={status.id} 
-          sx={{ 
-            p: 2, 
-            fontWeight: 600,
-            borderRight: `1px solid ${theme.palette.divider}`,
-            textAlign: 'center',
-            textTransform: 'uppercase',
-            fontSize: '0.875rem',
-            color: theme.palette.text.primary
-          }}
-        >
-          {status.displayName}
+const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusColors, statusGradients, theme }) => (
+  <Box component="table" 
+    sx={{ 
+      width: '100%',
+      border: '1px solid rgba(0, 0, 0, 0.05)',
+      borderRadius: '3px',
+      mb: 4,
+      borderCollapse: 'separate',
+      borderSpacing: 0
+    }}
+    className="roadmap-table"
+  >
+    <Box component="thead">
+      <Box component="tr" sx={{ borderRadius: '3px' }}>
+        <Box component="th" sx={{ 
+          fontWeight: 600,
+          fontSize: '12px',
+          lineHeight: '16px',
+          color: '#6c757d',
+          textTransform: 'uppercase',
+          textAlign: 'left',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+          padding: '13px 16px 11px 24px',
+          borderRadius: '3px 0 0 0'
+        }}>
+          Category
         </Box>
-      ))}
+        {visibleStatuses.map((status) => (
+          <Box 
+            component="th" 
+            key={status.id}
+            sx={{ 
+              fontWeight: 600,
+              fontSize: '12px',
+              lineHeight: '16px',
+              color: '#6c757d',
+              textTransform: 'uppercase',
+              textAlign: 'center',
+              borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+              padding: '13px 16px 11px 16px',
+              '&:last-child': {
+                paddingRight: '24px',
+                borderRadius: '0 3px 0 0'
+              }
+            }}
+          >
+            {status.displayName}
+          </Box>
+        ))}
+      </Box>
     </Box>
 
-    {filteredCategories.map((category) => (
-      <React.Fragment key={category.name}>
-        <Box sx={{ 
-          p: 2,
-          fontWeight: 600,
-          borderBottom: `1px solid ${theme.palette.divider}`,
-          backgroundColor: theme.palette.grey[50],
-          color: theme.palette.text.primary
-        }}>
-          {category.name}
-        </Box>
-        <Box sx={{ display: 'grid', gridTemplateColumns: `repeat(${visibleStatuses.length}, 1fr)` }}>
-          {visibleStatuses.map((status) => (
-            <Box
-              key={status.id}
-              sx={{ 
-                p: 2,
-                minHeight: 100,
-                borderRight: `1px solid ${theme.palette.divider}`,
-                backgroundColor: theme.palette.background.paper,
-                '&:last-child': { borderRight: 'none' }
-              }}
-            >
-              {(category.initiatives || [])
-                .filter(initiative => initiative.status === status.id)
-                .map((initiative) => (
-                  <Tooltip
-                    key={initiative.name}
-                    title={initiative.description || status.description || ''}
-                    placement="top"
-                    arrow
-                  >
-                    <Box
-                      sx={{
-                        mb: 1,
-                        p: 1,
-                        borderRadius: theme.shape.borderRadius,
-                        background: statusColors[status.id] || theme.palette.grey[500],
-                        color: "white",
-                        transition: 'all 0.2s ease',
-                        "&:hover": {
-                          transform: 'translateY(-2px)',
-                          boxShadow: theme.shadows[2]
+    <Box component="tbody">
+      {filteredCategories.map((category) => (
+        <React.Fragment key={category.name}>
+          <Box component="tr" sx={{ 
+            backgroundColor: 'rgba(0, 0, 0, 0.025)',
+            fontWeight: 600,
+          }}>
+            <Box component="td" colSpan={visibleStatuses.length + 1} sx={{ 
+              padding: '0 24px',
+              height: '40px',
+              borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+              fontSize: '14px'
+            }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+                {category.name}
+              </Box>
+            </Box>
+          </Box>
+          
+          <Box component="tr">
+            {visibleStatuses.map((status) => (
+              <Box
+                component="td"
+                key={status.id}
+                sx={{ 
+                  padding: 0,
+                  minHeight: '48px',
+                  borderLeft: '1px dashed rgba(230, 234, 238, 0.25)',
+                  verticalAlign: 'top',
+                  '&:first-child': {
+                    paddingLeft: '24px',
+                    borderLeft: 'none'
+                  },
+                  '&:last-child': {
+                    paddingRight: '16px'
+                  }
+                }}
+              >
+                {(category.initiatives || [])
+                  .filter(initiative => initiative.status === status.id)
+                  .map((initiative) => (
+                    <Tooltip
+                      key={initiative.name}
+                      title={initiative.description || status.description || ''}
+                      placement="top"
+                      arrow
+                      componentsProps={{
+                        tooltip: {
+                          sx: {
+                            backgroundColor: '#212529',
+                            padding: '6px 12px',
+                            fontSize: '14px',
+                            maxWidth: '260px'
+                          }
                         },
+                        arrow: {
+                          sx: {
+                            color: '#212529'
+                          }
+                        }
                       }}
                     >
-                      <Link
-                        href={initiative.link || '#'}
-                        target="_blank"
-                        rel="noopener"
+                      <Box
                         sx={{
-                          color: "white",
-                          textDecoration: "none",
-                          display: 'block',
-                          "&:hover": {
-                            textDecoration: "none",
-                          },
+                          margin: '8px 4px',
+                          padding: '4px 8px',
+                          borderRadius: '10px',
+                          background: statusGradients[status.id] || statusColors[status.id],
+                          color: 'white',
+                          fontWeight: 'bold',
+                          fontSize: '14px',
+                          lineHeight: '16px',
+                          minHeight: '32px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          textAlign: 'center'
                         }}
                       >
-                        {initiative.name}
-                      </Link>
-                    </Box>
-                  </Tooltip>
-                ))}
-            </Box>
-          ))}
-        </Box>
-      </React.Fragment>
-    ))}
+                        <Link
+                          href={initiative.link || '#'}
+                          target="_blank"
+                          rel="noopener"
+                          sx={{
+                            color: 'white',
+                            textDecoration: 'none',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '100%',
+                            height: '100%',
+                            '&:hover': {
+                              textDecoration: 'none'
+                            }
+                          }}
+                        >
+                          {initiative.name}
+                        </Link>
+                      </Box>
+                    </Tooltip>
+                  ))}
+              </Box>
+            ))}
+          </Box>
+        </React.Fragment>
+      ))}
+    </Box>
   </Box>
 );
 
 // References Section
 const ReferencesSection = ({ theme }) => (
   <>
-    <Typography variant="h2" component="h2" gutterBottom sx={{
-      fontFamily: '"Georgia", serif',
-      fontSize: '1.75rem',
-      fontWeight: 600,
-      marginTop: '2rem',
-      marginBottom: '1rem',
-      color: theme.palette.text.primary
-    }}>
+    <Typography
+      variant="h5"
+      sx={{
+        fontWeight: 800,
+        fontSize: '1.8rem',
+        mt: 5,
+        mb: 2,
+        color: '#212529'
+      }}
+    >
       References
     </Typography>
-    <List dense sx={{ 
-      '& .MuiListItem-root': {
-        px: 0,
-        py: '4px'
-      }
+    <Box component="ul" sx={{ 
+      paddingLeft: '1.2rem',
+      marginTop: 0,
+      marginBottom: '1rem',
+      listStyleType: 'disc'
     }}>
       {[
         {
@@ -441,25 +621,32 @@ const ReferencesSection = ({ theme }) => (
           href: "https://github.com/jenkins-infra/jenkins.io/blob/master/content/_data/roadmap/archive.yml"
         }
       ].map((item, index) => (
-        <ListItem key={index}>
-          <ListItemText>
-            <Link
-              href={item.href}
-              target="_blank"
-              rel="noopener"
-              sx={{
-                color: theme.palette.primary.main,
-                '&:hover': {
-                  textDecoration: 'underline'
-                }
-              }}
-            >
-              {item.text}
-            </Link>
-          </ListItemText>
-        </ListItem>
+        <Box component="li" key={index} sx={{ 
+          marginBottom: '0.4rem',
+          color: '#212529',
+          fontSize: '1rem',
+          lineHeight: 1.65
+        }}>
+          <Link
+            href={item.href}
+            target="_blank"
+            rel="noopener"
+            sx={{
+              color: '#2378b1',
+              fontSize: '1rem',
+              fontWeight: 500,
+              textDecoration: 'none',
+              '&:hover': {
+                textDecoration: 'underline',
+                color: '#2c97de'
+              },
+            }}
+          >
+            {item.text}
+          </Link>
+        </Box>
       ))}
-    </List>
+    </Box>
   </>
 );
 
