@@ -20,6 +20,34 @@ export default function Home() {
           Download Jenkins
         </Link>
       </Typography>
+<<<<<<< HEAD
+=======
+      <Typography>
+        <Link href="/events" variant="body1">
+          Events
+        </Link>
+      </Typography>
+      <Typography>
+        <Link href="/awards" variant="body1">
+          Awards
+        </Link>
+      </Typography>
+      <Typography>
+        <Link href="/press" variant="body1">
+          Press Information
+        </Link>
+      </Typography>
+      <Typography>
+        <Link href="/project/conduct" variant="body1">
+          Code of Conduct
+        </Link>
+      </Typography>
+      <Typography>
+        <Link href="/artwork" variant="body1">
+          Artwork
+        </Link>
+      </Typography>
+>>>>>>> 091455d (feat:add artwork page)
     </Box>
   );
 }
