@@ -45,6 +45,11 @@ export default function Home() {
           Artwork
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/participate" variant="body1">
+          Participate and Contribute
+        </Link>
+      </Typography>
     </Box>
   );
 }
