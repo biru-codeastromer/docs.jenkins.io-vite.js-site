@@ -3,7 +3,7 @@ import Layout from './components/layout';
 import Home from './Home';
 import RoadmapPage from './pages/project/roadmap';
 import DownloadPage from './pages/download';
-
+import MailingListsPage from './pages/mailing-lists/index';
 function App() {
   return (
     <Routes>
@@ -11,6 +11,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="project/roadmap" element={<RoadmapPage />} />
         <Route path="download" element={<DownloadPage />} />
+        <Route path="mailing-lists" element={<MailingListsPage />} />
       </Route>
     </Routes>
   );
