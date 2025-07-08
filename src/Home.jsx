@@ -20,6 +20,11 @@ export default function Home() {
           Download Jenkins
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/books" variant="body1">
+          Books
+        </Link>
+      </Typography>
     </Box>
   );
 }
