@@ -2,8 +2,8 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Header from './Header';
-import Footer from './Footer';
+import Header from './header';
+import Footer from './footer';
 
 const Layout = () => {
   return (
