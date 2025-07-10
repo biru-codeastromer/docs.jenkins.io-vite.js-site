@@ -3,6 +3,7 @@ import Layout from './components/layout';
 import Home from './Home';
 import RoadmapPage from './pages/project/roadmap';
 import DownloadPage from './pages/download';
+import ArtworkPage from './pages/artwork';
 
 function App() {
   return (
