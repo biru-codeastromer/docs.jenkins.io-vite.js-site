@@ -13,7 +13,6 @@ function App() {
         <Route index element={<Home />} />
         <Route path="project/roadmap" element={<RoadmapPage />} />
         <Route path="download" element={<DownloadPage />} />
-        <Route path="events" element={<EventsIndex />} />
         <Route path="project/conduct" element={<ConductPage />} />
       </Route>
     </Routes>
