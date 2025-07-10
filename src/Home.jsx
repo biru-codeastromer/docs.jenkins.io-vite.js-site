@@ -20,6 +20,12 @@ export default function Home() {
           Download Jenkins
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/chat" variant="body1">
+          Chat
+        </Link>
+      </Typography>
     </Box>
   );
 }
+
