@@ -11,18 +11,14 @@ export default function BooksPage() {
   useEffect(() => {
     async function fetchBooks() {
       try {
-        const bookFiles = [
-          'books/Hands-on_Pipeline_as_YAML_with_Jenkins.yml',
-          'books/integrating-php-projects-with-jenkins.yml',
-          'books/Jenkins_Essentials.yml',
-          'books/jenkins-the-definitive-guide-continuous_integration_for_the_masses.yml',
-          'books/jenkins2-up-and-running.yml',
-          'books/Learning_Continuous_Integration_with_Jenkins.yml',
-          'books/Mastering_Jenkins.yml'
-        ];
-
+        const bookModules = import.meta.glob('../../../public/data/books/*.yml');
+        const bookPaths = Object.keys(bookModules);
+        
         const bookData = await Promise.all(
-          bookFiles.map(file => loadYamlData(file))
+          bookPaths.map(async (path) => {
+            const fileName = path.split('/').pop();
+            return loadYamlData(`books/${fileName}`);
+          })
         );
 
         const sortedBooks = bookData.sort((a, b) => {
@@ -99,14 +95,21 @@ export default function BooksPage() {
           {book.image && (
             <Box sx={{ 
               flexShrink: 0,
+              width: { xs: '100%', sm: '110px' },
               order: { xs: -1, sm: 1 },
               display: 'flex',
-              justifyContent: 'center'
+              justifyContent: { xs: 'center', sm: 'flex-start' },
+              alignItems: 'center'
             }}>
               <img
                 src={`/assets/books/${book.image}`}
                 alt={book.title}
-                width={110}
+                style={{
+                  width: '110px',
+                  height: 'auto',
+                  maxWidth: '100%',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
                 loading="lazy"
               />
             </Box>
