@@ -2,24 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Box, Typography, Link, useTheme } from '@mui/material';
 import { loadYamlData } from '../../utils/loadData';
 
-const awardsFiles = [
-  '2008-0001.yml',
-  '2008-0002.yml',
-  '2010-0003.yml',
-  '2011-0004.yml',
-  '2011-0005.yml',
-  '2011-0006.yml',
-  '2012-0007.yml',
-  '2013-0008.yml',
-  '2014-0009.yml',
-  '2014-0010.yml',
-  '2014-0011.yml',
-  '2016-0012.yml',
-  '2017-0013.yml',
-  '2023-0014.yml',
-  '2024-0015.yml'
-];
-
 export default function AwardsPage() {
   const theme = useTheme();
   const [awards, setAwards] = useState([]);
@@ -29,11 +11,18 @@ export default function AwardsPage() {
   useEffect(() => {
     const loadAwards = async () => {
       try {
+        // Dynamically import all YAML files from the awards directory
+        const awardModules = import.meta.glob('../../../public/data/awards/*.yml');
+        const awardPaths = Object.keys(awardModules);
+        
         const loadedAwards = await Promise.all(
-          awardsFiles.map(file => 
-            loadYamlData(`awards/${file}`)
-          )
+          awardPaths.map(async (path) => {
+            // Extract the filename from the full path
+            const fileName = path.split('/').pop();
+            return loadYamlData(`awards/${fileName}`);
+          })
         );
+        
         loadedAwards.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
         setAwards(loadedAwards);
       } catch (err) {
@@ -99,11 +88,22 @@ export default function AwardsPage() {
             gap: 3,
           }}
         >
-          <Box sx={{ flexShrink: 0 }}>
+          <Box sx={{ 
+            flexShrink: 0,
+            width: { xs: '100%', sm: '110px' },
+            display: 'flex',
+            justifyContent: { xs: 'center', sm: 'flex-start' },
+            alignItems: 'flex-start'
+          }}>
             <img
               src={`/assets/awards/${award.image}`}
               alt={award.title}
-              width={110}
+              style={{
+                width: '110px',
+                height: 'auto',
+                maxWidth: '100%',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+              }}
               loading="lazy"
             />
           </Box>
