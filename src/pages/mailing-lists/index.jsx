@@ -9,8 +9,10 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
   const unsubscribeLink = `mailto:${name}+unsubscribe@googlegroups.com`;
 
   let content;
-  if (description) {
-    content = <Typography dangerouslySetInnerHTML={{ __html: description }} />;
+  if (React.isValidElement(description)) {
+    content = <Typography component="div">{description}</Typography>;
+  } else if (description) {
+    content = <Typography>{description}</Typography>;
   } else {
     switch (name) {
       case 'jenkinsci-users':
@@ -257,7 +259,11 @@ export default function MailingListsPage() {
         <MailingListGroup
           key={index}
           name={sig.name}
-          description={`Mailing list for <a href="${sig.url}">${sig.title || sig.name}</a> group.`}
+          description={
+            <>
+              Mailing list for <Link href={sig.url}>{sig.title || sig.name}</Link> group.
+            </>
+          }
         />
       ))}
     </Box>
