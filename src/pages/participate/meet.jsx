@@ -2,6 +2,23 @@ import { Box, Typography, Link, List, ListItem, ListItemText, Accordion, Accordi
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Helmet } from 'react-helmet-async';
 
+const sharedListStyles = {
+  fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  listStyleType: 'disc',
+  pl: 4,
+  '& .MuiListItem-root': {
+    display: 'list-item',
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+  '& .MuiTypography-root': {
+    fontWeight: 500,
+    color: 'black',
+  },
+};
+
 const MeetPage = () => {
   const theme = useTheme();
 
@@ -54,22 +71,7 @@ const MeetPage = () => {
         Online events
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://www.meetup.com/Jenkins-online-meetup/">Jenkins Online Meetup</Link>} />
         </ListItem>
@@ -94,22 +96,7 @@ const MeetPage = () => {
         Local events
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="/projects/jam">Jenkins Area Meetups</Link>} />
         </ListItem>

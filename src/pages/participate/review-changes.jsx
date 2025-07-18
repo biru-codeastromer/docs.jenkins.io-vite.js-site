@@ -1,6 +1,23 @@
 import { Box, Typography, Link, List, ListItem, ListItemText, useTheme } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 
+const sharedListStyles = {
+  fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  listStyleType: 'disc',
+  pl: 4,
+  '& .MuiListItem-root': {
+    display: 'list-item',
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+  '& .MuiTypography-root': {
+    fontWeight: 500,
+    color: 'black',
+  },
+};
+
 const ReviewChangesPage = () => {
   const theme = useTheme();
 
@@ -53,22 +70,7 @@ const ReviewChangesPage = () => {
         Below there are some queries which can help to find open pull requests where help is needed:
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://github.com/search?q=org%3Ajenkinsci+org%3Ajenkins-infra+is%3Aopen+is%3Apr+team-review-requested%3Ajenkins-infra%2Fcopy-editors">Open pull requests for copy editing</Link>} />
           <ListItemText secondary="mostly for Jenkins website" />
@@ -109,22 +111,7 @@ const ReviewChangesPage = () => {
         Reviewer team links (GitHub permissions required to view teams):
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://github.com/orgs/jenkins-infra/teams/copy-editors">Copy Editors team</Link>} />
           <ListItemText secondary="Jenkins website and documentation hosted there" />

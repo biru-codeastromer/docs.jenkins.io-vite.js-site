@@ -1,6 +1,23 @@
 import { Box, Typography, Link, List, ListItem, ListItemText, useTheme } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 
+const sharedListStyles = {
+  fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  listStyleType: 'disc',
+  pl: 4,
+  '& .MuiListItem-root': {
+    display: 'list-item',
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+  '& .MuiTypography-root': {
+    fontWeight: 500,
+    color: 'black',
+  },
+};
+
 const HelpPage = () => {
   const theme = useTheme();
 
@@ -58,22 +75,7 @@ const HelpPage = () => {
         Mailing Lists, Chats/Interest Groups, How-To Guides
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="/mailing-lists">Mailing Lists</Link>} />
         </ListItem>
@@ -102,22 +104,7 @@ const HelpPage = () => {
         Social Platforms
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://twitter.com/jenkinsci">Jenkins on Twitter</Link>} />
         </ListItem>
@@ -137,22 +124,7 @@ const HelpPage = () => {
         Professional Sites
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://stackoverflow.com/tags/jenkins">Jenkins on StackOverflow</Link>} />
         </ListItem>
@@ -184,22 +156,7 @@ const HelpPage = () => {
         Many Other Links
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://stackshare.io/jenkins">jenkins on Stackshare</Link>} />
         </ListItem>

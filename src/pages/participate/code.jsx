@@ -1,5 +1,22 @@
-import { Box, Typography, Link, List,ListItem, ListItemText, useTheme } from '@mui/material';
+import { Box, Typography, Link, List, ListItem, ListItemText, useTheme } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
+
+const sharedListStyles = {
+  fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  listStyleType: 'disc',
+  pl: 4,
+  '& .MuiListItem-root': {
+    display: 'list-item',
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+  '& .MuiTypography-root': {
+    fontWeight: 500,
+    color: 'black',
+  },
+};
 
 const CodePage = () => {
   const theme = useTheme();
@@ -57,44 +74,14 @@ const CodePage = () => {
         You are welcome to contribute to <b>any</b> repository in <b>any</b> of those organizations, or to any other Jenkins-related repository on GitHub.
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={
             <>
               <Link href="https://github.com/jenkinsci">jenkinsci</Link> - Main organization.
               Jenkins core, plugins and libraries reside there.
               To aid in classifying our 1000+ Git repositories, some naming conventions have been adopted:
-              <List dense sx={{
-                fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-                fontSize: '1rem',
-                lineHeight: 1.5,
-                listStyleType: 'disc',
-                pl: 4,
-                '& .MuiListItem-root': {
-                  display: 'list-item',
-                  paddingTop: 0,
-                  paddingBottom: 0,
-                },
-                '& .MuiTypography-root': {
-                    fontWeight: 500,
-                    color: 'black',
-                },
-              }}>
+              <List dense sx={sharedListStyles}>
                 <ListItem>
                   <ListItemText primary="plugins are named '*-plugin'" />
                 </ListItem>
@@ -141,22 +128,7 @@ const CodePage = () => {
         Here are some documentation links:
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="/doc/developer/">Jenkins developer documentation</Link>} />
         </ListItem>
@@ -257,22 +229,7 @@ const CodePage = () => {
         We maintain lists of newbie-friendly issues and encourage new contributors to work on those issues.
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://issues.jenkins.io/issues/?jql=labels%20%3D%20newbie-friendly%20and%20status%20in%20(Open%2C%20%22To%20Do%22%2C%20Reopened)">Newbie-friendly issues in Jenkins JIRA</Link>} />
         </ListItem>
@@ -285,22 +242,7 @@ const CodePage = () => {
         Useful links:
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://wiki.jenkins.io/display/JENKINS/Beginners+Guide+to+Contributing#BeginnersGuidetoContributing-Areyouinterestedinwritingcode%3F">Beginners Guide to Contributing</Link>} />
         </ListItem>

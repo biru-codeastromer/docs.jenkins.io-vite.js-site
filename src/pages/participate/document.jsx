@@ -1,6 +1,23 @@
 import { Box, Typography, Link, List, ListItem, ListItemText, Table, TableBody, TableCell, TableHead, TableRow, useTheme } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 
+const sharedListStyles = {
+  fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  listStyleType: 'disc',
+  pl: 4,
+  '& .MuiListItem-root': {
+    display: 'list-item',
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+  '& .MuiTypography-root': {
+    fontWeight: 500,
+    color: 'black',
+  },
+};
+
 const DocumentPage = () => {
   const theme = useTheme();
 
@@ -115,22 +132,7 @@ const DocumentPage = () => {
         Useful links:
       </Typography>
       
-      <List dense sx={{
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-        fontSize: '1rem',
-        lineHeight: 1.5,
-        listStyleType: 'disc',
-        pl: 4,
-        '& .MuiListItem-root': {
-          display: 'list-item',
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        '& .MuiTypography-root': {
-            fontWeight: 500,
-            color: 'black',
-        },
-      }}>
+      <List dense sx={sharedListStyles}>
         <ListItem>
           <ListItemText primary={<Link href="https://github.com/jenkins-infra/jenkins.io/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22">Newbie-friendly documentation tasks</Link>} />
         </ListItem>
