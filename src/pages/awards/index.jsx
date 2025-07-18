@@ -1,6 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Link, useTheme } from '@mui/material';
+import { Box, Typography, Link, useTheme, Card, CardContent, CardMedia } from '@mui/material';
 import { loadYamlData } from '../../utils/loadData';
+
+function AwardCard({ image, title, description, quote, url }) {
+  const theme = useTheme();
+  
+  return (
+    <Card sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, mb: 4 }}>
+      <CardMedia
+        component="img"
+        image={`/assets/awards/${image}`}
+        alt={title}
+        sx={{
+          width: { xs: '350px', sm: '110px' },
+          height: 'auto',
+          objectFit: 'contain',
+          p: 1
+        }}
+      />
+      <CardContent sx={{ flex: 1 }}>
+        <Typography 
+          variant="h5"
+          sx={{
+            fontWeight: 650,
+            fontSize: '1.2rem',
+            mb: 1,
+          }}
+        >
+          {url ? (
+            <Link href={url} target="_blank" rel="noopener noreferrer" underline="hover">
+              {title}
+            </Link>
+          ) : (
+            title
+          )}
+        </Typography>
+        {description && (
+          <Typography variant="body1" sx={{ mb: 2, fontSize: '1rem', fontWeight: 500 }}>
+            {description}
+          </Typography>
+        )}
+        {quote && (
+          <Box 
+            component="blockquote" 
+            sx={{
+              borderLeft: `4px solid ${theme.palette.divider}`,
+              pl: 2,
+              ml: 0,
+              fontStyle: 'italic',
+            }}
+          >
+            <Typography variant="body1" sx={{ fontSize: '1rem', fontWeight: 500 }}>
+              {quote}
+            </Typography>
+          </Box>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function AwardsPage() {
   const theme = useTheme();
@@ -14,7 +72,6 @@ export default function AwardsPage() {
         // Dynamically import all YAML files from the awards directory
         const awardModules = import.meta.glob('../../../public/data/awards/*.yml');
         const awardPaths = Object.keys(awardModules);
-        
         const loadedAwards = await Promise.all(
           awardPaths.map(async (path) => {
             // Extract the filename from the full path
@@ -22,7 +79,6 @@ export default function AwardsPage() {
             return loadYamlData(`awards/${fileName}`);
           })
         );
-        
         loadedAwards.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
         setAwards(loadedAwards);
       } catch (err) {
@@ -40,7 +96,6 @@ export default function AwardsPage() {
       Loading awards...
     </Typography>
   );
-  
   if (error) return (
     <Typography variant="body1" sx={{ fontSize: '1rem', fontWeight: 500, color: theme.palette.error.main }}>
       Error loading awards: {error}
@@ -79,73 +134,14 @@ export default function AwardsPage() {
       </Typography>
 
       {awards.map((award) => (
-        <Box 
-          key={`${award.year}-${award.title}`} 
-          sx={{ 
-            mb: 4,
-            display: 'flex',
-            flexDirection: { xs: 'column', sm: 'row' },
-            gap: 3,
-          }}
-        >
-          <Box sx={{ 
-            flexShrink: 0,
-            width: { xs: '100%', sm: '110px' },
-            display: 'flex',
-            justifyContent: { xs: 'center', sm: 'flex-start' },
-            alignItems: 'flex-start'
-          }}>
-            <img
-              src={`/assets/awards/${award.image}`}
-              alt={award.title}
-              style={{
-                width: '110px',
-                height: 'auto',
-                maxWidth: '100%',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-              }}
-              loading="lazy"
-            />
-          </Box>
-          <Box sx={{ flex: 1 }}>
-            <Typography 
-              variant="h5"
-              sx={{
-                fontWeight: 650,
-                fontSize: '1.2rem',
-                mb: 1,
-              }}
-            >
-              {award.url ? (
-                <Link href={award.url} target="_blank" rel="noopener noreferrer" underline="hover">
-                  {award.title}
-                </Link>
-              ) : (
-                award.title
-              )}
-            </Typography>
-            {award.description && (
-              <Typography variant="body1" sx={{ mb: 2, fontSize: '1rem', fontWeight: 500 }}>
-                {award.description}
-              </Typography>
-            )}
-            {award.quote && (
-              <Box 
-                component="blockquote" 
-                sx={{
-                  borderLeft: `4px solid ${theme.palette.divider}`,
-                  pl: 2,
-                  ml: 0,
-                  fontStyle: 'italic',
-                }}
-              >
-                <Typography variant="body1" sx={{ fontSize: '1rem', fontWeight: 500 }}>
-                  {award.quote}
-                </Typography>
-              </Box>
-            )}
-          </Box>
-        </Box>
+        <AwardCard
+          key={`${award.year}-${award.title}`}
+          image={award.image}
+          title={award.title}
+          description={award.description}
+          quote={award.quote}
+          url={award.url}
+        />
       ))}
     </Box>
   );
