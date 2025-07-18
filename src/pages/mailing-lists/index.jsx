@@ -187,6 +187,7 @@ export default function MailingListsPage() {
 
       <Typography
         variant="h5"
+        id="english-language"
         sx={{
           fontWeight: 800,
           fontSize: '1.75rem',
@@ -207,6 +208,7 @@ export default function MailingListsPage() {
 
       <Typography
         variant="h5"
+        id="board"
         sx={{
           fontWeight: 800,
           fontSize: '1.75rem',
@@ -221,6 +223,7 @@ export default function MailingListsPage() {
 
       <Typography
         variant="h5"
+        id="read-only"
         sx={{
           fontWeight: 800,
           fontSize: '1.75rem',
@@ -239,6 +242,7 @@ export default function MailingListsPage() {
 
       <Typography
         variant="h5"
+        id="sigs"
         sx={{
           fontWeight: 800,
           fontSize: '1.75rem',
