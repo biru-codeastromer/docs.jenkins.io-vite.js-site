@@ -797,7 +797,7 @@ const DownloadPage = () => {
         {clouds.map((cloud, index) => {
           const baseBg = cloud.background;
           const hoverBg = tinycolor(baseBg).darken(10).toString();
-          const textColor = tinycolor.mix(baseBg, '#000000', 50).toString();
+          const textColor = theme.palette.text.primary;
 
           return (
             <Paper
