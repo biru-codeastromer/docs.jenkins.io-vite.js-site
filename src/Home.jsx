@@ -21,6 +21,11 @@ export default function Home() {
         </Link>
       </Typography>
       <Typography>
+        <Link href="/events" variant="body1">
+          Events
+        </Link>
+      </Typography>
+      <Typography>
         <Link href="/project/conduct" variant="body1">
           Code of Conduct
         </Link>
