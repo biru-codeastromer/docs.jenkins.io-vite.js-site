@@ -380,10 +380,10 @@ const DownloadPage = () => {
                 borderColor: theme.palette.divider,
                 color: theme.palette.text.primary,
                 fontWeight: 600,
-                backgroundColor: 'rgba(0, 0, 0, 0.03)',
+                backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.03)' : theme.palette.jenkins.downloadBoxBg,
                 '&:hover': {
                   borderColor: theme.palette.divider,
-                  background: 'rgba(0, 0, 0, 0.05)'
+                  background: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.05)' : theme.palette.jenkins.downloadBoxHover
                 }
               }}
             >
@@ -399,10 +399,10 @@ const DownloadPage = () => {
                 borderColor: theme.palette.divider,
                 color: theme.palette.text.primary,
                 fontWeight: 600,
-                backgroundColor: 'rgba(0, 0, 0, 0.03)',
+                backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.03)' : theme.palette.jenkins.downloadBoxBg,
                 '&:hover': {
                   borderColor: theme.palette.divider,
-                  background: 'rgba(0, 0, 0, 0.05)'
+                  background: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.05)' : theme.palette.jenkins.downloadBoxHover
                 }
               }}
             >
@@ -455,10 +455,10 @@ const DownloadPage = () => {
                 borderColor: theme.palette.divider,
                 color: theme.palette.text.primary,
                 fontWeight: 600,
-                backgroundColor: 'rgba(0, 0, 0, 0.03)',
+                backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.03)' : theme.palette.jenkins.downloadBoxBg,
                 '&:hover': {
                   borderColor: theme.palette.divider,
-                  background: 'rgba(0, 0, 0, 0.05)'
+                  background: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.05)' : theme.palette.jenkins.downloadBoxHover
                 }
               }}
             >
@@ -573,12 +573,12 @@ const DownloadPage = () => {
                 textTransform: 'none',
                 textAlign: 'left',
                 p: 2,
-                backgroundColor: theme.palette.grey[100],
-                borderColor: theme.palette.grey[300],
+                backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.jenkins.downloadBoxBg,
+                borderColor: theme.palette.mode === 'light' ? theme.palette.grey[300] : theme.palette.jenkins.downloadBoxBorder,
                 borderRadius: 1.5,
                 '&:hover': {
                   borderColor: theme.palette.primary.main,
-                  backgroundColor: theme.palette.grey[200],
+                  backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.jenkins.downloadBoxHover,
                 }
               }}
             >
@@ -627,11 +627,11 @@ const DownloadPage = () => {
                   textAlign: 'left',
                   p: 2,
                   mb: '1px',
-                  backgroundColor: theme.palette.grey[100],
+                  backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.jenkins.downloadBoxBg,
                   borderRadius: 1.5,
-                  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.05)',
+                  boxShadow: `inset 0 0 0 1px ${theme.palette.mode === 'light' ? 'rgba(0,0,0,0.05)' : theme.palette.jenkins.downloadBoxBorder}`,
                   '&:hover': {
-                    backgroundColor: theme.palette.grey[200]
+                    backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.jenkins.downloadBoxHover
                   }
                 }}
               >
@@ -680,12 +680,12 @@ const DownloadPage = () => {
                 textTransform: 'none',
                 textAlign: 'left',
                 p: 2,
-                backgroundColor: theme.palette.grey[100],
-                borderColor: theme.palette.grey[300],
+                backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.jenkins.downloadBoxBg,
+                borderColor: theme.palette.mode === 'light' ? theme.palette.grey[300] : theme.palette.jenkins.downloadBoxBorder,
                 borderRadius: 1.5,
                 '&:hover': {
                   borderColor: theme.palette.primary.main,
-                  backgroundColor: theme.palette.grey[200]
+                  backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.jenkins.downloadBoxHover
                 }
               }}
             >
@@ -734,11 +734,11 @@ const DownloadPage = () => {
                   textAlign: 'left',
                   p: 2,
                   mb: '1px',
-                  backgroundColor: theme.palette.grey[100],
+                  backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.jenkins.downloadBoxBg,
                   borderRadius: 1.5,
-                  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.05)',
+                  boxShadow: `inset 0 0 0 1px ${theme.palette.mode === 'light' ? 'rgba(0,0,0,0.05)' : theme.palette.jenkins.downloadBoxBorder}`,
                   '&:hover': {
-                    backgroundColor: theme.palette.grey[200]
+                    backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.jenkins.downloadBoxHover
                   }
                 }}
               >
@@ -797,7 +797,7 @@ const DownloadPage = () => {
         {clouds.map((cloud, index) => {
           const baseBg = cloud.background;
           const hoverBg = tinycolor(baseBg).darken(10).toString();
-          const textColor = tinycolor.mix(baseBg, '#000000', 50).toString();
+          const textColor = theme.palette.text.primary;
 
           return (
             <Paper
