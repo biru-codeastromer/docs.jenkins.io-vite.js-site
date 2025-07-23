@@ -30,6 +30,11 @@ export default function Home() {
           Books
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/press" variant="body1">
+          Press Information
+        </Link>
+      </Typography>
     </Box>
   );
 }
