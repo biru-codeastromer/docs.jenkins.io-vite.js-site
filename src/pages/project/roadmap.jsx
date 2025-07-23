@@ -133,7 +133,7 @@ const RoadmapPage = () => {
           padding: { xs: 2, sm: 4 },
           fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
           lineHeight: 1.65,
-          color: '#212529',
+          color: theme.palette.text.primary,
         }}
       >
         <Helmet>
@@ -147,7 +147,7 @@ const RoadmapPage = () => {
             fontWeight: 800,
             fontSize: '2rem',
             mb: '0.5rem',
-            color: '#212529',
+            color: theme.palette.text.primary,
           }}
         >
           Jenkins Roadmap
@@ -157,9 +157,9 @@ const RoadmapPage = () => {
           mb: 2, 
           fontSize: '1rem', 
           fontWeight: 500,
-          color: '#212529',
+          color: theme.palette.text.primary,
         }}>
-          Jenkins project offers a public community-driven roadmap. It aggregates key initiatives in all areas: features, infrastructure, documentation, community, etc. See JEP-14 for more information about the public roadmap process. We do NOT commit on delivery dates, all initiatives depend on contributions. Anyone is welcome to participate and help us to deliver the initiatives below! <Link href="/participate" sx={{ color: '#2378b1', '&:hover': { color: '#2c97de' } }}>Contributing to Jenkins</Link>
+          Jenkins project offers a public community-driven roadmap. It aggregates key initiatives in all areas: features, infrastructure, documentation, community, etc. See JEP-14 for more information about the public roadmap process. We do NOT commit on delivery dates, all initiatives depend on contributions. Anyone is welcome to participate and help us to deliver the initiatives below! <Link href="/participate" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.primary.light } }}>Contributing to Jenkins</Link>
         </Typography>
 
         {roadmapData.labels && (
@@ -171,6 +171,8 @@ const RoadmapPage = () => {
             mb: '16px',
             padding: '10px',
             borderRadius: '3px',
+            backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.025)' : theme.palette.jenkins.filterBg,
+            border: `1px solid ${theme.palette.divider}`,
           }}>
             <Typography
               variant="h6"
@@ -178,7 +180,7 @@ const RoadmapPage = () => {
               sx={{
                 fontSize: '1rem',
                 fontWeight: 500,
-                color: '#212529',
+                color: theme.palette.text.primary,
               }}
             >
               Filters:
@@ -192,10 +194,10 @@ const RoadmapPage = () => {
                     onChange={() => handleFilterChange(label.name)}
                     color="primary"
                     sx={{
-                      color: '#212529',
+                      color: theme.palette.text.primary,
                       padding: '4px',
                       '&.Mui-checked': {
-                        color: '#1A73E8',
+                        color: theme.palette.primary.main,
                       },
                     }}
                   />
@@ -206,7 +208,7 @@ const RoadmapPage = () => {
                   '& .MuiTypography-root': {
                     fontSize: '1rem',
                     fontWeight: 500,
-                    color: '#212529',
+                    color: theme.palette.text.primary,
                   },
                 }}
               />
@@ -242,7 +244,7 @@ const RoadmapPage = () => {
 // Mobile View
 const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradients, theme }) => (
   <Box sx={{ 
-    border: '1px solid rgba(0, 0, 0, 0.05)',
+    border: `1px solid ${theme.palette.divider}`,
     borderRadius: '3px',
     mb: 4,
     overflow: 'hidden'
@@ -250,11 +252,11 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradi
     {filteredCategories.map((category) => (
       <Box key={category.name}>
         <Box sx={{ 
-          backgroundColor: 'rgba(0, 0, 0, 0.025)',
+          backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.025)' : theme.palette.jenkins.tableHeaderBg,
           fontWeight: 600,
           padding: '10px 16px',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
-          color: '#212529',
+          borderBottom: `1px solid ${theme.palette.divider}`,
+          color: theme.palette.text.primary,
           fontSize: '14px',
           height: '40px',
           display: 'flex',
@@ -270,7 +272,7 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradi
               key={initiative.name} 
               sx={{ 
                 padding: '8px 16px', 
-                borderBottom: '1px solid #e6eaee',
+                borderBottom: `1px solid ${theme.palette.divider}`,
                 position: 'relative',
                 '&:last-child': {
                   borderBottom: 'none'
@@ -284,15 +286,16 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradi
                 componentsProps={{
                   tooltip: {
                     sx: {
-                      backgroundColor: '#212529',
+                      backgroundColor: theme.palette.mode === 'light' ? theme.palette.text.primary : theme.palette.jenkins.tooltipBg,
                       padding: '6px 12px',
                       fontSize: '14px',
-                      maxWidth: '260px'
+                      maxWidth: '260px',
+                      color: theme.palette.mode === 'light' ? theme.palette.background.paper : theme.palette.text.primary,
                     }
                   },
                   arrow: {
                     sx: {
-                      color: '#212529'
+                      color: theme.palette.mode === 'light' ? theme.palette.text.primary : theme.palette.jenkins.tooltipBg,
                     }
                   }
                 }}
@@ -310,7 +313,7 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradi
                     width: '45%',
                     paddingRight: '8px',
                     whiteSpace: 'nowrap',
-                    color: '#6c757d',
+                    color: theme.palette.text.secondary,
                     fontSize: '14px'
                   }}>
                     {status?.displayName || 'Status'}
@@ -346,7 +349,7 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradi
                   width: '45%',
                   paddingRight: '8px',
                   whiteSpace: 'nowrap',
-                  color: '#6c757d',
+                  color: theme.palette.text.secondary,
                   fontSize: '14px'
                 }}>
                   Initiative
@@ -357,11 +360,11 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradi
                   rel="noopener"
                   sx={{ 
                     fontWeight: 400,
-                    color: '#2378b1',
+                    color: theme.palette.primary.main,
                     fontSize: '14px',
                     lineHeight: '16px',
                     '&:hover': {
-                      color: '#2c97de',
+                      color: theme.palette.primary.light,
                       textDecoration: 'none'
                     },
                     display: 'flex',
@@ -385,7 +388,7 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradi
                     width: '45%',
                     paddingRight: '8px',
                     whiteSpace: 'nowrap',
-                    color: '#6c757d',
+                    color: theme.palette.text.secondary,
                     fontSize: '14px'
                   }}>
                     Labels
@@ -399,8 +402,8 @@ const MobileView = ({ filteredCategories, roadmapData, statusColors, statusGradi
                           label={labelData?.displayName || label}
                           size="small"
                           sx={{
-                            backgroundColor: 'rgba(0, 0, 0, 0.05)',
-                            color: '#212529',
+                            backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.05)' : theme.palette.jenkins.chipBg,
+                            color: theme.palette.text.primary,
                             fontSize: '12px',
                             height: '24px',
                             fontWeight: 500
@@ -424,7 +427,7 @@ const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusC
   <Box component="table" 
     sx={{ 
       width: '100%',
-      border: '1px solid rgba(0, 0, 0, 0.05)',
+      border: `1px solid ${theme.palette.divider}`,
       borderRadius: '3px',
       mb: 4,
       borderCollapse: 'separate',
@@ -438,12 +441,13 @@ const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusC
           fontWeight: 600,
           fontSize: '12px',
           lineHeight: '16px',
-          color: '#6c757d',
+          color: theme.palette.text.secondary,
           textTransform: 'uppercase',
           textAlign: 'left',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+          borderBottom: `1px solid ${theme.palette.divider}`,
           padding: '13px 16px 11px 24px',
-          borderRadius: '3px 0 0 0'
+          borderRadius: '3px 0 0 0',
+          backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.025)' : theme.palette.jenkins.tableHeaderBg
         }}>
           Category
         </Box>
@@ -455,11 +459,12 @@ const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusC
               fontWeight: 600,
               fontSize: '12px',
               lineHeight: '16px',
-              color: '#6c757d',
+              color: theme.palette.text.secondary,
               textTransform: 'uppercase',
               textAlign: 'center',
-              borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+              borderBottom: `1px solid ${theme.palette.divider}`,
               padding: '13px 16px 11px 16px',
+              backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.025)' : theme.palette.jenkins.tableHeaderBg,
               '&:last-child': {
                 paddingRight: '24px',
                 borderRadius: '0 3px 0 0'
@@ -476,14 +481,15 @@ const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusC
       {filteredCategories.map((category) => (
         <React.Fragment key={category.name}>
           <Box component="tr" sx={{ 
-            backgroundColor: 'rgba(0, 0, 0, 0.025)',
+            backgroundColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.025)' : theme.palette.jenkins.tableHeaderBg,
             fontWeight: 600,
           }}>
             <Box component="td" colSpan={visibleStatuses.length + 1} sx={{ 
               padding: '0 24px',
               height: '40px',
-              borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
-              fontSize: '14px'
+              borderBottom: `1px solid ${theme.palette.divider}`,
+              fontSize: '14px',
+              color: theme.palette.text.primary,
             }}>
               <Box sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                 {category.name}
@@ -499,7 +505,7 @@ const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusC
                 sx={{ 
                   padding: 0,
                   minHeight: '48px',
-                  borderLeft: '1px dashed rgba(230, 234, 238, 0.25)',
+                  borderLeft: `1px dashed ${theme.palette.divider}`,
                   verticalAlign: 'top',
                   '&:first-child': {
                     paddingLeft: '24px',
@@ -521,15 +527,16 @@ const DesktopView = ({ filteredCategories, visibleStatuses, roadmapData, statusC
                       componentsProps={{
                         tooltip: {
                           sx: {
-                            backgroundColor: '#212529',
+                            backgroundColor: theme.palette.mode === 'light' ? theme.palette.text.primary : theme.palette.jenkins.tooltipBg,
                             padding: '6px 12px',
                             fontSize: '14px',
-                            maxWidth: '260px'
+                            maxWidth: '260px',
+                            color: theme.palette.mode === 'light' ? theme.palette.background.paper : theme.palette.text.primary,
                           }
                         },
                         arrow: {
                           sx: {
-                            color: '#212529'
+                            color: theme.palette.mode === 'light' ? theme.palette.text.primary : theme.palette.jenkins.tooltipBg,
                           }
                         }
                       }}
@@ -592,7 +599,7 @@ const ReferencesSection = ({ theme }) => (
         fontSize: '1.8rem',
         mt: 5,
         mb: 2,
-        color: '#212529'
+        color: theme.palette.text.primary
       }}
     >
       References
@@ -623,7 +630,7 @@ const ReferencesSection = ({ theme }) => (
       ].map((item, index) => (
         <Box component="li" key={index} sx={{ 
           marginBottom: '0.4rem',
-          color: '#212529',
+          color: theme.palette.text.primary,
           fontSize: '1rem',
           lineHeight: 1.65
         }}>
@@ -632,13 +639,13 @@ const ReferencesSection = ({ theme }) => (
             target="_blank"
             rel="noopener"
             sx={{
-              color: '#2378b1',
+              color: theme.palette.primary.main,
               fontSize: '1rem',
               fontWeight: 500,
               textDecoration: 'none',
               '&:hover': {
                 textDecoration: 'underline',
-                color: '#2c97de'
+                color: theme.palette.primary.light
               },
             }}
           >
