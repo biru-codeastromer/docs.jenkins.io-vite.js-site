@@ -8,12 +8,11 @@ html {
 
 body {
   margin: 0;
-  background-color: #f9f9f9;
-  color: #212529;
   font-family: system-ui, "Segoe UI", roboto, "Noto Sans", oxygen, ubuntu,
     cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.66;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 img {
@@ -23,9 +22,8 @@ img {
 }
 
 a {
-  color: #1a73e8;
   text-decoration: underline;
-  text-decoration-thickness: 1.5px;
+  text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
@@ -80,14 +78,12 @@ p {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
-  color: #495057;
 }
 
 .app-banner {
-  background-color: #f8f9fa;
   padding: 1rem;
   margin: 2rem 0;
-  border-left: 4px solid #6c757d;
+  border-left: 4px solid;
   border-radius: 4px;
 }
 
@@ -174,6 +170,83 @@ p {
 }
 .MuiTableCell-root {
   border: 1px solid rgba(224, 224, 224, 1);
+}
+
+/* Light mode specific styles */
+:root {
+  --background-color: #f9f9f9;
+  --text-color: #212529;
+  --text-secondary: #495057;
+  --banner-bg: #f8f9fa;
+  --banner-border: #6c757d;
+  --link-color: #1a73e8;
+  --download-box-bg: #f8f9fa;
+  --download-box-border: #e9ecef;
+  --download-box-hover: #e9ecef;
+  --table-header-bg: #f8f9fa;
+  --table-border: #e9ecef;
+  --filter-bg: #f8f9fa;
+  --filter-border: #e9ecef;
+}
+
+/* Dark mode specific styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1a1a;
+    --text-color: #f8f9fa;
+    --text-secondary: #e9ecef;
+    --banner-bg: #2a2a2a;
+    --banner-border: #495057;
+    --link-color: #5d9eff;
+    --download-box-bg: #2a2a2a;
+    --download-box-border: #3a3a3a;
+    --download-box-hover: #3a3a3a;
+    --table-header-bg: #2a2a2a;
+    --table-border: #3a3a3a;
+    --filter-bg: #2a2a2a;
+    --filter-border: #3a3a3a;
+  }
+
+  .roadmap-table th {
+    background-color: var(--table-header-bg) !important;
+    border-color: var(--table-border) !important;
+  }
+
+  .roadmap-table td {
+    border-color: var(--table-border) !important;
+  }
+
+  .download-box {
+    background-color: var(--download-box-bg) !important;
+    border-color: var(--download-box-border) !important;
+  }
+
+  .download-box:hover {
+    background-color: var(--download-box-hover) !important;
+  }
+
+  .filter-section {
+    background-color: var(--filter-bg) !important;
+    border-color: var(--filter-border) !important;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+.app-description {
+  color: var(--text-secondary);
+}
+
+.app-banner {
+  background-color: var(--banner-bg);
+  border-color: var(--banner-border);
 }
 
 /* Artwork page styles */
