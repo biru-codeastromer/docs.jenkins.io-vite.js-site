@@ -36,24 +36,72 @@ const jenkinsColors = {
   }
 };
 
-export const theme = createTheme({
+const jenkinsDarkColors = {
+  ...jenkinsColors,
+  background: "#1a1a1a",
+  text: "#f8f9fa",
+  textSecondary: "#e9ecef",
+  lightGray: "#2a2a2a",
+  mediumGray: "#3a3a3a",
+  darkGray: "#adb5bd",
+  border: "#495057",
+  primaryBlue: "#5d9eff",
+  primaryRed: "#ff6b67",
+  downloadBoxBg: "#2a2a2a",
+  downloadBoxBorder: "#3a3a3a",
+  downloadBoxHover: "#3a3a3a",
+  tooltipBg: "#333333",
+  chipBg: "#333333",
+  tableHeaderBg: "#2a2a2a",
+  tableBorder: "#3a3a3a",
+  filterBg: "#2a2a2a",
+  filterBorder: "#3a3a3a"
+};
+
+const getDesignTokens = (mode) => ({
   palette: {
-    primary: {
-      main: jenkinsColors.primaryBlue,
-      contrastText: jenkinsColors.white,
-    },
-    secondary: {
-      main: jenkinsColors.primaryRed,
-      contrastText: jenkinsColors.white,
-    },
-    background: {
-      default: jenkinsColors.background,
-      paper: jenkinsColors.white,
-    },
-    text: {
-      primary: jenkinsColors.text,
-      secondary: jenkinsColors.textSecondary,
-    },
+    mode,
+    ...(mode === 'light'
+      ? {
+          primary: {
+            main: jenkinsColors.primaryBlue,
+            contrastText: jenkinsColors.white,
+          },
+          secondary: {
+            main: jenkinsColors.primaryRed,
+            contrastText: jenkinsColors.white,
+          },
+          background: {
+            default: jenkinsColors.background,
+            paper: jenkinsColors.white,
+          },
+          text: {
+            primary: jenkinsColors.text,
+            secondary: jenkinsColors.textSecondary,
+          },
+          divider: jenkinsColors.border,
+          jenkins: jenkinsColors,
+        }
+      : {
+          primary: {
+            main: jenkinsDarkColors.primaryBlue,
+            contrastText: jenkinsDarkColors.white,
+          },
+          secondary: {
+            main: jenkinsDarkColors.primaryRed,
+            contrastText: jenkinsDarkColors.white,
+          },
+          background: {
+            default: jenkinsDarkColors.background,
+            paper: jenkinsDarkColors.lightGray,
+          },
+          text: {
+            primary: jenkinsDarkColors.text,
+            secondary: jenkinsDarkColors.textSecondary,
+          },
+          divider: jenkinsDarkColors.border,
+          jenkins: jenkinsDarkColors,
+        }),
     warning: {
       main: jenkinsColors.warningOrange,
       light: "#ffb74d",
@@ -66,8 +114,6 @@ export const theme = createTheme({
     success: {
       main: jenkinsColors.successGreen,
     },
-    divider: jenkinsColors.border,
-    jenkins: jenkinsColors,
   },
   typography: {
     fontFamily: [
@@ -92,35 +138,29 @@ export const theme = createTheme({
       fontWeight: 'bold',
       fontSize: '4rem',
       marginTop: '-0.2rem',
-      color: jenkinsColors.text,
     },
     h2: {
       fontFamily: '"Georgia", serif',
       fontSize: '2.5rem',
       fontWeight: 600,
       marginBottom: '1rem',
-      color: jenkinsColors.text,
     },
     h3: {
       fontSize: '1.75rem',
       fontWeight: 600,
       marginBottom: '0.5rem',
-      color: jenkinsColors.text,
     },
     h4: {
       fontSize: '1.5rem',
       fontWeight: 600,
-      color: jenkinsColors.text,
     },
     body1: {
       fontSize: '1rem',
       lineHeight: 1.66,
-      color: jenkinsColors.text,
     },
     body2: {
       fontSize: '0.875rem',
       lineHeight: 1.66,
-      color: jenkinsColors.textSecondary,
     },
   },
   components: {
@@ -142,7 +182,6 @@ export const theme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: jenkinsColors.primaryBlue,
           textDecoration: 'none',
           textDecorationThickness: '2px',
           textUnderlineOffset: '2px',
@@ -155,8 +194,36 @@ export const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          border: `1px solid ${jenkinsColors.border}`,
+          border: `1px solid ${mode === 'light' ? jenkinsColors.border : jenkinsDarkColors.border}`,
           boxShadow: 'none',
+          backgroundColor: mode === 'light' ? jenkinsColors.white : jenkinsDarkColors.downloadBoxBg,
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: mode === 'light' ? 'rgba(0, 0, 0, 0.05)' : jenkinsDarkColors.chipBg,
+          color: mode === 'light' ? jenkinsColors.text : jenkinsDarkColors.text,
+        },
+      },
+    },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: mode === 'light' ? jenkinsColors.text : jenkinsDarkColors.tooltipBg,
+          color: mode === 'light' ? jenkinsColors.white : jenkinsDarkColors.text,
+          fontSize: '0.875rem',
+        },
+        arrow: {
+          color: mode === 'light' ? jenkinsColors.text : jenkinsDarkColors.tooltipBg,
+        },
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          backgroundColor: mode === 'light' ? undefined : jenkinsDarkColors.downloadBoxBg,
         },
       },
     },
@@ -170,3 +237,6 @@ export const theme = createTheme({
     },
   },
 });
+
+export const lightTheme = createTheme(getDesignTokens('light'));
+export const darkTheme = createTheme(getDesignTokens('dark'));

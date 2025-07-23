@@ -26,6 +26,11 @@ export default function Home() {
         </Link>
       </Typography>
       <Typography>
+        <Link href="/books" variant="body1">
+          Books
+        </Link>
+      </Typography>
+      <Typography>
         <Link href="/press" variant="body1">
           Press Information
         </Link>
@@ -33,3 +38,4 @@ export default function Home() {
     </Box>
   );
 }
+
