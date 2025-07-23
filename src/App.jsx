@@ -11,6 +11,7 @@ import Hacktoberfest from './pages/events/hacktoberfest';
 import HacktoberfestFaq from './pages/events/faq';
 import HacktoberfestEventKit from './pages/events/event-kit';
 import JamPage from './pages/projects/jam';
+import BooksPage from './pages/books/index';
 import ParticipatePage from './pages/participate/index';
 import CodePage from './pages/participate/code';
 import ConnectPage from './pages/participate/connect';
@@ -36,6 +37,7 @@ function App() {
         <Route path="events/hacktoberfest/faq" element={<HacktoberfestFaq />} />
         <Route path="events/hacktoberfest/event-kit" element={<HacktoberfestEventKit />} />
         <Route path="projects/jam" element={<JamPage />} />
+        <Route path="books" element={<BooksPage />} />
         <Route path="participate" element={<ParticipatePage />} />
         <Route path="participate/code" element={<CodePage />} />
         <Route path="participate/connect" element={<ConnectPage />} />
