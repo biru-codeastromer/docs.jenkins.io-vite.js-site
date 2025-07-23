@@ -26,6 +26,11 @@ export default function Home() {
         </Link>
       </Typography>
       <Typography>
+        <Link href="/books" variant="body1">
+          Books
+        </Link>
+      </Typography>
+      <Typography>
         <Link href="/chat" variant="body1">
           Chat
         </Link>
