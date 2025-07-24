@@ -13,7 +13,6 @@ import HacktoberfestEventKit from './pages/events/event-kit';
 import JamPage from './pages/projects/jam';
 import BooksPage from './pages/books/index';
 import PressPage from './pages/press';
-
 import ParticipatePage from './pages/participate/index';
 import CodePage from './pages/participate/code';
 import ConnectPage from './pages/participate/connect';
@@ -23,6 +22,8 @@ import HelpPage from './pages/participate/help';
 import MeetPage from './pages/participate/meet';
 import ReviewChangesPage from './pages/participate/review-changes';
 import TestPage from './pages/participate/test';
+import AwardsPage from './pages/awards/index';
+
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path="participate/meet" element={<MeetPage />} />
         <Route path="participate/review-changes" element={<ReviewChangesPage />} />
         <Route path="participate/test" element={<TestPage />} />
+        <Route path="awards" element={<AwardsPage />} />
       </Route>
     </Routes>
   );
