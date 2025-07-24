@@ -35,6 +35,11 @@ export default function Home() {
           Press Information
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/awards" variant="body1">
+          Awards
+        </Link>
+      </Typography>
     </Box>
   );
 }
