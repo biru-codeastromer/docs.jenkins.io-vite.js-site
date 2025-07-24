@@ -278,6 +278,8 @@ a {
 
 .logo-card small {
   font-size: 0.85rem;
+}
+
 .award-item {
   display: grid;
   grid-template-columns: auto 1fr;
