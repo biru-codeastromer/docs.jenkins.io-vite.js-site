@@ -249,6 +249,37 @@ a {
   border-color: var(--banner-border);
 }
 
+/* Artwork page styles */
+.artwork-container {
+  padding: 2rem 0;
+}
+
+.logo-card {
+  text-align: center;
+  padding: 1rem;
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: 0.2s ease;
+  height: 100%;
+}
+
+.logo-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.logo-card p {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  margin: 0.25rem 0;
+}
+
+.logo-card small {
+  font-size: 0.85rem;
+}
+
 .award-item {
   display: grid;
   grid-template-columns: auto 1fr;
