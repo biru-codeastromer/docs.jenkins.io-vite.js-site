@@ -15,6 +15,9 @@ import BooksPage from './pages/books/index';
 import PressPage from './pages/press';
 
 import ChatPage from './pages/chat/index';
+import AwardsPage from './pages/awards/index';
+
+
 function App() {
   return (
     <Routes>
@@ -33,6 +36,7 @@ function App() {
         <Route path="books" element={<BooksPage />} />
         <Route path="press" element={<PressPage />} />
         <Route path="chat" element={<ChatPage />} />
+        <Route path="awards" element={<AwardsPage />} />
       </Route>
     </Routes>
   );
