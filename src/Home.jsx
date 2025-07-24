@@ -40,6 +40,11 @@ export default function Home() {
           Awards
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/chat" variant="body1">
+          Chat
+        </Link>
+      </Typography>
     </Box>
   );
 }
