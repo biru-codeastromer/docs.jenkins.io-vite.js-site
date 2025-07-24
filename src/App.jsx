@@ -15,6 +15,8 @@ import BooksPage from './pages/books/index';
 import PressPage from './pages/press';
 
 import ArtworkPage from './pages/artwork';
+import AwardsPage from './pages/awards/index';
+
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
         <Route path="books" element={<BooksPage />} />
         <Route path="press" element={<PressPage />} />
         <Route path="artwork" element={<ArtworkPage />} />
+        <Route path="awards" element={<AwardsPage />} />
       </Route>
     </Routes>
   );

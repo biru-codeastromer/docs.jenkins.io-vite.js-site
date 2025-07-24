@@ -278,4 +278,83 @@ a {
 
 .logo-card small {
   font-size: 0.85rem;
+.award-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.award-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+.award-item__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+}
+
+.award-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.award-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.award-title a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.award-title a:hover {
+  text-decoration: underline;
+}
+
+.award-description {
+  font-size: 0.95rem;
+  color: var(--color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.award-quote {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color--secondary);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  border-left: 2px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .award-item {
+    gap: 1rem;
+  }
+
+  .award-item__icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .award-item__content .award-title {
+    font-size: 1.1rem;
+  }
+
+  .award-item__content .award-description {
+    font-size: 0.9rem;
+  }
 }
