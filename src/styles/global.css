@@ -261,8 +261,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 110px;
-  height: 110px;
+  width: 180px;
+  height: 180px;
   overflow: hidden;
   background-color: var(--background);
 }

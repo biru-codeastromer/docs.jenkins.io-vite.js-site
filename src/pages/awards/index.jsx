@@ -12,7 +12,7 @@ function AwardCard({ image, title, description, quote, url }) {
         image={`/assets/awards/${image}`}
         alt={title}
         sx={{
-          width: { xs: '350px', sm: '110px' },
+          width: { xs: '350px', sm: '200px' },
           height: 'auto',
           objectFit: 'contain',
           p: 1
