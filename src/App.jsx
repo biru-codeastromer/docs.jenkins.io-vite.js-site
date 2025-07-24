@@ -14,6 +14,8 @@ import JamPage from './pages/projects/jam';
 import BooksPage from './pages/books/index';
 import PressPage from './pages/press';
 
+import AwardsPage from './pages/awards/index';
+
 import ConductPage from './pages/project/conduct';
 
 
@@ -34,6 +36,7 @@ function App() {
         <Route path="projects/jam" element={<JamPage />} />
         <Route path="books" element={<BooksPage />} />
         <Route path="press" element={<PressPage />} />
+        <Route path="awards" element={<AwardsPage />} />
         <Route path="project/conduct" element={<ConductPage />} />
       </Route>
     </Routes>

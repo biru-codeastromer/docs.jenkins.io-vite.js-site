@@ -36,6 +36,11 @@ export default function Home() {
         </Link>
       </Typography>
       <Typography>
+        <Link href="/awards" variant="body1">
+          Awards
+        </Link>
+      </Typography>
+      <Typography>
         <Link href="/project/conduct" variant="body1">
           Code of Conduct
         </Link>
