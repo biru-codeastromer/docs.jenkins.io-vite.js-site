@@ -31,6 +31,11 @@ export default function Home() {
         </Link>
       </Typography>
       <Typography>
+        <Link href="/press" variant="body1">
+          Press Information
+        </Link>
+      </Typography>
+      <Typography>
         <Link href="/mailing-lists" variant="body1">
           Mailing Lists
         </Link>
