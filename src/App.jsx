@@ -22,6 +22,7 @@ import HelpPage from './pages/participate/help';
 import MeetPage from './pages/participate/meet';
 import ReviewChangesPage from './pages/participate/review-changes';
 import TestPage from './pages/participate/test';
+import ChatPage from './pages/chat/index';
 import AwardsPage from './pages/awards/index';
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="projects/jam" element={<JamPage />} />
         <Route path="books" element={<BooksPage />} />
         <Route path="press" element={<PressPage />} />
+        <Route path="chat" element={<ChatPage />} />
         <Route path="participate" element={<ParticipatePage />} />
         <Route path="participate/code" element={<CodePage />} />
         <Route path="participate/connect" element={<ConnectPage />} />
