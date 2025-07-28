@@ -19,7 +19,6 @@ import AwardsPage from './pages/awards/index';
 
 import ConductPage from './pages/project/conduct';
 
-
 function App() {
   return (
     <Routes>
