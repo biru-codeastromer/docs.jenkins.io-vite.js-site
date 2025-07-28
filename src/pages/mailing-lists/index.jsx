@@ -3,6 +3,7 @@ import { Box, Typography, Link, useTheme } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 
 const MailingListGroup = ({ name, description, isReadOnly = false }) => {
+  const theme = useTheme();
   const address = `${name}@googlegroups.com`;
   const archiveLink = `https://groups.google.com/group/${name}/topics`;
   const subscribeLink = `mailto:${name}+subscribe@googlegroups.com`;
@@ -18,26 +19,34 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
       case 'jenkinsci-users':
         content = (
           <>
-            <Typography sx={{ fontWeight: 500, color: 'black' }} >Mailing list for users of Jenkins. Post your questions on how to use Jenkins and Jenkins plugins here.</Typography>
-            <Typography sx={{ fontStyle: 'italic', fontWeight: 500, color: 'black' }}>
-              NOTE: If you're not sure which list is correct, post here.
-            </Typography>
+            <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >Mailing list for users of Jenkins. Post your questions on how to use Jenkins and Jenkins plugins here.</Typography>
+            <Box sx={{
+              backgroundColor: theme.palette.mode === 'dark' ? theme.palette.jenkins.lightGray : '#f8f9fa',
+              padding: '1rem',
+              margin: '1rem 0',
+              borderLeft: `4px solid ${theme.palette.mode === 'dark' ? theme.palette.jenkins.darkGray : '#6c757d'}`,
+              borderRadius: '4px',
+            }}>
+              <Typography sx={{ fontWeight: 600, color: theme.palette.text.primary }}>
+                NOTE: If you're not sure which list is correct, post here.
+              </Typography>
+            </Box>
           </>
         );
         break;
       case 'jenkinsci-dev':
         content = (
           <>
-            <Typography sx={{ fontWeight: 500, color: 'black' }} >Mailing list for <strong>developers</strong> of Jenkins.</Typography>
-            <Typography sx={{ fontWeight: 500, color: 'black' }} >Post your Jenkins core development and plugin development questions here, as well as topics related to project governance.</Typography>
+            <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >Mailing list for <strong>developers</strong> of Jenkins.</Typography>
+            <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >Post your Jenkins core development and plugin development questions here, as well as topics related to project governance.</Typography>
             <Box sx={{
-              backgroundColor: '#f8f9fa',
+              backgroundColor: theme.palette.mode === 'dark' ? theme.palette.jenkins.lightGray : '#f8f9fa',
               padding: '1rem',
               margin: '1rem 0',
-              borderLeft: '4px solid #6c757d',
+              borderLeft: `4px solid ${theme.palette.mode === 'dark' ? theme.palette.jenkins.darkGray : '#6c757d'}`,
               borderRadius: '4px',
             }}>
-              <Typography sx={{ fontWeight: 600 }}>
+              <Typography sx={{ fontWeight: 600, color: theme.palette.text.primary }}>
                 WARNING: <em>Questions that should be asked on the <em>jenkinsci-users</em> list will be ignored</em>.
                 That means your email will be moderated and not posted to the list.
                 Do not cross-post.
@@ -48,7 +57,7 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
         break;
       case 'jenkins-infra':
         content = (
-          <Typography sx={{ fontWeight: 500, color: 'black' }} >
+          <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >
             Mailing list for jenkins.io operations and <Link href="/projects/infrastructure/">Jenkins Infrastructure</Link>.
           </Typography>
         );
@@ -56,17 +65,17 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
       case 'jenkinsci-board':
         content = (
           <>
-            <Typography sx={{ fontWeight: 500, color: 'black' }} >
+            <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >
               Mailing list to contact <Link href="https://www.jenkins.io/project/board/" target="_blank">Jenkins board members</Link>.
             </Typography>
             <Box sx={{
-              backgroundColor: '#f8f9fa',
+              backgroundColor: theme.palette.mode === 'dark' ? theme.palette.jenkins.lightGray : '#f8f9fa',
               padding: '1rem',
               margin: '1rem 0',
-              borderLeft: '4px solid #6c757d',
+              borderLeft: `4px solid ${theme.palette.mode === 'dark' ? theme.palette.jenkins.darkGray : '#6c757d'}`,
               borderRadius: '4px',
             }}>
-              <Typography sx={{ fontWeight: 600 }}>
+              <Typography sx={{ fontWeight: 600, color: theme.palette.text.primary }}>
                 NOTE: The subscription to this mailing list is reserved to Jenkins board members. Do not send messages to this list for support with your Jenkins instance or plugins.
               </Typography>
             </Box>
@@ -75,18 +84,18 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
         break;
       case 'jenkinsci-advisories':
         content = (
-          <Typography sx={{ fontWeight: 500, color: 'black' }} >
+          <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >
             Security Advisory announcements are sent to this list. <Link href="/security">More about security in Jenkins</Link>
           </Typography>
         );
         break;
       case 'jenkinsci-commits':
         content = (
-          <Typography sx={{ fontWeight: 500, color: 'black' }} >Automated core and plugin commit notifications.</Typography>
+          <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >Automated core and plugin commit notifications.</Typography>
         );
         break;
       default:
-        content = <Typography sx={{ fontWeight: 500, color: 'black' }} >Mailing list for {name} group.</Typography>;
+        content = <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >Mailing list for {name} group.</Typography>;
     }
   }
 
@@ -161,7 +170,7 @@ export default function MailingListsPage() {
         Mailing Lists
       </Typography>
 
-      <Typography variant="body1" sx={{ mb: 3, fontWeight: 500, color: 'black' }}>
+      <Typography variant="body1" sx={{ mb: 3, fontWeight: 500, color: theme.palette.text.primary }}>
         The Jenkins project uses <Link href="https://en.wikipedia.org/wiki/Electronic_mailing_list" target="_blank">mailing lists</Link> to communicate.
         These mailing lists are organized by topic (see below).
         Posting to the wrong mailing list will just result in your message being ignored.
@@ -169,18 +178,18 @@ export default function MailingListsPage() {
         <Link href="https://www.catb.org/esr/faqs/smart-questions.html" target="_blank">How to ask questions the smart way.</Link>
       </Typography>
 
-      <Typography variant="body1" sx={{ mb: 3, fontWeight: 500, color: 'black' }}>
+      <Typography variant="body1" sx={{ mb: 3, fontWeight: 500, color: theme.palette.text.primary }}>
         To subscribe to a mailing list, send an empty email to the "subscribe" email address.
       </Typography>
 
       <Box sx={{
-        backgroundColor: '#f8f9fa',
+        backgroundColor: theme.palette.mode === 'dark' ? theme.palette.jenkins.lightGray : '#f8f9fa',
         padding: '1rem',
         margin: '2rem 0',
-        borderLeft: '4px solid #6c757d',
+        borderLeft: `4px solid ${theme.palette.mode === 'dark' ? theme.palette.jenkins.darkGray : '#6c757d'}`,
         borderRadius: '4px',
       }}>
-        <Typography sx={{ fontWeight: 600 }}>
+        <Typography sx={{ fontWeight: 600, color: theme.palette.text.primary }}>
           WARNING: Due to heavy spam volume, we have enabled moderation of a user's first post on some of these lists.
           This may result in delays in delivering your first email to these lists. For this reason, you should not 
           re-send your email if it doesn't appear on the list straight away.
