@@ -92,7 +92,7 @@ export default function ConductPage() {
         pl: 4,
         '& .MuiTypography-root': {
             fontWeight: 500,
-            color: 'black',
+            color: theme.palette.text.primary,
         },
       }}>
         <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
@@ -123,7 +123,7 @@ export default function ConductPage() {
         pl: 4,
         '& .MuiTypography-root': {
             fontWeight: 500,
-            color: 'black',
+            color: theme.palette.text.primary,
         },
       }}>
         <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
@@ -221,7 +221,7 @@ export default function ConductPage() {
         pl: 4,
         '& .MuiTypography-root': {
             fontWeight: 500,
-            color: 'black',
+            color: theme.palette.text.primary,
         },
       }}>
         <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
@@ -231,7 +231,7 @@ export default function ConductPage() {
             pl: 4,
             '& .MuiTypography-root': {
                 fontWeight: 500,
-                color: 'black',
+                color: theme.palette.text.primary,
             },
           }}>
             <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
@@ -287,7 +287,7 @@ export default function ConductPage() {
         pl: 4,
         '& .MuiTypography-root': {
             fontWeight: 500,
-            color: 'black',
+            color: theme.palette.text.primary,
         },
       }}>
         <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
@@ -301,6 +301,10 @@ export default function ConductPage() {
           <List dense sx={{
             listStyleType: 'circle',
             pl: 4,
+            '& .MuiTypography-root': {
+                fontWeight: 500,
+                color: theme.palette.text.primary,
+            },
           }}>
             <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
               <ListItemText primary={<Link href="https://issues.jenkins.io/" target="_blank" rel="noopener">issues.jenkins.io</Link>} />
@@ -347,7 +351,7 @@ export default function ConductPage() {
             pl: 4,
             '& .MuiTypography-root': {
             fontWeight: 500,
-            color: 'black',
+            color: theme.palette.text.primary,
             },
         }}
         >
@@ -409,7 +413,7 @@ export default function ConductPage() {
         pl: 4,
         '& .MuiTypography-root': {
             fontWeight: 500,
-            color: 'black',
+            color: theme.palette.text.primary,
         },
       }}>
         <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
@@ -425,7 +429,7 @@ export default function ConductPage() {
             pl: 4,
             '& .MuiTypography-root': {
                 fontWeight: 500,
-                color: 'black',
+                color: theme.palette.text.primary,
             },
           }}>
             <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
@@ -468,7 +472,7 @@ export default function ConductPage() {
         Instances of abusive, harassing, or otherwise unacceptable behavior may be
         reported by contacting the <Link href="/project/board">Jenkins board</Link>.
         If you feel somebody has breached this code, please send an email with the
-        relevant information (links, etc) to <code style={{ color: 'red' }}>jenkinsci-board@googlegroups.com</code>.
+        relevant information (links, etc) to <code style={{ color: theme.palette.error.main }}>jenkinsci-board@googlegroups.com</code>.
         This email list is only readable by the <Link href="/project/board">Governance Board</Link> members.
         The board may not have all of the necessary context and history,
         so it's better to describe the issue thoroughly.
@@ -483,7 +487,7 @@ export default function ConductPage() {
       </Typography>
       <Typography variant="body1" sx={{ mb: 1, fontSize: '1rem', fontWeight: 500 }}>
         If the desired resolution cannot be reached on the Jenkins community level,
-        an issue can be escalated to the Continuous Delivery Foundation (CDF) by contacting the project team at <code style={{ color: 'red' }}>conduct@cd.foundation</code>.
+        an issue can be escalated to the Continuous Delivery Foundation (CDF) by contacting the project team at <code style={{ color: theme.palette.error.main }}>conduct@cd.foundation</code>.
         See the <Link href="https://github.com/cdfoundation/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">CDF Code of Conduct</Link> for more information about reporting and enforcement in this case.
       </Typography>
 
@@ -621,7 +625,7 @@ export default function ConductPage() {
         pl: 4,
         '& .MuiTypography-root': {
             fontWeight: 500,
-            color: 'black',
+            color: theme.palette.text.primary,
         },
       }}>
         <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
@@ -696,7 +700,7 @@ export default function ConductPage() {
         pl: 4,
         '& .MuiTypography-root': {
             fontWeight: 500,
-            color: 'black',
+            color: theme.palette.text.primary,
         },
       }}>
         <ListItem sx={{ display: 'list-item', p: 0, pl: 1 }}>
