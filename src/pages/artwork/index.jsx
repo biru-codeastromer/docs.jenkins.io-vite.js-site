@@ -265,7 +265,7 @@ export default function ArtworkPage() {
                   sx={{
                     fontSize: '0.95rem',
                     fontWeight: 500,
-                    color: 'black',
+                    color: theme.palette.text.primary,
                     '& small': {
                       fontSize: '0.85rem',
                     },
