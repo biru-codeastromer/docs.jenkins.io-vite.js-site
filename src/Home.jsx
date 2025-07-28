@@ -45,6 +45,11 @@ export default function Home() {
           Chat
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/mailing-lists" variant="body1">
+          Mailing Lists
+        </Link>
+      </Typography>
     </Box>
   );
 }
