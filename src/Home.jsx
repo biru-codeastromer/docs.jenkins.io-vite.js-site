@@ -45,6 +45,11 @@ export default function Home() {
           Chat
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/project/conduct" variant="body1">
+          Code of Conduct
+        </Link>
+      </Typography>
     </Box>
   );
 }
