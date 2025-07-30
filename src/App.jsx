@@ -22,9 +22,11 @@ import HelpPage from './pages/participate/help';
 import MeetPage from './pages/participate/meet';
 import ReviewChangesPage from './pages/participate/review-changes';
 import TestPage from './pages/participate/test';
+import ArtworkPage from './pages/artwork';
 import ChatPage from './pages/chat/index';
 import AwardsPage from './pages/awards/index';
 
+import ConductPage from './pages/project/conduct';
 
 function App() {
   return (
@@ -43,6 +45,7 @@ function App() {
         <Route path="projects/jam" element={<JamPage />} />
         <Route path="books" element={<BooksPage />} />
         <Route path="press" element={<PressPage />} />
+        <Route path="artwork" element={<ArtworkPage />} />
         <Route path="chat" element={<ChatPage />} />
         <Route path="participate" element={<ParticipatePage />} />
         <Route path="participate/code" element={<CodePage />} />
@@ -54,6 +57,7 @@ function App() {
         <Route path="participate/review-changes" element={<ReviewChangesPage />} />
         <Route path="participate/test" element={<TestPage />} />
         <Route path="awards" element={<AwardsPage />} />
+        <Route path="project/conduct" element={<ConductPage />} />
       </Route>
     </Routes>
   );
