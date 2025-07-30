@@ -50,6 +50,11 @@ export default function Home() {
           Code of Conduct
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/artwork" variant="body1">
+          Artwork
+        </Link>
+      </Typography>
     </Box>
   );
 }
