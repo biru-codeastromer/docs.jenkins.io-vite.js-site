@@ -78,7 +78,12 @@ const DocumentPage = () => {
         For the most of the repositories we try to follow the documentation-as-code approach.
       </Typography>
       
-      <Table sx={{ mb: 3 }}>
+      <Table sx={{ 
+        mb: 3,
+        '& .MuiTableCell-root': {
+          borderBottom: `1px solid ${theme.palette.divider}`
+        }
+        }}>
         <TableHead>
           <TableRow>
             <TableCell>Documentation type</TableCell>
