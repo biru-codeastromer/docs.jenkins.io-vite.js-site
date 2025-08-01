@@ -80,10 +80,11 @@ const DocumentPage = () => {
       
       <Table sx={{ 
         mb: 3,
+        border: `1px solid ${theme.palette.divider}`,
         '& .MuiTableCell-root': {
-          borderBottom: `1px solid ${theme.palette.divider}`
+          border: `1px solid ${theme.palette.divider}`
         }
-        }}>
+      }}>
         <TableHead>
           <TableRow>
             <TableCell>Documentation type</TableCell>
