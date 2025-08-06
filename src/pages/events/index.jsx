@@ -206,10 +206,11 @@ export default function EventsIndex() {
           id="selected_timezone"
           value={timezone}
           onChange={handleTimezoneChange}
-          sx={{ ml: 2, minWidth: 160, fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', }}
+          sx={{ ml: 2, minWidth: 160, fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', '& .MuiSelect-select': { color: theme.palette.text.primary} }}
           size="small"
+          displayEmpty
         >
-          <MenuItem value="">(auto)</MenuItem>
+          <MenuItem value="" sx={{ color: theme.palette.text.primary }}>(auto)</MenuItem>
           <MenuItem value="GMT">GMT</MenuItem>
           <MenuItem value="CET">CET</MenuItem>
           <MenuItem value="America/New_York">US Eastern</MenuItem>
