@@ -22,6 +22,7 @@ import HelpPage from './pages/participate/help';
 import MeetPage from './pages/participate/meet';
 import ReviewChangesPage from './pages/participate/review-changes';
 import TestPage from './pages/participate/test';
+import DonatePage from './pages/donate';
 import ArtworkPage from './pages/artwork';
 import ChatPage from './pages/chat/index';
 import AwardsPage from './pages/awards/index';
@@ -56,6 +57,7 @@ function App() {
         <Route path="participate/meet" element={<MeetPage />} />
         <Route path="participate/review-changes" element={<ReviewChangesPage />} />
         <Route path="participate/test" element={<TestPage />} />
+        <Route path="donate" element={<DonatePage />} />
         <Route path="awards" element={<AwardsPage />} />
         <Route path="project/conduct" element={<ConductPage />} />
       </Route>
