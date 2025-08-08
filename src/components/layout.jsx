@@ -15,7 +15,7 @@ const Layout = () => {
         minHeight: "100vh",
       }}>
         <Header />
-        <Box component="main" sx={{ flexGrow: 1 }}>
+        <Box component="main" sx={{ flexGrow: 1, padding: '1rem' }}>
           <Outlet />
         </Box>
         <Footer />

@@ -6,5 +6,11 @@ export default defineConfig({
   plugins: [react(), yaml()],
   server: {
     port: 3000
+  },
+  optimizeDeps: {
+    include: [
+      '@jenkinsci/jenkins-io-components',
+      '@webcomponents/webcomponentsjs'
+    ]
   }
 });

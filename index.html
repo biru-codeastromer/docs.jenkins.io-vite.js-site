@@ -6,6 +6,18 @@
     <title>Jenkins Documentation</title>
   </head>
   <body>
+    <script>
+      if (!window.customElements) {
+        document.write('<!--');
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.8.0/webcomponents-loader.js"></script>
+    <!--! do not remove -->
+    <script>
+      if (!window.customElements) {
+        document.write('-->');
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
