@@ -191,10 +191,16 @@ export default function EventsIndex() {
         sx={{
           mt: 2,
           mb: 4,
-          border: '1px solid #ddd',
+          border: '1px solid',
+          borderColor: theme.palette.divider,
           borderRadius: '8px',
           overflow: 'hidden',
           maxWidth: '100%',
+          '& iframe': {
+            display: 'block',
+            border: 'none',
+            marginBottom: '-5px'
+          }
         }}
       />
 
