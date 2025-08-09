@@ -13,11 +13,22 @@ import HacktoberfestEventKit from './pages/events/event-kit';
 import JamPage from './pages/projects/jam';
 import BooksPage from './pages/books/index';
 import PressPage from './pages/press';
-
+import ParticipatePage from './pages/participate/index';
+import CodePage from './pages/participate/code';
+import ConnectPage from './pages/participate/connect';
+import DesignPage from './pages/participate/design';
+import DocumentPage from './pages/participate/document';
+import HelpPage from './pages/participate/help';
+import MeetPage from './pages/participate/meet';
+import ReviewChangesPage from './pages/participate/review-changes';
+import TestPage from './pages/participate/test';
+import DonatePage from './pages/donate';
+import ArtworkPage from './pages/artwork';
 import ChatPage from './pages/chat/index';
 import MailingListsPage from './pages/mailing-lists/index';
 import AwardsPage from './pages/awards/index';
 
+import ConductPage from './pages/project/conduct';
 
 function App() {
   return (
@@ -36,9 +47,21 @@ function App() {
         <Route path="projects/jam" element={<JamPage />} />
         <Route path="books" element={<BooksPage />} />
         <Route path="press" element={<PressPage />} />
+        <Route path="artwork" element={<ArtworkPage />} />
         <Route path="chat" element={<ChatPage />} />
+        <Route path="participate" element={<ParticipatePage />} />
+        <Route path="participate/code" element={<CodePage />} />
+        <Route path="participate/connect" element={<ConnectPage />} />
+        <Route path="participate/design" element={<DesignPage />} />
+        <Route path="participate/document" element={<DocumentPage />} />
+        <Route path="participate/help" element={<HelpPage />} />
+        <Route path="participate/meet" element={<MeetPage />} />
+        <Route path="participate/review-changes" element={<ReviewChangesPage />} />
+        <Route path="participate/test" element={<TestPage />} />
+        <Route path="donate" element={<DonatePage />} />
         <Route path="mailing-lists" element={<MailingListsPage />} />
         <Route path="awards" element={<AwardsPage />} />
+        <Route path="project/conduct" element={<ConductPage />} />
       </Route>
     </Routes>
   );

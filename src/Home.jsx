@@ -46,6 +46,21 @@ export default function Home() {
         </Link>
       </Typography>
       <Typography>
+        <Link href="/project/conduct" variant="body1">
+          Code of Conduct
+        </Link>
+      </Typography>
+      <Typography>
+        <Link href="/artwork" variant="body1">
+          Artwork
+        </Link>
+      </Typography>
+      <Typography>
+        <Link href="/participate" variant="body1">
+          Participate and Contribute
+        </Link>
+      </Typography>
+      <Typography>
         <Link href="/mailing-lists" variant="body1">
           Mailing Lists
         </Link>
