@@ -174,7 +174,7 @@ export default function MailingListsPage() {
         The Jenkins project uses <Link href="https://en.wikipedia.org/wiki/Electronic_mailing_list" target="_blank">mailing lists</Link> to communicate.
         These mailing lists are organized by topic (see below).
         Posting to the wrong mailing list will just result in your message being ignored.
-        Please strive to be clear and concise when sending messages.
+        Please strive to be clear and concise when sending messages. 
         <Link href="https://www.catb.org/esr/faqs/smart-questions.html" target="_blank">How to ask questions the smart way.</Link>
       </Typography>
 
