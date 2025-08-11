@@ -18,6 +18,7 @@ import { Helmet } from "react-helmet-async";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { alpha } from '@mui/material/styles';
 import tinycolor from 'tinycolor2';
+import ThankYouBlock from "../components/ThankYouBlock";
 
 // Default data to prevent blank screen
 const DEFAULT_DATA = {
@@ -870,6 +871,7 @@ const DownloadPage = () => {
           );
         })}
       </Box>
+      <ThankYouBlock />
     </Box>
   );
 };
