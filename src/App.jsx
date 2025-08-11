@@ -25,6 +25,7 @@ import TestPage from './pages/participate/test';
 import DonatePage from './pages/donate';
 import ArtworkPage from './pages/artwork';
 import ChatPage from './pages/chat/index';
+import MailingListsPage from './pages/mailing-lists/index';
 import AwardsPage from './pages/awards/index';
 
 import ConductPage from './pages/project/conduct';
@@ -58,6 +59,7 @@ function App() {
         <Route path="participate/review-changes" element={<ReviewChangesPage />} />
         <Route path="participate/test" element={<TestPage />} />
         <Route path="donate" element={<DonatePage />} />
+        <Route path="mailing-lists" element={<MailingListsPage />} />
         <Route path="awards" element={<AwardsPage />} />
         <Route path="project/conduct" element={<ConductPage />} />
       </Route>
