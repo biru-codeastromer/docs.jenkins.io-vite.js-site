@@ -39,7 +39,7 @@ const htmlEscape = (s) =>
   s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
 
 function runAsciidoctorToHtmlFragment(asciidoc) {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     const args = [
       '-s',
       '-o', '-',
@@ -55,14 +55,51 @@ function runAsciidoctorToHtmlFragment(asciidoc) {
       '-a', 'relfileprefix=../',
       '-a', 'imagesdir=/images@',
       '-'
-    ];    
-    const child = execFile('asciidoctor', args, { maxBuffer: 10 * 1024 * 1024 }, (err, stdout) => {
-      if (err) reject(err);
-      else resolve(stdout.trim());
-    });
-    child.stdin.end(asciidoc);
+    ];
+
+    try {
+      const child = execFile('asciidoctor', args, { maxBuffer: 10 * 1024 * 1024 }, (err, stdout) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(stdout.trim());
+        }
+      });
+      child.stdin.end(asciidoc);
+    } catch (e) {
+      try {
+        const html = await runAsciidoctorJS(asciidoc);
+        resolve(html);
+      } catch (e2) {
+        reject(e2);
+      }
+    }
   });
 }
+
+async function runAsciidoctorJS(asciidoc) {
+  const AsciidoctorFactory = (await import('asciidoctor')).default || (await import('asciidoctor'));
+  const asciidoctor = typeof AsciidoctorFactory === 'function' ? AsciidoctorFactory() : AsciidoctorFactory();
+  const html = asciidoctor.convert(asciidoc, {
+    safe: 'safe',
+    backend: 'html5',
+    doctype: 'article',
+    header_footer: false,
+    attributes: {
+      icons: 'font',
+      idprefix: '',
+      idseparator: '-',
+      sectanchors: true,
+      linkattrs: true,
+      prewrap: true,
+      outfilesuffix: '/',
+      relfileprefix: '../',
+      'imagesdir': '/images@'
+    }
+  });
+  return String(html).trim();
+}
+
 
 async function download(url, outPath) {
   const res = await fetch(url);
