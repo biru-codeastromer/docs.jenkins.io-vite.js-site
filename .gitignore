@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/public/data/security/
+/public/security/issue/
+/public/security/advisories/rss.xml
