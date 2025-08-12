@@ -1,0 +1,348 @@
+{
+  "title": "Jenkins Security Advisory 2023-09-06",
+  "date": "2023-09-06",
+  "url": "/security/advisory/2023-09-06/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-3233",
+      "reporter": "Andrea Chiera, CloudBees, Inc.",
+      "title": "Path traversal allows exploiting XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-41930 (path traversal), CVE-2023-41931 (XSS)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1227.v7a_79fc4dc01f and earlier does not restrict a `name` query parameter when rendering a history entry.\nThis allows attackers to have Jenkins render a manipulated configuration history that was not created by the plugin.\n\nThe history view does not property sanitize or escape the timestamp value from history entries when rendering a history entry.\nThis typically isn't a problem, as the value is numeric in genuine history entries.\nCombined with the path traversal vulnerability, this results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with the ability to create a file on the controller (e.g., archived artifacts).\n\nPLUGIN_NAME 1229.v3039470161a_d restricts the `name` query parameter when rendering a history entry, and escapes the timestamp value from history entries on the history view.",
+      "plugins": [
+        {
+          "name": "jobConfigHistory",
+          "title": "Job Configuration History",
+          "previous": "1227.v7a_79fc4dc01f",
+          "fixed": "1229.v3039470161a_d"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Job Configuration History Plugin 1227.v7a_79fc4dc01f and earlier does not restrict a <code>name</code> query parameter when rendering a history entry.\nThis allows attackers to have Jenkins render a manipulated configuration history that was not created by the plugin.</p>\n</div>\n<div class=\"paragraph\">\n<p>The history view does not property sanitize or escape the timestamp value from history entries when rendering a history entry.\nThis typically isn&#8217;t a problem, as the value is numeric in genuine history entries.\nCombined with the path traversal vulnerability, this results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with the ability to create a file on the controller (e.g., archived artifacts).</p>\n</div>\n<div class=\"paragraph\">\n<p>Job Configuration History Plugin 1229.v3039470161a_d restricts the <code>name</code> query parameter when rendering a history entry, and escapes the timestamp value from history entries on the history view.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3235",
+      "reporter": "Andrea Chiera, CloudBees, Inc.",
+      "title": "Path traversal allows exploiting XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-41932 (path traversal), CVE-2023-41933 (XXE)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1227.v7a_79fc4dc01f and earlier does not restrict `timestamp` query parameters in multiple endpoints.\nThis allows attackers with Job Config History/DeleteEntry permission to delete attacker-specified directories on the Jenkins controller file system as long as they contain a file called `history.xml`.\n\nAdditionally, PLUGIN_NAME 1227.v7a_79fc4dc01f and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.\nThis allows attackers with Item/Configure permission to have Jenkins parse a crafted XML document that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nPLUGIN_NAME 1229.v3039470161a_d restricts `timestamp` query parameters in the affected endpoints, and disables external entity resolution for its XML parser.",
+      "plugins": [
+        {
+          "name": "jobConfigHistory",
+          "title": "Job Configuration History",
+          "previous": "1227.v7a_79fc4dc01f",
+          "fixed": "1229.v3039470161a_d"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Job Configuration History Plugin 1227.v7a_79fc4dc01f and earlier does not restrict <code>timestamp</code> query parameters in multiple endpoints.\nThis allows attackers with Job Config History/DeleteEntry permission to delete attacker-specified directories on the Jenkins controller file system as long as they contain a file called <code>history.xml</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, Job Configuration History Plugin 1227.v7a_79fc4dc01f and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.\nThis allows attackers with Item/Configure permission to have Jenkins parse a crafted XML document that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>Job Configuration History Plugin 1229.v3039470161a_d restricts <code>timestamp</code> query parameters in the affected endpoints, and disables external entity resolution for its XML parser.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3257",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Improper masking of credentials in PLUGIN_NAME",
+      "cve": "CVE-2023-41934",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME integrates with https://plugins.jenkins.io/config-file-provider/[Config File Provider] Plugin to specify custom Maven settings, including credentials for authentication.\n\nPLUGIN_NAME 1330.v18e473854496 and earlier does not properly mask (i.e., replace with asterisks) usernames of credentials specified in custom Maven settings in Pipeline build logs if \"Treat username as secret\" is checked.\n\nPLUGIN_NAME 1331.v003efa_fd6e81 masks usernames of credentials specified in custom Maven settings files in Pipeline build logs.",
+      "plugins": [
+        {
+          "name": "pipeline-maven",
+          "title": "Pipeline Maven Integration",
+          "previous": "1330.v18e473854496",
+          "fixed": "1331.v003efa_fd6e81"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline Maven Integration Plugin integrates with <a href=\"https://plugins.jenkins.io/config-file-provider/\">Config File Provider</a> Plugin to specify custom Maven settings, including credentials for authentication.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline Maven Integration Plugin 1330.v18e473854496 and earlier does not properly mask (i.e., replace with asterisks) usernames of credentials specified in custom Maven settings in Pipeline build logs if \"Treat username as secret\" is checked.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline Maven Integration Plugin 1331.v003efa_fd6e81 masks usernames of credentials specified in custom Maven settings files in Pipeline build logs.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3227",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Non-constant time nonce comparison in PLUGIN_NAME",
+      "cve": "CVE-2023-41935",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 396.v86ce29279947 and earlier, except 378.380.v545b_1154b_3fb_, does not use a constant-time comparison when checking whether the provided and expected CSRF protection nonce are equal.\n\nThis could potentially allow attackers to use statistical methods to obtain a valid nonce.\n\nPLUGIN_NAME 397.v907382dd9b_98 uses a constant-time comparison when validating the nonce.",
+      "plugins": [
+        {
+          "name": "azure-ad",
+          "title": "Microsoft Entra ID (previously Azure AD)",
+          "previous": "396.v86ce29279947",
+          "fixed": "397.v907382dd9b_98 or 378.380.v545b_1154b_3fb_"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Microsoft Entra ID (previously Azure AD) Plugin 396.v86ce29279947 and earlier, except 378.380.v545b_1154b_3fb_, does not use a constant-time comparison when checking whether the provided and expected CSRF protection nonce are equal.</p>\n</div>\n<div class=\"paragraph\">\n<p>This could potentially allow attackers to use statistical methods to obtain a valid nonce.</p>\n</div>\n<div class=\"paragraph\">\n<p>Microsoft Entra ID (previously Azure AD) Plugin 397.v907382dd9b_98 uses a constant-time comparison when validating the nonce.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3228",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Non-constant time token comparison in PLUGIN_NAME",
+      "cve": "CVE-2023-41936",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.7 and earlier does not use a constant-time comparison when checking whether the provided and expected token are equal.\n\nThis could potentially allow attackers to use statistical methods to obtain a valid token.\n\nPLUGIN_NAME 1.8 uses a constant-time comparison when validating the token.",
+      "plugins": [
+        {
+          "name": "google-login",
+          "title": "Google Login",
+          "previous": "1.7",
+          "fixed": "1.8"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Google Login Plugin 1.7 and earlier does not use a constant-time comparison when checking whether the provided and expected token are equal.</p>\n</div>\n<div class=\"paragraph\">\n<p>This could potentially allow attackers to use statistical methods to obtain a valid token.</p>\n</div>\n<div class=\"paragraph\">\n<p>Google Login Plugin 1.8 uses a constant-time comparison when validating the token.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3165",
+      "reporter": "Tony Torralba (@atorralba), GitHub Security Lab and Alvaro Muñoz (@pwntester), GitHub Security Lab",
+      "title": "SSRF vulnerability in PLUGIN_NAME allows capturing credentials",
+      "cve": "CVE-2023-41937",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME provides a webhook endpoint at `/bitbucket-hook/` to receive webhook notifications.\n\nWhen acting on these notifications, PLUGIN_NAME 2.4.0 through 2.8.3 (both inclusive) trusts values provided in the webhook payload, including certain URLs, and uses configured Bitbucket credentials to connect to those URLs.\nThis allows attackers to capture Bitbucket credentials stored in Jenkins by sending a crafted webhook payload.\n\nNOTE: Successful exploitation requires that a build is triggered.\nThis is the case when the repository has changed since the previous build, or the option \"Trigger also if nothing has changed in the repo\" is checked.\n\nPLUGIN_NAME 2.8.4 connects to the Bitbucket endpoint configured for the job when acting on a webhook notification.",
+      "plugins": [
+        {
+          "name": "bitbucket-push-and-pull-request",
+          "title": "Bitbucket Push and Pull Request",
+          "previous": "2.8.3",
+          "fixed": "2.8.4"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Bitbucket Push and Pull Request Plugin provides a webhook endpoint at <code>/bitbucket-hook/</code> to receive webhook notifications.</p>\n</div>\n<div class=\"paragraph\">\n<p>When acting on these notifications, Bitbucket Push and Pull Request Plugin 2.4.0 through 2.8.3 (both inclusive) trusts values provided in the webhook payload, including certain URLs, and uses configured Bitbucket credentials to connect to those URLs.\nThis allows attackers to capture Bitbucket credentials stored in Jenkins by sending a crafted webhook payload.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nSuccessful exploitation requires that a build is triggered.\nThis is the case when the repository has changed since the previous build, or the option \"Trigger also if nothing has changed in the repo\" is checked.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Bitbucket Push and Pull Request Plugin 2.8.4 connects to the Bitbucket endpoint configured for the job when acting on a webhook notification.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3018",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Incorrect permission checks in PLUGIN_NAME",
+      "cve": "CVE-2023-4777",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.6.2.6 and earlier does not correctly perform a permission check in multiple HTTP endpoints.\n\nThis allows attackers with global Item/Configure permission (while lacking Item/Configure permission on any particular job) to do the following:\n\n* Enumerate credentials IDs of credentials stored in Jenkins.\n  Those can be used as part of an attack to capture the credentials using another vulnerability.\n* Connect to an attacker-specified webserver using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nPLUGIN_NAME 1.6.2.7 requires global Overall/Administer permission, or Item/Configure permission on a job, to access the affected endpoint.",
+      "plugins": [
+        {
+          "name": "qualys-cs",
+          "title": "Qualys Container Scanning Connector",
+          "previous": "1.6.2.6",
+          "fixed": "1.6.2.7"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Qualys Container Scanning Connector Plugin 1.6.2.6 and earlier does not correctly perform a permission check in multiple HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with global Item/Configure permission (while lacking Item/Configure permission on any particular job) to do the following:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</li>\n<li>\n<p>Connect to an attacker-specified webserver using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Qualys Container Scanning Connector Plugin 1.6.2.7 requires global Overall/Administer permission, or Item/Configure permission on a job, to access the affected endpoint.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2924",
+      "reporter": "CC Bomber, Kitri BoB",
+      "title": "XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-46751",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.5 and earlier bundles versions of Apache Ivy vulnerable to CVE-2022-46751.\n\nThis allows attackers able to control the input file for the \"Trigger the build of other projects based on the Ivy dependency management system\" post-build step to have Jenkins parse a crafted XML document that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "ivy",
+          "title": "Ivy",
+          "previous": "2.5",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Ivy Plugin 2.5 and earlier bundles versions of Apache Ivy vulnerable to CVE-2022-46751.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to control the input file for the \"Trigger the build of other projects based on the Ivy dependency management system\" post-build step to have Jenkins parse a crafted XML document that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3093",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "CSRF vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-41938",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.5 and earlier does not require POST requests for an HTTP endpoint, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nThis vulnerability allows attackers to delete disabled modules.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "ivy",
+          "title": "Ivy",
+          "previous": "2.5",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Ivy Plugin 2.5 and earlier does not require POST requests for an HTTP endpoint, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers to delete disabled modules.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3064",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc. and Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Disabled permissions can be granted by PLUGIN_NAME",
+      "cve": "CVE-2023-41939",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:L/A:L"
+      },
+      "description_adoc": "PLUGIN_NAME 1.4 and earlier does not verify that permissions configured to be granted are enabled.\nThis may allow users formerly granted (typically optional permissions, like Overall/Manage) to access functionality they're no longer entitled to.\n\nNOTE: As a workaround, administrators can save the permission configuration after disabling a permission, as that will overwrite any permission assignments of disabled permissions.\n\nThe affected features have been removed without replacement in PLUGIN_NAME 1.6.",
+      "plugins": [
+        {
+          "name": "ssh2easy",
+          "title": "SSH2 Easy",
+          "previous": "1.4",
+          "fixed": "1.6"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>SSH2 Easy Plugin 1.4 and earlier does not verify that permissions configured to be granted are enabled.\nThis may allow users formerly granted (typically optional permissions, like Overall/Manage) to access functionality they&#8217;re no longer entitled to.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nAs a workaround, administrators can save the permission configuration after disabling a permission, as that will overwrite any permission assignments of disabled permissions.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>The affected features have been removed without replacement in SSH2 Easy Plugin 1.6.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3190",
+      "reporter": "Andrea Chiera, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-41940",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 2.3 and earlier does not escape TAP file contents.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to control TAP file contents.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "tap",
+          "title": "TAP",
+          "previous": "2.3",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>TAP Plugin 2.3 and earlier does not escape TAP file contents.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to control TAP file contents.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3101 (1)",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Missing permission check in PLUGIN_NAME allows enumerating credentials IDs",
+      "cve": "CVE-2023-41941",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.0.12 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of AWS credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "aws-codecommit-trigger",
+          "title": "AWS CodeCommit Trigger",
+          "previous": "3.0.12",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>AWS CodeCommit Trigger Plugin 3.0.12 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of AWS credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3101 (2)",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission check in PLUGIN_NAME",
+      "cve": "CVE-2023-41942 (CSRF), CVE-2023-41943 (permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.0.12 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to clear the SQS queue.\n\nAdditionally, this endpoint does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "aws-codecommit-trigger",
+          "title": "AWS CodeCommit Trigger",
+          "previous": "3.0.12",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>AWS CodeCommit Trigger Plugin 3.0.12 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to clear the SQS queue.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this endpoint does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3102",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "HTML injection vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-41944",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.0.12 and earlier does not escape the queue name parameter passed to a form validation URL, when rendering an error message.\n\nThis results in an HTML injection vulnerability.\n\nNOTE: Since Jenkins 2.275 and LTS 2.263.2, a link:/doc/upgrade-guide/2.263/#formvalidation[security hardening] for form validation responses prevents JavaScript execution, so no scripts can be injected.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "aws-codecommit-trigger",
+          "title": "AWS CodeCommit Trigger",
+          "previous": "3.0.12",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>AWS CodeCommit Trigger Plugin 3.0.12 and earlier does not escape the queue name parameter passed to a form validation URL, when rendering an error message.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in an HTML injection vulnerability.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nSince Jenkins 2.275 and LTS 2.263.2, a <a href=\"/doc/upgrade-guide/2.263/#formvalidation\">security hardening</a> for form validation responses prevents JavaScript execution, so no scripts can be injected.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3065",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc. and Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Disabled permissions granted by PLUGIN_NAME",
+      "cve": "CVE-2023-41945",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L"
+      },
+      "description_adoc": "PLUGIN_NAME provides an authorization strategy that defines four levels of access to Jenkins, based on the corresponding permissions in Assembla spaces: ALL, EDIT, VIEW, and NONE.\n\nPLUGIN_NAME 1.14 and earlier does not verify that the permissions it grants are enabled.\nThis results in users with EDIT permissions to be granted Overall/Manage and Overall/SystemRead permissions, even if those permissions are disabled and should not be granted.\n\nNOTE: Additionally, the plugin also grants the deprecated permissions Overall/RunScripts, Overall/UploadPlugins and Overall/ConfigureUpdateCenter to users with EDIT access.\nThese permissions allow arbitrary code execution through various means in Jenkins before 2.222.\nAdditionally, plugins not yet adapted to the changes in Jenkins 2.222 may also provide access to sensitive features to users with these permissions.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "assembla-auth",
+          "title": "Assembla Auth",
+          "previous": "1.14",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Assembla Auth Plugin provides an authorization strategy that defines four levels of access to Jenkins, based on the corresponding permissions in Assembla spaces: ALL, EDIT, VIEW, and NONE.</p>\n</div>\n<div class=\"paragraph\">\n<p>Assembla Auth Plugin 1.14 and earlier does not verify that the permissions it grants are enabled.\nThis results in users with EDIT permissions to be granted Overall/Manage and Overall/SystemRead permissions, even if those permissions are disabled and should not be granted.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nAdditionally, the plugin also grants the deprecated permissions Overall/RunScripts, Overall/UploadPlugins and Overall/ConfigureUpdateCenter to users with EDIT access.\nThese permissions allow arbitrary code execution through various means in Jenkins before 2.222.\nAdditionally, plugins not yet adapted to the changes in Jenkins 2.222 may also provide access to sensitive features to users with these permissions.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3082",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME",
+      "cve": "CVE-2023-41946 (CSRF), CVE-2023-41947 (permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.1 and earlier does not perform permission checks in several HTTP endpoints.\n\nThis allows attackers with Overall/Read permission to do the following:\n\n* Connect to Frugal Testing using attacker-specified username and password.\n* Retrieve test IDs and names from Frugal Testing, if a valid credential corresponds to the attacker-specified username.\n\nAdditionally, these endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "frugal-testing",
+          "title": "Frugal Testing",
+          "previous": "1.1",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Frugal Testing Plugin 1.1 and earlier does not perform permission checks in several HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to do the following:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Connect to Frugal Testing using attacker-specified username and password.</p>\n</li>\n<li>\n<p>Retrieve test IDs and names from Frugal Testing, if a valid credential corresponds to the attacker-specified username.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

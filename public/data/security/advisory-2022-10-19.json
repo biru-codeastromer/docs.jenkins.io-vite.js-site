@@ -1,0 +1,654 @@
+{
+  "title": "Jenkins Security Advisory 2022-10-19",
+  "date": "2022-10-19",
+  "url": "/security/advisory/2022-10-19/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-2824 (1)",
+      "reporter": "Devin Nusbaum, CloudBees, Inc., and Daniel Beck, CloudBees, Inc.",
+      "title": "Sandbox bypass vulnerabilities in Script Security Plugin and in Pipeline: Groovy Plugin",
+      "cve": "CVE-2022-43401 through CVE-2022-43404",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Script Security Plugin provides a sandbox feature that allows low privileged users to define scripts, including Pipelines, that are generally safe to execute.\nCalls to code defined inside a sandboxed script are intercepted, and various allowlists are checked to determine whether the call is to be allowed.\n\nMultiple sandbox bypass vulnerabilities exist in Script Security Plugin and Pipeline: Groovy Plugin:\n\n* In Script Security Plugin 1183.v774b_0b_0a_a_451 and earlier and in Pipeline: Groovy Plugin 2802.v5ea_628154b_c2 and earlier, various casts performed implicitly by the Groovy language runtime were not intercepted by the sandbox.\n  This includes casts performed when returning values from methods, when assigning local variables, fields, properties, and when defining default arguments for closure, constructor, and method parameters (CVE-2022-43401 in Script Security Plugin and CVE-2022-43402 in Pipeline: Groovy Plugin).\n* In Script Security Plugin 1183.v774b_0b_0a_a_451 and earlier, when casting an array-like value to an array type, per-element casts to the component type of the array are not intercepted by the sandbox (CVE-2022-43403).\n* In Script Security Plugin 1183.v774b_0b_0a_a_451 and earlier, crafted constructor bodies and calls to sandbox-generated synthetic constructors can be used to construct any subclassable type (due to an incomplete fix for SECURITY-1754 in the link:/security/advisory/2020-03-09/#SECURITY-1754[2020-03-09 security advisory]) (CVE-2022-43404).\n\nThese vulnerabilities allow attackers with permission to define and run sandboxed scripts, including Pipelines, to bypass the sandbox protection and execute arbitrary code in the context of the Jenkins controller JVM.\n\nThese vulnerabilities have been fixed:\n\n* Script Security Plugin 1184.v85d16b_d851b_3 and Pipeline: Groovy Plugin 2803.v1a_f77ffcc773 intercept Groovy casts performed implicitly by the Groovy language runtime (CVE-2022-43401 in Script Security Plugin and CVE-2022-43402 in Pipeline: Groovy Plugin).\n* Script Security Plugin 1184.v85d16b_d851b_3 intercepts per-element casts when casting array-like values to array types (CVE-2022-43403).\n* Script Security Plugin 1184.v85d16b_d851b_3 rejects improper calls to sandbox-generated synthetic constructors (CVE-2022-43404).\n\nIMPORTANT: Both plugins, Script Security Plugin and Pipeline: Groovy Plugin must be updated simultaneously.\nWhile Script Security Plugin could be updated independently, doing so would cause errors in Pipeline: Groovy Plugin due to an incompatible API change.",
+      "plugins": [
+        {
+          "name": "script-security",
+          "title": "Script Security",
+          "previous": "1183.v774b_0b_0a_a_451",
+          "fixed": "1184.v85d16b_d851b_3"
+        },
+        {
+          "name": "workflow-cps",
+          "title": "Pipeline: Groovy",
+          "previous": "2802.v5ea_628154b_c2",
+          "fixed": "2803.v1a_f77ffcc773"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Script Security Plugin provides a sandbox feature that allows low privileged users to define scripts, including Pipelines, that are generally safe to execute.\nCalls to code defined inside a sandboxed script are intercepted, and various allowlists are checked to determine whether the call is to be allowed.</p>\n</div>\n<div class=\"paragraph\">\n<p>Multiple sandbox bypass vulnerabilities exist in Script Security Plugin and Pipeline: Groovy Plugin:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>In Script Security Plugin 1183.v774b_0b_0a_a_451 and earlier and in Pipeline: Groovy Plugin 2802.v5ea_628154b_c2 and earlier, various casts performed implicitly by the Groovy language runtime were not intercepted by the sandbox.\nThis includes casts performed when returning values from methods, when assigning local variables, fields, properties, and when defining default arguments for closure, constructor, and method parameters (CVE-2022-43401 in Script Security Plugin and CVE-2022-43402 in Pipeline: Groovy Plugin).</p>\n</li>\n<li>\n<p>In Script Security Plugin 1183.v774b_0b_0a_a_451 and earlier, when casting an array-like value to an array type, per-element casts to the component type of the array are not intercepted by the sandbox (CVE-2022-43403).</p>\n</li>\n<li>\n<p>In Script Security Plugin 1183.v774b_0b_0a_a_451 and earlier, crafted constructor bodies and calls to sandbox-generated synthetic constructors can be used to construct any subclassable type (due to an incomplete fix for SECURITY-1754 in the <a href=\"/security/advisory/2020-03-09/#SECURITY-1754\">2020-03-09 security advisory</a>) (CVE-2022-43404).</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>These vulnerabilities allow attackers with permission to define and run sandboxed scripts, including Pipelines, to bypass the sandbox protection and execute arbitrary code in the context of the Jenkins controller JVM.</p>\n</div>\n<div class=\"paragraph\">\n<p>These vulnerabilities have been fixed:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Script Security Plugin 1184.v85d16b_d851b_3 and Pipeline: Groovy Plugin 2803.v1a_f77ffcc773 intercept Groovy casts performed implicitly by the Groovy language runtime (CVE-2022-43401 in Script Security Plugin and CVE-2022-43402 in Pipeline: Groovy Plugin).</p>\n</li>\n<li>\n<p>Script Security Plugin 1184.v85d16b_d851b_3 intercepts per-element casts when casting array-like values to array types (CVE-2022-43403).</p>\n</li>\n<li>\n<p>Script Security Plugin 1184.v85d16b_d851b_3 rejects improper calls to sandbox-generated synthetic constructors (CVE-2022-43404).</p>\n</li>\n</ul>\n</div>\n<div class=\"admonitionblock important\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-important\" title=\"Important\"></i>\n</td>\n<td class=\"content\">\nBoth plugins, Script Security Plugin and Pipeline: Groovy Plugin must be updated simultaneously.\nWhile Script Security Plugin could be updated independently, doing so would cause errors in Pipeline: Groovy Plugin due to an incompatible API change.\n</td>\n</tr>\n</table>\n</div>"
+    },
+    {
+      "id": "SECURITY-2824 (2)",
+      "reporter": "Devin Nusbaum, CloudBees, Inc.",
+      "title": "Sandbox bypass vulnerability in Pipeline: Groovy Libraries Plugin and Pipeline: Deprecated Groovy Libraries Plugin",
+      "cve": "CVE-2022-43405 (Pipeline: Groovy Libraries Plugin), CVE-2022-43406 (Pipeline: Deprecated Groovy Libraries Plugin)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Pipeline: Groovy Libraries Plugin and older releases of the Pipeline: Deprecated Groovy Libraries Plugin (formerly Pipeline: Shared Groovy Libraries Plugin) define the `library` Pipeline step, which allows Pipeline authors to dynamically load Pipeline libraries.\nThe return value of this step can be used to instantiate classes defined in the loaded library.\n\nIn Pipeline: Groovy Libraries Plugin 612.v84da_9c54906d and earlier and in Pipeline: Deprecated Groovy Libraries Plugin 583.vf3b_454e43966 and earlier, the `library` step can be used to invoke sandbox-generated synthetic constructors in crafted untrusted libraries and construct any subclassable type.\nThis is similar to SECURITY-582 in the link:/security/advisory/2017-08-07/#multiple-groovy-language-features-allowed-script-security-plugin-sandbox-bypass[2017-08-07 security advisory], but in a different plugin.\n\nThis vulnerability allows attackers with permission to define untrusted Pipeline libraries and to define and run sandboxed Pipelines, to bypass the sandbox protection and execute arbitrary code in the context of the Jenkins controller JVM.\n\nPipeline: Groovy Libraries Plugin 613.v9c41a_160233f rejects improper calls to sandbox-generated synthetic constructors when using the `library` step.\n\nPipeline: Deprecated Groovy Libraries Plugin 588.v576c103a_ff86 no longer contains the `library` step.\nIt has been moved into the Pipeline: Groovy Libraries Plugin.",
+      "plugins": [
+        {
+          "name": "pipeline-groovy-lib",
+          "title": "Pipeline: Groovy Libraries",
+          "previous": "612.v84da_9c54906d",
+          "fixed": "613.v9c41a_160233f or 612.614.v48dcb_f62a_640"
+        },
+        {
+          "name": "workflow-cps-global-lib",
+          "title": "Pipeline: Deprecated Groovy Libraries",
+          "previous": "583.vf3b_454e43966",
+          "fixed": "588.v576c103a_ff86"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Groovy Libraries Plugin and older releases of the Pipeline: Deprecated Groovy Libraries Plugin (formerly Pipeline: Shared Groovy Libraries Plugin) define the <code>library</code> Pipeline step, which allows Pipeline authors to dynamically load Pipeline libraries.\nThe return value of this step can be used to instantiate classes defined in the loaded library.</p>\n</div>\n<div class=\"paragraph\">\n<p>In Pipeline: Groovy Libraries Plugin 612.v84da_9c54906d and earlier and in Pipeline: Deprecated Groovy Libraries Plugin 583.vf3b_454e43966 and earlier, the <code>library</code> step can be used to invoke sandbox-generated synthetic constructors in crafted untrusted libraries and construct any subclassable type.\nThis is similar to SECURITY-582 in the <a href=\"/security/advisory/2017-08-07/#multiple-groovy-language-features-allowed-script-security-plugin-sandbox-bypass\">2017-08-07 security advisory</a>, but in a different plugin.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers with permission to define untrusted Pipeline libraries and to define and run sandboxed Pipelines, to bypass the sandbox protection and execute arbitrary code in the context of the Jenkins controller JVM.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Groovy Libraries Plugin 613.v9c41a_160233f rejects improper calls to sandbox-generated synthetic constructors when using the <code>library</code> step.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Deprecated Groovy Libraries Plugin 588.v576c103a_ff86 no longer contains the <code>library</code> step.\nIt has been moved into the Pipeline: Groovy Libraries Plugin.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2880",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "CSRF protection for any URL can be bypassed in PLUGIN_NAME",
+      "cve": "CVE-2022-43407",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 451.vf1a_a_4f405289 and earlier does not restrict or sanitize the optionally specified ID of the `input` step.\nThis ID is used for the URLs that process user interactions for the given `input` step (proceed or abort) and is not correctly encoded.\n\nThis allows attackers able to configure Pipelines to have Jenkins build URLs from `input` step IDs that would bypass the CSRF protection of any target URL in Jenkins when the `input` step is interacted with.\n\nPLUGIN_NAME 456.vd8a_957db_5b_e9 limits the characters that can be used for the ID of `input` steps in Pipelines to alphanumeric characters and URL-safe punctuation.\nPipelines with `input` steps having IDs with prohibited characters will fail with an error.\n\nNOTE: This includes Pipelines that have already been started but not finished before Jenkins is restarted to apply this update.\n\nIMPORTANT: https://plugins.jenkins.io/pipeline-model-definition/[Pipeline: Declarative Plugin] provides an `input` directive that is internally using the `input` step, and specifies a non-default ID if not user-defined.\nPipeline: Declarative Plugin 2.2114.v2654ca_721309 and earlier may specify values incompatible with this new restriction on legal values:\n`input` directives in a `stage` use the stage name (which may include prohibited characters) and `input` directives in a `matrix` will use a value generated from the matrix axis values (which always includes prohibited characters).\nAdministrators are advised to update PLUGIN_NAME and Pipeline: Declarative Plugin at the same time, ideally while no Pipelines are running.",
+      "plugins": [
+        {
+          "name": "pipeline-input-step",
+          "title": "Pipeline: Input Step",
+          "previous": "451.vf1a_a_4f405289",
+          "fixed": "456.vd8a_957db_5b_e9"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Input Step Plugin 451.vf1a_a_4f405289 and earlier does not restrict or sanitize the optionally specified ID of the <code>input</code> step.\nThis ID is used for the URLs that process user interactions for the given <code>input</code> step (proceed or abort) and is not correctly encoded.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to configure Pipelines to have Jenkins build URLs from <code>input</code> step IDs that would bypass the CSRF protection of any target URL in Jenkins when the <code>input</code> step is interacted with.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Input Step Plugin 456.vd8a_957db_5b_e9 limits the characters that can be used for the ID of <code>input</code> steps in Pipelines to alphanumeric characters and URL-safe punctuation.\nPipelines with <code>input</code> steps having IDs with prohibited characters will fail with an error.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis includes Pipelines that have already been started but not finished before Jenkins is restarted to apply this update.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"admonitionblock important\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-important\" title=\"Important\"></i>\n</td>\n<td class=\"content\">\n<a href=\"https://plugins.jenkins.io/pipeline-model-definition/\">Pipeline: Declarative Plugin</a> provides an <code>input</code> directive that is internally using the <code>input</code> step, and specifies a non-default ID if not user-defined.\nPipeline: Declarative Plugin 2.2114.v2654ca_721309 and earlier may specify values incompatible with this new restriction on legal values:\n<code>input</code> directives in a <code>stage</code> use the stage name (which may include prohibited characters) and <code>input</code> directives in a <code>matrix</code> will use a value generated from the matrix axis values (which always includes prohibited characters).\nAdministrators are advised to update Pipeline: Input Step Plugin and Pipeline: Declarative Plugin at the same time, ideally while no Pipelines are running.\n</td>\n</tr>\n</table>\n</div>"
+    },
+    {
+      "id": "SECURITY-2828",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "CSRF protection for any URL can be bypassed in PLUGIN_NAME",
+      "cve": "CVE-2022-43408",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME provides a visualization of Pipeline builds.\nIt also allows users to interact with `input` steps from Pipeline: Input Step Plugin.\n\nPLUGIN_NAME 2.26 and earlier does not correctly encode the ID of `input` steps when using it to generate URLs to proceed or abort Pipeline builds.\n\nThis allows attackers able to configure Pipelines to specify `input` step IDs resulting in URLs that would bypass the CSRF protection of any target URL in Jenkins.\n\nPLUGIN_NAME 2.27 correctly encodes the ID of `input` steps when using it to generate URLs to proceed or abort Pipeline builds.\n\nNOTE: This vulnerability is only exploitable with Pipeline: Input Step Plugin 451.vf1a_a_4f405289 or older due to the fix for link:#SECURITY-2880[SECURITY-2880].",
+      "plugins": [
+        {
+          "name": "pipeline-stage-view",
+          "title": "Pipeline: Stage View",
+          "previous": "2.26",
+          "fixed": "2.27"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Stage View Plugin provides a visualization of Pipeline builds.\nIt also allows users to interact with <code>input</code> steps from Pipeline: Input Step Plugin.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Stage View Plugin 2.26 and earlier does not correctly encode the ID of <code>input</code> steps when using it to generate URLs to proceed or abort Pipeline builds.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to configure Pipelines to specify <code>input</code> step IDs resulting in URLs that would bypass the CSRF protection of any target URL in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Stage View Plugin 2.27 correctly encodes the ID of <code>input</code> steps when using it to generate URLs to proceed or abort Pipeline builds.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability is only exploitable with Pipeline: Input Step Plugin 451.vf1a_a_4f405289 or older due to the fix for <a href=\"#SECURITY-2880\">SECURITY-2880</a>.\n</td>\n</tr>\n</table>\n</div>"
+    },
+    {
+      "id": "SECURITY-2881",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43409",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME provides a feature to add hyperlinks, that send POST requests when clicked, to build logs.\nThese links are used by Pipeline: Input Step Plugin to allow users to proceed or abort the build, or by Pipeline: Job Plugin to allow users to forcibly terminate the build after aborting it.\n\nPLUGIN_NAME 838.va_3a_087b_4055b and earlier does not sanitize or properly encode URLs of these hyperlinks in build logs.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to create Pipelines.\n\nPLUGIN_NAME 839.v35e2736cfd5c properly encodes URLs of these hyperlinks in build logs.",
+      "plugins": [
+        {
+          "name": "workflow-support",
+          "title": "Pipeline: Supporting APIs",
+          "previous": "838.va_3a_087b_4055b",
+          "fixed": "839.v35e2736cfd5c"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Supporting APIs Plugin provides a feature to add hyperlinks, that send POST requests when clicked, to build logs.\nThese links are used by Pipeline: Input Step Plugin to allow users to proceed or abort the build, or by Pipeline: Job Plugin to allow users to forcibly terminate the build after aborting it.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Supporting APIs Plugin 838.va_3a_087b_4055b and earlier does not sanitize or properly encode URLs of these hyperlinks in build logs.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to create Pipelines.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Supporting APIs Plugin 839.v35e2736cfd5c properly encodes URLs of these hyperlinks in build logs.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2831",
+      "reporter": "Jeremy Norris (jeremy.norris@lbnetworks.co)",
+      "title": "Webhook endpoint discloses job names to unauthorized users in PLUGIN_NAME",
+      "cve": "CVE-2022-43410",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME provides a webhook endpoint at `/mercurial/notifyCommit` that can be used to notify Jenkins of changes to an SCM repository.\nThis endpoint receives a repository URL, and Jenkins will schedule polling for all jobs configured with the specified repository.\nIt can be accessed with GET requests and without authentication.\n\nIn PLUGIN_NAME 1251.va_b_121f184902 and earlier, the output of the webhook endpoint will provide information about which jobs were triggered or scheduled for polling, including jobs the user has no permission to access.\nThis allows attackers with knowledge of Mercurial repository URLs to obtain information about the existence of jobs configured with this Mercurial repository.\n\nPLUGIN_NAME 1260.vdfb_723cdcc81 does not provide the names of jobs for which polling is triggered unless the user has the appropriate Item/Read permission.",
+      "plugins": [
+        {
+          "name": "mercurial",
+          "title": "Mercurial",
+          "previous": "1251.va_b_121f184902",
+          "fixed": "1260.vdfb_723cdcc81"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Mercurial Plugin provides a webhook endpoint at <code>/mercurial/notifyCommit</code> that can be used to notify Jenkins of changes to an SCM repository.\nThis endpoint receives a repository URL, and Jenkins will schedule polling for all jobs configured with the specified repository.\nIt can be accessed with GET requests and without authentication.</p>\n</div>\n<div class=\"paragraph\">\n<p>In Mercurial Plugin 1251.va_b_121f184902 and earlier, the output of the webhook endpoint will provide information about which jobs were triggered or scheduled for polling, including jobs the user has no permission to access.\nThis allows attackers with knowledge of Mercurial repository URLs to obtain information about the existence of jobs configured with this Mercurial repository.</p>\n</div>\n<div class=\"paragraph\">\n<p>Mercurial Plugin 1260.vdfb_723cdcc81 does not provide the names of jobs for which polling is triggered unless the user has the appropriate Item/Read permission.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2877",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Non-constant time webhook token comparison in PLUGIN_NAME",
+      "cve": "CVE-2022-43411",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.5.35 and earlier does not use a constant-time comparison when checking whether the provided and expected webhook token are equal.\n\nThis could potentially allow attackers to use statistical methods to obtain a valid webhook token.\n\nPLUGIN_NAME 1.5.36 uses a constant-time comparison when validating the webhook token.",
+      "plugins": [
+        {
+          "name": "gitlab-plugin",
+          "title": "GitLab",
+          "previous": "1.5.35",
+          "fixed": "1.5.36"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>GitLab Plugin 1.5.35 and earlier does not use a constant-time comparison when checking whether the provided and expected webhook token are equal.</p>\n</div>\n<div class=\"paragraph\">\n<p>This could potentially allow attackers to use statistical methods to obtain a valid webhook token.</p>\n</div>\n<div class=\"paragraph\">\n<p>GitLab Plugin 1.5.36 uses a constant-time comparison when validating the webhook token.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2874",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Non-constant time webhook token comparison in PLUGIN_NAME",
+      "cve": "CVE-2022-43412",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.84.1 and earlier does not use a constant-time comparison when checking whether the provided and expected webhook token are equal.\n\nThis could potentially allow attackers to use statistical methods to obtain a valid webhook token.\n\nPLUGIN_NAME 1.84.2 uses a constant-time comparison when validating the webhook token.",
+      "plugins": [
+        {
+          "name": "generic-webhook-trigger",
+          "title": "Generic Webhook Trigger",
+          "previous": "1.84.1",
+          "fixed": "1.84.2"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Generic Webhook Trigger Plugin 1.84.1 and earlier does not use a constant-time comparison when checking whether the provided and expected webhook token are equal.</p>\n</div>\n<div class=\"paragraph\">\n<p>This could potentially allow attackers to use statistical methods to obtain a valid webhook token.</p>\n</div>\n<div class=\"paragraph\">\n<p>Generic Webhook Trigger Plugin 1.84.2 uses a constant-time comparison when validating the webhook token.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2791",
+      "reporter": "Valdes Che Zogou, CloudBees, Inc.",
+      "title": "Missing permission check in PLUGIN_NAME allows enumerating credentials IDs",
+      "cve": "CVE-2022-43413",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.5 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAn enumeration of credentials IDs in PLUGIN_NAME 3.6 requires Job Import/Import Jobs permission.",
+      "plugins": [
+        {
+          "name": "job-import-plugin",
+          "title": "Job Import",
+          "previous": "3.5",
+          "fixed": "3.6"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Job Import Plugin 3.5 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>An enumeration of credentials IDs in Job Import Plugin 3.6 requires Job Import/Import Jobs permission.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2551",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Agent-to-controller security bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43414",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 0.27 and earlier implements an agent-to-controller message that parses files inside a user-specified directory as test results.\n\nThis allows attackers able to control agent processes to obtain test results from files in an attacker-specified directory on the Jenkins controller.\n\nPLUGIN_NAME 0.28 changes the message type from agent-to-controller to controller-to-agent, preventing execution on the controller.",
+      "plugins": [
+        {
+          "name": "nunit",
+          "title": "NUnit",
+          "previous": "0.27",
+          "fixed": "0.28"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>NUnit Plugin 0.27 and earlier implements an agent-to-controller message that parses files inside a user-specified directory as test results.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to control agent processes to obtain test results from files in an attacker-specified directory on the Jenkins controller.</p>\n</div>\n<div class=\"paragraph\">\n<p>NUnit Plugin 0.28 changes the message type from agent-to-controller to controller-to-agent, preventing execution on the controller.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2337",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43415",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.15.0 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.\n\nThis allows attackers able to control which `repo` binary is executed on agents to have Jenkins parse a crafted XML document that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nPLUGIN_NAME 1.16.0 disables external entity resolution for its XML parser.",
+      "plugins": [
+        {
+          "name": "repo",
+          "title": "REPO",
+          "previous": "1.15.0",
+          "fixed": "1.16.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>REPO Plugin 1.15.0 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to control which <code>repo</code> binary is executed on agents to have Jenkins parse a crafted XML document that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>REPO Plugin 1.16.0 disables external entity resolution for its XML parser.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2844",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Agent-to-controller security bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43416",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.32 and earlier implements an agent/controller message that does not limit where it can be executed and allows invoking Katalon with configurable arguments.\n\nIt allows attackers able to control agent processes to invoke Katalon on the Jenkins controller with attacker-controlled version, install location, and arguments.\nAttackers additionally able to create files on the Jenkins controller (e.g., attackers with Item/Configure permission could archive artifacts) can invoke arbitrary OS commands.\n\nNOTE: This vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the link:/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3[LTS upgrade guide].\n\nPLUGIN_NAME 1.0.33 changes the message type to controller-to-agent, preventing execution on the controller.",
+      "plugins": [
+        {
+          "name": "katalon",
+          "title": "Katalon",
+          "previous": "1.0.32",
+          "fixed": "1.0.33"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Katalon Plugin 1.0.32 and earlier implements an agent/controller message that does not limit where it can be executed and allows invoking Katalon with configurable arguments.</p>\n</div>\n<div class=\"paragraph\">\n<p>It allows attackers able to control agent processes to invoke Katalon on the Jenkins controller with attacker-controlled version, install location, and arguments.\nAttackers additionally able to create files on the Jenkins controller (e.g., attackers with Item/Configure permission could archive artifacts) can invoke arbitrary OS commands.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the <a href=\"/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Katalon Plugin 1.0.33 changes the message type to controller-to-agent, preventing execution on the controller.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2845 (1)",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Missing permission checks in PLUGIN_NAME allow capturing credentials",
+      "cve": "CVE-2022-43417",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.32 and earlier does not perform permission checks in several HTTP endpoints.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nPLUGIN_NAME 1.0.33 properly performs permission checks when accessing the affected HTTP endpoints.",
+      "plugins": [
+        {
+          "name": "katalon",
+          "title": "Katalon",
+          "previous": "1.0.32",
+          "fixed": "1.0.33"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Katalon Plugin 1.0.32 and earlier does not perform permission checks in several HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Katalon Plugin 1.0.33 properly performs permission checks when accessing the affected HTTP endpoints.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2845 (2)",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "CSRF vulnerability in PLUGIN_NAME allows capturing credentials",
+      "cve": "CVE-2022-43418",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.33 and earlier does not require POST requests for several HTTP endpoints, resulting in cross-site request forgery (CSRF) vulnerabilities.\n\nThis vulnerability allows attackers to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nPLUGIN_NAME 1.0.34 requires POST requests for the affected HTTP endpoints.",
+      "plugins": [
+        {
+          "name": "katalon",
+          "title": "Katalon",
+          "previous": "1.0.33",
+          "fixed": "1.0.34"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Katalon Plugin 1.0.33 and earlier does not require POST requests for several HTTP endpoints, resulting in cross-site request forgery (CSRF) vulnerabilities.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Katalon Plugin 1.0.34 requires POST requests for the affected HTTP endpoints.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2846",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "API keys stored in plain text by PLUGIN_NAME",
+      "cve": "CVE-2022-43419",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.32 and earlier stores API keys unencrypted in job `config.xml` files on the Jenkins controller as part of its configuration.\n\nThese API keys can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system.\n\nPLUGIN_NAME 1.0.33 no longer stores the API keys directly, instead accessing them through its plugin:credentials[Credentials Plugin] integration, once affected job configurations are saved again.",
+      "plugins": [
+        {
+          "name": "katalon",
+          "title": "Katalon",
+          "previous": "1.0.32",
+          "fixed": "1.0.33"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Katalon Plugin 1.0.32 and earlier stores API keys unencrypted in job <code>config.xml</code> files on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>These API keys can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>Katalon Plugin 1.0.33 no longer stores the API keys directly, instead accessing them through its plugin:credentials[Credentials Plugin] integration, once affected job configurations are saved again.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2836",
+      "reporter": "Valdes Che Zogou, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43420",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 3.9 and earlier does not escape data returned from the Contrast service when generating a report.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to control or modify Contrast service API responses.\n\nPLUGIN_NAME 3.10 escapes the affected data.",
+      "plugins": [
+        {
+          "name": "contrast-continuous-application-security",
+          "title": "Contrast Continuous Application Security",
+          "previous": "3.9",
+          "fixed": "3.10"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Contrast Continuous Application Security Plugin 3.9 and earlier does not escape data returned from the Contrast service when generating a report.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to control or modify Contrast service API responses.</p>\n</div>\n<div class=\"paragraph\">\n<p>Contrast Continuous Application Security Plugin 3.10 escapes the affected data.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2852",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Lack of webhook authentication mechanism in PLUGIN_NAME",
+      "cve": "CVE-2022-43421",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME provides a webhook endpoint at `/tuleap-hook/` that can be used to trigger Tuleap projects configured with a specified repository.\n\nIn PLUGIN_NAME 3.2.4 and earlier, this endpoint can be accessed without authentication.\n\nThis allows unauthenticated attackers to trigger Tuleap projects whose configured repository matches the attacker-specified value.\n\nPLUGIN_NAME 3.2.5 requires a token to access the webhook endpoint.",
+      "plugins": [
+        {
+          "name": "tuleap-git-branch-source",
+          "title": "Tuleap Git Branch Source",
+          "previous": "3.2.4",
+          "fixed": "3.2.5"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Tuleap Git Branch Source Plugin provides a webhook endpoint at <code>/tuleap-hook/</code> that can be used to trigger Tuleap projects configured with a specified repository.</p>\n</div>\n<div class=\"paragraph\">\n<p>In Tuleap Git Branch Source Plugin 3.2.4 and earlier, this endpoint can be accessed without authentication.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows unauthenticated attackers to trigger Tuleap projects whose configured repository matches the attacker-specified value.</p>\n</div>\n<div class=\"paragraph\">\n<p>Tuleap Git Branch Source Plugin 3.2.5 requires a token to access the webhook endpoint.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2620",
+      "reporter": null,
+      "title": "Agent-to-controller security bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43422",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.8 and earlier implements an agent/controller message that does not limit where it can be executed.\n\nIt allows attackers able to control agent processes to obtain the values of Java system properties from the Jenkins controller process.\n\nNOTE: This vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the link:/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3[LTS upgrade guide].\n\nPLUGIN_NAME 1.0.9 restricts execution of the agent/controller message to agents.",
+      "plugins": [
+        {
+          "name": "compuware-topaz-utilities",
+          "title": "Compuware Topaz Utilities",
+          "previous": "1.0.8",
+          "fixed": "1.0.9"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Compuware Topaz Utilities Plugin 1.0.8 and earlier implements an agent/controller message that does not limit where it can be executed.</p>\n</div>\n<div class=\"paragraph\">\n<p>It allows attackers able to control agent processes to obtain the values of Java system properties from the Jenkins controller process.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the <a href=\"/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Compuware Topaz Utilities Plugin 1.0.9 restricts execution of the agent/controller message to agents.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2622",
+      "reporter": null,
+      "title": "Agent-to-controller security bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43423",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.12 and earlier implements an agent/controller message that does not limit where it can be executed.\n\nIt allows attackers able to control agent processes to obtain the values of Java system properties from the Jenkins controller process.\n\nNOTE: This vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the link:/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3[LTS upgrade guide].\n\nPLUGIN_NAME 2.0.13 restricts execution of the agent/controller message to agents.",
+      "plugins": [
+        {
+          "name": "compuware-scm-downloader",
+          "title": "BMC AMI DevX Source Code Download for Endevor, PDS, and Code Pipeline",
+          "previous": "2.0.12",
+          "fixed": "2.0.13"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>BMC AMI DevX Source Code Download for Endevor, PDS, and Code Pipeline Plugin 2.0.12 and earlier implements an agent/controller message that does not limit where it can be executed.</p>\n</div>\n<div class=\"paragraph\">\n<p>It allows attackers able to control agent processes to obtain the values of Java system properties from the Jenkins controller process.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the <a href=\"/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>BMC AMI DevX Source Code Download for Endevor, PDS, and Code Pipeline Plugin 2.0.13 restricts execution of the agent/controller message to agents.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2627",
+      "reporter": null,
+      "title": "Agent-to-controller security bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43424",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.7 and earlier implements an agent/controller message that does not limit where it can be executed.\n\nIt allows attackers able to control agent processes to obtain the values of Java system properties from the Jenkins controller process.\n\nNOTE: This vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the link:/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3[LTS upgrade guide].\n\nPLUGIN_NAME 1.0.8 restricts execution of the agent/controller message to agents.",
+      "plugins": [
+        {
+          "name": "compuware-xpediter-code-coverage",
+          "title": "BMC AMI DevX Code Debug Code Coverage",
+          "previous": "1.0.7",
+          "fixed": "1.0.8"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>BMC AMI DevX Code Debug Code Coverage Plugin 1.0.7 and earlier implements an agent/controller message that does not limit where it can be executed.</p>\n</div>\n<div class=\"paragraph\">\n<p>It allows attackers able to control agent processes to obtain the values of Java system properties from the Jenkins controller process.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the <a href=\"/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>BMC AMI DevX Code Debug Code Coverage Plugin 1.0.8 restricts execution of the agent/controller message to agents.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2797",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc., Wadeck Follonier, CloudBees, Inc., and Daniel Beck, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43425",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.4 and earlier does not escape the name and description of the parameter types it provides.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.\n\nExploitation of this vulnerability requires that parameters are listed on another page, like the \"Build With Parameters\" and \"Parameters\" pages provided by Jenkins (core), and that those pages are not hardened to prevent exploitation.\nJenkins (core) has prevented exploitation of vulnerabilities of this kind on the \"Build With Parameters\" and \"Parameters\" pages since 2.44 and LTS 2.32.2 as part of the link:/security/advisory/2017-02-01/#persisted-cross-site-scripting-vulnerability-in-parameter-names-and-descriptions[SECURITY-353 / CVE-2017-2601] fix.\nAdditionally, several plugins have previously been updated to list parameters in a way that prevents exploitation by default, see link:/security/advisory/2022-04-12/#SECURITY-2617[SECURITY-2617 in the 2022-04-12 security advisory for a list].\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "custom-checkbox-parameter",
+          "title": "Custom Checkbox Parameter",
+          "previous": "1.4",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Custom Checkbox Parameter Plugin 1.4 and earlier does not escape the name and description of the parameter types it provides.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>Exploitation of this vulnerability requires that parameters are listed on another page, like the \"Build With Parameters\" and \"Parameters\" pages provided by Jenkins (core), and that those pages are not hardened to prevent exploitation.\nJenkins (core) has prevented exploitation of vulnerabilities of this kind on the \"Build With Parameters\" and \"Parameters\" pages since 2.44 and LTS 2.32.2 as part of the <a href=\"/security/advisory/2017-02-01/#persisted-cross-site-scripting-vulnerability-in-parameter-names-and-descriptions\">SECURITY-353 / CVE-2017-2601</a> fix.\nAdditionally, several plugins have previously been updated to list parameters in a way that prevents exploitation by default, see <a href=\"/security/advisory/2022-04-12/#SECURITY-2617\">SECURITY-2617 in the 2022-04-12 security advisory for a list</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2480",
+      "reporter": "Bram Mertens, Astadia",
+      "title": "AWS secrets displayed without masking by PLUGIN_NAME",
+      "cve": "CVE-2022-43426",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME stores AWS_SECRET_ACCESS_KEY in its global configuration file `s3explorer.xml` on the Jenkins controller as part of its configuration.\n\nWhile this secret is stored encrypted on disk, in PLUGIN_NAME 1.0.8 and earlier the global configuration form does not mask the AWS_SECRET_ACCESS_KEY form field, increasing the potential for attackers to observe and capture it.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "s3explorer",
+          "title": "S3 Explorer",
+          "previous": "1.0.8",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>S3 Explorer Plugin stores AWS_SECRET_ACCESS_KEY in its global configuration file <code>s3explorer.xml</code> on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>While this secret is stored encrypted on disk, in S3 Explorer Plugin 1.0.8 and earlier the global configuration form does not mask the AWS_SECRET_ACCESS_KEY form field, increasing the potential for attackers to observe and capture it.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2623",
+      "reporter": null,
+      "title": "Missing permission checks in PLUGIN_NAME allow enumerating credentials IDs",
+      "cve": "CVE-2022-43427",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.4.8 and earlier does not perform permission checks in several HTTP endpoints.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "compuware-topaz-for-total-test",
+          "title": "BMC AMI DevX Total Test",
+          "previous": "2.4.8",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>BMC AMI DevX Total Test Plugin 2.4.8 and earlier does not perform permission checks in several HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2624",
+      "reporter": null,
+      "title": "Agent-to-controller security bypass vulnerabilities in PLUGIN_NAME",
+      "cve": "CVE-2022-43428 (Java system properties), CVE-2022-43429 (read files)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.4.8 and earlier implements two agent/controller messages that do not limit where they can be executed.\n\n* `RemoteSystemProperties` allows attackers able to control agent processes to obtain the values of Java system properties from the Jenkins controller process (CVE-2022-43428).\n* `GetRemoteUTF8FileContents` allows attackers able to control agent processes to read arbitrary files on the Jenkins controller file system (CVE-2022-43429).\n\nNOTE: These vulnerabilities are only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the link:/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3[LTS upgrade guide].\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "compuware-topaz-for-total-test",
+          "title": "BMC AMI DevX Total Test",
+          "previous": "2.4.8",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>BMC AMI DevX Total Test Plugin 2.4.8 and earlier implements two agent/controller messages that do not limit where they can be executed.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><code>RemoteSystemProperties</code> allows attackers able to control agent processes to obtain the values of Java system properties from the Jenkins controller process (CVE-2022-43428).</p>\n</li>\n<li>\n<p><code>GetRemoteUTF8FileContents</code> allows attackers able to control agent processes to read arbitrary files on the Jenkins controller file system (CVE-2022-43429).</p>\n</li>\n</ul>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThese vulnerabilities are only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the <a href=\"/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2625",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-43430",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.4.8 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.\n\nThis allows attackers able to control the input files for the 'Topaz for Total Test - Execute Total Test scenarios' build step to have Jenkins parse a crafted XML document that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "compuware-topaz-for-total-test",
+          "title": "BMC AMI DevX Total Test",
+          "previous": "2.4.8",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>BMC AMI DevX Total Test Plugin 2.4.8 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to control the input files for the 'Topaz for Total Test - Execute Total Test scenarios' build step to have Jenkins parse a crafted XML document that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2631",
+      "reporter": null,
+      "title": "Missing permission check in PLUGIN_NAME allows enumerating credentials IDs",
+      "cve": "CVE-2022-43431",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.1 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "compuware-strobe-measurement",
+          "title": "BMC AMI Strobe Measurement Task",
+          "previous": "1.0.1",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>BMC AMI Strobe Measurement Task Plugin 1.0.1 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2863",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Content-Security-Policy protection for user content disabled by PLUGIN_NAME",
+      "cve": "CVE-2022-43432",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Jenkins sets the `Content-Security-Policy` header to static files served by Jenkins (specifically `DirectoryBrowserSupport`), such as workspaces, `/userContent`, or archived artifacts, unless a Resource Root URL is specified.\n\nPLUGIN_NAME 1.0.22 and earlier globally disables the `Content-Security-Policy` header for static files served by Jenkins as soon as it is loaded.\nThis allows cross-site scripting (XSS) attacks by users with the ability to control files in workspaces, archived artifacts, etc.\n\nNOTE: Jenkins instances with link:/doc/book/security/user-content/#resource-root-url[Resource Root URL] configured are unaffected.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "xframium",
+          "title": "XFramium Builder",
+          "previous": "1.0.22",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins sets the <code>Content-Security-Policy</code> header to static files served by Jenkins (specifically <code>DirectoryBrowserSupport</code>), such as workspaces, <code>/userContent</code>, or archived artifacts, unless a Resource Root URL is specified.</p>\n</div>\n<div class=\"paragraph\">\n<p>XFramium Builder Plugin 1.0.22 and earlier globally disables the <code>Content-Security-Policy</code> header for static files served by Jenkins as soon as it is loaded.\nThis allows cross-site scripting (XSS) attacks by users with the ability to control files in workspaces, archived artifacts, etc.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nJenkins instances with <a href=\"/doc/book/security/user-content/#resource-root-url\">Resource Root URL</a> configured are unaffected.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2864",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Content-Security-Policy protection for user content disabled by PLUGIN_NAME",
+      "cve": "CVE-2022-43433",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Jenkins sets the `Content-Security-Policy` header to static files served by Jenkins (specifically `DirectoryBrowserSupport`), such as workspaces, `/userContent`, or archived artifacts, unless a Resource Root URL is specified.\n\nPLUGIN_NAME 0.7 and earlier programmatically updates link:/doc/book/managing/system-properties/#hudson-model-directorybrowsersupport-csp[the Java system property] allowing administrators to customize the `Content-Security-Policy` header for static files served by Jenkins to include `media-src: 'self'`.\nOn a Jenkins instance with default configuration, this effectively disables all other directives in the default rule set, including `script-src`.\nThis allows cross-site scripting (XSS) attacks by users with the ability to control files in workspaces, archived artifacts, etc.\n\nNOTE: Jenkins instances with link:/doc/book/security/user-content/#resource-root-url[Resource Root URL] configured are unaffected.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "screenrecorder",
+          "title": "ScreenRecorder",
+          "previous": "0.7",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins sets the <code>Content-Security-Policy</code> header to static files served by Jenkins (specifically <code>DirectoryBrowserSupport</code>), such as workspaces, <code>/userContent</code>, or archived artifacts, unless a Resource Root URL is specified.</p>\n</div>\n<div class=\"paragraph\">\n<p>ScreenRecorder Plugin 0.7 and earlier programmatically updates <a href=\"/doc/book/managing/system-properties/#hudson-model-directorybrowsersupport-csp\">the Java system property</a> allowing administrators to customize the <code>Content-Security-Policy</code> header for static files served by Jenkins to include <code>media-src: 'self'</code>.\nOn a Jenkins instance with default configuration, this effectively disables all other directives in the default rule set, including <code>script-src</code>.\nThis allows cross-site scripting (XSS) attacks by users with the ability to control files in workspaces, archived artifacts, etc.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nJenkins instances with <a href=\"/doc/book/security/user-content/#resource-root-url\">Resource Root URL</a> configured are unaffected.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2865",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Content-Security-Policy protection for user content disabled by PLUGIN_NAME",
+      "cve": "CVE-2022-43434",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Jenkins sets the `Content-Security-Policy` header to static files served by Jenkins (specifically `DirectoryBrowserSupport`), such as workspaces, `/userContent`, or archived artifacts, unless a Resource Root URL is specified.\n\nPLUGIN_NAME 1.20 and earlier globally disables the `Content-Security-Policy` header for static files served by Jenkins whenever the 'NeuVector Vulnerability Scanner' build step is executed.\nThis allows cross-site scripting (XSS) attacks by users with the ability to control files in workspaces, archived artifacts, etc.\n\nNOTE: Jenkins instances with link:/doc/book/security/user-content/#resource-root-url[Resource Root URL] configured are unaffected.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "neuvector-vulnerability-scanner",
+          "title": "NeuVector Vulnerability Scanner",
+          "previous": "1.20",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins sets the <code>Content-Security-Policy</code> header to static files served by Jenkins (specifically <code>DirectoryBrowserSupport</code>), such as workspaces, <code>/userContent</code>, or archived artifacts, unless a Resource Root URL is specified.</p>\n</div>\n<div class=\"paragraph\">\n<p>NeuVector Vulnerability Scanner Plugin 1.20 and earlier globally disables the <code>Content-Security-Policy</code> header for static files served by Jenkins whenever the 'NeuVector Vulnerability Scanner' build step is executed.\nThis allows cross-site scripting (XSS) attacks by users with the ability to control files in workspaces, archived artifacts, etc.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nJenkins instances with <a href=\"/doc/book/security/user-content/#resource-root-url\">Resource Root URL</a> configured are unaffected.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2866",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Content-Security-Policy protection for user content can be disabled in PLUGIN_NAME",
+      "cve": "CVE-2022-43435",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Jenkins sets the `Content-Security-Policy` header to static files served by Jenkins (specifically `DirectoryBrowserSupport`), such as workspaces, `/userContent`, or archived artifacts, unless a Resource Root URL is specified.\n\nPLUGIN_NAME 1.7.2 and earlier globally disables the `Content-Security-Policy` header for static files served by Jenkins whenever the 'Execute FireLine' build step is executed, if the option 'Open access to HTML with JS or CSS' is checked.\nThis allows cross-site scripting (XSS) attacks by users with the ability to control files in workspaces, archived artifacts, etc.\n\nNOTE: Jenkins instances with link:/doc/book/security/user-content/#resource-root-url[Resource Root URL] configured are unaffected.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "fireline",
+          "title": "360 FireLine",
+          "previous": "1.7.2",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins sets the <code>Content-Security-Policy</code> header to static files served by Jenkins (specifically <code>DirectoryBrowserSupport</code>), such as workspaces, <code>/userContent</code>, or archived artifacts, unless a Resource Root URL is specified.</p>\n</div>\n<div class=\"paragraph\">\n<p>360 FireLine Plugin 1.7.2 and earlier globally disables the <code>Content-Security-Policy</code> header for static files served by Jenkins whenever the 'Execute FireLine' build step is executed, if the option 'Open access to HTML with JS or CSS' is checked.\nThis allows cross-site scripting (XSS) attacks by users with the ability to control files in workspaces, archived artifacts, etc.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nJenkins instances with <a href=\"/doc/book/security/user-content/#resource-root-url\">Resource Root URL</a> configured are unaffected.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}
