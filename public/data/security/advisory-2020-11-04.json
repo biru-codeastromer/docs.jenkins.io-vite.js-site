@@ -1,0 +1,453 @@
+{
+  "title": "Jenkins Security Advisory 2020-11-04",
+  "date": "2020-11-04",
+  "url": "/security/advisory/2020-11-04/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-2117",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Login allowed with hardcoded password by PLUGIN_NAME",
+      "cve": "CVE-2020-2299",
+      "cvss": {
+        "severity": "Critical",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME implements two separate modes: Integration with ADSI on Windows, and an OS agnostic LDAP-based mode.\n\nThe LDAP-based mode in PLUGIN_NAME 2.19 and earlier shares code between user lookup and user authentication and distinguishes these behaviors through the use of a magic constant used in place of a real password.\nThis allows attackers to log in as any user if the magic constant is used as the password in PLUGIN_NAME 2.19 and earlier.\n\nPLUGIN_NAME 2.20 no longer uses a magic constant to distinguish between user lookup and user authentication.",
+      "plugins": [
+        {
+          "name": "active-directory",
+          "title": "Active Directory",
+          "previous": "2.19",
+          "fixed": "2.20"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Active Directory Plugin implements two separate modes: Integration with ADSI on Windows, and an OS agnostic LDAP-based mode.</p>\n</div>\n<div class=\"paragraph\">\n<p>The LDAP-based mode in Active Directory Plugin 2.19 and earlier shares code between user lookup and user authentication and distinguishes these behaviors through the use of a magic constant used in place of a real password.\nThis allows attackers to log in as any user if the magic constant is used as the password in Active Directory Plugin 2.19 and earlier.</p>\n</div>\n<div class=\"paragraph\">\n<p>Active Directory Plugin 2.20 no longer uses a magic constant to distinguish between user lookup and user authentication.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2099",
+      "reporter": "Vic Chappill, Lee Jones, and Matthew Maylin, Siemens",
+      "title": "Login allowed with empty password by PLUGIN_NAME",
+      "cve": "CVE-2020-2300",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME implements two separate modes: Integration with ADSI on Windows, and an OS agnostic LDAP-based mode.\n\nThe Windows/ADSI mode does not specifically prohibit use of empty passwords in PLUGIN_NAME 2.19 and earlier.\nIf the Active Directory server allows the unauthenticated bind operation, this allows attackers to log in to Jenkins as any user by providing an empty password.\n\nPLUGIN_NAME 2.20 prohibits the use of an empty password to log in.",
+      "plugins": [
+        {
+          "name": "active-directory",
+          "title": "Active Directory",
+          "previous": "2.19",
+          "fixed": "2.20"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Active Directory Plugin implements two separate modes: Integration with ADSI on Windows, and an OS agnostic LDAP-based mode.</p>\n</div>\n<div class=\"paragraph\">\n<p>The Windows/ADSI mode does not specifically prohibit use of empty passwords in Active Directory Plugin 2.19 and earlier.\nIf the Active Directory server allows the unauthenticated bind operation, this allows attackers to log in to Jenkins as any user by providing an empty password.</p>\n</div>\n<div class=\"paragraph\">\n<p>Active Directory Plugin 2.20 prohibits the use of an empty password to log in.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2123",
+      "reporter": null,
+      "title": "Authentication cache in PLUGIN_NAME allows logging in with any password",
+      "cve": "CVE-2020-2301",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME implements two separate modes: Integration with ADSI on Windows, and an OS agnostic LDAP-based mode.\nOptionally, to reduce lookup time, a cache can be configured to remember user lookups and user authentications.\n\nIn PLUGIN_NAME 2.19 and earlier, when run in Windows/ADSI mode, the provided password was not used when looking up an applicable cache entry.\nThis allows attackers to log in as any user using any password while a successful authentication of that user is still in the cache.\n\nAs a workaround for this issue, the cache can be disabled.\n\nPLUGIN_NAME 2.20 includes the provided password in cache entry lookup.\n\nAdditionally, the Java system property `hudson.plugins.active_directory.CacheUtil.noCacheAuth` can be set to `true` to no longer cache user authentications.",
+      "plugins": [
+        {
+          "name": "active-directory",
+          "title": "Active Directory",
+          "previous": "2.19",
+          "fixed": "2.20"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Active Directory Plugin implements two separate modes: Integration with ADSI on Windows, and an OS agnostic LDAP-based mode.\nOptionally, to reduce lookup time, a cache can be configured to remember user lookups and user authentications.</p>\n</div>\n<div class=\"paragraph\">\n<p>In Active Directory Plugin 2.19 and earlier, when run in Windows/ADSI mode, the provided password was not used when looking up an applicable cache entry.\nThis allows attackers to log in as any user using any password while a successful authentication of that user is still in the cache.</p>\n</div>\n<div class=\"paragraph\">\n<p>As a workaround for this issue, the cache can be disabled.</p>\n</div>\n<div class=\"paragraph\">\n<p>Active Directory Plugin 2.20 includes the provided password in cache entry lookup.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, the Java system property <code>hudson.plugins.active_directory.CacheUtil.noCacheAuth</code> can be set to <code>true</code> to no longer cache user authentications.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1999",
+      "reporter": "Matt Sicker, CloudBees, Inc.",
+      "title": "Missing permission check in PLUGIN_NAME allows accessing domain health check page",
+      "cve": "CVE-2020-2302",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.19 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to access the domain health check diagnostic page.\n\nPLUGIN_NAME 2.20 requires Overall/Administer permission to access the domain health check diagnostic page.",
+      "plugins": [
+        {
+          "name": "active-directory",
+          "title": "Active Directory",
+          "previous": "2.19",
+          "fixed": "2.20"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Active Directory Plugin 2.19 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to access the domain health check diagnostic page.</p>\n</div>\n<div class=\"paragraph\">\n<p>Active Directory Plugin 2.20 requires Overall/Administer permission to access the domain health check diagnostic page.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2126",
+      "reporter": null,
+      "title": "CSRF vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2020-2303",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.19 and earlier does not require POST requests for multiple HTTP endpoints implementing connection and authentication tests, resulting in cross-site request forgery (CSRF) vulnerabilities.\n\nThis vulnerability allows attackers to perform connection tests, connecting to attacker-specified or previously configured Active Directory servers using attacker-specified credentials.\n\nPLUGIN_NAME 2.20 requires POST requests for the affected HTTP endpoints.",
+      "plugins": [
+        {
+          "name": "active-directory",
+          "title": "Active Directory",
+          "previous": "2.19",
+          "fixed": "2.20"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Active Directory Plugin 2.19 and earlier does not require POST requests for multiple HTTP endpoints implementing connection and authentication tests, resulting in cross-site request forgery (CSRF) vulnerabilities.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers to perform connection tests, connecting to attacker-specified or previously configured Active Directory servers using attacker-specified credentials.</p>\n</div>\n<div class=\"paragraph\">\n<p>Active Directory Plugin 2.20 requires POST requests for the affected HTTP endpoints.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2145",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2020-2304",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.13.1 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.\n\nThis allows attackers able to control an agent process to have Jenkins parse a crafted changelog file that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nPLUGIN_NAME 2.13.2 disables external entity resolution for its XML parser.",
+      "plugins": [
+        {
+          "name": "subversion",
+          "title": "Subversion",
+          "previous": "2.13.1",
+          "fixed": "2.13.2"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Subversion Plugin 2.13.1 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to control an agent process to have Jenkins parse a crafted changelog file that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>Subversion Plugin 2.13.2 disables external entity resolution for its XML parser.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2115",
+      "reporter": null,
+      "title": "XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2020-2305",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.11 and earlier does not configure its XML changelog parser to prevent XML external entity (XXE) attacks.\n\nThis allows attackers able to control an agent process to have Jenkins parse a crafted changelog file that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nPLUGIN_NAME 2.12 disables external entity resolution for its XML parser.",
+      "plugins": [
+        {
+          "name": "mercurial",
+          "title": "Mercurial",
+          "previous": "2.11",
+          "fixed": "2.12"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Mercurial Plugin 2.11 and earlier does not configure its XML changelog parser to prevent XML external entity (XXE) attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to control an agent process to have Jenkins parse a crafted changelog file that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>Mercurial Plugin 2.12 disables external entity resolution for its XML parser.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2104",
+      "reporter": null,
+      "title": "Missing permission check in PLUGIN_NAME",
+      "cve": "CVE-2020-2306",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.11 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to obtain a list of names of configured Mercurial installations.\n\nPLUGIN_NAME 2.12 performs permission checks when listing configured Mercurial installations.",
+      "plugins": [
+        {
+          "name": "mercurial",
+          "title": "Mercurial",
+          "previous": "2.11",
+          "fixed": "2.12"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Mercurial Plugin 2.11 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to obtain a list of names of configured Mercurial installations.</p>\n</div>\n<div class=\"paragraph\">\n<p>Mercurial Plugin 2.12 performs permission checks when listing configured Mercurial installations.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1646",
+      "reporter": null,
+      "title": "Jenkins controller environment variables accessible in PLUGIN_NAME",
+      "cve": "CVE-2020-2307",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.27.3 and earlier includes a feature to replace placeholders in pod template and container template fields with environment variable values.\n\nThis feature allows low-privilege users to access possibly sensitive Jenkins controller environment variables.\n\nPLUGIN_NAME 1.27.4 disables this feature.\n\nNOTE: The Java system property `org.csanchez.jenkins.plugins.kubernetes.PodTemplateUtils.SUBSTITUTE_ENV` can be set to `true` to restore this feature.\nAdministrators are advised that future releases of PLUGIN_NAME will remove this feature entirely.",
+      "plugins": [
+        {
+          "name": "kubernetes",
+          "title": "Kubernetes",
+          "previous": "1.27.3",
+          "fixed": "1.27.4"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Kubernetes Plugin 1.27.3 and earlier includes a feature to replace placeholders in pod template and container template fields with environment variable values.</p>\n</div>\n<div class=\"paragraph\">\n<p>This feature allows low-privilege users to access possibly sensitive Jenkins controller environment variables.</p>\n</div>\n<div class=\"paragraph\">\n<p>Kubernetes Plugin 1.27.4 disables this feature.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThe Java system property <code>org.csanchez.jenkins.plugins.kubernetes.PodTemplateUtils.SUBSTITUTE_ENV</code> can be set to <code>true</code> to restore this feature.\nAdministrators are advised that future releases of Kubernetes Plugin will remove this feature entirely.\n</td>\n</tr>\n</table>\n</div>"
+    },
+    {
+      "id": "SECURITY-2102",
+      "reporter": null,
+      "title": "Missing permission check in PLUGIN_NAME allows listing pod templates",
+      "cve": "CVE-2020-2308",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.27.3 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to list global pod template names.\n\nPLUGIN_NAME 1.27.4 requires Overall/Administer permission to list global pod template names.",
+      "plugins": [
+        {
+          "name": "kubernetes",
+          "title": "Kubernetes",
+          "previous": "1.27.3",
+          "fixed": "1.27.4"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Kubernetes Plugin 1.27.3 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to list global pod template names.</p>\n</div>\n<div class=\"paragraph\">\n<p>Kubernetes Plugin 1.27.4 requires Overall/Administer permission to list global pod template names.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2103",
+      "reporter": null,
+      "title": "Missing permission check in PLUGIN_NAME allows enumerating credentials IDs",
+      "cve": "CVE-2020-2309",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.27.3 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAn enumeration of credentials IDs in PLUGIN_NAME 1.27.4 requires the appropriate permissions.",
+      "plugins": [
+        {
+          "name": "kubernetes",
+          "title": "Kubernetes",
+          "previous": "1.27.3",
+          "fixed": "1.27.4"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Kubernetes Plugin 1.27.3 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>An enumeration of credentials IDs in Kubernetes Plugin 1.27.4 requires the appropriate permissions.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1943",
+      "reporter": "Wadeck Follonier, CloudBees, Inc.",
+      "title": "Missing permission checks in PLUGIN_NAME allow enumerating credentials IDs",
+      "cve": "CVE-2020-2310",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0 and earlier does not perform permission checks in methods implementing form validation.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAn enumeration of credentials IDs in PLUGIN_NAME 1.1 requires the appropriate permissions.",
+      "plugins": [
+        {
+          "name": "ansible",
+          "title": "Ansible",
+          "previous": "1.0",
+          "fixed": "1.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Ansible Plugin 1.0 and earlier does not perform permission checks in methods implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>An enumeration of credentials IDs in Ansible Plugin 1.1 requires the appropriate permissions.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2101",
+      "reporter": null,
+      "title": "Missing permission check in PLUGIN_NAME allows replacing plugin configuration",
+      "cve": "CVE-2020-2311",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.5 and earlier does not perform a permission check in an HTTP endpoint processing form submissions.\n\nThis allows attackers with Overall/Read permission to replace the global AWS configuration.\n\nPLUGIN_NAME 1.6 properly performs permission checks when processing configuration form submissions.",
+      "plugins": [
+        {
+          "name": "aws-global-configuration",
+          "title": "AWS Global Configuration",
+          "previous": "1.5",
+          "fixed": "1.6"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>AWS Global Configuration Plugin 1.5 and earlier does not perform a permission check in an HTTP endpoint processing form submissions.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to replace the global AWS configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>AWS Global Configuration Plugin 1.6 properly performs permission checks when processing configuration form submissions.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2129",
+      "reporter": "Chris Maggiulli, Build and Integrations Engineer, Excelsior College",
+      "title": "Password written to the build log by PLUGIN_NAME",
+      "cve": "CVE-2020-2312",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.12 and earlier prints the `sqlplus` command invocation to the build log.\n\nThis log message does not redact a password provided as part of a command line argument.\nThis password can be viewed by users with Item/Read permission.\n\nPLUGIN_NAME 2.0.13 no longer prints the password in the build log.",
+      "plugins": [
+        {
+          "name": "sqlplus-script-runner",
+          "title": "SQLPlus Script Runner",
+          "previous": "2.0.12",
+          "fixed": "2.0.13"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>SQLPlus Script Runner Plugin 2.0.12 and earlier prints the <code>sqlplus</code> command invocation to the build log.</p>\n</div>\n<div class=\"paragraph\">\n<p>This log message does not redact a password provided as part of a command line argument.\nThis password can be viewed by users with Item/Read permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>SQLPlus Script Runner Plugin 2.0.13 no longer prints the password in the build log.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2110",
+      "reporter": null,
+      "title": "Missing permission checks in PLUGIN_NAME allow enumerating credentials IDs",
+      "cve": "CVE-2020-2313",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0 and earlier does not perform permission checks in several HTTP endpoints.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAn enumeration of credentials IDs in PLUGIN_NAME 2.1 requires the appropriate permissions.",
+      "plugins": [
+        {
+          "name": "azure-keyvault",
+          "title": "Azure Key Vault",
+          "previous": "2.0",
+          "fixed": "2.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Azure Key Vault Plugin 2.0 and earlier does not perform permission checks in several HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>An enumeration of credentials IDs in Azure Key Vault Plugin 2.1 requires the appropriate permissions.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2058",
+      "reporter": "Long Nguyen, Viettel Cyber Security",
+      "title": "Password stored in plain text by PLUGIN_NAME",
+      "cve": "CVE-2020-2314",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.12 and earlier stores a password unencrypted in its global configuration file `com.rapid7.jenkinspider.PostBuildScan.xml` on the Jenkins controller as part of its configuration.\n\nThis password can be viewed by users with access to the Jenkins controller file system.\n\nPLUGIN_NAME 1.0.13 stores a password encrypted once its configuration is saved again.",
+      "plugins": [
+        {
+          "name": "jenkinsci-appspider-plugin",
+          "title": "AppSpider",
+          "previous": "1.0.12",
+          "fixed": "1.0.13"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>AppSpider Plugin 1.0.12 and earlier stores a password unencrypted in its global configuration file <code>com.rapid7.jenkinspider.PostBuildScan.xml</code> on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>This password can be viewed by users with access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>AppSpider Plugin 1.0.13 stores a password encrypted once its configuration is saved again.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1900",
+      "reporter": "Jeff Thompson, CloudBees, Inc.",
+      "title": "XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2020-2315",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.1.3 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.\n\nThis allows attackers with the ability to control the output of a script that run Visualworks with StoreCI, or able to control an agent process, to have Jenkins parse a crafted file that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nPLUGIN_NAME 1.1.4 disables external entity resolution for its XML parser.",
+      "plugins": [
+        {
+          "name": "visualworks-store",
+          "title": "Visualworks Store",
+          "previous": "1.1.3",
+          "fixed": "1.1.4"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Visualworks Store Plugin 1.1.3 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with the ability to control the output of a script that run Visualworks with StoreCI, or able to control an agent process, to have Jenkins parse a crafted file that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>Visualworks Store Plugin 1.1.4 disables external entity resolution for its XML parser.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1907",
+      "reporter": "Wadeck Follonier, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2020-2316",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.96 and earlier does not escape the annotation message in tooltips.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Job/Configure permission.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "analysis-core",
+          "title": "Static Analysis Utilities",
+          "previous": "1.96",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Static Analysis Utilities Plugin 1.96 and earlier does not escape the annotation message in tooltips.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Job/Configure permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1918",
+      "reporter": "Wadeck Follonier, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2020-2317",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 5.0.0 and earlier does not escape the annotation message in tooltips.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to provide report files to PLUGIN_NAME's post build step.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "findbugs",
+          "title": "FindBugs",
+          "previous": "5.0.0",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>FindBugs Plugin 5.0.0 and earlier does not escape the annotation message in tooltips.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to provide report files to FindBugs Plugin&#8217;s post build step.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2085",
+      "reporter": "Long Nguyen, Viettel Cyber Security",
+      "title": "Passwords stored in plain text by PLUGIN_NAME",
+      "cve": "CVE-2020-2318",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.0 and earlier stores passwords unencrypted in job `config.xml` files on the Jenkins controller as part of its configuration.\n\nThese passwords can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "mailcommander",
+          "title": "Mail Commander Plugin for Jenkins-ci",
+          "previous": "1.0.0",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Mail Commander Plugin for Jenkins-ci Plugin 1.0.0 and earlier stores passwords unencrypted in job <code>config.xml</code> files on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>These passwords can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2084",
+      "reporter": "Long Nguyen, Viettel Cyber Security",
+      "title": "Password stored in plain text by PLUGIN_NAME",
+      "cve": "CVE-2020-2319",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 0.2.8 and earlier stores a password unencrypted in the global `config.xml` file on the Jenkins controller as part of its configuration.\n\nThis password can be viewed by users with access to the Jenkins controller file system.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "labmanager",
+          "title": "VMware Lab Manager Slaves",
+          "previous": "0.2.8",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>VMware Lab Manager Slaves Plugin 0.2.8 and earlier stores a password unencrypted in the global <code>config.xml</code> file on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>This password can be viewed by users with access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

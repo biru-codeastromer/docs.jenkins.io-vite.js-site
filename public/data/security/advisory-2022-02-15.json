@@ -1,0 +1,603 @@
+{
+  "title": "Jenkins Security Advisory 2022-02-15",
+  "date": "2022-02-15",
+  "url": "/security/advisory/2022-02-15/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-2463",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "OS command execution vulnerabilities in Pipeline-related plugins",
+      "cve": "CVE-2022-25173 (Pipeline: Groovy Plugin), CVE-2022-25174 (Pipeline: Shared Groovy Libraries), CVE-2022-25175 (Pipeline: Multibranch)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Multiple Pipeline-related plugins that perform on-controller SCM checkouts reuse the same workspace directory for checkouts of distinct SCMs in some contexts.\n\n- plugin:workflow-cps[Pipeline: Groovy Plugin] 2648.va9433432b33c and earlier uses the same checkout directories for distinct SCMs when reading the script file (typically `Jenkinsfile`) for Pipelines.\n- plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 552.vd9cc05b8a2e1 and earlier uses the same checkout directories for distinct SCMs for Pipeline libraries.\n- plugin:workflow-multibranch[Pipeline: Multibranch] 706.vd43c65dec013 and earlier uses the same checkout directories for distinct SCMs for the `readTrusted` step.\n\nThis allows attackers with Item/Configure permission to invoke arbitrary OS commands on the controller through crafted SCM contents.\n\nAffected plugins have been updated to address these issues:\n\n- plugin:workflow-cps[Pipeline: Groovy Plugin] 2656.vf7a_e7b_75a_457 uses distinct checkout directories per SCM when reading the script file (typically `Jenkinsfile`) for Pipelines.\n- plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 561.va_ce0de3c2d69 uses distinct checkout directories per SCM for Pipeline libraries.\n- plugin:workflow-multibranch[Pipeline: Multibranch] 707.v71c3f0a_6ccdb_ uses distinct checkout directories per SCM for the `readTrusted` step.",
+      "plugins": [
+        {
+          "name": "workflow-cps",
+          "title": "Pipeline: Groovy",
+          "previous": "2648.va9433432b33c",
+          "fixed": "2656.vf7a_e7b_75a_457"
+        },
+        {
+          "name": "workflow-cps-global-lib",
+          "title": "Pipeline: Deprecated Groovy Libraries",
+          "previous": "552.vd9cc05b8a2e1",
+          "fixed": "561.va_ce0de3c2d69"
+        },
+        {
+          "name": "workflow-multibranch",
+          "title": "Pipeline: Multibranch",
+          "previous": "706.vd43c65dec013",
+          "fixed": "707.v71c3f0a_6ccdb_"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Multiple Pipeline-related plugins that perform on-controller SCM checkouts reuse the same workspace directory for checkouts of distinct SCMs in some contexts.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>plugin:workflow-cps[Pipeline: Groovy Plugin] 2648.va9433432b33c and earlier uses the same checkout directories for distinct SCMs when reading the script file (typically <code>Jenkinsfile</code>) for Pipelines.</p>\n</li>\n<li>\n<p>plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 552.vd9cc05b8a2e1 and earlier uses the same checkout directories for distinct SCMs for Pipeline libraries.</p>\n</li>\n<li>\n<p>plugin:workflow-multibranch[Pipeline: Multibranch] 706.vd43c65dec013 and earlier uses the same checkout directories for distinct SCMs for the <code>readTrusted</code> step.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Configure permission to invoke arbitrary OS commands on the controller through crafted SCM contents.</p>\n</div>\n<div class=\"paragraph\">\n<p>Affected plugins have been updated to address these issues:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>plugin:workflow-cps[Pipeline: Groovy Plugin] 2656.vf7a_e7b_75a_457 uses distinct checkout directories per SCM when reading the script file (typically <code>Jenkinsfile</code>) for Pipelines.</p>\n</li>\n<li>\n<p>plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 561.va_ce0de3c2d69 uses distinct checkout directories per SCM for Pipeline libraries.</p>\n</li>\n<li>\n<p>plugin:workflow-multibranch[Pipeline: Multibranch] 707.v71c3f0a_6ccdb_ uses distinct checkout directories per SCM for the <code>readTrusted</code> step.</p>\n</li>\n</ul>\n</div>"
+    },
+    {
+      "id": "SECURITY-2613",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Vulnerabilities in multiple Pipeline-related plugins allow reading arbitrary files on the controller",
+      "cve": "CVE-2022-25176 (Pipeline: Groovy Plugin), CVE-2022-25177 (Pipeline: Shared Groovy Libraries), CVE-2022-25178 (Pipeline: Shared Groovy Libraries), CVE-2022-25179 (Pipeline: Multibranch)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+      },
+      "description_adoc": "Multiple Pipeline-related plugins follow symbolic links or do not limit path names, resulting in arbitrary file read vulnerabilities:\n\n- plugin:workflow-cps[Pipeline: Groovy Plugin] 2648.va9433432b33c and earlier follows symbolic links to locations outside of the checkout directory for the configured SCM when reading the script file (typically `Jenkinsfile`) for Pipelines (originally reported as SECURITY-2595).\n- plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 552.vd9cc05b8a2e1 and earlier follows symbolic links to locations outside of the expected Pipeline library when reading files using the `libraryResource` step (originally reported as SECURITY-2479).\n- plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 552.vd9cc05b8a2e1 and earlier does not restrict the names of resources passed to the `libraryResource` step (originally reported as SECURITY-2476).\n- plugin:workflow-multibranch[Pipeline: Multibranch] 706.vd43c65dec013 and earlier follows symbolic links to locations outside of the checkout directory for the configured SCM when reading files using the `readTrusted` step (originally reported as SECURITY-2491).\n\nThis allows attackers able to configure Pipelines to read arbitrary files on the Jenkins controller file system.\n\nAffected plugins have been updated to address these issues:\n\n- plugin:workflow-cps[Pipeline: Groovy Plugin] 2656.vf7a_e7b_75a_457 checks that the script file for Pipelines is inside of the checkout directory for the configured SCM.\n- plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 561.va_ce0de3c2d69 checks that any resources retrieved by the `libraryResource` step are contained within the expected Pipeline library.\n- plugin:workflow-multibranch[Pipeline: Multibranch] 707.v71c3f0a_6ccdb_ checks that the file retrieved by `readTrusted` is inside of the checkout directory for the configured SCM.",
+      "plugins": [
+        {
+          "name": "workflow-cps",
+          "title": "Pipeline: Groovy",
+          "previous": "2648.va9433432b33c",
+          "fixed": "2656.vf7a_e7b_75a_457"
+        },
+        {
+          "name": "workflow-cps-global-lib",
+          "title": "Pipeline: Deprecated Groovy Libraries",
+          "previous": "552.vd9cc05b8a2e1",
+          "fixed": "561.va_ce0de3c2d69"
+        },
+        {
+          "name": "workflow-multibranch",
+          "title": "Pipeline: Multibranch",
+          "previous": "706.vd43c65dec013",
+          "fixed": "707.v71c3f0a_6ccdb_"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Multiple Pipeline-related plugins follow symbolic links or do not limit path names, resulting in arbitrary file read vulnerabilities:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>plugin:workflow-cps[Pipeline: Groovy Plugin] 2648.va9433432b33c and earlier follows symbolic links to locations outside of the checkout directory for the configured SCM when reading the script file (typically <code>Jenkinsfile</code>) for Pipelines (originally reported as SECURITY-2595).</p>\n</li>\n<li>\n<p>plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 552.vd9cc05b8a2e1 and earlier follows symbolic links to locations outside of the expected Pipeline library when reading files using the <code>libraryResource</code> step (originally reported as SECURITY-2479).</p>\n</li>\n<li>\n<p>plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 552.vd9cc05b8a2e1 and earlier does not restrict the names of resources passed to the <code>libraryResource</code> step (originally reported as SECURITY-2476).</p>\n</li>\n<li>\n<p>plugin:workflow-multibranch[Pipeline: Multibranch] 706.vd43c65dec013 and earlier follows symbolic links to locations outside of the checkout directory for the configured SCM when reading files using the <code>readTrusted</code> step (originally reported as SECURITY-2491).</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to configure Pipelines to read arbitrary files on the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>Affected plugins have been updated to address these issues:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>plugin:workflow-cps[Pipeline: Groovy Plugin] 2656.vf7a_e7b_75a_457 checks that the script file for Pipelines is inside of the checkout directory for the configured SCM.</p>\n</li>\n<li>\n<p>plugin:workflow-cps-global-lib[Pipeline: Shared Groovy Libraries] 561.va_ce0de3c2d69 checks that any resources retrieved by the <code>libraryResource</code> step are contained within the expected Pipeline library.</p>\n</li>\n<li>\n<p>plugin:workflow-multibranch[Pipeline: Multibranch] 707.v71c3f0a_6ccdb_ checks that the file retrieved by <code>readTrusted</code> is inside of the checkout directory for the configured SCM.</p>\n</li>\n</ul>\n</div>"
+    },
+    {
+      "id": "SECURITY-2443",
+      "reporter": "James Nord, CloudBees, Inc.",
+      "title": "Sensitive information disclosure in PLUGIN_NAME",
+      "cve": "CVE-2022-25180",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2648.va9433432b33c and earlier includes password parameters from the original build in replayed builds.\n\nThis allows attackers with Run/Replay permission to obtain the values of password parameters passed to previous builds of a Pipeline.\n\nPLUGIN_NAME 2656.vf7a_e7b_75a_457 does not allow builds containing password parameters to be replayed.",
+      "plugins": [
+        {
+          "name": "workflow-cps",
+          "title": "Pipeline: Groovy",
+          "previous": "2648.va9433432b33c",
+          "fixed": "2656.vf7a_e7b_75a_457"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Groovy Plugin 2648.va9433432b33c and earlier includes password parameters from the original build in replayed builds.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Run/Replay permission to obtain the values of password parameters passed to previous builds of a Pipeline.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Groovy Plugin 2656.vf7a_e7b_75a_457 does not allow builds containing password parameters to be replayed.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2441",
+      "reporter": "Wadeck Follonier, CloudBees, Inc.",
+      "title": "Sandbox bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25181",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 552.vd9cc05b8a2e1 and earlier uses the same workspace directory for all checkouts of Pipeline libraries with the same name regardless of the SCM being used and the source of the library configuration.\n\nThis allows attackers with Item/Configure permission to execute arbitrary code in the context of the Jenkins controller JVM through crafted SCM contents, if a global Pipeline library already exists.\n\nPLUGIN_NAME 561.va_ce0de3c2d69 uses distinct checkout directories per SCM for Pipeline libraries.",
+      "plugins": [
+        {
+          "name": "workflow-cps-global-lib",
+          "title": "Pipeline: Deprecated Groovy Libraries",
+          "previous": "552.vd9cc05b8a2e1",
+          "fixed": "561.va_ce0de3c2d69"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Deprecated Groovy Libraries Plugin 552.vd9cc05b8a2e1 and earlier uses the same workspace directory for all checkouts of Pipeline libraries with the same name regardless of the SCM being used and the source of the library configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Configure permission to execute arbitrary code in the context of the Jenkins controller JVM through crafted SCM contents, if a global Pipeline library already exists.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Deprecated Groovy Libraries Plugin 561.va_ce0de3c2d69 uses distinct checkout directories per SCM for Pipeline libraries.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2422",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Sandbox bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25182",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 552.vd9cc05b8a2e1 and earlier uses the names of Pipeline libraries to create directories without canonicalization or sanitization.\n\nThis allows attackers with Item/Configure permission to execute arbitrary code in the context of the Jenkins controller JVM using specially crafted library names if a global Pipeline library is already configured.\n\nPLUGIN_NAME 561.va_ce0de3c2d69 sanitizes the names of Pipeline libraries when creating library directories.",
+      "plugins": [
+        {
+          "name": "workflow-cps-global-lib",
+          "title": "Pipeline: Deprecated Groovy Libraries",
+          "previous": "552.vd9cc05b8a2e1",
+          "fixed": "561.va_ce0de3c2d69"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Deprecated Groovy Libraries Plugin 552.vd9cc05b8a2e1 and earlier uses the names of Pipeline libraries to create directories without canonicalization or sanitization.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Configure permission to execute arbitrary code in the context of the Jenkins controller JVM using specially crafted library names if a global Pipeline library is already configured.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Deprecated Groovy Libraries Plugin 561.va_ce0de3c2d69 sanitizes the names of Pipeline libraries when creating library directories.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2586",
+      "reporter": "Devin Nusbaum, CloudBees, Inc.",
+      "title": "Sandbox bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25183",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 552.vd9cc05b8a2e1 and earlier uses the names of Pipeline libraries to create cache directories without any sanitization.\n\nThis allows attackers with Item/Configure permission to execute arbitrary code in the context of the Jenkins controller JVM using specially crafted library names if a global Pipeline library configured to use caching already exists.\n\nPLUGIN_NAME 561.va_ce0de3c2d69 sanitizes the names of Pipeline libraries when creating library cache directories.",
+      "plugins": [
+        {
+          "name": "workflow-cps-global-lib",
+          "title": "Pipeline: Deprecated Groovy Libraries",
+          "previous": "552.vd9cc05b8a2e1",
+          "fixed": "561.va_ce0de3c2d69"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Deprecated Groovy Libraries Plugin 552.vd9cc05b8a2e1 and earlier uses the names of Pipeline libraries to create cache directories without any sanitization.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Configure permission to execute arbitrary code in the context of the Jenkins controller JVM using specially crafted library names if a global Pipeline library configured to use caching already exists.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Deprecated Groovy Libraries Plugin 561.va_ce0de3c2d69 sanitizes the names of Pipeline libraries when creating library cache directories.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2519",
+      "reporter": null,
+      "title": "Password parameter default values exposed by PLUGIN_NAME",
+      "cve": "CVE-2022-25184",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.15 and earlier reveals password parameter default values when generating a pipeline script using the Pipeline Snippet Generator.\n\nThis allows attackers with Item/Read permission to retrieve the default password parameter value from jobs.\n\nPLUGIN_NAME 2.15.1 redacts password parameter in the generated pipeline script.",
+      "plugins": [
+        {
+          "name": "pipeline-build-step",
+          "title": "Pipeline: Build Step",
+          "previous": "2.15",
+          "fixed": "2.15.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Build Step Plugin 2.15 and earlier reveals password parameter default values when generating a pipeline script using the Pipeline Snippet Generator.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Read permission to retrieve the default password parameter value from jobs.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Build Step Plugin 2.15.1 redacts password parameter in the generated pipeline script.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2592",
+      "reporter": null,
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25185",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.81 and earlier does not escape the build cause for the webhook.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to trigger builds using the webhook.\n\nPLUGIN_NAME 1.82 escapes the build cause when displayed on the UI.\n\nNOTE: This vulnerability is only exploitable in Jenkins 2.314 and earlier, LTS 2.303.1 and earlier.\nSee the link:/doc/upgrade-guide/2.303/#SECURITY-2452[LTS upgrade guide].",
+      "plugins": [
+        {
+          "name": "generic-webhook-trigger",
+          "title": "Generic Webhook Trigger",
+          "previous": "1.81",
+          "fixed": "1.82"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Generic Webhook Trigger Plugin 1.81 and earlier does not escape the build cause for the webhook.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to trigger builds using the webhook.</p>\n</div>\n<div class=\"paragraph\">\n<p>Generic Webhook Trigger Plugin 1.82 escapes the build cause when displayed on the UI.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability is only exploitable in Jenkins 2.314 and earlier, LTS 2.303.1 and earlier.\nSee the <a href=\"/doc/upgrade-guide/2.303/#SECURITY-2452\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>"
+    },
+    {
+      "id": "SECURITY-2429",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Agent-to-controller security bypass in PLUGIN_NAME",
+      "cve": "CVE-2022-25186",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.8.0 and earlier implements functionality that allows agent processes to retrieve any Vault secrets for use on the agent.\n\nThis allows attackers able to control agent processes to obtain Vault secrets for an attacker-specified path and key.\n\nThe functionality that allow agent processes to capture Vault secret can no longer be used in PLUGIN_NAME 336.v182c0fbaaeb7.",
+      "plugins": [
+        {
+          "name": "hashicorp-vault-plugin",
+          "title": "HashiCorp Vault",
+          "previous": "3.8.0",
+          "fixed": "336.v182c0fbaaeb7"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>HashiCorp Vault Plugin 3.8.0 and earlier implements functionality that allows agent processes to retrieve any Vault secrets for use on the agent.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to control agent processes to obtain Vault secrets for an attacker-specified path and key.</p>\n</div>\n<div class=\"paragraph\">\n<p>The functionality that allow agent processes to capture Vault secret can no longer be used in HashiCorp Vault Plugin 336.v182c0fbaaeb7.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2186",
+      "reporter": "James Nord, CloudBees, Inc.",
+      "title": "Sensitive data stored in plain text by PLUGIN_NAME",
+      "cve": "CVE-2022-25187",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME has a feature to redact potentially sensitive information in the support bundle.\n\nPLUGIN_NAME 2.79 and earlier does not redact some sensitive information in the support bundle.\n\nThis sensitive information can be viewed by anyone with access to the bundle.\n\nPLUGIN_NAME 2.79.1 adds a list of keywords whose associated values will be redacted.\n\nThis list is stored in the `security-stop-words.txt` file located in `$JENKINS_HOME/support` and can be amended to add additional keywords for values that should be redacted.",
+      "plugins": [
+        {
+          "name": "support-core",
+          "title": "Support Core",
+          "previous": "2.79",
+          "fixed": "2.79.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Support Core Plugin has a feature to redact potentially sensitive information in the support bundle.</p>\n</div>\n<div class=\"paragraph\">\n<p>Support Core Plugin 2.79 and earlier does not redact some sensitive information in the support bundle.</p>\n</div>\n<div class=\"paragraph\">\n<p>This sensitive information can be viewed by anyone with access to the bundle.</p>\n</div>\n<div class=\"paragraph\">\n<p>Support Core Plugin 2.79.1 adds a list of keywords whose associated values will be redacted.</p>\n</div>\n<div class=\"paragraph\">\n<p>This list is stored in the <code>security-stop-words.txt</code> file located in <code>$JENKINS_HOME/support</code> and can be amended to add additional keywords for values that should be redacted.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2214",
+      "reporter": "Matt Sicker, CloudBees, Inc.",
+      "title": "Path traversal vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25188",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 20.2.34 and earlier does not sanitize the `appName` and `appVersion` parameters of its Pipeline steps, which are used to write to files inside build directories.\n\nThis allows attackers with Item/Configure permission to write or overwrite `.xml` files on the Jenkins controller file system with content not controllable by the attacker.\n\nPLUGIN_NAME 20.2.35 sanitizes the `appName` and `appVersion` parameters of its Pipeline steps when determining the resulting filename.",
+      "plugins": [
+        {
+          "name": "fortify",
+          "title": "Fortify",
+          "previous": "20.2.34",
+          "fixed": "20.2.35"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Fortify Plugin 20.2.34 and earlier does not sanitize the <code>appName</code> and <code>appVersion</code> parameters of its Pipeline steps, which are used to write to files inside build directories.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Configure permission to write or overwrite <code>.xml</code> files on the Jenkins controller file system with content not controllable by the attacker.</p>\n</div>\n<div class=\"paragraph\">\n<p>Fortify Plugin 20.2.35 sanitizes the <code>appName</code> and <code>appVersion</code> parameters of its Pipeline steps when determining the resulting filename.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2266",
+      "reporter": "Kevin Guerroudj",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25189",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.1 and earlier does not escape parameter names of custom checkbox parameters.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.\n\nPLUGIN_NAME 1.2 escapes parameter names of custom checkbox parameters.",
+      "plugins": [
+        {
+          "name": "custom-checkbox-parameter",
+          "title": "Custom Checkbox Parameter",
+          "previous": "1.1",
+          "fixed": "1.2"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Custom Checkbox Parameter Plugin 1.1 and earlier does not escape parameter names of custom checkbox parameters.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>Custom Checkbox Parameter Plugin 1.2 escapes parameter names of custom checkbox parameters.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2350",
+      "reporter": null,
+      "title": "Missing permission check in PLUGIN_NAME allows enumerating credentials IDs",
+      "cve": "CVE-2022-25190",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.11 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAn enumeration of credentials IDs in PLUGIN_NAME 1.0.12 requires Overall/Administer permission.",
+      "plugins": [
+        {
+          "name": "conjur-credentials",
+          "title": "Conjur Secrets",
+          "previous": "1.0.11",
+          "fixed": "1.0.12"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Conjur Secrets Plugin 1.0.11 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>An enumeration of credentials IDs in Conjur Secrets Plugin 1.0.12 requires Overall/Administer permission.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2268",
+      "reporter": "Kevin Guerroudj",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25191",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0 and earlier does not escape parameter names of agent server parameters.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.\n\nPLUGIN_NAME 1.1 escapes parameter names of agent server parameters.",
+      "plugins": [
+        {
+          "name": "agent-server-parameter",
+          "title": "Agent Server Parameter",
+          "previous": "1.0",
+          "fixed": "1.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Agent Server Parameter Plugin 1.0 and earlier does not escape parameter names of agent server parameters.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>Agent Server Parameter Plugin 1.1 escapes parameter names of agent server parameters.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2536",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME allow capturing credentials",
+      "cve": "CVE-2022-25192 (CSRF), CVE-2022-25193 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.10 and earlier does not perform permission checks in methods implementing form validation.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified webserver using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nAdditionally, these form validation methods do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nPLUGIN_NAME 2.0 requires POST requests and Overall/Administer permission for the affected form validation methods.",
+      "plugins": [
+        {
+          "name": "embotics-vcommander",
+          "title": "Snow Commander",
+          "previous": "1.10",
+          "fixed": "2.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Snow Commander Plugin 1.10 and earlier does not perform permission checks in methods implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified webserver using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these form validation methods do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>Snow Commander Plugin 2.0 requires POST requests and Overall/Administer permission for the affected form validation methods.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2545",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission check in PLUGIN_NAME",
+      "cve": "CVE-2022-25194 (CSRF), CVE-2022-25195 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.15 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified username and password.\n\nAdditionally, this HTTP endpoint does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nPLUGIN_NAME 1.16 requires POST requests and Overall/Administer permission for this HTTP endpoint.",
+      "plugins": [
+        {
+          "name": "autonomiq",
+          "title": "autonomiq",
+          "previous": "1.15",
+          "fixed": "1.16"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>autonomiq Plugin 1.15 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified username and password.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this HTTP endpoint does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>autonomiq Plugin 1.16 requires POST requests and Overall/Administer permission for this HTTP endpoint.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1833",
+      "reporter": "James Nord, CloudBees, Inc.",
+      "title": "Open redirect vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25196",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.13 and earlier records the HTTP `Referer` header as part of the URL query parameters when the authentication process starts and redirects users to that URL when the user has finished logging in.\n\nThis allows attackers with access to Jenkins to craft a URL that will redirect users to an attacker-specified URL after logging in.\n\nNOTE: This issue is caused by an incomplete fix of link:/security/advisory/2019-08-07/#SECURITY-796[SECURITY-796].\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "gitlab-oauth",
+          "title": "GitLab Authentication",
+          "previous": "1.13",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>GitLab Authentication Plugin 1.13 and earlier records the HTTP <code>Referer</code> header as part of the URL query parameters when the authentication process starts and redirects users to that URL when the user has finished logging in.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with access to Jenkins to craft a URL that will redirect users to an attacker-specified URL after logging in.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis issue is caused by an incomplete fix of <a href=\"/security/advisory/2019-08-07/#SECURITY-796\">SECURITY-796</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2521",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Agent-to-controller security bypass in PLUGIN_NAME allows reading arbitrary files",
+      "cve": "CVE-2022-25197",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 336.v182c0fbaaeb7 and earlier implements functionality that allows agent processes to read arbitrary files on the Jenkins controller file system.\n\nThis allows attackers able to control agent processes to read arbitrary files on the Jenkins controller file system.\n\nNOTE: This vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the link:/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3[LTS upgrade guide].\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "hashicorp-vault-plugin",
+          "title": "HashiCorp Vault",
+          "previous": "336.v182c0fbaaeb7",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>HashiCorp Vault Plugin 336.v182c0fbaaeb7 and earlier implements functionality that allows agent processes to read arbitrary files on the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to control agent processes to read arbitrary files on the Jenkins controller file system.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability is only exploitable in Jenkins 2.318 and earlier, LTS 2.303.2 and earlier.\nSee the <a href=\"/doc/upgrade-guide/2.303/#upgrading-to-jenkins-lts-2-303-3\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2323",
+      "reporter": "Kevin Guerroudj, Justin Philip, Marc Heyries",
+      "title": "CSRF vulnerability and missing permission check in PLUGIN_NAME",
+      "cve": "CVE-2022-25198 (CSRF), CVE-2022-25199 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.8 and earlier does not perform a permission check in a method implementing form validation.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified SSH server using attacker-specified username and password.\n\nAdditionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "scp",
+          "title": "SCP publisher",
+          "previous": "1.8",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>SCP publisher Plugin 1.8 and earlier does not perform a permission check in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified SSH server using attacker-specified username and password.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1017",
+      "reporter": "Oleg Nenashev",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME allow capturing credentials",
+      "cve": "CVE-2022-25200 (CSRF), CVE-2022-25201 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2022.1.2 and earlier does not perform permission checks in several HTTP endpoints.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified webserver using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nAdditionally, these HTTP endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "checkmarx",
+          "title": "Checkmarx",
+          "previous": "2022.1.2",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Checkmarx Plugin 2022.1.2 and earlier does not perform permission checks in several HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified webserver using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these HTTP endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2334",
+      "reporter": "Justin Philip",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25202",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.9 and earlier does not escape the name of custom promotion levels.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Overall/Administer permission.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "promoted-builds-simple",
+          "title": "Promoted Builds (Simple)",
+          "previous": "1.9",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Promoted Builds (Simple) Plugin 1.9 and earlier does not escape the name of custom promotion levels.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Overall/Administer permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2324",
+      "reporter": "Justin Philip",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25203",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 0.9.0 and earlier does not escape team names.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Overall/Read permission.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "team-views",
+          "title": "Team Views",
+          "previous": "0.9.0",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Team Views Plugin 0.9.0 and earlier does not escape team names.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Overall/Read permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2548",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Agent-to-controller security bypass vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-25204",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 0.4.1 and earlier implements functionality that allows agent processes to render files on the controller as Markdown or Asciidoc.\n\nAdditionally, error messages allow attackers able to control agent processes to determine whether a file with a given name exists.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "doktor",
+          "title": "Doktor",
+          "previous": "0.4.1",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Doktor Plugin 0.4.1 and earlier implements functionality that allows agent processes to render files on the controller as Markdown or Asciidoc.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, error messages allow attackers able to control agent processes to determine whether a file with a given name exists.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2177",
+      "reporter": "Wadeck Follonier, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME",
+      "cve": "CVE-2022-25205 (CSRF), CVE-2022-25206 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 0.5.2 and earlier does not perform a permission check in a method implementing form validation.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified database via JDBC using attacker-specified credentials.\n\nAdditionally, this method allows attackers to determine whether a class is available on the Jenkins controller's class path through error messages.\n\nAdditionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "dbCharts",
+          "title": "dbCharts",
+          "previous": "0.5.2",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>dbCharts Plugin 0.5.2 and earlier does not perform a permission check in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified database via JDBC using attacker-specified credentials.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this method allows attackers to determine whether a class is available on the Jenkins controller&#8217;s class path through error messages.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1377",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME allow XXE",
+      "cve": "CVE-2022-25207 (CSRF), CVE-2022-25208 (missing permission check), CVE-2022-25209 (XXE)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.20 and earlier does not perform a permission check in a method implementing form validation.\n\nThis allows attackers with Overall/Read permission to have Jenkins send an HTTP request to an attacker-controlled URL and have it parse the response as XML.\n\nAs the plugin does not configure its XML parser to prevent XML external entity (XXE) attacks, attackers can have Jenkins parse a crafted XML response that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nAdditionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "sinatra-chef-builder",
+          "title": "Chef Sinatra",
+          "previous": "1.20",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Chef Sinatra Plugin 1.20 and earlier does not perform a permission check in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to have Jenkins send an HTTP request to an attacker-controlled URL and have it parse the response as XML.</p>\n</div>\n<div class=\"paragraph\">\n<p>As the plugin does not configure its XML parser to prevent XML external entity (XXE) attacks, attackers can have Jenkins parse a crafted XML response that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2280",
+      "reporter": "Wadeck Follonier, CloudBees, Inc.",
+      "title": "Missing synchronization vulnerability in PLUGIN_NAME allow to capture passwords",
+      "cve": "CVE-2022-25210",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.1 and earlier uses static fields to store job configuration information.\n\nThis allows attackers with Item/Configure permission to capture passwords of the jobs that will be configured.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "convertigo-mobile-platform",
+          "title": "Convertigo Mobile Platform",
+          "previous": "1.1",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Convertigo Mobile Platform Plugin 1.1 and earlier uses static fields to store job configuration information.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Configure permission to capture passwords of the jobs that will be configured.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1988",
+      "reporter": "Wadeck Follonier, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission check in PLUGIN_NAME allows capturing credentials",
+      "cve": "CVE-2022-25211 (missing permission check), CVE-2022-25212 (CSRF)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.2.6 and earlier does not perform a permission check in a method implementing form validation.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nAdditionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nAs of publication of this advisory, there is no fix. link:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "swamp",
+          "title": "SWAMP",
+          "previous": "1.2.6",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>SWAMP Plugin 1.2.6 and earlier does not perform a permission check in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix. <a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

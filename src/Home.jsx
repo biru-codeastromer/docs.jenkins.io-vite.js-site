@@ -60,6 +60,11 @@ export default function Home() {
           Participate and Contribute
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/security" variant="body1">
+          Security
+        </Link>
+      </Typography>
     </Box>
   );
 }

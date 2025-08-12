@@ -1,0 +1,91 @@
+{
+  "title": "Jenkins Security Advisory 2019-08-28",
+  "date": "2019-08-28",
+  "url": "/security/advisory/2019-08-28/",
+  "kind": "core and plugins",
+  "core": {
+    "lts": {
+      "previous": "2.176.2",
+      "fixed": "2.176.3"
+    },
+    "weekly": {
+      "previous": "2.191",
+      "fixed": "2.192"
+    }
+  },
+  "issues": [
+    {
+      "id": "SECURITY-1453",
+      "reporter": "Jesper den Boer",
+      "title": "Stored XSS vulnerability in update center",
+      "cve": "CVE-2019-10383",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N"
+      },
+      "description_adoc": "Jenkins did not properly escape the update site URL in some status messages shown in the update center, resulting in a stored cross-site scripting vulnerability that is exploitable by administrators and affects other administrators.\n\nJenkins now escapes the update site URL in status messages shown in the update center.",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins did not properly escape the update site URL in some status messages shown in the update center, resulting in a stored cross-site scripting vulnerability that is exploitable by administrators and affects other administrators.</p>\n</div>\n<div class=\"paragraph\">\n<p>Jenkins now escapes the update site URL in status messages shown in the update center.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1491",
+      "reporter": null,
+      "title": "CSRF protection tokens for anonymous users did not expire in some circumstances",
+      "cve": "CVE-2019-10384",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:L"
+      },
+      "description_adoc": "Jenkins allowed the creation of CSRF tokens without a corresponding web session ID.\nThis is the result of an incomplete fix for SECURITY-626 in link:/security/advisory/2019-07-17/#SECURITY-626[the 2019-07-17 security advisory].\nThis allowed attackers able to obtain a CSRF token without associated session ID to implement CSRF attacks with the following constraints:\n\n* The token had to be created for the anonymous user (and could only be used for actions the anonymous user can perform).\n* The victim's IP address needed to remain unchanged (unless the proxy compatibility option was enabled).\n* The victim must not have a valid web session at the time of the attack.\n\nCSRF token generation now creates a web session if none exists yet, so that the lack of a web session ID cannot be exploited.\n\nNOTE: This fix may impact scripts that obtain a crumb from the crumb issuer API. They may need to be updated to retain the session ID for subsequent requests.\nFor further information, see the link:/doc/upgrade-guide/2.176/#SECURITY-626[LTS upgrade guide].\n\nAs a workaround, administrators can remove any permissions granted to the anonymous user so that no privileged actions can be taken.\nAlternatively, the plugin:strict-crumb-issuer[Strict Crumb Issuer] Plugin can be used instead of the built-in default crumb issuer to prevent this issue, because the vulnerability is not present in the plugin.",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins allowed the creation of CSRF tokens without a corresponding web session ID.\nThis is the result of an incomplete fix for SECURITY-626 in <a href=\"/security/advisory/2019-07-17/#SECURITY-626\">the 2019-07-17 security advisory</a>.\nThis allowed attackers able to obtain a CSRF token without associated session ID to implement CSRF attacks with the following constraints:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>The token had to be created for the anonymous user (and could only be used for actions the anonymous user can perform).</p>\n</li>\n<li>\n<p>The victim&#8217;s IP address needed to remain unchanged (unless the proxy compatibility option was enabled).</p>\n</li>\n<li>\n<p>The victim must not have a valid web session at the time of the attack.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>CSRF token generation now creates a web session if none exists yet, so that the lack of a web session ID cannot be exploited.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis fix may impact scripts that obtain a crumb from the crumb issuer API. They may need to be updated to retain the session ID for subsequent requests.\nFor further information, see the <a href=\"/doc/upgrade-guide/2.176/#SECURITY-626\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As a workaround, administrators can remove any permissions granted to the anonymous user so that no privileged actions can be taken.\nAlternatively, the plugin:strict-crumb-issuer[Strict Crumb Issuer] Plugin can be used instead of the built-in default crumb issuer to prevent this issue, because the vulnerability is not present in the plugin.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1294",
+      "reporter": null,
+      "title": "Sandbox Bypass in PLUGIN_NAME",
+      "cve": "CVE-2019-10390",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME has a form validation HTTP endpoint used to validate a user-submitted Groovy script through compilation, which was not subject to sandbox protection.\nThis allowed attackers with Overall/Read access to execute arbitrary code on the Jenkins controller by applying AST transforming annotations such as `@Grab` to source code elements.\n\nThe affected HTTP endpoint now applies a safe Groovy compiler configuration preventing the use of unsafe AST transforming annotations.",
+      "plugins": [
+        {
+          "name": "splunk-devops",
+          "title": "Splunk",
+          "previous": "1.7.4",
+          "fixed": "1.8.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Splunk Plugin has a form validation HTTP endpoint used to validate a user-submitted Groovy script through compilation, which was not subject to sandbox protection.\nThis allowed attackers with Overall/Read access to execute arbitrary code on the Jenkins controller by applying AST transforming annotations such as <code>@Grab</code> to source code elements.</p>\n</div>\n<div class=\"paragraph\">\n<p>The affected HTTP endpoint now applies a safe Groovy compiler configuration preventing the use of unsafe AST transforming annotations.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1512",
+      "reporter": "James Holderness, IB Boost",
+      "title": "PLUGIN_NAME showed plain text password in job configuration form fields",
+      "cve": "CVE-2019-10391",
+      "cvss": {
+        "severity": "low",
+        "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME stores service passwords in job configurations.\n\nWhile the password is stored encrypted on disk, it was transmitted in plain text as part of the configuration form. This could result in exposure of the password through browser extensions, cross-site scripting vulnerabilities, and similar situations.\n\nPLUGIN_NAME no longer transmits the password form field in plain text.",
+      "plugins": [
+        {
+          "name": "ibm-application-security",
+          "title": "Deprecated: IBM AppScan",
+          "previous": "1.2.4",
+          "fixed": "1.2.5"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Deprecated: IBM AppScan Plugin stores service passwords in job configurations.</p>\n</div>\n<div class=\"paragraph\">\n<p>While the password is stored encrypted on disk, it was transmitted in plain text as part of the configuration form. This could result in exposure of the password through browser extensions, cross-site scripting vulnerabilities, and similar situations.</p>\n</div>\n<div class=\"paragraph\">\n<p>Deprecated: IBM AppScan Plugin no longer transmits the password form field in plain text.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}
