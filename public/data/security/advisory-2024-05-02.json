@@ -1,0 +1,96 @@
+{
+  "title": "Jenkins Security Advisory 2024-05-02",
+  "date": "2024-05-02",
+  "url": "/security/advisory/2024-05-02/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-3341",
+      "reporter": "Devin Nusbaum, CloudBees, Inc.",
+      "title": "Multiple sandbox bypass vulnerabilities in PLUGIN_NAME",
+      "cve": "CVE-2024-34144 (crafted constructor bodies), CVE-2024-34145 (sandbox-defined classes)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME provides a sandbox feature that allows low privileged users to define scripts, including Pipelines, that are generally safe to execute.\nCalls to code defined inside a sandboxed script are intercepted, and various allowlists are checked to determine whether the call is to be allowed.\n\nMultiple sandbox bypass vulnerabilities exist in PLUGIN_NAME 1335.vf07d9ce377a_e and earlier:\n\n* Crafted constructor bodies that invoke other constructors can be used to construct any subclassable type via implicit casts.\n* Sandbox-defined Groovy classes that shadow specific non-sandbox-defined classes can be used to construct any subclassable type.\n\nThese vulnerabilities allow attackers with permission to define and run sandboxed scripts, including Pipelines, to bypass the sandbox protection and execute arbitrary code in the context of the Jenkins controller JVM.\n\nNOTE: These issues are caused by an incomplete fix of link:/security/advisory/2022-10-19/#SECURITY-2824%20(1)[SECURITY-2824].\n\nPLUGIN_NAME 1336.vf33a_a_9863911 has additional restrictions and sanity checks to ensure that super constructors cannot be constructed without being intercepted by the sandbox:\n\n* Calls to to other constructors using `this` are now intercepted by the sandbox.\n* Classes in packages that can be shadowed by Groovy-defined classes are no longer ignored by the sandbox when intercepting super constructor calls.",
+      "plugins": [
+        {
+          "name": "script-security",
+          "title": "Script Security",
+          "previous": "1335.vf07d9ce377a_e",
+          "fixed": "1336.vf33a_a_9863911"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Script Security Plugin provides a sandbox feature that allows low privileged users to define scripts, including Pipelines, that are generally safe to execute.\nCalls to code defined inside a sandboxed script are intercepted, and various allowlists are checked to determine whether the call is to be allowed.</p>\n</div>\n<div class=\"paragraph\">\n<p>Multiple sandbox bypass vulnerabilities exist in Script Security Plugin 1335.vf07d9ce377a_e and earlier:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Crafted constructor bodies that invoke other constructors can be used to construct any subclassable type via implicit casts.</p>\n</li>\n<li>\n<p>Sandbox-defined Groovy classes that shadow specific non-sandbox-defined classes can be used to construct any subclassable type.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>These vulnerabilities allow attackers with permission to define and run sandboxed scripts, including Pipelines, to bypass the sandbox protection and execute arbitrary code in the context of the Jenkins controller JVM.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThese issues are caused by an incomplete fix of <a href=\"/security/advisory/2022-10-19/#SECURITY-2824%20(1)\">SECURITY-2824</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Script Security Plugin 1336.vf33a_a_9863911 has additional restrictions and sanity checks to ensure that super constructors cannot be constructed without being intercepted by the sandbox:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Calls to to other constructors using <code>this</code> are now intercepted by the sandbox.</p>\n</li>\n<li>\n<p>Classes in packages that can be shadowed by Groovy-defined classes are no longer ignored by the sandbox when intercepting super constructor calls.</p>\n</li>\n</ul>\n</div>"
+    },
+    {
+      "id": "SECURITY-3342",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Missing permission check in PLUGIN_NAME",
+      "cve": "CVE-2024-34146",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 114.v068a_c7cc2574 and earlier does not perform a permission check for read access to a Git repository over SSH.\n\nThis allows attackers with a previously configured SSH public key but lacking Overall/Read permission to access Git repositories.\n\nPLUGIN_NAME 117.veb_68868fa_027 requires Overall/Read permission to access Git repositories over SSH.",
+      "plugins": [
+        {
+          "name": "git-server",
+          "title": "Git server",
+          "previous": "114.v068a_c7cc2574",
+          "fixed": "117.veb_68868fa_027"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Git server Plugin 114.v068a_c7cc2574 and earlier does not perform a permission check for read access to a Git repository over SSH.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with a previously configured SSH public key but lacking Overall/Read permission to access Git repositories.</p>\n</div>\n<div class=\"paragraph\">\n<p>Git server Plugin 117.veb_68868fa_027 requires Overall/Read permission to access Git repositories over SSH.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3294",
+      "reporter": "Surya Dev Singh Rawal , Siemens-Healthineers Pvt Ltd",
+      "title": "Token stored in plain text by PLUGIN_NAME",
+      "cve": "CVE-2024-34147",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.4.0 and earlier stores the Telegram Bot token unencrypted in its global configuration file `jenkinsci.plugins.telegrambot.TelegramBotGlobalConfiguration.xml` on the Jenkins controller as part of its configuration.\n\nThis token can be viewed by users with access to the Jenkins controller file system.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "telegram-notifications",
+          "title": "Telegram Bot",
+          "previous": "1.4.0",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Telegram Bot Plugin 1.4.0 and earlier stores the Telegram Bot token unencrypted in its global configuration file <code>jenkinsci.plugins.telegrambot.TelegramBotGlobalConfiguration.xml</code> on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>This token can be viewed by users with access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3331",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Security protection disabled by PLUGIN_NAME",
+      "cve": "CVE-2024-34148",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.1 and earlier programmatically sets the link:/doc/book/managing/system-properties/#hudson-model-parametersaction-keepundefinedparameters[Java system property `hudson.model.ParametersAction.keepUndefinedParameters`] whenever a build is triggered from a release tag with the 'Svn-Partial Release Manager' SCM.\nDoing so disables the fix for link:/security/advisory/2016-05-11/#arbitrary-build-parameters-are-passed-to-build-scripts-as-environment-variables[SECURITY-170 / CVE-2016-3721].\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "svn-partial-release-mgr",
+          "title": "Subversion Partial Release Manager",
+          "previous": "1.0.1",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Subversion Partial Release Manager Plugin 1.0.1 and earlier programmatically sets the <a href=\"/doc/book/managing/system-properties/#hudson-model-parametersaction-keepundefinedparameters\">Java system property <code>hudson.model.ParametersAction.keepUndefinedParameters</code></a> whenever a build is triggered from a release tag with the 'Svn-Partial Release Manager' SCM.\nDoing so disables the fix for <a href=\"/security/advisory/2016-05-11/#arbitrary-build-parameters-are-passed-to-build-scripts-as-environment-variables\">SECURITY-170 / CVE-2016-3721</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

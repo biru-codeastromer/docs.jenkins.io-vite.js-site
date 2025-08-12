@@ -1,0 +1,161 @@
+{
+  "title": "Jenkins Security Advisory 2023-07-26",
+  "date": "2023-07-26",
+  "url": "/security/advisory/2023-07-26/",
+  "kind": "core and plugins",
+  "core": {
+    "lts": {
+      "previous": "2.401.2",
+      "fixed": "2.401.3 or 2.414.1"
+    },
+    "weekly": {
+      "previous": "2.415",
+      "fixed": "2.416"
+    }
+  },
+  "issues": [
+    {
+      "id": "SECURITY-3188",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc. and Devin Nusbaum, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability",
+      "cve": "CVE-2023-39151",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Jenkins applies formatting to the console output of builds, transforming plain URLs into hyperlinks.\n\nJenkins 2.415 and earlier, LTS 2.401.2 and earlier does not sanitize or properly encode URLs of these hyperlinks in build logs.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to control build log contents.\n\nJenkins 2.416, LTS 2.401.3, and LTS 2.414.1 encode URLs of affected hyperlink annotations in build logs.",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins applies formatting to the console output of builds, transforming plain URLs into hyperlinks.</p>\n</div>\n<div class=\"paragraph\">\n<p>Jenkins 2.415 and earlier, LTS 2.401.2 and earlier does not sanitize or properly encode URLs of these hyperlinks in build logs.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to control build log contents.</p>\n</div>\n<div class=\"paragraph\">\n<p>Jenkins 2.416, LTS 2.401.3, and LTS 2.414.1 encode URLs of affected hyperlink annotations in build logs.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3208",
+      "reporter": null,
+      "title": "Incorrect control flow in PLUGIN_NAME breaks credentials masking in the build log",
+      "cve": "CVE-2023-39152",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.8 improperly invokes APIs available only on the controller from an agent when setting up build log annotations, causing an exception.\n\nAs a result, credentials may not be masked (i.e., replaced with asterisks) in the build log in some circumstances.\n\nPLUGIN_NAME 2.8.1 improves the control flow and handles the exception, so that credentials masking is not affected.\n\nNOTE: An improvement in https://plugins.jenkins.io/workflow-api/[Pipeline: API] 1232.v1679fa_2f0f76 prevents issues like this from affecting credentials masking in the future.\nAs of the publication of this advisory, the Jenkins security team is not aware of other plugins with a similar issue.",
+      "plugins": [
+        {
+          "name": "gradle",
+          "title": "Gradle",
+          "previous": "2.8",
+          "fixed": "2.8.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Gradle Plugin 2.8 improperly invokes APIs available only on the controller from an agent when setting up build log annotations, causing an exception.</p>\n</div>\n<div class=\"paragraph\">\n<p>As a result, credentials may not be masked (i.e., replaced with asterisks) in the build log in some circumstances.</p>\n</div>\n<div class=\"paragraph\">\n<p>Gradle Plugin 2.8.1 improves the control flow and handles the exception, so that credentials masking is not affected.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nAn improvement in <a href=\"https://plugins.jenkins.io/workflow-api/\">Pipeline: API</a> 1232.v1679fa_2f0f76 prevents issues like this from affecting credentials masking in the future.\nAs of the publication of this advisory, the Jenkins security team is not aware of other plugins with a similar issue.\n</td>\n</tr>\n</table>\n</div>"
+    },
+    {
+      "id": "SECURITY-2696",
+      "reporter": "Wadeck Follonier, CloudBees Inc.",
+      "title": "CSRF vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-39153",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.17.1 and earlier does not implement a state parameter in its OAuth flow, a unique and non-guessable value associated with each authentication request.\n\nThis vulnerability allows attackers to trick users into logging in to the attacker's account.\n\nPLUGIN_NAME 1.18 implements a state parameter in its OAuth flow.",
+      "plugins": [
+        {
+          "name": "gitlab-oauth",
+          "title": "GitLab Authentication",
+          "previous": "1.17.1",
+          "fixed": "1.18"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>GitLab Authentication Plugin 1.17.1 and earlier does not implement a state parameter in its OAuth flow, a unique and non-guessable value associated with each authentication request.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers to trick users into logging in to the attacker&#8217;s account.</p>\n</div>\n<div class=\"paragraph\">\n<p>GitLab Authentication Plugin 1.18 implements a state parameter in its OAuth flow.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3129",
+      "reporter": "Alvaro Muñoz (@pwntester), GitHub Security Lab",
+      "title": "CSRF vulnerability and missing permission check in PLUGIN_NAME allow capturing credentials",
+      "cve": "CVE-2023-3414 (CSRF), CVE-2023-3442 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.38.0 and earlier does not perform a permission check in a method implementing form validation.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nAdditionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nPLUGIN_NAME 1.38.1 requires POST requests and Overall/Administer permission for the affected form validation method.",
+      "plugins": [
+        {
+          "name": "servicenow-devops",
+          "title": "ServiceNow DevOps",
+          "previous": "1.38.0",
+          "fixed": "1.38.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>ServiceNow DevOps Plugin 1.38.0 and earlier does not perform a permission check in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>ServiceNow DevOps Plugin 1.38.1 requires POST requests and Overall/Administer permission for the affected form validation method.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3012",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Incorrect permission checks in PLUGIN_NAME allow capturing credentials",
+      "cve": "CVE-2023-39154",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.10 and earlier does not correctly perform permission checks in several HTTP endpoints.\n\nThis allows attackers with global Item/Configure permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nPLUGIN_NAME 2.0.11 requires the appropriate permissions for the affected HTTP endpoints.",
+      "plugins": [
+        {
+          "name": "qualys-was",
+          "title": "Qualys Web App Scanning Connector",
+          "previous": "2.0.10",
+          "fixed": "2.0.11"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Qualys Web App Scanning Connector Plugin 2.0.10 and earlier does not correctly perform permission checks in several HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with global Item/Configure permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Qualys Web App Scanning Connector Plugin 2.0.11 requires the appropriate permissions for the affected HTTP endpoints.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3192",
+      "reporter": "Andrea Chiera, CloudBees, Inc.",
+      "title": "Secret displayed without masking by PLUGIN_NAME",
+      "cve": "CVE-2023-39155",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME stores the user.pem key in its global configuration file `io.chef.jenkins.ChefIdentityBuildWrapper.xml` on the Jenkins controller as part of its configuration.\n\nWhile this key is stored encrypted on disk, in PLUGIN_NAME 2.0.3 and earlier the global configuration form does not mask the user.pem key form field, increasing the potential for attackers to observe and capture it.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "chef-identity",
+          "title": "Chef Identity",
+          "previous": "2.0.3",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Chef Identity Plugin stores the user.pem key in its global configuration file <code>io.chef.jenkins.ChefIdentityBuildWrapper.xml</code> on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>While this key is stored encrypted on disk, in Chef Identity Plugin 2.0.3 and earlier the global configuration form does not mask the user.pem key form field, increasing the potential for attackers to observe and capture it.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3095",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "CSRF vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-39156",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.22 and earlier does not require POST requests for an HTTP endpoint, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nThis vulnerability allows attackers to delete previously created Bazaar SCM tags.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "bazaar",
+          "title": "Bazaar",
+          "previous": "1.22",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Bazaar Plugin 1.22 and earlier does not require POST requests for an HTTP endpoint, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers to delete previously created Bazaar SCM tags.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

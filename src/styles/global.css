@@ -360,3 +360,23 @@ a {
     font-size: 0.9rem;
   }
 }
+
+.security-fonts,
+.security-fonts h1,
+.security-fonts .h1,
+.security-fonts h2,
+.security-fonts .h2,
+.security-fonts h3,
+.security-fonts .h3,
+.security-fonts h4,
+.security-fonts .h4,
+.security-fonts p,
+.security-fonts li,
+.security-fonts a,
+.security-fonts small,
+.security-fonts code,
+.security-fonts pre {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  line-height: 1.65;
+}

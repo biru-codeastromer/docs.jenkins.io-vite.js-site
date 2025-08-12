@@ -1,0 +1,39 @@
+{
+  "title": "Jenkins Security Advisory 2018-10-29",
+  "date": "2018-10-29",
+  "url": "/security/advisory/2018-10-29/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-1186",
+      "reporter": "Man Yue Mo of Semmle Security Research Team",
+      "title": "Sandbox Bypass in Script Security and Pipeline Groovy Plugins",
+      "cve": "CVE-2018-1000865 (Script Security Plugin) and CVE-2018-1000866 (Pipeline: Groovy Plugin)\n",
+      "cvss": {
+        "severity": "high",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "The Groovy Sandbox library used by Script Security Plugin and Pipeline Groovy Plugin did not apply sandbox restrictions to finalize methods.\nThis could be used to invoke arbitrary constructors and methods, bypassing sandbox protection.\n\nFinalize methods are now prohibited in classes subject to sandbox security.\n\nNOTE: This may result in existing sandboxed scripts, such as pipelines, starting to fail if they use this language feature.\n",
+      "plugins": [
+        {
+          "name": "script-security",
+          "title": "Script Security",
+          "previous": 1.47,
+          "fixed": 1.48
+        },
+        {
+          "name": "workflow-cps",
+          "title": "Pipeline: Groovy",
+          "previous": 2.59,
+          "fixed": "2.60"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>The Groovy Sandbox library used by Script Security Plugin and Pipeline Groovy Plugin did not apply sandbox restrictions to finalize methods.\nThis could be used to invoke arbitrary constructors and methods, bypassing sandbox protection.</p>\n</div>\n<div class=\"paragraph\">\n<p>Finalize methods are now prohibited in classes subject to sandbox security.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis may result in existing sandboxed scripts, such as pipelines, starting to fail if they use this language feature.\n</td>\n</tr>\n</table>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

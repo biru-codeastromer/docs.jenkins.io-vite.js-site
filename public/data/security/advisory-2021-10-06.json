@@ -1,0 +1,84 @@
+{
+  "title": "Jenkins Security Advisory 2021-10-06",
+  "date": "2021-10-06",
+  "url": "/security/advisory/2021-10-06/",
+  "kind": "core and plugins",
+  "core": {
+    "lts": {
+      "previous": "2.303.1",
+      "fixed": "2.303.2"
+    },
+    "weekly": {
+      "previous": "2.314",
+      "fixed": "2.315"
+    }
+  },
+  "issues": [
+    {
+      "id": "SECURITY-2424",
+      "reporter": "Wadeck Follonier, CloudBees, Inc., Daniel Beck, CloudBees, Inc., and James Nord, CloudBees, Inc.",
+      "title": "Improper handling of equivalent directory names on Windows",
+      "cve": "CVE-2021-21682",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L"
+      },
+      "description_adoc": "Jenkins stores jobs and other entities on disk using their name shown on the UI as file and folder names.\n\nOn Windows, when specifying a file or folder with a trailing dot character (`example.`), the file or folder will be treated as if that character was not present (`example`).\nAs both are legal names for jobs and other entities in Jenkins 2.314 and earlier, LTS 2.303.1 and earlier, this could allow users with the appropriate permissions to change or replace configurations of jobs and other entities.\n\nJenkins 2.315, LTS 2.303.2 does not allow names of jobs and other entities to end with a dot character.",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins stores jobs and other entities on disk using their name shown on the UI as file and folder names.</p>\n</div>\n<div class=\"paragraph\">\n<p>On Windows, when specifying a file or folder with a trailing dot character (<code>example.</code>), the file or folder will be treated as if that character was not present (<code>example</code>).\nAs both are legal names for jobs and other entities in Jenkins 2.314 and earlier, LTS 2.303.1 and earlier, this could allow users with the appropriate permissions to change or replace configurations of jobs and other entities.</p>\n</div>\n<div class=\"paragraph\">\n<p>Jenkins 2.315, LTS 2.303.2 does not allow names of jobs and other entities to end with a dot character.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2475",
+      "reporter": null,
+      "title": "Jenkins core bundles vulnerable version of the commons-httpclient library",
+      "cve": "CVE-2014-3577",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "Jenkins 2.314 and earlier, LTS 2.303.1 and earlier bundles a version of the commons-httpclient library with the vulnerability https://nvd.nist.gov/vuln/detail/CVE-2014-3577[CVE-2014-3577] that incorrectly verified SSL/TLS certificates, making it susceptible to man-in-the-middle attacks.\n\nThis library is widely used as a transitive dependency in Jenkins plugins.\n\nThe fix for CVE-2014-3577 was backported to the version of commons-httpclient that is bundled in Jenkins 2.315, LTS 2.303.2 and made available to plugins.",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins 2.314 and earlier, LTS 2.303.1 and earlier bundles a version of the commons-httpclient library with the vulnerability <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2014-3577\">CVE-2014-3577</a> that incorrectly verified SSL/TLS certificates, making it susceptible to man-in-the-middle attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>This library is widely used as a transitive dependency in Jenkins plugins.</p>\n</div>\n<div class=\"paragraph\">\n<p>The fix for CVE-2014-3577 was backported to the version of commons-httpclient that is bundled in Jenkins 2.315, LTS 2.303.2 and made available to plugins.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2481",
+      "reporter": "Mümin Köykıran",
+      "title": "Path traversal vulnerability on Windows",
+      "cve": "CVE-2021-21683",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+      },
+      "description_adoc": "The file browser for workspaces, archived artifacts, and `userContent/` in Jenkins 2.314 and earlier, LTS 2.303.1 and earlier may interpret some paths to files as absolute on Windows.\n\nThis results in a path traversal vulnerability allowing attackers with Overall/Read permission (Windows controller) or Job/Workspace permission (Windows agents) to obtain the contents of arbitrary files.\n\nThe file browser in Jenkins 2.315, LTS 2.303.2 refuses to serve files that would be considered absolute paths.",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>The file browser for workspaces, archived artifacts, and <code>userContent/</code> in Jenkins 2.314 and earlier, LTS 2.303.1 and earlier may interpret some paths to files as absolute on Windows.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a path traversal vulnerability allowing attackers with Overall/Read permission (Windows controller) or Job/Workspace permission (Windows agents) to obtain the contents of arbitrary files.</p>\n</div>\n<div class=\"paragraph\">\n<p>The file browser in Jenkins 2.315, LTS 2.303.2 refuses to serve files that would be considered absolute paths.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2499",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2021-21684",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 4.8.2 and earlier does not escape the Git SHA-1 checksum parameters provided to commit notifications when displaying them in a build cause.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to submit crafted commit notifications to the `/git/notifyCommit` endpoint.\n\nPLUGIN_NAME 4.8.3 rejects Git SHA-1 checksum parameters that do not match the expected format.\nExisting values are sanitized when displayed on the UI.\n\nNOTE: This vulnerability is only exploitable in Jenkins 2.314 and earlier, LTS 2.303.1 and earlier.\nSee the link:/doc/upgrade-guide/2.303/#SECURITY-2452[LTS upgrade guide].",
+      "plugins": [
+        {
+          "name": "git",
+          "title": "Git",
+          "previous": "4.8.2",
+          "fixed": "4.8.3"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Git Plugin 4.8.2 and earlier does not escape the Git SHA-1 checksum parameters provided to commit notifications when displaying them in a build cause.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to submit crafted commit notifications to the <code>/git/notifyCommit</code> endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>Git Plugin 4.8.3 rejects Git SHA-1 checksum parameters that do not match the expected format.\nExisting values are sanitized when displayed on the UI.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability is only exploitable in Jenkins 2.314 and earlier, LTS 2.303.1 and earlier.\nSee the <a href=\"/doc/upgrade-guide/2.303/#SECURITY-2452\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}
