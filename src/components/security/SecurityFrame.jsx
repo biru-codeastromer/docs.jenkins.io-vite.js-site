@@ -51,8 +51,17 @@ export default function SecurityFrame({ title, description, children, notitle })
             max-width: 100%;
             overflow-x: hidden;
           }
-        `}
-        </style>
+          .security-plugin-list {
+            display: inline;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+          }
+          .security-plugin-list a {
+            white-space: normal;
+            padding: 0 2px;
+          }
+        `}</style>
       </Helmet>
 
       <script src="/assets/bower/jquery/jquery.min.js"></script>

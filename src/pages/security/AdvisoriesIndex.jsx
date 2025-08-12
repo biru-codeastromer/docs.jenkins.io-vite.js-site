@@ -51,13 +51,17 @@ export default function AdvisoriesIndex() {
                               {a.core ? <li>Affects Jenkins Core</li> : null}
                               {a.plugins && a.plugins.length > 0 ? (
                                 <li>
-                                  <span style={{ whiteSpace: 'nowrap' }}>Affects Plugins:</span>{' '}
-                                  {a.plugins.map((p, idx) => (
-                                    <a key={p.name} href={`https://plugins.jenkins.io/${p.name}`} style={{ whiteSpace: 'nowrap', padding: '2px' }}>
-                                      {p.title || p.name}
-                                      {idx < a.plugins.length - 1 ? ' ' : ''}
-                                    </a>
-                                  ))}
+                                  <span>Affects Plugins:</span>{' '}
+                                  <span className="security-plugin-list">
+                                    {a.plugins.map((p, idx) => (
+                                      <span key={p.name}>
+                                        <a href={`https://plugins.jenkins.io/${p.name}`}>
+                                          {p.title || p.name}
+                                        </a>
+                                        {idx < a.plugins.length - 1 ? ', ' : ''}
+                                      </span>
+                                    ))}
+                                  </span>
                                 </li>
                               ) : null}
                               {a.components?.map((c, idx) => (
