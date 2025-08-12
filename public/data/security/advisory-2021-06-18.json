@@ -1,0 +1,33 @@
+{
+  "title": "Jenkins Security Advisory 2021-06-18",
+  "date": "2021-06-18",
+  "url": "/security/advisory/2021-06-18/",
+  "kind": "plugin",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-2330",
+      "reporter": "Kevin Guerroudj, Justin Philip, Marc Heyries",
+      "title": "XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2021-21669",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.72 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.\n\nThis allows attackers with the ability to call webhooks configured to extract parameters using XPath to have Jenkins parse a crafted XML request body that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nPLUGIN_NAME 1.74 disables external entity resolution for its XML parser.",
+      "plugins": [
+        {
+          "name": "generic-webhook-trigger",
+          "title": "Generic Webhook Trigger",
+          "previous": "1.72",
+          "fixed": "1.74"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Generic Webhook Trigger Plugin 1.72 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with the ability to call webhooks configured to extract parameters using XPath to have Jenkins parse a crafted XML request body that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>Generic Webhook Trigger Plugin 1.74 disables external entity resolution for its XML parser.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

@@ -41,6 +41,18 @@ export default function SecurityFrame({ title, description, children, notitle })
         <link rel="stylesheet" href="/stylesheets/styles.css" />
         <link rel="stylesheet" href="/css/footer.css" />
         <link rel="stylesheet" href="/css/font-awesome.min.css" />
+        <style>{`
+          .security-fonts, .security-fonts * {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            white-space: normal;
+          }
+          .security-fonts {
+            max-width: 100%;
+            overflow-x: hidden;
+          }
+        `}
+        </style>
       </Helmet>
 
       <script src="/assets/bower/jquery/jquery.min.js"></script>
