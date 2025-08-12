@@ -1,0 +1,45 @@
+{
+  "title": "Jenkins Security Advisory 2019-01-08",
+  "date": "2019-01-08",
+  "url": "/security/advisory/2019-01-08/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-1266",
+      "reporter": "Orange Tsai(@orange_8361) from DEVCORE",
+      "title": "Sandbox Bypass in Script Security and Pipeline Plugins",
+      "cve": "CVE-2019-1003000 (Script Security), CVE-2019-1003001 (Pipeline: Groovy), CVE-2019-1003002 (Pipeline: Declarative)\n",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "Script Security sandbox protection could be circumvented during the script compilation phase by applying AST transforming annotations such as `@Grab` to source code elements.\n\nBoth the pipeline validation REST APIs and actual script/pipeline execution are affected.\n\nThis allowed users with Overall/Read permission, or able to control Jenkinsfile or sandboxed Pipeline shared library contents in SCM, to bypass the sandbox protection and execute arbitrary code on the Jenkins controller.\n\nAll known unsafe AST transformations in Groovy are now prohibited in sandboxed scripts.\n",
+      "plugins": [
+        {
+          "name": "script-security",
+          "title": "Script Security",
+          "previous": 1.49,
+          "fixed": "1.50"
+        },
+        {
+          "name": "workflow-cps",
+          "title": "Pipeline: Groovy",
+          "previous": 2.61,
+          "fixed": "2.61.1"
+        },
+        {
+          "name": "pipeline-model-definition",
+          "title": "Pipeline: Declarative",
+          "previous": "1.3.4",
+          "fixed": "1.3.4.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Script Security sandbox protection could be circumvented during the script compilation phase by applying AST transforming annotations such as <code>@Grab</code> to source code elements.</p>\n</div>\n<div class=\"paragraph\">\n<p>Both the pipeline validation REST APIs and actual script/pipeline execution are affected.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allowed users with Overall/Read permission, or able to control Jenkinsfile or sandboxed Pipeline shared library contents in SCM, to bypass the sandbox protection and execute arbitrary code on the Jenkins controller.</p>\n</div>\n<div class=\"paragraph\">\n<p>All known unsafe AST transformations in Groovy are now prohibited in sandboxed scripts.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

@@ -1,0 +1,138 @@
+{
+  "title": "Jenkins Security Advisory 2020-01-15",
+  "date": "2020-01-15",
+  "url": "/security/advisory/2020-01-15/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-1004",
+      "reporter": "Oleg Nenashev, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME",
+      "cve": "CVE-2020-2090 (CSRF), CVE-2020-2091 (missing permission check)",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.47 and earlier does not perform permission checks in methods performing form validation.\nThis allows users with Overall/Read access to Jenkins to connect to an attacker-specified URL within the AWS region using attacker-specified credentials IDs obtained through another method.\n\nNOTE: This vulnerability might also allow attackers to capture credentials stored in Jenkins. We have not been able to confirm that this is possible.\n\nAdditionally, these form validation methods do not require POST requests, resulting in a CSRF vulnerability.\n\nPLUGIN_NAME 1.48 requires POST requests and Overall/Administer permission for the affected form validation methods.",
+      "plugins": [
+        {
+          "name": "ec2",
+          "title": "Amazon EC2",
+          "previous": "1.47",
+          "fixed": "1.48"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Amazon EC2 Plugin 1.47 and earlier does not perform permission checks in methods performing form validation.\nThis allows users with Overall/Read access to Jenkins to connect to an attacker-specified URL within the AWS region using attacker-specified credentials IDs obtained through another method.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis vulnerability might also allow attackers to capture credentials stored in Jenkins. We have not been able to confirm that this is possible.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these form validation methods do not require POST requests, resulting in a CSRF vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>Amazon EC2 Plugin 1.48 requires POST requests and Overall/Administer permission for the affected form validation methods.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1698",
+      "reporter": "Federico Pellegrin",
+      "title": "XXE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2020-2092",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.0 and earlier does not configure the XML parser to prevent XML external entity (XXE) attacks.\n\nThis allows a user able to control the input files for the 'Publish Robot Framework' post-build step to have Jenkins parse a crafted file that uses external entities for extraction of secrets from the Jenkins controller, server-side request forgery, or denial-of-service attacks.\n\nPLUGIN_NAME 2.0.1 disables external entity resolution for its XML parser.",
+      "plugins": [
+        {
+          "name": "robot",
+          "title": "Robot Framework",
+          "previous": "2.0.0",
+          "fixed": "2.0.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Robot Framework Plugin 2.0.0 and earlier does not configure the XML parser to prevent XML external entity (XXE) attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows a user able to control the input files for the 'Publish Robot Framework' post-build step to have Jenkins parse a crafted file that uses external entities for extraction of secrets from the Jenkins controller, server-side request forgery, or denial-of-service attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>Robot Framework Plugin 2.0.1 disables external entity resolution for its XML parser.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1708",
+      "reporter": null,
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME",
+      "cve": "CVE-2020-2093 (CSRF), CVE-2020-2094 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.0 and earlier does not perform permission checks in methods performing form validation.\nThis allows users with Overall/Read access to send an email with fixed content to an attacker-specified recipient.\n\nAdditionally, these form validation methods do not require POST requests, resulting in a CSRF vulnerability.\n\nPLUGIN_NAME 3.0.1 requires POST requests and Overall/Administer permission for the affected form validation methods.",
+      "plugins": [
+        {
+          "name": "cloudbees-jenkins-advisor",
+          "title": "Health Advisor by CloudBees",
+          "previous": "3.0",
+          "fixed": "3.0.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Health Advisor by CloudBees Plugin 3.0 and earlier does not perform permission checks in methods performing form validation.\nThis allows users with Overall/Read access to send an email with fixed content to an attacker-specified recipient.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these form validation methods do not require POST requests, resulting in a CSRF vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>Health Advisor by CloudBees Plugin 3.0.1 requires POST requests and Overall/Administer permission for the affected form validation methods.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1696",
+      "reporter": "Wadeck Follonier, CloudBees, Inc.",
+      "title": "PLUGIN_NAME stored credentials in plain text",
+      "cve": "CVE-2020-2095",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.4 and earlier stores a NuGet API key unencrypted in job `config.xml` files as part of its configuration.\nThis credential could be viewed by users with Extended Read permission or access to the Jenkins controller file system.\n\nThis is due to an incomplete fix of link:/security/advisory/2019-12-17/#SECURITY-1598[SECURITY-1598].\n\nPLUGIN_NAME 2.0.5 now stores the API key encrypted.\nExisting jobs need to have their configuration saved for existing plain text passwords to be overwritten.",
+      "plugins": [
+        {
+          "name": "redgate-sql-ci",
+          "title": "Redgate SQL Change Automation",
+          "previous": "2.0.4",
+          "fixed": "2.0.5"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Redgate SQL Change Automation Plugin 2.0.4 and earlier stores a NuGet API key unencrypted in job <code>config.xml</code> files as part of its configuration.\nThis credential could be viewed by users with Extended Read permission or access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is due to an incomplete fix of <a href=\"/security/advisory/2019-12-17/#SECURITY-1598\">SECURITY-1598</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Redgate SQL Change Automation Plugin 2.0.5 now stores the API key encrypted.\nExisting jobs need to have their configuration saved for existing plain text passwords to be overwritten.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1683",
+      "reporter": "Ai Ho (@j3ssiejjj)",
+      "title": "Reflected XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2020-2096",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.4.2 and earlier does not escape project names in the `build_now` endpoint.\nThis results in a reflected cross-site scripting vulnerability.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "gitlab-hook",
+          "title": null,
+          "previous": "1.4.2",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>gitlab-hook Plugin 1.4.2 and earlier does not escape project names in the <code>build_now</code> endpoint.\nThis results in a reflected cross-site scripting vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-814",
+      "reporter": "Thomas de Grenier de Latour",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME allow OS command execution",
+      "cve": "CVE-2020-2097 (permission check), CVE-2020-2098 (CSRF)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 0.5 and earlier does not perform permission checks in URLs performing form validation.\nThis allows attackers with Overall/Read access to execute arbitrary OS commands as the OS user account running Jenkins.\n\nAdditionally, these form validation URLs do not require POST requests, resulting in a CSRF vulnerability.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "sounds",
+          "title": "Sounds",
+          "previous": "0.5",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Sounds Plugin 0.5 and earlier does not perform permission checks in URLs performing form validation.\nThis allows attackers with Overall/Read access to execute arbitrary OS commands as the OS user account running Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these form validation URLs do not require POST requests, resulting in a CSRF vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}
