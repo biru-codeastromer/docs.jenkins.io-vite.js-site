@@ -373,7 +373,7 @@ a {
   border-radius: 40px;
   max-width: fit-content;
   height: fit-content;
-  background-color: rgba(218, 209, 198, 0.3);
+  background-color: rgb(218, 209, 198, 0.3) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -390,7 +390,7 @@ a {
 .image-div {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;    
 }
 
 .image-div img {
@@ -401,7 +401,6 @@ a {
   min-width: 64px;
   min-height: 64px;
   object-fit: cover;
-  border-radius: 0%;
 }
 
 .desc-div p {
@@ -409,32 +408,16 @@ a {
   font-size: medium;
 }
 
-.desc-div p a {
-  text-decoration: underline;
-}
-
-@keyframes thankyou-fade-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.thank-you-fade {
-  animation: thankyou-fade-in 260ms ease;
-}
-
 @media (max-width: 768px) {
   .thank-you-box {
     padding: 16px;
   }
   .contributor-data {
-    gap: 8px;
-    flex-direction: column;
-    text-align: center;
+    gap: 8px;   
   }
   .image-div img {
     height: 36px;
     width: 36px;
-    min-width: 36px;
-    min-height: 36px;
   }
   .desc-div p {
     font-size: small;
