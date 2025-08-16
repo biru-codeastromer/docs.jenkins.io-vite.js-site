@@ -6,6 +6,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { lightTheme, darkTheme } from './theme';
 import App from './App';
+import WebComponentsLoader from './components/web-components-loader';
 
 function ThemeWrapper() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -16,7 +17,9 @@ function ThemeWrapper() {
 
   return (
     <ThemeProvider theme={theme}>
-      <App />
+      <WebComponentsLoader>
+        <App />
+      </WebComponentsLoader>
     </ThemeProvider>
   );
 }
