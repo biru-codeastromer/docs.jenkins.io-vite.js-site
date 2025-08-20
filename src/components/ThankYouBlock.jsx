@@ -150,7 +150,7 @@ const ThankYouBlock = () => {
           p: { xs: 2, sm: 3, md: 4 },
           display: "flex",
           flexDirection: "column",
-          maxWidth: "100%",
+          width: "min(92vw, 560px)", 
         }}
       >
         <Box
@@ -158,11 +158,12 @@ const ThankYouBlock = () => {
           className="contributor-data"
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            gap: 2,
+            flexDirection: "row",
+            flexWrap: "nowrap",
             alignItems: "center",
-            justifyContent: "center",
-            textAlign: { xs: "center", sm: "left" },
+            gap: { xs: 1.5, sm: 2 },
+            textAlign: "left",
+            width: "100%",
             animation: `${FADE_IN} 260ms ease`,
           }}
         >
@@ -172,7 +173,8 @@ const ThankYouBlock = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              mr: { sm: 2 },
+              mr: { xs: 1.5, sm: 2 },
+              flex: "0 0 auto",
             }}
           >
             <img
@@ -182,7 +184,7 @@ const ThankYouBlock = () => {
             />
           </Box>
 
-          <Box className="desc-div">
+          <Box className="desc-div" sx={{ flex: "1 1 0", minWidth: 0 }}>
             <Typography variant="body1" sx={{ m: 0 }}>
               Thank you{" "}
               <Link href={c.GH_HANDLE_URL} target="_blank" rel="noopener">
