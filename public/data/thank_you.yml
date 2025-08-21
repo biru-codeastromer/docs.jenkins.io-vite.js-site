@@ -1,0 +1,13 @@
+---
+- RUN_DATE: 2025-07-28T07-43-38Z
+  MONTH: 2025-06
+  GH_HANDLE: MarkEWaite
+  FULL_NAME: Mark Waite
+  COMPANY: "@cloudbees "
+  GH_HANDLE_URL: https://github.com/MarkEWaite
+  GH_HANDLE_AVATAR: https://avatars.githubusercontent.com/u/156685?u=acd722b2659f53aef935f625fdbd1af16a6a3b8e&v=4
+  NBR_PR: '24'
+  REPOSITORIES: jenkinsci/platformlabeler-plugin jenkinsci/bom jenkinsci/lib-crypto-util
+    jenkins-infra/jenkins.io jenkinsci/matrix-project-plugin jenkins-infra/update-center2
+    jenkinsci/opentelemetry-plugin jenkinsci/acceptance-test-harness jenkinsci/pom
+    jenkinsci/plugin-pom jenkinsci/copyartifact-plugin jenkinsci/git-plugin jenkinsci/git-client-plugin
