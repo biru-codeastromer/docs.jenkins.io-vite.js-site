@@ -30,6 +30,13 @@ import AwardsPage from './pages/awards/index';
 
 import ConductPage from './pages/project/conduct';
 
+import BlogIndex from './pages/blog/Index';
+import BlogTag from './pages/blog/Tag';
+import BlogPageN from './pages/blog/PageN';
+import BlogPost from './pages/blog/Post';
+import AuthorsIndex from './pages/blog/AuthorsIndex';
+import AuthorDetail from './pages/blog/AuthorDetail';
+
 function App() {
   return (
     <Routes>
@@ -62,6 +69,12 @@ function App() {
         <Route path="mailing-lists" element={<MailingListsPage />} />
         <Route path="awards" element={<AwardsPage />} />
         <Route path="project/conduct" element={<ConductPage />} />
+        <Route path="blog" element={<BlogIndex />} />
+        <Route path="blog/page/:n" element={<BlogPageN />} />
+        <Route path="blog/tags/:tag" element={<BlogTag />} />
+        <Route path="blog/authors" element={<AuthorsIndex />} />
+        <Route path="blog/authors/:id" element={<AuthorDetail />} />
+        <Route path="blog/:yyyy/:mm/:dd/:slug" element={<BlogPost />} />
       </Route>
     </Routes>
   );
