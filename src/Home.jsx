@@ -65,6 +65,11 @@ export default function Home() {
           Mailing Lists
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/blog" variant="body1">
+          Blog
+        </Link>
+      </Typography>
     </Box>
   );
 }
