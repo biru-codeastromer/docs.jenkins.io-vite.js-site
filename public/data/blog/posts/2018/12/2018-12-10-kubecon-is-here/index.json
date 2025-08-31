@@ -1,0 +1,17 @@
+{
+  "id": "2018-12-2018-12-10-kubecon-is-here",
+  "url": "/blog/2018/12/01/2018-12-10-kubecon-is-here/",
+  "title": "KubeCon + CloudNativeCon North America 2018 is Here!",
+  "date": "2018-12-01",
+  "authors": [
+    "lnewman"
+  ],
+  "tags": [
+    "cloud-native",
+    "kubernetes",
+    "kubecon"
+  ],
+  "summary": "The time has come - KubeCon + CloudNativeCon North America 2018 has arrived. The conference has completely sold out and the schedule is jam packed with interesting talks. If you&#8217;re among those with tickets, here are a couple Jenkins related events that might interest you: On Wednesday at 3:40pm, Carlos Sanchez will be presenting Jenkins X: Continuous Delivery for Kubernetes…",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p><span class=\"image\"><a class=\"image\" href=\"https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018\"><img src=\"/images/post-images/2018-12-kubecon-na/logo.svg\" alt=\"KubeCon + CloudNativeCon North America 2018\" width=\"400\"></a></span></p>\n</div>\n<div class=\"paragraph\">\n<p>The time has come - KubeCon + CloudNativeCon North America 2018 has arrived.\nThe conference has completely sold out and the schedule is jam packed with interesting talks.</p>\n</div>\n<div class=\"paragraph\">\n<p>If you&#8217;re among those with tickets, here are a couple Jenkins related events that might interest you:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>On Wednesday at 3:40pm, Carlos Sanchez will be presenting\n<a href=\"https://kccna18.sched.com/event/GrT2\">Jenkins X: Continuous Delivery for Kubernetes</a> in\n<a href=\"https://kccna18.sched.com/venue/Tahoma+3%2F4+%40+TCC\">Tahoma 3/4 @ TCC</a>.</p>\n</li>\n<li>\n<p>On Tuesday at 2:35pm, Jonathan Hess &amp; Loren Trout from\n<a href=\"https://www.sap.com\">SAP</a> will discuss how\n<a href=\"https://kccna18.sched.com/event/GrSh\">Migrating Jenkins to Kubernetes Broke Our Brains</a> in Room 606-609.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>I look forward to seeing you there!</p>\n</div>"
+}

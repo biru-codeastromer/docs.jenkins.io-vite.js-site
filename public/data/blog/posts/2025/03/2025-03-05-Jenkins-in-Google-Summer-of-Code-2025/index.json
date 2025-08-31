@@ -1,0 +1,18 @@
+{
+  "id": "2025-03-2025-03-05-Jenkins-in-Google-Summer-of-Code-2025",
+  "url": "/blog/2025/03/05/2025-03-05-Jenkins-in-Google-Summer-of-Code-2025/",
+  "title": "Jenkins in Google Summer of Code 2025",
+  "date": "2025-03-05",
+  "authors": [
+    "alyssat"
+  ],
+  "tags": [
+    "gsoc",
+    "gsoc2025",
+    "events",
+    "community"
+  ],
+  "summary": "Announcing Jenkins project selected as Google Summer of Code 2025 mentoring organization.",
+  "opengraph_image": "/images/post-images/2025/03/GSoC2025_opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p><span class=\"image center\"><img src=\"/images/post-images/2025/03/GSoC2025_opengraph.png\" alt=\"GSoC2025 opengraph\"></span></p>\n</div>\n<div class=\"paragraph\">\n<p>We are excited to have been accepted to <a href=\"https://summerofcode.withgoogle.com/\">Google Summer of Code (GSoC) 2025</a>! This marks our ninth year participating as a mentoring organization in the program. Thank you Google!</p>\n</div>\n<div class=\"paragraph\">\n<p>GSoC is more than just a mentoring program; it is an opportunity to welcome and engage new contributors in open-source development. By dedicating time to mentor and guide GSoC contributors, we help shape the future of both the individuals involved and the broader Jenkins community. The impact of these contributions extends beyond the program, benefiting countless Jenkins users worldwide.</p>\n</div>\n<div class=\"paragraph\">\n<p>We eagerly welcome new GSoC contributors to the Jenkins family! This journey will provide invaluable hands-on experience, technical skill enhancement, and insight into the workings of an active open-source community. Most importantly, participants will have the chance to learn from passionate mentors dedicated to making a meaningful difference—for both individual contributors and the Jenkins project as a whole.</p>\n</div>\n<div class=\"sect1\">\n<h2 id=\"whats-on-the-near-horizon-for-gsoc-candidates\"><a class=\"anchor\" href=\"#whats-on-the-near-horizon-for-gsoc-candidates\"></a>What’s on the near horizon for GSoC candidates?</h2>\n<div class=\"sectionbody\">\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Refer to the <a href=\"https://www.jenkins.io/projects/gsoc/contributors/\">information for contributors</a> page for full application guidelines.</p>\n</li>\n<li>\n<p>Join these webinars for a walk through of project ideas: <a href=\"https://www.meetup.com/jenkins-online-meetup/events/306446006/?eventOrigin=group_upcoming_events\">March 5</a> and <a href=\"https://www.meetup.com/jenkins-online-meetup/events/306446080/?eventOrigin=group_upcoming_events\">March 6</a>. Recording will be available after each session.</p>\n</li>\n<li>\n<p>Submit your draft proposal for review/feedback by mentors. Use <a href=\"https://forms.gle/i8Gv9AcfgNiB1xAW8\">this form</a> to submit your draft proposal for review. The deadline is April 1.</p>\n</li>\n<li>\n<p>Use <a href=\"https://docs.google.com/document/d/1dIlPLXfLbFsvcaHFuwmH9_lSCVm9m6-SgNYTNAnSZpY/edit?tab=t.0\">this template</a> to write your project proposal.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Refer to the <a href=\"https://developers.google.com/open-source/gsoc/timeline\">GSoC timeline</a> for a complete list of important dates.</p>\n</div>\n</div>\n</div>"
+}

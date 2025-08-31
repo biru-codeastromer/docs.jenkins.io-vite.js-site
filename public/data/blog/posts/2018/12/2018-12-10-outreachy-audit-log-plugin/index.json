@@ -1,0 +1,17 @@
+{
+  "id": "2018-12-2018-12-10-outreachy-audit-log-plugin",
+  "url": "/blog/2018/12/01/2018-12-10-outreachy-audit-log-plugin/",
+  "title": "Outreachy internships to add audit logging support to Jenkins",
+  "date": "2018-12-01",
+  "authors": [
+    "jvz"
+  ],
+  "tags": [
+    "community",
+    "outreachy",
+    "outreachy2018"
+  ],
+  "summary": "This year marks the first time the Jenkins project is participating in Outreachy . Outreachy is a program similar to Google Summer of Code (GSoC) where interns work on open source projects for a paid stipend. The key difference is that Outreachy reaches out to underrepresented groups and those who face systemic bias or discrimination in the technology industry in…",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>This year marks the first time the Jenkins project is participating in <a href=\"https://www.outreachy.org/\">Outreachy</a>.\nOutreachy is a program similar to Google Summer of Code (GSoC) where interns work on open source projects for a paid stipend.\nThe key difference is that Outreachy reaches out to underrepresented groups and those who face systemic bias or discrimination in the technology industry in their home country.\nOnce I learned about this program, I immediately volunteered to mentor as the concept strongly aligns with my ideals of inclusiveness and community building.\nI&#8217;m happy to report that both the Jenkins project,  and my employer <a href=\"https://www.cloudbees.com\">CloudBees</a>, have been very supportive of this program.</p>\n</div>\n<div class=\"paragraph\">\n<p>Expanding on our previous efforts to mentor students in GSoC, this year we&#8217;ve joined up with Outreachy to mentor two interns.\nOur interns for this season of Outreachy,  <a href=\"https://github.com/Lathaguna\">Latha Gunasekar</a> and <a href=\"https://github.com/davidolorundare\">David Olorundare</a>, will be working with me on <a href=\"https://github.com/jenkinsci/audit-log-plugin\">audit logging support for Jenkins</a>.\nI am excited to welcome both David and Latha, and am looking forward to what they will learn about both professional software engineering and contributing to an open source community.\nStay tuned for blog post entries introducing both people in the near future.</p>\n</div>\n<div class=\"paragraph\">\n<p>The audit logging support project forms a new connection between Jenkins and <a href=\"https://logging.apache.org/log4j/2.x/\">Apache Log4j</a> which offers great opportunities for our interns to learn more about open source governance and meet new people.\nAs a bonus, the project aims to provide the tooling necessary to support advanced observability concerns such as running anomaly detection on authentication events to detect potential intrusion attempts.\nWe will also be authoring a <a href=\"https://github.com/jenkinsci/jep\">JEP</a> to detail the audit logging API provided by the plugin and how other plugins can define and log their own audit events besides the Jenkins Core ones that come with the plugin.</p>\n</div>\n<div class=\"paragraph\">\n<p>I&#8217;m looking forward to the great work we&#8217;ll be doing together, and I hope that we&#8217;ll be able to welcome more Outreachy interns in the future!</p>\n</div>"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "2022-06-2022-06-13-Let-the-coding-start",
+  "url": "/blog/2022/06/01/2022-06-13-Let-the-coding-start/",
+  "title": "Let the (GSoC) coding start !",
+  "date": "2022-06-01",
+  "authors": [
+    "jmMeessen"
+  ],
+  "tags": [
+    "gsoc",
+    "gsoc2022",
+    "events",
+    "community"
+  ],
+  "summary": "GSoC community bonding phase has finished. Coding for the four Jenkins projects starts today!\"",
+  "opengraph_image": "/images/gsoc/opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p><span class=\"image right center\"><img src=\"/images/gsoc/jenkins-gsoc-logo_small.png\" alt=\"Jenkins GSoC\"></span></p>\n</div>\n<div class=\"paragraph\">\n<p>The GSoC community bonding period just finished.</p>\n</div>\n<div class=\"paragraph\">\n<p>The <a href=\"/projects/gsoc/\">four Jenkins GSoC projects</a> are now ready.\nContact between contributors and mentors is established.\nRegular communication channels are setup (weekly project meetings and dedicated chat).\nLinks to the project plans and plannings drafts are published on the <a href=\"/projects/gsoc/\">project pages</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Next step, the actual coding!</p>\n</div>\n<div class=\"paragraph\">\n<p>Together with their mentors, Dheeraj, Ymming, Hrushikesh, and Vihaan will work the whole summer on their respective projects.</p>\n</div>\n<div class=\"paragraph\">\n<p>End July, we will perform a public progress review.\nDuring an online meetup, the GSoC contributors will present their project.\nThey will be invited to share what has been done to date.\nAnd why not, make a first preliminary demo.\nThis is an opportunity for the community to comment, advise and become more involved with the project.</p>\n</div>"
+}

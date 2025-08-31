@@ -1,0 +1,5 @@
+---
+name: "Kevin Guerroudj"
+github: Kevin-CB
+---
+Kevin is a member of the link:/security/#team[Jenkins security team].
