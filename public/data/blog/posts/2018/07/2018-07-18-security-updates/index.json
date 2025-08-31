@@ -1,0 +1,16 @@
+{
+  "id": "2018-07-2018-07-18-security-updates",
+  "url": "/blog/2018/07/01/2018-07-18-security-updates/",
+  "title": "Security updates for Jenkins core",
+  "date": "2018-07-01",
+  "authors": [
+    "daniel-beck"
+  ],
+  "tags": [
+    "core",
+    "security"
+  ],
+  "summary": "We just released security updates to Jenkins, versions 2.133 and 2.121.2, that fix multiple security vulnerabilities. For an overview of what was fixed, see the security advisory . For an overview on the possible impact of these changes on upgrading Jenkins LTS, see our LTS upgrade guide . Subscribe to the jenkinsci-advisories mailing list to receive important notifications related to…",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>We just released security updates to Jenkins, versions 2.133 and 2.121.2, that fix multiple security vulnerabilities.</p>\n</div>\n<div class=\"paragraph\">\n<p>For an overview of what was fixed, see the <a href=\"/security/advisory/2018-07-18\">security advisory</a>.\nFor an overview on the possible impact of these changes on upgrading Jenkins LTS, see our <a href=\"/doc/upgrade-guide/2.121/#upgrading-to-jenkins-lts-2-121-2\">LTS upgrade guide</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Subscribe to the <a href=\"/mailing-lists\">jenkinsci-advisories mailing list</a> to receive important notifications related to Jenkins security.</p>\n</div>"
+}

@@ -235,7 +235,7 @@ async function build() {
   await ensureDir(path.dirname(RSS_PATH));
   await write(RSS_PATH, rss);
 
-  console.log(`✔ Blog build: ${posts.length} posts, ${tags.length} tags, ${Object.keys(authors).length} authors. RSS written.`);
+  console.log(`Blog build: ${posts.length} posts, ${tags.length} tags, ${Object.keys(authors).length} authors. RSS written.`);
 }
 
 build().catch((e) => {

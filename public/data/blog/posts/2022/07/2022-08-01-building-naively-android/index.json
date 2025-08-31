@@ -1,0 +1,18 @@
+{
+  "id": "2022-07-2022-08-01-building-naively-android",
+  "url": "/blog/2022/07/01/2022-08-01-building-naively-android/",
+  "title": "Naively Building Android Apps with Jenkins. Not Natively, Naively. - DevOps World 2022",
+  "date": "2022-07-01",
+  "authors": [
+    "gounthar"
+  ],
+  "tags": [
+    "devopsworld",
+    "devopsworld2022",
+    "android",
+    "mobile"
+  ],
+  "summary": "This is a speaker blogpost for a DevOps World 2022 talk in Orlando, Florida Come join me at DevOps World 2022 for \"Naively Building Android Apps with Jenkins. Not Natively, Naively.\" , a talk about my journey with Jenkins while trying to build and publish Android applications without prior Jenkins knowledge. I&#8217;ve been tinkering with various CI/CD tools for years…",
+  "opengraph_image": "/images/post-images/2022-08-01-naively-building-android/BuildingAndroidAppsNaively.png",
+  "content_html": "<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis is a speaker blogpost for a DevOps World 2022 talk in Orlando, Florida\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Come join me at <a href=\"https://events.devopsworld.com/widget/cloudbees/devopsworld22/conferenceSessionDetails?tab.day=20220928\">DevOps World 2022</a> for <em>\"Naively Building Android Apps with Jenkins. Not Natively, Naively.\"</em>, a talk about my journey with Jenkins while trying to build and publish Android applications without prior Jenkins knowledge.</p>\n</div>\n<div class=\"paragraph\">\n<p>I&#8217;ve been tinkering with various CI/CD tools for years (Gitlab CI, Circle CI, Travis CI, Shippable, Github Actions, &#8230;&#8203;) but not with Jenkins for whatever reason.</p>\n</div>\n<div class=\"paragraph\">\n<p>I&#8217;ve been supporting since 2014 mobile application developers through the use of gitlab-ci.</p>\n</div>\n<div class=\"paragraph\">\n<p>For DevOpsWorld 2022, I&#8217;ve been given a challenge: what if I tried to replicate that well oiled gitlab-centric machinery that I had built for years this time with Jenkins?\nAt least&#8230;&#8203; Could I mimic a subset of the functionality of my previous work without knowing anything about Jenkins?</p>\n</div>\n<div class=\"paragraph\">\n<p>To spice things up a bit, I might as well refrain from looking at what has already been done elsewhere; thus, I may end up with a shaky solution, or even a functional system that can be replicated at will.</p>\n</div>\n<div class=\"paragraph\">\n<p>Topics will include:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>What does one need to build an Android application?</p>\n</li>\n<li>\n<p>When your only tool is a hammer, everything looks like a nail (an ode to containerization)</p>\n</li>\n<li>\n<p>Credentials and authentication</p>\n</li>\n<li>\n<p>From Docker to the Cloud?</p>\n</li>\n<li>\n<p>Quality Assurance, Tests, and Deployment</p>\n</li>\n</ul>\n</div>\n<div class=\"imageblock\">\n<div class=\"content\">\n<img src=\"/images/post-images/2022-08-01-naively-building-android/BuildingAndroidAppsNaively.png\" alt=\"BuildingAndroidAppsNaively\">\n</div>\n</div>\n<div class=\"admonitionblock important\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-important\" title=\"Important\"></i>\n</td>\n<td class=\"content\">\nThis is not a definitive guide to build an Android application with Jenkins, more like a roadmap to my journey with Jenkins&#8230;&#8203; with takeaways from my experience.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Come join me for the presentation in Orlando!</p>\n</div>"
+}

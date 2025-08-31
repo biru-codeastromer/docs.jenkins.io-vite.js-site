@@ -117,7 +117,7 @@ async function main() {
     console.log('wrote fallback /js/copy-to-clipboard.js');
   }
 
-  console.log('✔ blog/assets parity ready');
+  console.log('blog/assets parity ready');
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

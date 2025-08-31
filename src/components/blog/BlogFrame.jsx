@@ -34,15 +34,12 @@ export default function BlogFrame({ title, description, children }) {
         <style>{`
           .app-button img{width:1.25rem;height:1.25rem;display:block}
 
-          /* Default: light mode (black icons) */
           .app-app-bar__controls .app-button img{ filter:none; }
 
-          /* Auto dark mode via OS preference */
           @media (prefers-color-scheme: dark){
             .app-app-bar__controls .app-button img{ filter:brightness(0) invert(1); }
           }
 
-          /* Explicit theme toggles some sites use */
           :root[data-theme="dark"] .app-app-bar__controls .app-button img,
           html[data-theme="dark"] .app-app-bar__controls .app-button img,
           body[data-theme="dark"] .app-app-bar__controls .app-button img,

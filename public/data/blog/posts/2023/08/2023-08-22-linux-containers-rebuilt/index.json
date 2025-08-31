@@ -1,0 +1,17 @@
+{
+  "id": "2023-08-2023-08-22-linux-containers-rebuilt",
+  "url": "/blog/2023/08/22/2023-08-22-linux-containers-rebuilt/",
+  "title": "Linux containers rebuilt",
+  "date": "2023-08-22",
+  "authors": [
+    "markewaite",
+    "dduportal"
+  ],
+  "tags": [
+    "issues",
+    "jira"
+  ],
+  "summary": "A Jenkins job mistakenly rebuilt the Linux container images for recent Jenkins weekly releases and recent Jenkins LTS releases. Users that downloaded some of those Linux container images received container images that could not run the Jenkins controller. The incorrect container images would fail to run with the message that Jenkins is not supported with Java 8. Running with Java…",
+  "opengraph_image": "/images/post-images/2023/08/22/2023-08-22-linux-containers-rebuilt/linux-containers-rebuilt.png",
+  "content_html": "<div id=\"preamble\">\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>A Jenkins job mistakenly rebuilt the Linux container images for recent Jenkins weekly releases and recent Jenkins LTS releases.\nUsers that downloaded some of those Linux container images received container images that could not run the Jenkins controller.\nThe incorrect container images would fail to run with the message that Jenkins is not supported with Java 8.</p>\n</div>\n<div class=\"listingblock\">\n<div class=\"content\">\n<pre class=\"highlight\"><code>Running with Java 8 from /usr/lib/jvm/java-1.8-openjdk/jre,\nwhich is older than the minimum required version (Java 11).\nSupported Java versions are: [11, 17, 21]</code></pre>\n</div>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"corrected-linux-container-images\"><a class=\"anchor\" href=\"#corrected-linux-container-images\"></a>Corrected Linux container images</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>The Linux container images for Jenkins 2.419, 2.401.1, 2.401.2, and 2.401.3 have been rebuilt August 21, 2023.</p>\n</div>\n<div class=\"paragraph\">\n<p>Container images for Jenkins agents are not affected.</p>\n</div>\n<div class=\"paragraph\">\n<p>More details are available in the original <a href=\"https://github.com/jenkinsci/docker/issues/1690\">issue report</a>.</p>\n</div>\n</div>\n</div>"
+}

@@ -5,6 +5,362 @@
     <link>https://www.jenkins.io/blog/</link>
     <atom:link href="https://www.jenkins.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Posts from the Jenkins project</description>
-    <lastBuildDate>Mon, 25 Aug 2025 12:08:14 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 25 Aug 2025 12:28:45 GMT</lastBuildDate>
+    <item>
+      <title>Jenkins Board and Officer Elections 2025 - Nominations Open</title>
+      <link>https://www.jenkins.io/blog/2025/08/08/2025-08-08-board-officer-election-announcement/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/08/08/2025-08-08-board-officer-election-announcement/</guid>
+      <pubDate>Fri, 08 Aug 2025 12:00:00 GMT</pubDate>
+      <description>Nominations are open for Jenkins Board and Officer elections.</description>
+    </item>
+    <item>
+      <title>Enforced HTTPS for Update Center</title>
+      <link>https://www.jenkins.io/blog/2025/08/04/2025-08-04-update-center-enforce-https/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/08/04/2025-08-04-update-center-enforce-https/</guid>
+      <pubDate>Mon, 04 Aug 2025 12:00:00 GMT</pubDate>
+      <description>Summary ( TL;DR ) The service https://updates.jenkins.io will enforce HTTPS protocol beginning Wednesday 06 August 2025. All Jenkins users are impacted but should not see any functional change. Any plain-HTTP request made to the Jenkins update center will be redirected to the same location but upgraded to HTTPS scheme. What is the &quot;Update Center&quot;? Jenkins Update Center is a web…</description>
+    </item>
+    <item>
+      <title>GSoC 2025 Midterm - An AI Agent for Jenkins Failure Diagnosis</title>
+      <link>https://www.jenkins.io/blog/2025/08/03/2025-08-03-chirag-gupta-gsoc-community-bonding-blog-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/08/03/2025-08-03-chirag-gupta-gsoc-community-bonding-blog-post/</guid>
+      <pubDate>Sun, 03 Aug 2025 12:00:00 GMT</pubDate>
+      <description>Hello, Jenkins Community! I’m Chirag Gupta, and this is the midterm update for my Google Summer of Code 2025 project: &quot;Domain-specific LLM based on actual Jenkins usage using ci.jenkins.io data . The project&amp;#8217;s vision is to accelerate the often complex process of diagnosing build failures in Jenkins using AI. For a detailed overview, please refer to the project page .…</description>
+    </item>
+    <item>
+      <title>GSoC Midterm Update, Modernizing and Stabilizing the Jenkins Tekton Plugin</title>
+      <link>https://www.jenkins.io/blog/2025/07/28/2025-07-28-maeve-ho-gsoc-midterm-update-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/07/28/2025-07-28-maeve-ho-gsoc-midterm-update-post/</guid>
+      <pubDate>Mon, 28 Jul 2025 12:00:00 GMT</pubDate>
+      <description>Hello everyone! I&amp;#8217;m Maeve, a Computer Science student at Lehigh University, currently participating in Google Summer of Code 2025. My project involves modernizing the Jenkins Tekton Plugin to create a stable, production-ready integration between Jenkins and Kubernetes-native Tekton pipelines. As we reach the midpoint of the coding period, I wanted to share the progress and achievements from the first half…</description>
+    </item>
+    <item>
+      <title>GSoC 2025 Midterm - Improving Plugin Modernizer</title>
+      <link>https://www.jenkins.io/blog/2025/07/28/2025-07-28-raunak-madan-gsoc-midterm-blog-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/07/28/2025-07-28-raunak-madan-gsoc-midterm-blog-post/</guid>
+      <pubDate>Mon, 28 Jul 2025 12:00:00 GMT</pubDate>
+      <description>Hello everyone, I’m Raunak Madan, currently working on the Improving Plugin Modernizer project — a generic CLI tool designed to automate the modernization of Jenkins plugins. It leverages OpenRewrite recipes to apply code transformations, validate the results, and create pull requests with the proposed changes. For a detailed overview of the project, please refer to the project page . Table…</description>
+    </item>
+    <item>
+      <title>GSoC 2025 Midterm: Complete Build Retooling of jenkins.io</title>
+      <link>https://www.jenkins.io/blog/2025/07/24/2025-07-24-birajit-saikia-gsoc-midterm-update-blog-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/07/24/2025-07-24-birajit-saikia-gsoc-midterm-update-blog-post/</guid>
+      <pubDate>Thu, 24 Jul 2025 12:00:00 GMT</pubDate>
+      <description>Midterm progress report on the Complete Build Retooling project, modernizing Jenkins documentation infrastructure with Antora and Vite.js.</description>
+    </item>
+    <item>
+      <title>GSoC Midterm Update, Building an AI-Powered Chatbot</title>
+      <link>https://www.jenkins.io/blog/2025/07/24/2025-07-24-giovanni-vaccarino-gsoc-midterm-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/07/24/2025-07-24-giovanni-vaccarino-gsoc-midterm-post/</guid>
+      <pubDate>Thu, 24 Jul 2025 12:00:00 GMT</pubDate>
+      <description>Hello everyone! I&amp;#8217;m Giovanni Vaccarino, and I’m working on the AI-Powered Chatbot for Quick Access to Jenkins Resources project as part of Google Summer of Code 2025. This project focuses on developing a Jenkins plugin that integrates an AI chatbot to help users quickly find relevant Jenkins documentation, plugins, and community resources. We&amp;#8217;ve just crossed the midpoint of July, so…</description>
+    </item>
+    <item>
+      <title>Redesigning Jenkins (Part Two)</title>
+      <link>https://www.jenkins.io/blog/2025/07/24/2025-07-24-redesigning-jenkins-part-two/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/07/24/2025-07-24-redesigning-jenkins-part-two/</guid>
+      <pubDate>Thu, 24 Jul 2025 12:00:00 GMT</pubDate>
+      <description>:root { --aurora: radial-gradient(at 81% 35%, var(--orange) 0, transparent 50%), radial-gradient(at 80% 84%, var(--cyan) 0, transparent 50%), radial-gradient(at 88% 31%, var(--purple) 0, transparent 50%), radial-gradient(at 94% 32%, var(--pink) 0, transparent 50%), radial-gradient(at 49% 21%, var(--brown) 0, transparent 50%), radial-gradient(at 31% 46%, var(--teal) 0, transparent 50%), radial-gradient(at 90% 16%, var(--red) 0, transparent 50%), radial-gradient(at 0% 88%, var(--yellow) 0, transparent 50%), radial-gradient(at…</description>
+    </item>
+    <item>
+      <title>JetBrains sponsors the Jenkins project</title>
+      <link>https://www.jenkins.io/blog/2025/07/10/2025-07-10-jetbrains-sponsorship/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/07/10/2025-07-10-jetbrains-sponsorship/</guid>
+      <pubDate>Thu, 10 Jul 2025 12:00:00 GMT</pubDate>
+      <description>We’re excited to welcome JetBrains as a new sponsor of the Jenkins project! JetBrains has generously provided free annual All Products Pack subscriptions to Jenkins core maintainers and active contributors. This subscription grants access to the full suite of JetBrains IDEs, including IntelliJ IDEA Ultimate Edition, which is widely used by Jenkins developers for writing, debugging, and maintaining the project’s…</description>
+    </item>
+    <item>
+      <title>YourKit sponsors the Jenkins project</title>
+      <link>https://www.jenkins.io/blog/2025/07/10/2025-07-10-yourkit-sponsorship/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/07/10/2025-07-10-yourkit-sponsorship/</guid>
+      <pubDate>Thu, 10 Jul 2025 12:00:00 GMT</pubDate>
+      <description>We’re proud to welcome YourKit as a new sponsor of the Jenkins project! YourKit has generously provided free licenses for the YourKit Java Profiler to Jenkins core maintainers and active contributors. This tool is a powerful asset when analyzing performance regressions, debugging memory leaks, or resolving concurrency issues in Jenkins core and plugin code. YourKit supports open source projects with…</description>
+    </item>
+    <item>
+      <title>Amazon donates $60,000 to Jenkins</title>
+      <link>https://www.jenkins.io/blog/2025/07/10/2025-07-11-aws-sponsorship/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/07/10/2025-07-11-aws-sponsorship/</guid>
+      <pubDate>Thu, 10 Jul 2025 12:00:00 GMT</pubDate>
+      <description>Amazon Web Services has graciously donated $60,000 in cloud credits to the Jenkins project. Their continued support of the Jenkins project is massively important for several services and functions. AWS&apos; support for Jenkins over the years has enabled the Jenkins project to run its infrastructure and services efficiently. AWS provides the central distribution point for Jenkins core and Jenkins plugin…</description>
+    </item>
+    <item>
+      <title>🌟 Celebrating the 2025 Jenkins Contributor Award Winners</title>
+      <link>https://www.jenkins.io/blog/2025/06/25/2025-06-25-Celebrating-the-2025-Jenkins-Contributor-Award-Winners/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/06/25/2025-06-25-Celebrating-the-2025-Jenkins-Contributor-Award-Winners/</guid>
+      <pubDate>Wed, 25 Jun 2025 12:00:00 GMT</pubDate>
+      <description>At cdCon 2025 in Colorado this week, we proudly recognized outstanding contributions within both the Continuous Delivery Foundation (CDF) and the Jenkins community. These awards celebrate exceptional ambassadors, contributors, documentation champions, and users who drive CI/CD excellence. 🎖️ Jenkins Project Honors Jenkins presented three distinguished awards: Jenkins Security MVP Most Valuable Jenkins Contributor Most Valuable Jenkins Advocate 🏅 Award Recipients…</description>
+    </item>
+    <item>
+      <title>Meet Chirag Gupta, GSoC 2025 Contributor Building an LLM for Jenkins Failure Diagnosis</title>
+      <link>https://www.jenkins.io/blog/2025/06/11/2025-06-11-chirag-gupta-gsoc-community-bonding-blog-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/06/11/2025-06-11-chirag-gupta-gsoc-community-bonding-blog-post/</guid>
+      <pubDate>Wed, 11 Jun 2025 12:00:00 GMT</pubDate>
+      <description>Hello, Jenkins Community! I&amp;#8217;m Chirag Gupta, and I&amp;#8217;m incredibly excited to announce that I&amp;#8217;ve been selected for the Google Summer of Code 2025 program to work with the Jenkins project! It&amp;#8217;s an honor to contribute to such a cornerstone of the open-source CI/CD landscape. My project, &quot;Domain-specific LLM based on actual Jenkins usage using ci.jenkins.io data,&quot; aims to create a…</description>
+    </item>
+    <item>
+      <title>Meet Giovanni Vaccarino GSoC 2025 Contributor Working on AI-Powered Chatbot for Quick Access to Jenkins Resources</title>
+      <link>https://www.jenkins.io/blog/2025/06/06/2025-06-06-giovanni-vaccarino-gsoc-community-bonding-blog-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/06/06/2025-06-06-giovanni-vaccarino-gsoc-community-bonding-blog-post/</guid>
+      <pubDate>Fri, 06 Jun 2025 12:00:00 GMT</pubDate>
+      <description>Hello everyone! I&amp;#8217;m Giovanni Vaccarino, and I’m excited to be part of Google Summer of Code 2025 as a contributor to the Jenkins project. This summer, I’ll be working on building an AI-Powered Chatbot for Quick Access to Jenkins Resources , a project aimed at creating a Jenkins plugin that integrates an AI chatbot that helps users to quickly find…</description>
+    </item>
+    <item>
+      <title>Meet Raunak Madan – GSoC 2025 Contributor Working on Improving Plugin Modernizer Tool</title>
+      <link>https://www.jenkins.io/blog/2025/06/06/2025-06-06-raunak-madan-gsoc-community-bonding-blog-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/06/06/2025-06-06-raunak-madan-gsoc-community-bonding-blog-post/</guid>
+      <pubDate>Fri, 06 Jun 2025 12:00:00 GMT</pubDate>
+      <description>Hey everyone, I am Raunak Madan, currently in my sophomore year pursuing my Bachelor&amp;#8217;s in Computer Applications. It’s been fun and engaging working with such an amazing community in the past couple of weeks. Table of Contents About the Plugin Modernizer Tool What I did in the Community Bonding Period? What lies ahead (Coding Period)? Acknowledgements Useful Links About the…</description>
+    </item>
+    <item>
+      <title>Introducing Maeve Ho – GSoC 2025 Contributor Enhancing Tekton Integration in Jenkins</title>
+      <link>https://www.jenkins.io/blog/2025/06/04/2025-06-04-maeve-ho-gsoc-community-bonding-blog-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/06/04/2025-06-04-maeve-ho-gsoc-community-bonding-blog-post/</guid>
+      <pubDate>Wed, 04 Jun 2025 12:00:00 GMT</pubDate>
+      <description>Hi everyone! 👋 I&amp;#8217;m Maeve Ho, a GSoC 2025 contributor working with the Jenkins community to enhance the Tekton Client Plugin . My project focuses on delivering full CRUD (Create, Read, Update, Delete) capabilities for Tekton resources from within Jenkins — a step forward in unifying Jenkins pipelines with Kubernetes-native CI/CD automation. Project Description Tekton is a powerful framework for…</description>
+    </item>
+    <item>
+      <title>Meet Birajit Saikia GSoC 2025 Contributor Working on Complete Build Retooling of jenkins.io</title>
+      <link>https://www.jenkins.io/blog/2025/06/03/2025-06-03-birajit-saikia-gsoc-community-bonding-blog-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/06/03/2025-06-03-birajit-saikia-gsoc-community-bonding-blog-post/</guid>
+      <pubDate>Tue, 03 Jun 2025 12:00:00 GMT</pubDate>
+      <description>Hello everyone! I&amp;#8217;m Birajit Saikia, and I’m thrilled to be a Google Summer of Code 2025 contributor with Jenkins. This summer, I’ll be working on the Complete Build Retooling of jenkins.io project, which focuses on modernizing and reorganizing the Jenkins documentation infrastructure and updating the tech stack with UI/UX changes. Project Description This project focuses on reworking and improving the…</description>
+    </item>
+    <item>
+      <title>Android and Jenkins: What Is the Limit? Part Two.</title>
+      <link>https://www.jenkins.io/blog/2025/05/22/2025-05-22-jenkins-on-android/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/05/22/2025-05-22-jenkins-on-android/</guid>
+      <pubDate>Thu, 22 May 2025 12:00:00 GMT</pubDate>
+      <description>I know it&amp;#8217;s been over two years since the first article of this series, but hey, life happens! I&amp;#8217;ve been juggling quite a few things that are more important for the Jenkins project. Let&amp;#8217;s face it, nobody&amp;#8217;s losing sleep over running Jenkins on Android. But hey, sometimes you just gotta indulge in a bit of tech whimsy, am I right?…</description>
+    </item>
+    <item>
+      <title>Jenkins Contributor Awards: Cast Your Vote</title>
+      <link>https://www.jenkins.io/blog/2025/05/15/2025-05-15-jenkins-contributor-awards-cast-your-vote/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/05/15/2025-05-15-jenkins-contributor-awards-cast-your-vote/</guid>
+      <pubDate>Thu, 15 May 2025 12:00:00 GMT</pubDate>
+      <description>🎉 Voting is Now Open for the 2025 Jenkins Awards! 🎉 The voting period for the 2025 Jenkins Awards is open, and it&amp;#8217;s time to cast your votes ! Voting is open now through Monday, June 16, and the winners will be revealed during this year’s cdCon , happening June 23 - 25, 2025. 🏆 2025 Award Categories and Nominees…</description>
+    </item>
+    <item>
+      <title>Revamped Pipeline visualization in Jenkins</title>
+      <link>https://www.jenkins.io/blog/2025/05/02/2025-05-02-pipeline-graph-view/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/05/02/2025-05-02-pipeline-graph-view/</guid>
+      <pubDate>Fri, 02 May 2025 12:00:00 GMT</pubDate>
+      <description>We&amp;#8217;re excited to announce a major update to the Pipeline Graph View plugin - a complete redesign that introduces a modern, user-focused interface that enhances pipeline visualization, customization, and performance. So what&amp;#8217;s new? Rewritten and redesigned The plugin has been completely rebuilt with a clean, modern interface using the latest version of React. We&amp;#8217;ve put a lot of effort into…</description>
+    </item>
+    <item>
+      <title>Redesigning Jenkins (Part One)</title>
+      <link>https://www.jenkins.io/blog/2025/03/26/2025-03-26-design-post/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/03/26/2025-03-26-design-post/</guid>
+      <pubDate>Wed, 26 Mar 2025 12:00:00 GMT</pubDate>
+      <description>Jenkins is the most used CI/CD platform in the world. It&amp;#8217;s one of the oldest, most mature systems in continuous integration and delivery, and it powers software pipelines across critical industries like finance, healthcare, and government. With over a million lines of code, more than 2,000 plugins, and millions of users, Jenkins is less a &quot;tool&quot; and more of a…</description>
+    </item>
+    <item>
+      <title>Jenkins Contributor Awards 2025 - Nominations are Open</title>
+      <link>https://www.jenkins.io/blog/2025/03/18/2025-03-18-jenkins-contributor-awards-2025-nomination-is-open/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/03/18/2025-03-18-jenkins-contributor-awards-2025-nomination-is-open/</guid>
+      <pubDate>Tue, 18 Mar 2025 12:00:00 GMT</pubDate>
+      <description>Announcing issues opened for Jenkins contributor awards 2025</description>
+    </item>
+    <item>
+      <title>Jenkins in Google Summer of Code 2025</title>
+      <link>https://www.jenkins.io/blog/2025/03/05/2025-03-05-Jenkins-in-Google-Summer-of-Code-2025/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/03/05/2025-03-05-Jenkins-in-Google-Summer-of-Code-2025/</guid>
+      <pubDate>Wed, 05 Mar 2025 12:00:00 GMT</pubDate>
+      <description>Announcing Jenkins project selected as Google Summer of Code 2025 mentoring organization.</description>
+    </item>
+    <item>
+      <title>A new way to search in Jenkins 2.492.1</title>
+      <link>https://www.jenkins.io/blog/2025/02/01/2025-02-05-command-palette/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/02/01/2025-02-05-command-palette/</guid>
+      <pubDate>Sat, 01 Feb 2025 12:00:00 GMT</pubDate>
+      <description>We’re happy to announce that Jenkins 2.492.1 comes with a brand-new search experience. We&amp;#8217;re calling it Command Palette and it&amp;#8217;s a one-stop shop for searching across everything in Jenkins. Whether you’re searching for jobs, builds, or settings, Command Palette makes it faster and easier than ever to find exactly what you need. Command Palette is a full-screen search experience, giving…</description>
+    </item>
+    <item>
+      <title>Jenkins 2024 in Review</title>
+      <link>https://www.jenkins.io/blog/2025/01/16/2025-01-16-jenkins-2024-recap/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/01/16/2025-01-16-jenkins-2024-recap/</guid>
+      <pubDate>Thu, 16 Jan 2025 12:00:00 GMT</pubDate>
+      <description>As we welcome 2025, we take a moment to reflect on the past year and celebrate some of our most memorable achievements, impactful projects, and significant changes over the last 366 days. Every contribution, no matter its form, plays a vital role in shaping the Jenkins project. Without the collective efforts of our contributors, supporters, and community members, Jenkins wouldn&amp;#8217;t…</description>
+    </item>
+    <item>
+      <title>December Update: Momentum in Jenkins Content Security Policy Project</title>
+      <link>https://www.jenkins.io/blog/2025/01/16/2025-01-16-jenkins-csp-project-update/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/01/16/2025-01-16-jenkins-csp-project-update/</guid>
+      <pubDate>Thu, 16 Jan 2025 12:00:00 GMT</pubDate>
+      <description>December Update: Wrapping Up the Jenkins Content Security Policy Project The final month of 2024 has seen the Jenkins Content Security Policy (CSP) Project progressing towards a strong conclusion. Let&amp;#8217;s reflect on the developments of December and wrap up the outcomes of this pivotal security initiative. A Strong Finish December marked the end of an intensive push to refine CSP…</description>
+    </item>
+    <item>
+      <title>Introducing Jenkins Design Library 3</title>
+      <link>https://www.jenkins.io/blog/2025/01/01/2025-01-10-design-library/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2025/01/01/2025-01-10-design-library/</guid>
+      <pubDate>Wed, 01 Jan 2025 12:00:00 GMT</pubDate>
+      <description>We’re thrilled to announce that the Jenkins Design Library 3 is now live! 🎉 With this release, we’ve refined every aspect of the library to provide better documentation for plugin developers and ensure a more consistent, accessible, and intuitive experience. So what&amp;#8217;s new? A new consistent design Every page has been refined to maintain a cohesive look and feel, making…</description>
+    </item>
+    <item>
+      <title>Google Summer of Code 2025: Volunteers Needed to Mentor Future Jenkins Contributors</title>
+      <link>https://www.jenkins.io/blog/2024/12/16/2024-12-16-google-summer-of-code-2025-volunteers-needed-to-mentor-future-jenkins-contributors/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/12/16/2024-12-16-google-summer-of-code-2025-volunteers-needed-to-mentor-future-jenkins-contributors/</guid>
+      <pubDate>Mon, 16 Dec 2024 12:00:00 GMT</pubDate>
+      <description>Recruiting mentors for GSoC 2025</description>
+    </item>
+    <item>
+      <title>November Update: Momentum in Jenkins Content Security Policy Project</title>
+      <link>https://www.jenkins.io/blog/2024/12/05/2024-12-05-jenkins-csp-project-update/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/12/05/2024-12-05-jenkins-csp-project-update/</guid>
+      <pubDate>Thu, 05 Dec 2024 12:00:00 GMT</pubDate>
+      <description>The Jenkins Content Security Policy (CSP) project has been bustling with activity. November saw many initiatives aimed at refining and enhancing the security framework for the vast spectrum of Jenkins plugins, extending upon the notable advancements achieved in October. October in Review October laid the foundation with a lot of enhancement in CSP plugin capabilities, theorizing for eventual widespread deployment…</description>
+    </item>
+    <item>
+      <title>2024 Jenkins Board and Officer Election Results</title>
+      <link>https://www.jenkins.io/blog/2024/12/03/2024-12-03-election-results/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/12/03/2024-12-03-election-results/</guid>
+      <pubDate>Tue, 03 Dec 2024 12:00:00 GMT</pubDate>
+      <description>This blogpost summarizes the 2024 election results</description>
+    </item>
+    <item>
+      <title>Pull request titles now show directly in Jenkins</title>
+      <link>https://www.jenkins.io/blog/2024/12/02/2024-12-02-pr-titles/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/12/02/2024-12-02-pr-titles/</guid>
+      <pubDate>Mon, 02 Dec 2024 12:00:00 GMT</pubDate>
+      <description>We are happy to share that with the latest version of Branch API , you can now view pull request titles directly in Jenkins. This feature was one of the most requested improvements from our community, and it&amp;#8217;s great to see it live. We recently ran a poll on what users want to see on the Jenkins dashboard and this…</description>
+    </item>
+    <item>
+      <title>New Update Center (updates.jenkins.io) Architecture in Production:
+ 18 November 2024</title>
+      <link>https://www.jenkins.io/blog/2024/11/16/2024-11-16-new-update-center/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/11/16/2024-11-16-new-update-center/</guid>
+      <pubDate>Sat, 16 Nov 2024 12:00:00 GMT</pubDate>
+      <description>Summary ( TL;DR ) Note: this is a follow up of the 07 and 08 November 2024 24-hour brownout . The service https://updates.jenkins.io will switch its implementation to the new system, on Monday 18 November 2024 at 09:00 am UTC. All Jenkins users are impacted but should not see any functional change. ⚠️ Please check that your organization respects the…</description>
+    </item>
+    <item>
+      <title>Jenkins&apos; Participation in Hacktoberfest 2024</title>
+      <link>https://www.jenkins.io/blog/2024/11/13/2024-11-13-hacktoberfest/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/11/13/2024-11-13-hacktoberfest/</guid>
+      <pubDate>Wed, 13 Nov 2024 12:00:00 GMT</pubDate>
+      <description>The Jenkins community is pleased to have participated in this year’s Hacktoberfest, an event focused on fostering open-source contributions and welcoming new contributors to our ecosystem. As Hacktoberfest 2024 has come to a close, we&amp;#8217;re happy to reflect on the community&amp;#8217;s participation: Jenkins’ Contribution to Hacktoberfest This year, we saw an increase in community engagement, with contributions including 1,174 pull…</description>
+    </item>
+    <item>
+      <title>Brownout on Update Center (updates.jenkins.io):
+ 07 and 08 November 2024</title>
+      <link>https://www.jenkins.io/blog/2024/11/07/2024-11-07-update-center-brownouts-6/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/11/07/2024-11-07-update-center-brownouts-6/</guid>
+      <pubDate>Thu, 07 Nov 2024 12:00:00 GMT</pubDate>
+      <description>Summary ( TL;DR ) Note: this is a follow up of the 24 and 25 October 2024 24 hours brownout . The service https://updates.jenkins.io will switch its implementation to a new system during 1 day: From Thursday 7 November 2024 09:00 am UTC until Friday 8 November 2024 09:00 am UTC All Jenkins users are impacted but should not see…</description>
+    </item>
+    <item>
+      <title>Advancing Security: Jenkins Content Security Policy (CSP) Project Progress</title>
+      <link>https://www.jenkins.io/blog/2024/11/01/2024-11-01-jenkins-csp-project-update/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/11/01/2024-11-01-jenkins-csp-project-update/</guid>
+      <pubDate>Fri, 01 Nov 2024 12:00:00 GMT</pubDate>
+      <description>Security is a core focus at Jenkins, and through the Content Security Policy (CSP) grant from the Alpha-Omega Foundation, we&amp;#8217;re reinforcing our commitment to the stability and safety of our community. After weeks of progress, collaboration, and technical challenges, it&amp;#8217;s time to share where we are and what’s next. Why CSP Matters With Jenkins as a crucial tool for thousands…</description>
+    </item>
+    <item>
+      <title>Revamping Jenkins Tutorials: A Journey to Simplicity and Inclusivity</title>
+      <link>https://www.jenkins.io/blog/2024/10/25/2024-10-25-jenkins-tutorial-revamp/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/10/25/2024-10-25-jenkins-tutorial-revamp/</guid>
+      <pubDate>Fri, 25 Oct 2024 12:00:00 GMT</pubDate>
+      <description>Introduction: Transforming Jenkins tutorials Technical tutorials often present challenges to developers, particularly when learning complex systems like Jenkins. The existing Jenkins tutorials, while comprehensive, had become a significant barrier to entry for many developers, especially those new to continuous integration and deployment. During the Open Source Summit Europe 2024 , the Continuous Delivery Foundation (CDF) organized a mini summit .…</description>
+    </item>
+    <item>
+      <title>Brownout on Update Center (updates.jenkins.io):
+ 24 and 25 October 2024</title>
+      <link>https://www.jenkins.io/blog/2024/10/24/2024-10-24-update-center-brownouts-5/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/10/24/2024-10-24-update-center-brownouts-5/</guid>
+      <pubDate>Thu, 24 Oct 2024 12:00:00 GMT</pubDate>
+      <description>Summary ( TL;DR ) Note: this is a follow up of the 26 and 27 September 24 hours brownout . The service https://updates.jenkins.io will switch its implementation to a new system during 1 day: From Thursday 24 October 2024 from 10:00am UTC until Friday 25 October 2024 10:00am UTC All Jenkins users are impacted but should not see any functional…</description>
+    </item>
+    <item>
+      <title>Alpha Omega Foundation Content Security Policy Grant</title>
+      <link>https://www.jenkins.io/blog/2024/10/04/2024-10-04-content-security-policy-grant/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/10/04/2024-10-04-content-security-policy-grant/</guid>
+      <pubDate>Fri, 04 Oct 2024 12:00:00 GMT</pubDate>
+      <description>Alpha Omega Foundation funds 3 months of work on Jenkins Content Security Policy</description>
+    </item>
+    <item>
+      <title>2024 Jenkins Election Candidate Statements</title>
+      <link>https://www.jenkins.io/blog/2024/10/03/2024-10-03-jenkins-election-candidates/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/10/03/2024-10-03-jenkins-election-candidates/</guid>
+      <pubDate>Thu, 03 Oct 2024 12:00:00 GMT</pubDate>
+      <description>Candidate statements for 2024 Jenkins elections.</description>
+    </item>
+    <item>
+      <title>Voter Registration for Jenkins Board and Officer Elections 2024</title>
+      <link>https://www.jenkins.io/blog/2024/09/25/2024-09-25-board-officer-election-announcement/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/09/25/2024-09-25-board-officer-election-announcement/</guid>
+      <pubDate>Wed, 25 Sep 2024 12:00:00 GMT</pubDate>
+      <description>Voter registration is open for Jenkins Board and Officer elections.</description>
+    </item>
+    <item>
+      <title>Brownout on Update Center (updates.jenkins.io):
+ 26 and 27 September 2024</title>
+      <link>https://www.jenkins.io/blog/2024/09/25/2024-09-25-update-center-brownouts-4/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/09/25/2024-09-25-update-center-brownouts-4/</guid>
+      <pubDate>Wed, 25 Sep 2024 12:00:00 GMT</pubDate>
+      <description>Summary ( TL;DR ) Note: this is a follow up of the 11 and 12 September 24 hours brownout . The service https://updates.jenkins.io will switch its implementation to a new system during 1 day: From Thursday 26 September 2024 from 07:00am UTC until Friday 27 September 2024 07:00am UTC All Jenkins users are impacted but should not see any functional…</description>
+    </item>
+    <item>
+      <title>Brownout on Update Center (updates.jenkins.io):
+ 11 and 12 September 2024</title>
+      <link>https://www.jenkins.io/blog/2024/09/10/2024-09-10-update-center-brownouts-3/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/09/10/2024-09-10-update-center-brownouts-3/</guid>
+      <pubDate>Tue, 10 Sep 2024 12:00:00 GMT</pubDate>
+      <description>Summary ( TL;DR ) Note: this is a follow up of the 6 and 9 September brownouts . The service https://updates.jenkins.io will switch its implementation to a new system during 1 day: Wednesday 11 September 2024 from 02:00pm UTC until Thursday 12 September 2024 02:00pm UTC All Jenkins users are impacted but should not see any functional change. ⚠️ Please,…</description>
+    </item>
+    <item>
+      <title>Brownout on Update Center (updates.jenkins.io):
+ 6 and 9 September 2024</title>
+      <link>https://www.jenkins.io/blog/2024/09/04/2024-09-04-update-center-brownouts/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/09/04/2024-09-04-update-center-brownouts/</guid>
+      <pubDate>Wed, 04 Sep 2024 12:00:00 GMT</pubDate>
+      <description>Summary ( TL;DR ) The service https://updates.jenkins.io will switch its implementation to a new system during 1 hour twice: Friday 6 September 2024 from 07:00am UTC until 08:00am UTC Monday 9 September 2024 from 02:00pm UTC until 03:00pm UTC All Jenkins users are impacted but should not see any functional change. ⚠️ Please, check that your organization respects the advertised…</description>
+    </item>
+    <item>
+      <title>Hacktoberfest 2024</title>
+      <link>https://www.jenkins.io/blog/2024/09/01/2024-09-30-hacktoberfest/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/09/01/2024-09-30-hacktoberfest/</guid>
+      <pubDate>Sun, 01 Sep 2024 12:00:00 GMT</pubDate>
+      <description>Hacktoberfest is back! Join us as we celebrate and support open-source during October. Contributors can earn badges and improve their open source contribution skills. The Jenkins community will participate once again in the event. We invite you to contribute to Jenkins projects but also, as maintainers, to welcome and help newcomers. Contributors This is what contributors need to know to…</description>
+    </item>
+    <item>
+      <title>See what&apos;s next for the Jenkins user interface - DevOps World 2024</title>
+      <link>https://www.jenkins.io/blog/2024/08/29/2024-08-29-jenkins-design/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/08/29/2024-08-29-jenkins-design/</guid>
+      <pubDate>Thu, 29 Aug 2024 12:00:00 GMT</pubDate>
+      <description>This is a speaker blogpost for a DevOps World 2024 talk. We last gave a talk about the Jenkins user experience at DevOps World 2022. Two short years later, we’re back to showcase what’s new and upcoming in the world of Jenkins UX. We’ll discuss how we’re bringing the best of BlueOcean back to Jenkins, a redesigned builds widget, a…</description>
+    </item>
+    <item>
+      <title>2024 08 26 gsoc manage github permissions</title>
+      <link>https://www.jenkins.io/blog/2024/08/26/2024-08-26-gsoc-manage-github-permissions/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/08/26/2024-08-26-gsoc-manage-github-permissions/</guid>
+      <pubDate>Mon, 26 Aug 2024 12:00:00 GMT</pubDate>
+      <description>This blog showcases all the work done in the Manage jenkinsci GitHub permissions as code project during Google Summer of Code 2024. About the Project This project aims to create a solution that allows the Repository Permission Updater (RPU) to manage jenkinsci GitHub permissions as code. RPU is a vital tool used by Jenkins to manage artifactory permissions, bridge discrepancies…</description>
+    </item>
+    <item>
+      <title>Using OpenRewrite Recipes for Plugin Modernization</title>
+      <link>https://www.jenkins.io/blog/2024/08/26/2024-08-26-gsoc-using-openrewrite-for-plugin-modernization/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/08/26/2024-08-26-gsoc-using-openrewrite-for-plugin-modernization/</guid>
+      <pubDate>Mon, 26 Aug 2024 12:00:00 GMT</pubDate>
+      <description>Google Summer of Code 2024 Using OpenRewrite Recipes for Plugin Modernization.</description>
+    </item>
+    <item>
+      <title>Enhancing an Existing LLM Model with Domain-specific Jenkins Knowledge</title>
+      <link>https://www.jenkins.io/blog/2024/08/25/2024-08-25-gsoc-enhancing-llm/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/08/25/2024-08-25-gsoc-enhancing-llm/</guid>
+      <pubDate>Sun, 25 Aug 2024 12:00:00 GMT</pubDate>
+      <description>Google Summer of Code 2024 Enhancing an Existing LLM Model with Domain-specific Jenkins Knowledge.</description>
+    </item>
+    <item>
+      <title>Jenkins Board and Officer Elections 2024 - Nominations Open</title>
+      <link>https://www.jenkins.io/blog/2024/08/01/2024-08-01-board-officer-election-announcement/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/08/01/2024-08-01-board-officer-election-announcement/</guid>
+      <pubDate>Thu, 01 Aug 2024 12:00:00 GMT</pubDate>
+      <description>Nomination are open for Jenkins Board and Officer elections.</description>
+    </item>
+    <item>
+      <title>Amazon donates $60,000 to Jenkins</title>
+      <link>https://www.jenkins.io/blog/2024/07/01/2024-07-24-amazon-donates-to-jenkins/</link>
+      <guid isPermaLink="true">https://www.jenkins.io/blog/2024/07/01/2024-07-24-amazon-donates-to-jenkins/</guid>
+      <pubDate>Mon, 01 Jul 2024 12:00:00 GMT</pubDate>
+      <description>Amazon Web Services has donated $60,000 in cloud credits to the Jenkins project. We are especially grateful for their donation and their support of Jenkins. The Jenkins project has used AWS for many years to provide a wide range of services. AWS provides the central distribution point for Jenkins core and Jenkins plugin downloads through the Jenkins update center. We&amp;#8217;ve…</description>
+    </item>
   </channel>
 </rss>

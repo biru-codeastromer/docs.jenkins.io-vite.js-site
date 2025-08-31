@@ -119,7 +119,6 @@ function Pager({ page, total, onChange }) {
       ) : null}
 
       <style>{`
-        /* Center numbers exactly; keep arrow on far right */
         .app-pagination{
           display:grid;
           grid-template-columns: 1fr auto 1fr; /* left filler | numbers | right filler */
@@ -136,7 +135,6 @@ function Pager({ page, total, onChange }) {
           justify-self:center;
         }
 
-        /* Small, neat pills */
         .app-pagination .page-item .page-link{
           background:transparent;
           border:none;
@@ -148,7 +146,6 @@ function Pager({ page, total, onChange }) {
         }
         .app-pagination .page-item .page-link:visited{ color:currentColor; }
 
-        /* Active pill tint — auto-adjust for light/dark */
         .app-pagination .page-item.active .page-link{ background:rgba(255,255,255,.10); }
         @media (prefers-color-scheme: light){
           .app-pagination .page-item.active .page-link{ background:rgba(0,0,0,.08); }
@@ -165,7 +162,6 @@ function Pager({ page, total, onChange }) {
           pointer-events:none;
         }
 
-        /* Right arrow stays pinned to the right edge */
         .app-pagination .next-arrow{
           grid-column:3;
           justify-self:end;

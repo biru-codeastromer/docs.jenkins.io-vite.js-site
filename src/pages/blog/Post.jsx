@@ -229,7 +229,6 @@ export default function BlogPost() {
         ))}
 
         <style>{`
-          /* Typography (match your Artwork/Conduct pages) */
           .app-post-typography{
             max-width:1060px;
             margin:0 auto;
@@ -256,7 +255,6 @@ export default function BlogPost() {
           .app-post-typography .blog-content pre{ font:.95rem/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; overflow:auto; padding:1rem; border-radius:.5rem; }
           .app-post-typography .blog-content code{ font:.95rem ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; }
 
-          /* Palette like jenkins.io (only what's needed here) */
           :root{
             --color: hsl(212,100%,5%);
             --color--secondary: hsl(212,30%,40%);
@@ -274,12 +272,10 @@ export default function BlogPost() {
             }
           }
 
-          /* Post header row */
           .post-attrs{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; color:var(--color--secondary); font-weight:500; }
           .app-post-page .share-buttons__container{ margin-left:auto; height:2rem; }
           .share-buttons__container > span{ color:var(--color--secondary); }
 
-          /* Social chips (exact mechanics as jenkins.io) */
           .app-social-media-buttons{ display:contents; padding:0; margin:0; list-style:none; }
           .app-social-media-buttons li{ display:contents; }
 
@@ -307,7 +303,6 @@ export default function BlogPost() {
           .app-social-media-button-bluesky  { --button-color: var(--bluesky)  !important; }
           .app-social-media-button-github   { --button-color: var(--github)  !important; }
 
-          /* Masked SVG so glyph = brand color */
           .app-social-icon{
             width:1.25rem; height:1.25rem; display:block; background: var(--button-color);
             -webkit-mask-image: var(--icon); mask-image: var(--icon);

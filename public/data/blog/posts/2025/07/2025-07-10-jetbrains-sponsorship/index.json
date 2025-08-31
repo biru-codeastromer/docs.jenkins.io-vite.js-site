@@ -1,0 +1,17 @@
+{
+  "id": "2025-07-2025-07-10-jetbrains-sponsorship",
+  "url": "/blog/2025/07/10/2025-07-10-jetbrains-sponsorship/",
+  "title": "JetBrains sponsors the Jenkins project",
+  "date": "2025-07-10",
+  "authors": [
+    "notmyfault"
+  ],
+  "tags": [
+    "jenkins",
+    "sponsor",
+    "jetbrains"
+  ],
+  "summary": "We’re excited to welcome JetBrains as a new sponsor of the Jenkins project! JetBrains has generously provided free annual All Products Pack subscriptions to Jenkins core maintainers and active contributors. This subscription grants access to the full suite of JetBrains IDEs, including IntelliJ IDEA Ultimate Edition, which is widely used by Jenkins developers for writing, debugging, and maintaining the project’s…",
+  "opengraph_image": "/images/post-images/2025/07/jenkins-jetbrains-sponsorship.svg",
+  "content_html": "<div class=\"paragraph\">\n<p>We’re excited to welcome <strong>JetBrains</strong> as a new sponsor of the Jenkins project!</p>\n</div>\n<div class=\"paragraph\">\n<p>JetBrains has generously provided free annual <strong>All Products Pack</strong> subscriptions to Jenkins core maintainers and active contributors.\nThis subscription grants access to the full suite of JetBrains IDEs, including IntelliJ IDEA Ultimate Edition, which is widely used by Jenkins developers for writing, debugging, and maintaining the project’s codebase.</p>\n</div>\n<div class=\"sect1\">\n<h2 id=\"jetbrains-tools-that-support-jenkins-development\"><a class=\"anchor\" href=\"#jetbrains-tools-that-support-jenkins-development\"></a>JetBrains: Tools that Support Jenkins Development</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p><span class=\"image\"><a class=\"image\" href=\"https://jb.gg/OpenSource\"><img src=\"/images/post-images/2025/07/jetbrains-logo.svg\" alt=\"JetBrains logo\"></a></span></p>\n</div>\n<div class=\"paragraph\">\n<p>JetBrains develops a comprehensive set of development tools that cover many programming languages and workflows.\nIntelliJ IDEA Ultimate Edition, in particular, is a popular choice among Jenkins contributors for its advanced code analysis, refactoring tools, and seamless integration with build and test systems.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"how-to-request-a-license\"><a class=\"anchor\" href=\"#how-to-request-a-license\"></a>How to Request a License</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>If you’re a core maintainer or active contributor to Jenkins and would like to receive a JetBrains All Products Pack subscription, please contact Alexander Brandes (@NotMyFault) via email.\nHis contact details are available on his GitHub profile: <a href=\"https://github.com/NotMyFault\" class=\"bare\">https://github.com/NotMyFault</a></p>\n</div>\n<div class=\"paragraph\">\n<p>Include your GitHub handle and a brief note indicating your interest in a JetBrains subscription for the Jenkins community.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"thank-you\"><a class=\"anchor\" href=\"#thank-you\"></a>Thank You</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>We sincerely thank JetBrains for their generous support of the Jenkins project.\nTheir sponsorship helps us continue to improve Jenkins, making it a better tool for our users worldwide.</p>\n</div>\n</div>\n</div>"
+}
