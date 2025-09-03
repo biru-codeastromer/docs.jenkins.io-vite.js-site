@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="https://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jenkins Security Advisories</title>
+    <link>https://www.jenkins.io/security/advisories/</link>
+    <atom:link href="https://www.jenkins.io/security/advisories/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Security advisories published by the Jenkins project</description>
+    <lastBuildDate>Tue, 12 Aug 2025 09:30:33 GMT</lastBuildDate>
+    <item>
+      <title>Jenkins Security Advisory 2025-07-09</title>
+      <pubDate>Wed, 09 Jul 2025 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2025-07-09/</link>
+      <guid isPermaLink="false">jenkins-advisory-2025-07-09</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Apica Loadtest&lt;/li&gt;&lt;li&gt;Affects plugin: Applitools Eyes&lt;/li&gt;&lt;li&gt;Affects plugin: Aqua Security Scanner&lt;/li&gt;&lt;li&gt;Affects plugin: Credentials Binding&lt;/li&gt;&lt;li&gt;Affects plugin: Dead Man&apos;s Snitch&lt;/li&gt;&lt;li&gt;Affects plugin: Git Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: HTML Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: IBM Cloud DevOps&lt;/li&gt;&lt;li&gt;Affects plugin: IFTTT Build Notifier&lt;/li&gt;&lt;li&gt;Affects plugin: Kryptowire&lt;/li&gt;&lt;li&gt;Affects plugin: Nouvola DiveCloud&lt;/li&gt;&lt;li&gt;Affects plugin: QMetry Test Management&lt;/li&gt;&lt;li&gt;Affects plugin: ReadyAPI Functional Testing&lt;/li&gt;&lt;li&gt;Affects plugin: Sensedia Api Platform tools&lt;/li&gt;&lt;li&gt;Affects plugin: Statistics Gatherer&lt;/li&gt;&lt;li&gt;Affects plugin: Testsigma Test Plan run&lt;/li&gt;&lt;li&gt;Affects plugin: User1st uTester&lt;/li&gt;&lt;li&gt;Affects plugin: VAddy&lt;/li&gt;&lt;li&gt;Affects plugin: Warrior Framework&lt;/li&gt;&lt;li&gt;Affects plugin: Xooa&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2025-06-06</title>
+      <pubDate>Fri, 06 Jun 2025 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2025-06-06/</link>
+      <guid isPermaLink="false">jenkins-advisory-2025-06-06</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Gatling&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2025-05-14</title>
+      <pubDate>Wed, 14 May 2025 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2025-05-14/</link>
+      <guid isPermaLink="false">jenkins-advisory-2025-05-14</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Cadence vManager&lt;/li&gt;&lt;li&gt;Affects plugin: DingTalk&lt;/li&gt;&lt;li&gt;Affects plugin: Health Advisor by CloudBees&lt;/li&gt;&lt;li&gt;Affects plugin: OpenID Connect Provider&lt;/li&gt;&lt;li&gt;Affects plugin: WSO2 Oauth&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2025-04-10</title>
+      <pubDate>Thu, 10 Apr 2025 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2025-04-10/</link>
+      <guid isPermaLink="false">jenkins-advisory-2025-04-10</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects jenkins/ssh-agent Docker images&lt;/li&gt;&lt;li&gt;Affects jenkins/ssh-slave Docker images&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2025-04-02</title>
+      <pubDate>Wed, 02 Apr 2025 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2025-04-02/</link>
+      <guid isPermaLink="false">jenkins-advisory-2025-04-02</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: AsakusaSatellite&lt;/li&gt;&lt;li&gt;Affects plugin: Cadence vManager&lt;/li&gt;&lt;li&gt;Affects plugin: monitor-remote-job&lt;/li&gt;&lt;li&gt;Affects plugin: Simple Queue&lt;/li&gt;&lt;li&gt;Affects plugin: Stack Hammer&lt;/li&gt;&lt;li&gt;Affects plugin: Templating Engine&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2025-03-19</title>
+      <pubDate>Wed, 19 Mar 2025 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2025-03-19/</link>
+      <guid isPermaLink="false">jenkins-advisory-2025-03-19</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: AnchorChain&lt;/li&gt;&lt;li&gt;Affects plugin: EDDSA API&lt;/li&gt;&lt;li&gt;Affects plugin: Zoho QEngine&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2025-03-05</title>
+      <pubDate>Wed, 05 Mar 2025 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2025-03-05/</link>
+      <guid isPermaLink="false">jenkins-advisory-2025-03-05</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2025-01-22</title>
+      <pubDate>Wed, 22 Jan 2025 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2025-01-22/</link>
+      <guid isPermaLink="false">jenkins-advisory-2025-01-22</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Azure Service Fabric&lt;/li&gt;&lt;li&gt;Affects plugin: Bitbucket Server Integration&lt;/li&gt;&lt;li&gt;Affects plugin: Eiffel Broadcaster&lt;/li&gt;&lt;li&gt;Affects plugin: Folder-based Authorization Strategy&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab&lt;/li&gt;&lt;li&gt;Affects plugin: OpenId Connect Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: Zoom&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-11-27</title>
+      <pubDate>Wed, 27 Nov 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-11-27/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-11-27</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Filesystem List Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Simple Queue&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-11-13</title>
+      <pubDate>Wed, 13 Nov 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-11-13/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-11-13</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Authorize Project&lt;/li&gt;&lt;li&gt;Affects plugin: IvyTrigger&lt;/li&gt;&lt;li&gt;Affects plugin: OpenId Connect Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Declarative&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Groovy&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: Shared Library Version Override&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-10-02</title>
+      <pubDate>Wed, 02 Oct 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-10-02/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-10-02</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Credentials&lt;/li&gt;&lt;li&gt;Affects plugin: OpenId Connect Authentication&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-08-07</title>
+      <pubDate>Wed, 07 Aug 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-08-07/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-08-07</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-06-26</title>
+      <pubDate>Wed, 26 Jun 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-06-26/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-06-26</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Bitbucket Branch Source&lt;/li&gt;&lt;li&gt;Affects plugin: Plain Credentials&lt;/li&gt;&lt;li&gt;Affects plugin: Structs&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-05-24</title>
+      <pubDate>Fri, 24 May 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-05-24/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-05-24</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: OpenText Application Automation Tools&lt;/li&gt;&lt;li&gt;Affects plugin: Report Info&lt;/li&gt;&lt;li&gt;Affects plugin: Team Concert Git&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-05-02</title>
+      <pubDate>Thu, 02 May 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-05-02/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-05-02</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Git server&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: Subversion Partial Release Manager&lt;/li&gt;&lt;li&gt;Affects plugin: Telegram Bot&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-04-17</title>
+      <pubDate>Wed, 17 Apr 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-04-17/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-04-17</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-03-20</title>
+      <pubDate>Wed, 20 Mar 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-03-20/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-03-20</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-03-06</title>
+      <pubDate>Wed, 06 Mar 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-03-06/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-03-06</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: AppSpider&lt;/li&gt;&lt;li&gt;Affects plugin: Bitbucket Branch Source&lt;/li&gt;&lt;li&gt;Affects plugin: Build Monitor View&lt;/li&gt;&lt;li&gt;Affects plugin: Delphix&lt;/li&gt;&lt;li&gt;Affects plugin: docker-build-step&lt;/li&gt;&lt;li&gt;Affects plugin: GitBucket&lt;/li&gt;&lt;li&gt;Affects plugin: HTML Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: iceScrum&lt;/li&gt;&lt;li&gt;Affects plugin: MQ Notifier&lt;/li&gt;&lt;li&gt;Affects plugin: OWASP Dependency-Check&lt;/li&gt;&lt;li&gt;Affects plugin: Subversion Partial Release Manager&lt;/li&gt;&lt;li&gt;Affects plugin: Trilead API&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2024-01-24</title>
+      <pubDate>Wed, 24 Jan 2024 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2024-01-24/</link>
+      <guid isPermaLink="false">jenkins-advisory-2024-01-24</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Git server&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab Branch Source&lt;/li&gt;&lt;li&gt;Affects plugin: Log Command&lt;/li&gt;&lt;li&gt;Affects plugin: Matrix Project&lt;/li&gt;&lt;li&gt;Affects plugin: Qualys Policy Compliance Scanning Connector&lt;/li&gt;&lt;li&gt;Affects plugin: Red Hat Dependency Analytics&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-12-13</title>
+      <pubDate>Wed, 13 Dec 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-12-13/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-12-13</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Analysis Model API&lt;/li&gt;&lt;li&gt;Affects plugin: Deployment Dashboard&lt;/li&gt;&lt;li&gt;Affects plugin: Dingding JSON Pusher&lt;/li&gt;&lt;li&gt;Affects plugin: HTMLResource&lt;/li&gt;&lt;li&gt;Affects plugin: Nexus Platform&lt;/li&gt;&lt;li&gt;Affects plugin: OpenId Connect Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: PaaSLane Estimate&lt;/li&gt;&lt;li&gt;Affects plugin: Scriptler&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-11-29</title>
+      <pubDate>Wed, 29 Nov 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-11-29/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-11-29</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Google Compute Engine&lt;/li&gt;&lt;li&gt;Affects plugin: Jira&lt;/li&gt;&lt;li&gt;Affects plugin: MATLAB&lt;/li&gt;&lt;li&gt;Affects plugin: NeuVector Vulnerability Scanner&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-10-25</title>
+      <pubDate>Wed, 25 Oct 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-10-25/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-10-25</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: CloudBees CD&lt;/li&gt;&lt;li&gt;Affects plugin: Edgewall Trac&lt;/li&gt;&lt;li&gt;Affects plugin: GitHub&lt;/li&gt;&lt;li&gt;Affects plugin: Gogs&lt;/li&gt;&lt;li&gt;Affects plugin: lambdatest-automation&lt;/li&gt;&lt;li&gt;Affects plugin: MSTeams Webhook Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Multibranch Scan Webhook Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Warnings&lt;/li&gt;&lt;li&gt;Affects plugin: Zanata&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-10-18</title>
+      <pubDate>Wed, 18 Oct 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-10-18/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-10-18</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-09-20</title>
+      <pubDate>Wed, 20 Sep 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-09-20/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-09-20</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Build Failure Analyzer&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-09-06</title>
+      <pubDate>Wed, 06 Sep 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-09-06/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-09-06</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Assembla Auth&lt;/li&gt;&lt;li&gt;Affects plugin: AWS CodeCommit Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Bitbucket Push and Pull Request&lt;/li&gt;&lt;li&gt;Affects plugin: Frugal Testing&lt;/li&gt;&lt;li&gt;Affects plugin: Google Login&lt;/li&gt;&lt;li&gt;Affects plugin: Ivy&lt;/li&gt;&lt;li&gt;Affects plugin: Job Configuration History&lt;/li&gt;&lt;li&gt;Affects plugin: Microsoft Entra ID (previously Azure AD)&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline Maven Integration&lt;/li&gt;&lt;li&gt;Affects plugin: Qualys Container Scanning Connector&lt;/li&gt;&lt;li&gt;Affects plugin: SSH2 Easy&lt;/li&gt;&lt;li&gt;Affects plugin: TAP&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-08-16</title>
+      <pubDate>Wed, 16 Aug 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-08-16/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-08-16</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Blue Ocean&lt;/li&gt;&lt;li&gt;Affects plugin: Config File Provider&lt;/li&gt;&lt;li&gt;Affects plugin: Delphix&lt;/li&gt;&lt;li&gt;Affects plugin: Docker Swarm&lt;/li&gt;&lt;li&gt;Affects plugin: Favorite View&lt;/li&gt;&lt;li&gt;Affects plugin: Flaky Test Handler&lt;/li&gt;&lt;li&gt;Affects plugin: Folders&lt;/li&gt;&lt;li&gt;Affects plugin: Fortify&lt;/li&gt;&lt;li&gt;Affects plugin: Gogs&lt;/li&gt;&lt;li&gt;Affects plugin: Maven Artifact ChoiceListProvider (Nexus)&lt;/li&gt;&lt;li&gt;Affects plugin: NodeJS&lt;/li&gt;&lt;li&gt;Affects plugin: Shortcut Job&lt;/li&gt;&lt;li&gt;Affects plugin: Tuleap Authentication&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-07-26</title>
+      <pubDate>Wed, 26 Jul 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-07-26/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-07-26</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Bazaar&lt;/li&gt;&lt;li&gt;Affects plugin: Chef Identity&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: Gradle&lt;/li&gt;&lt;li&gt;Affects plugin: Qualys Web App Scanning Connector&lt;/li&gt;&lt;li&gt;Affects plugin: ServiceNow DevOps&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-07-12</title>
+      <pubDate>Wed, 12 Jul 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-07-12/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-07-12</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Active Directory&lt;/li&gt;&lt;li&gt;Affects plugin: Assembla Auth&lt;/li&gt;&lt;li&gt;Affects plugin: Benchmark Evaluator&lt;/li&gt;&lt;li&gt;Affects plugin: Datadog&lt;/li&gt;&lt;li&gt;Affects plugin: ElasticBox CI&lt;/li&gt;&lt;li&gt;Affects plugin: External Monitor Job Type&lt;/li&gt;&lt;li&gt;Affects plugin: mabl&lt;/li&gt;&lt;li&gt;Affects plugin: MathWorks Polyspace&lt;/li&gt;&lt;li&gt;Affects plugin: OpenShift Login&lt;/li&gt;&lt;li&gt;Affects plugin: Oracle Cloud Infrastructure Compute&lt;/li&gt;&lt;li&gt;Affects plugin: Orka by MacStadium&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline restFul API&lt;/li&gt;&lt;li&gt;Affects plugin: Rebuilder&lt;/li&gt;&lt;li&gt;Affects plugin: SAML Single Sign On(SSO)&lt;/li&gt;&lt;li&gt;Affects plugin: Sumologic Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: Test Results Aggregator&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-06-14</title>
+      <pubDate>Wed, 14 Jun 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-06-14/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-06-14</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: AWS CodeCommit Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Checkmarx&lt;/li&gt;&lt;li&gt;Affects plugin: Digital.ai App Management Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: Dimensions&lt;/li&gt;&lt;li&gt;Affects plugin: Maven Repository Server&lt;/li&gt;&lt;li&gt;Affects plugin: Sonargraph Integration&lt;/li&gt;&lt;li&gt;Affects plugin: Team Concert&lt;/li&gt;&lt;li&gt;Affects plugin: Template Workflows&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-05-16</title>
+      <pubDate>Tue, 16 May 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-05-16/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-05-16</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Ansible&lt;/li&gt;&lt;li&gt;Affects plugin: AppSpider&lt;/li&gt;&lt;li&gt;Affects plugin: Azure VM Agents&lt;/li&gt;&lt;li&gt;Affects plugin: CAS&lt;/li&gt;&lt;li&gt;Affects plugin: Code Dx&lt;/li&gt;&lt;li&gt;Affects plugin: Email Extension&lt;/li&gt;&lt;li&gt;Affects plugin: File Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: HashiCorp Vault&lt;/li&gt;&lt;li&gt;Affects plugin: LDAP&lt;/li&gt;&lt;li&gt;Affects plugin: LoadComplete support&lt;/li&gt;&lt;li&gt;Affects plugin: NS-ND Integration Performance Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline Utility Steps&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Job&lt;/li&gt;&lt;li&gt;Affects plugin: Reverse Proxy Auth&lt;/li&gt;&lt;li&gt;Affects plugin: SAML Single Sign On(SSO)&lt;/li&gt;&lt;li&gt;Affects plugin: Sidebar Link&lt;/li&gt;&lt;li&gt;Affects plugin: Tag Profiler&lt;/li&gt;&lt;li&gt;Affects plugin: TestComplete support&lt;/li&gt;&lt;li&gt;Affects plugin: TestNG Results&lt;/li&gt;&lt;li&gt;Affects plugin: wso2id-oauth&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-04-12</title>
+      <pubDate>Wed, 12 Apr 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-04-12/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-04-12</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Assembla merge request builder&lt;/li&gt;&lt;li&gt;Affects plugin: Azure Key Vault&lt;/li&gt;&lt;li&gt;Affects plugin: Consul KV Builder&lt;/li&gt;&lt;li&gt;Affects plugin: Delinea Secret Server&lt;/li&gt;&lt;li&gt;Affects plugin: Fogbugz&lt;/li&gt;&lt;li&gt;Affects plugin: Image Tag Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Kubernetes&lt;/li&gt;&lt;li&gt;Affects plugin: Lucene-Search&lt;/li&gt;&lt;li&gt;Affects plugin: NeuVector Vulnerability Scanner&lt;/li&gt;&lt;li&gt;Affects plugin: Quay.io trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Report Portal&lt;/li&gt;&lt;li&gt;Affects plugin: Thycotic DevOps Secrets Vault&lt;/li&gt;&lt;li&gt;Affects plugin: TurboScript&lt;/li&gt;&lt;li&gt;Affects plugin: wso2id-oauth&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-03-21</title>
+      <pubDate>Tue, 21 Mar 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-03-21/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-03-21</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: AbsInt a³&lt;/li&gt;&lt;li&gt;Affects plugin: Convert To Pipeline&lt;/li&gt;&lt;li&gt;Affects plugin: Cppcheck&lt;/li&gt;&lt;li&gt;Affects plugin: Crap4J&lt;/li&gt;&lt;li&gt;Affects plugin: JaCoCo&lt;/li&gt;&lt;li&gt;Affects plugin: Mashup Portlets&lt;/li&gt;&lt;li&gt;Affects plugin: OctoPerf Load Testing Plugin&lt;/li&gt;&lt;li&gt;Affects plugin: Performance Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: Phabricator Differential&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline Aggregator View&lt;/li&gt;&lt;li&gt;Affects plugin: remote-jobs-view-plugin&lt;/li&gt;&lt;li&gt;Affects plugin: Role-based Authorization Strategy&lt;/li&gt;&lt;li&gt;Affects plugin: Visual Studio Code Metrics&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-03-08</title>
+      <pubDate>Wed, 08 Mar 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-03-08/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-03-08</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects update-center2&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-02-15</title>
+      <pubDate>Wed, 15 Feb 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-02-15/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-02-15</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Azure Credentials&lt;/li&gt;&lt;li&gt;Affects plugin: Email Extension&lt;/li&gt;&lt;li&gt;Affects plugin: JUnit&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Build Step&lt;/li&gt;&lt;li&gt;Affects plugin: Synopsys Coverity&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-02-09</title>
+      <pubDate>Thu, 09 Feb 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-02-09/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-02-09</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Docker images&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2023-01-24</title>
+      <pubDate>Tue, 24 Jan 2023 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2023-01-24/</link>
+      <guid isPermaLink="false">jenkins-advisory-2023-01-24</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: BearyChat&lt;/li&gt;&lt;li&gt;Affects plugin: Bitbucket OAuth&lt;/li&gt;&lt;li&gt;Affects plugin: Cisco Spark Notifier&lt;/li&gt;&lt;li&gt;Affects plugin: Gerrit Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: GitHub Pull Request Builder&lt;/li&gt;&lt;li&gt;Affects plugin: GitHub Pull Request Coverage Status&lt;/li&gt;&lt;li&gt;Affects plugin: JIRA Pipeline Steps&lt;/li&gt;&lt;li&gt;Affects plugin: Keycloak Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: Kubernetes Credentials Provider&lt;/li&gt;&lt;li&gt;Affects plugin: Microsoft Entra ID (previously Azure AD)&lt;/li&gt;&lt;li&gt;Affects plugin: MSTest&lt;/li&gt;&lt;li&gt;Affects plugin: OpenID&lt;/li&gt;&lt;li&gt;Affects plugin: OpenId Connect Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: Orka by MacStadium&lt;/li&gt;&lt;li&gt;Affects plugin: PWauth Security Realm&lt;/li&gt;&lt;li&gt;Affects plugin: RabbitMQ Consumer&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: Semantic Versioning&lt;/li&gt;&lt;li&gt;Affects plugin: TestComplete support&lt;/li&gt;&lt;li&gt;Affects plugin: TestQuality Updater&lt;/li&gt;&lt;li&gt;Affects plugin: view-cloner&lt;/li&gt;&lt;li&gt;Affects plugin: visualexpert&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-12-07</title>
+      <pubDate>Wed, 07 Dec 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-12-07/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-12-07</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Checkmarx&lt;/li&gt;&lt;li&gt;Affects plugin: Custom Build Properties&lt;/li&gt;&lt;li&gt;Affects plugin: Gitea&lt;/li&gt;&lt;li&gt;Affects plugin: Google Login&lt;/li&gt;&lt;li&gt;Affects plugin: Plot&lt;/li&gt;&lt;li&gt;Affects plugin: Sonar Gerrit&lt;/li&gt;&lt;li&gt;Affects plugin: Spring Config&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-11-15</title>
+      <pubDate>Tue, 15 Nov 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-11-15/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-11-15</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Associated Files&lt;/li&gt;&lt;li&gt;Affects plugin: BART&lt;/li&gt;&lt;li&gt;Affects plugin: CCCC&lt;/li&gt;&lt;li&gt;Affects plugin: CloudBees Docker Hub/Registry Notification&lt;/li&gt;&lt;li&gt;Affects plugin: Cluster Statistics&lt;/li&gt;&lt;li&gt;Affects plugin: Config Rotator&lt;/li&gt;&lt;li&gt;Affects plugin: Delete log&lt;/li&gt;&lt;li&gt;Affects plugin: JAPEX&lt;/li&gt;&lt;li&gt;Affects plugin: JUnit&lt;/li&gt;&lt;li&gt;Affects plugin: loader.io&lt;/li&gt;&lt;li&gt;Affects plugin: Naginator&lt;/li&gt;&lt;li&gt;Affects plugin: NS-ND Integration Performance Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: OSF Builder Suite : : XML Linter&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline Utility Steps&lt;/li&gt;&lt;li&gt;Affects plugin: Reverse Proxy Auth&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: SourceMonitor&lt;/li&gt;&lt;li&gt;Affects plugin: Support Core&lt;/li&gt;&lt;li&gt;Affects plugin: Violations&lt;/li&gt;&lt;li&gt;Affects plugin: XP-Dev&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-10-19</title>
+      <pubDate>Wed, 19 Oct 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-10-19/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-10-19</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: 360 FireLine&lt;/li&gt;&lt;li&gt;Affects plugin: BMC AMI DevX Code Debug Code Coverage&lt;/li&gt;&lt;li&gt;Affects plugin: BMC AMI DevX Source Code Download for Endevor, PDS, and Code Pipeline&lt;/li&gt;&lt;li&gt;Affects plugin: BMC AMI DevX Total Test&lt;/li&gt;&lt;li&gt;Affects plugin: BMC AMI Strobe Measurement Task&lt;/li&gt;&lt;li&gt;Affects plugin: Compuware Topaz Utilities&lt;/li&gt;&lt;li&gt;Affects plugin: Contrast Continuous Application Security&lt;/li&gt;&lt;li&gt;Affects plugin: Custom Checkbox Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Generic Webhook Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab&lt;/li&gt;&lt;li&gt;Affects plugin: Job Import&lt;/li&gt;&lt;li&gt;Affects plugin: Katalon&lt;/li&gt;&lt;li&gt;Affects plugin: Mercurial&lt;/li&gt;&lt;li&gt;Affects plugin: NeuVector Vulnerability Scanner&lt;/li&gt;&lt;li&gt;Affects plugin: NUnit&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Deprecated Groovy Libraries&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Groovy&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Groovy Libraries&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Input Step&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Stage View&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Supporting APIs&lt;/li&gt;&lt;li&gt;Affects plugin: REPO&lt;/li&gt;&lt;li&gt;Affects plugin: S3 Explorer&lt;/li&gt;&lt;li&gt;Affects plugin: ScreenRecorder&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: Tuleap Git Branch Source&lt;/li&gt;&lt;li&gt;Affects plugin: XFramium Builder&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-09-21</title>
+      <pubDate>Wed, 21 Sep 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-09-21/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-09-21</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Anchore Container Image Scanner&lt;/li&gt;&lt;li&gt;Affects plugin: Apprenda&lt;/li&gt;&lt;li&gt;Affects plugin: BigPanda Notifier&lt;/li&gt;&lt;li&gt;Affects plugin: BMC AMI Common Configuration&lt;/li&gt;&lt;li&gt;Affects plugin: build-publisher&lt;/li&gt;&lt;li&gt;Affects plugin: CONS3RT&lt;/li&gt;&lt;li&gt;Affects plugin: DotCi&lt;/li&gt;&lt;li&gt;Affects plugin: extreme-feedback&lt;/li&gt;&lt;li&gt;Affects plugin: NS-ND Integration Performance Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: RQM&lt;/li&gt;&lt;li&gt;Affects plugin: Rundeck&lt;/li&gt;&lt;li&gt;Affects plugin: SCM HttpClient&lt;/li&gt;&lt;li&gt;Affects plugin: Security Inspector&lt;/li&gt;&lt;li&gt;Affects plugin: SmallTest&lt;/li&gt;&lt;li&gt;Affects plugin: View26 Test-Reporting&lt;/li&gt;&lt;li&gt;Affects plugin: Walti&lt;/li&gt;&lt;li&gt;Affects plugin: WildFly Deployer&lt;/li&gt;&lt;li&gt;Affects plugin: Worksoft Execution Manager&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-09-09</title>
+      <pubDate>Fri, 09 Sep 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-09-09/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-09-09</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-08-23</title>
+      <pubDate>Tue, 23 Aug 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-08-23/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-08-23</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: CollabNet Plugins&lt;/li&gt;&lt;li&gt;Affects plugin: Git&lt;/li&gt;&lt;li&gt;Affects plugin: Job Configuration History&lt;/li&gt;&lt;li&gt;Affects plugin: Kubernetes Continuous Deploy&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-07-27</title>
+      <pubDate>Wed, 27 Jul 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-07-27/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-07-27</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Android Signing&lt;/li&gt;&lt;li&gt;Affects plugin: BMC AMI DevX Code Debug Code Coverage&lt;/li&gt;&lt;li&gt;Affects plugin: BMC AMI DevX Code Pipeline Operations&lt;/li&gt;&lt;li&gt;Affects plugin: BMC AMI DevX Source Code Download for Endevor, PDS, and Code Pipeline&lt;/li&gt;&lt;li&gt;Affects plugin: Buckminster&lt;/li&gt;&lt;li&gt;Affects plugin: CLIF Performance Testing&lt;/li&gt;&lt;li&gt;Affects plugin: Compuware Topaz Utilities&lt;/li&gt;&lt;li&gt;Affects plugin: Compuware zAdviser API&lt;/li&gt;&lt;li&gt;Affects plugin: Coverity&lt;/li&gt;&lt;li&gt;Affects plugin: Deployer Framework&lt;/li&gt;&lt;li&gt;Affects plugin: Dynamic Extended Choice Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: External Monitor Job Type&lt;/li&gt;&lt;li&gt;Affects plugin: Files Found Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Git&lt;/li&gt;&lt;li&gt;Affects plugin: Git client&lt;/li&gt;&lt;li&gt;Affects plugin: GitHub&lt;/li&gt;&lt;li&gt;Affects plugin: Google Cloud Backup&lt;/li&gt;&lt;li&gt;Affects plugin: HashiCorp Vault&lt;/li&gt;&lt;li&gt;Affects plugin: HTTP Request&lt;/li&gt;&lt;li&gt;Affects plugin: Job Configuration History&lt;/li&gt;&lt;li&gt;Affects plugin: Lucene-Search&lt;/li&gt;&lt;li&gt;Affects plugin: Maven Metadata Plugin for Jenkins CI server&lt;/li&gt;&lt;li&gt;Affects plugin: OpenShift Deployer&lt;/li&gt;&lt;li&gt;Affects plugin: openstack-heat&lt;/li&gt;&lt;li&gt;Affects plugin: Repository Connector&lt;/li&gt;&lt;li&gt;Affects plugin: rhnpush-plugin&lt;/li&gt;&lt;li&gt;Affects plugin: rpmsign-plugin&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-06-30</title>
+      <pubDate>Thu, 30 Jun 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-06-30/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-06-30</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Build Notifications&lt;/li&gt;&lt;li&gt;Affects plugin: build-metrics&lt;/li&gt;&lt;li&gt;Affects plugin: Cisco Spark&lt;/li&gt;&lt;li&gt;Affects plugin: Deployment Dashboard&lt;/li&gt;&lt;li&gt;Affects plugin: Elasticsearch Query&lt;/li&gt;&lt;li&gt;Affects plugin: eXtreme Feedback Panel&lt;/li&gt;&lt;li&gt;Affects plugin: Failed Job Deactivator&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab&lt;/li&gt;&lt;li&gt;Affects plugin: hpe-network-virtualization&lt;/li&gt;&lt;li&gt;Affects plugin: Jigomerge&lt;/li&gt;&lt;li&gt;Affects plugin: Matrix Reloaded&lt;/li&gt;&lt;li&gt;Affects plugin: OpsGenie&lt;/li&gt;&lt;li&gt;Affects plugin: Plot&lt;/li&gt;&lt;li&gt;Affects plugin: Project Inheritance&lt;/li&gt;&lt;li&gt;Affects plugin: Recipe&lt;/li&gt;&lt;li&gt;Affects plugin: Request Rename Or Delete&lt;/li&gt;&lt;li&gt;Affects plugin: requests-plugin&lt;/li&gt;&lt;li&gt;Affects plugin: Rich Text Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: RocketChat Notifier&lt;/li&gt;&lt;li&gt;Affects plugin: RQM&lt;/li&gt;&lt;li&gt;Affects plugin: Skype notifier&lt;/li&gt;&lt;li&gt;Affects plugin: TestNG Results&lt;/li&gt;&lt;li&gt;Affects plugin: Validating Email Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: XebiaLabs XL Release&lt;/li&gt;&lt;li&gt;Affects plugin: XPath Configuration Viewer&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-06-22</title>
+      <pubDate>Wed, 22 Jun 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-06-22/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-06-22</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Agent Server Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Beaker builder&lt;/li&gt;&lt;li&gt;Affects plugin: Convertigo Mobile Platform&lt;/li&gt;&lt;li&gt;Affects plugin: CRX Content Package Deployer&lt;/li&gt;&lt;li&gt;Affects plugin: Date Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Dynamic Extended Choice Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: EasyQA&lt;/li&gt;&lt;li&gt;Affects plugin: Embeddable Build Status&lt;/li&gt;&lt;li&gt;Affects plugin: Filesystem List Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Hidden Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Image Tag Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Jianliao Notification&lt;/li&gt;&lt;li&gt;Affects plugin: JUnit&lt;/li&gt;&lt;li&gt;Affects plugin: Maven Metadata Plugin for Jenkins CI server&lt;/li&gt;&lt;li&gt;Affects plugin: Nested View&lt;/li&gt;&lt;li&gt;Affects plugin: NS-ND Integration Performance Publisher&lt;/li&gt;&lt;li&gt;Affects plugin: ontrack Jenkins&lt;/li&gt;&lt;li&gt;Affects plugin: Package Version&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Input Step&lt;/li&gt;&lt;li&gt;Affects plugin: Readonly Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Repository Connector&lt;/li&gt;&lt;li&gt;Affects plugin: REST List Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Sauce OnDemand&lt;/li&gt;&lt;li&gt;Affects plugin: Squash TM Publisher (Squash4Jenkins)&lt;/li&gt;&lt;li&gt;Affects plugin: Stash Branch Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: ThreadFix&lt;/li&gt;&lt;li&gt;Affects plugin: vRealize Orchestrator&lt;/li&gt;&lt;li&gt;Affects plugin: xUnit&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-05-17</title>
+      <pubDate>Tue, 17 May 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-05-17/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-05-17</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Application Detector&lt;/li&gt;&lt;li&gt;Affects plugin: Autocomplete Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Blue Ocean&lt;/li&gt;&lt;li&gt;Affects plugin: Git&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab&lt;/li&gt;&lt;li&gt;Affects plugin: Global Variable String Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: JDK Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Mercurial&lt;/li&gt;&lt;li&gt;Affects plugin: Multiselect parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline SCM API for Blue Ocean&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Groovy&lt;/li&gt;&lt;li&gt;Affects plugin: Promoted Builds (Simple)&lt;/li&gt;&lt;li&gt;Affects plugin: Random String Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: REPO&lt;/li&gt;&lt;li&gt;Affects plugin: Rundeck&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: Selection tasks&lt;/li&gt;&lt;li&gt;Affects plugin: SSH&lt;/li&gt;&lt;li&gt;Affects plugin: Storable Configs&lt;/li&gt;&lt;li&gt;Affects plugin: vboxwrapper&lt;/li&gt;&lt;li&gt;Affects plugin: windows-slaves&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-04-12</title>
+      <pubDate>Tue, 12 Apr 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-04-12/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-04-12</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Credentials&lt;/li&gt;&lt;li&gt;Affects plugin: CVS&lt;/li&gt;&lt;li&gt;Affects plugin: Extended Choice Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Gerrit Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Git Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Google Compute Engine&lt;/li&gt;&lt;li&gt;Affects plugin: Jira&lt;/li&gt;&lt;li&gt;Affects plugin: Job Generator&lt;/li&gt;&lt;li&gt;Affects plugin: Mask Passwords&lt;/li&gt;&lt;li&gt;Affects plugin: Node and Label parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Deprecated Groovy Libraries&lt;/li&gt;&lt;li&gt;Affects plugin: promoted builds&lt;/li&gt;&lt;li&gt;Affects plugin: Publish Over FTP&lt;/li&gt;&lt;li&gt;Affects plugin: Subversion&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-03-29</title>
+      <pubDate>Tue, 29 Mar 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-03-29/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-03-29</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Bitbucket Server Integration&lt;/li&gt;&lt;li&gt;Affects plugin: Continuous Integration with Toad Edge&lt;/li&gt;&lt;li&gt;Affects plugin: Coverage/Complexity Scatter Plot&lt;/li&gt;&lt;li&gt;Affects plugin: Flaky Test Handler&lt;/li&gt;&lt;li&gt;Affects plugin: instant-messaging&lt;/li&gt;&lt;li&gt;Affects plugin: JiraTestResultReporter&lt;/li&gt;&lt;li&gt;Affects plugin: Job and Node ownership&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Phoenix AutoTest&lt;/li&gt;&lt;li&gt;Affects plugin: Proxmox&lt;/li&gt;&lt;li&gt;Affects plugin: RocketChat Notifier&lt;/li&gt;&lt;li&gt;Affects plugin: SiteMonitor&lt;/li&gt;&lt;li&gt;Affects plugin: Tests Selector&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-03-15</title>
+      <pubDate>Tue, 15 Mar 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-03-15/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-03-15</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: AWS Credentials&lt;/li&gt;&lt;li&gt;Affects plugin: Dashboard View&lt;/li&gt;&lt;li&gt;Affects plugin: dbCharts&lt;/li&gt;&lt;li&gt;Affects plugin: Environment Dashboard&lt;/li&gt;&lt;li&gt;Affects plugin: Extended Choice Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Favorite&lt;/li&gt;&lt;li&gt;Affects plugin: Folder-based Authorization Strategy&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: global-build-stats&lt;/li&gt;&lt;li&gt;Affects plugin: incapptic connect uploader&lt;/li&gt;&lt;li&gt;Affects plugin: kubernetes-cd&lt;/li&gt;&lt;li&gt;Affects plugin: List Git Branches Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Parameterized Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Release Helper&lt;/li&gt;&lt;li&gt;Affects plugin: Semantic Versioning&lt;/li&gt;&lt;li&gt;Affects plugin: Vmware vRealize CodeStream&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-02-15</title>
+      <pubDate>Tue, 15 Feb 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-02-15/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-02-15</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Agent Server Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: autonomiq&lt;/li&gt;&lt;li&gt;Affects plugin: Checkmarx&lt;/li&gt;&lt;li&gt;Affects plugin: Chef Sinatra&lt;/li&gt;&lt;li&gt;Affects plugin: Conjur Secrets&lt;/li&gt;&lt;li&gt;Affects plugin: Convertigo Mobile Platform&lt;/li&gt;&lt;li&gt;Affects plugin: Custom Checkbox Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: dbCharts&lt;/li&gt;&lt;li&gt;Affects plugin: Doktor&lt;/li&gt;&lt;li&gt;Affects plugin: Fortify&lt;/li&gt;&lt;li&gt;Affects plugin: Generic Webhook Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: HashiCorp Vault&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Build Step&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Deprecated Groovy Libraries&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Groovy&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Multibranch&lt;/li&gt;&lt;li&gt;Affects plugin: Promoted Builds (Simple)&lt;/li&gt;&lt;li&gt;Affects plugin: SCP publisher&lt;/li&gt;&lt;li&gt;Affects plugin: Snow Commander&lt;/li&gt;&lt;li&gt;Affects plugin: Support Core&lt;/li&gt;&lt;li&gt;Affects plugin: SWAMP&lt;/li&gt;&lt;li&gt;Affects plugin: Team Views&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-02-09</title>
+      <pubDate>Wed, 09 Feb 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-02-09/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-02-09</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2022-01-12</title>
+      <pubDate>Wed, 12 Jan 2022 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2022-01-12/</link>
+      <guid isPermaLink="false">jenkins-advisory-2022-01-12</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Active Directory&lt;/li&gt;&lt;li&gt;Affects plugin: Badge&lt;/li&gt;&lt;li&gt;Affects plugin: batch task&lt;/li&gt;&lt;li&gt;Affects plugin: Bitbucket Branch Source&lt;/li&gt;&lt;li&gt;Affects plugin: Configuration as Code&lt;/li&gt;&lt;li&gt;Affects plugin: Conjur Secrets&lt;/li&gt;&lt;li&gt;Affects plugin: Credentials Binding&lt;/li&gt;&lt;li&gt;Affects plugin: Debian Package Builder&lt;/li&gt;&lt;li&gt;Affects plugin: Docker Commons&lt;/li&gt;&lt;li&gt;Affects plugin: HashiCorp Vault&lt;/li&gt;&lt;li&gt;Affects plugin: Mailer&lt;/li&gt;&lt;li&gt;Affects plugin: Matrix Project&lt;/li&gt;&lt;li&gt;Affects plugin: Metrics&lt;/li&gt;&lt;li&gt;Affects plugin: Publish Over SSH&lt;/li&gt;&lt;li&gt;Affects plugin: SSH Agent&lt;/li&gt;&lt;li&gt;Affects plugin: Warnings&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-11-12</title>
+      <pubDate>Fri, 12 Nov 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-11-12/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-11-12</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Active Choices&lt;/li&gt;&lt;li&gt;Affects plugin: OWASP Dependency-Check&lt;/li&gt;&lt;li&gt;Affects plugin: Performance&lt;/li&gt;&lt;li&gt;Affects plugin: pom2config&lt;/li&gt;&lt;li&gt;Affects plugin: Scriptler&lt;/li&gt;&lt;li&gt;Affects plugin: Squash TM Publisher (Squash4Jenkins)&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-11-04</title>
+      <pubDate>Thu, 04 Nov 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-11-04/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-11-04</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Subversion&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-10-06</title>
+      <pubDate>Wed, 06 Oct 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-10-06/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-10-06</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Git&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-08-31</title>
+      <pubDate>Tue, 31 Aug 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-08-31/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-08-31</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Code Coverage&lt;/li&gt;&lt;li&gt;Affects plugin: Microsoft Entra ID (previously Azure AD)&lt;/li&gt;&lt;li&gt;Affects plugin: Nested View&lt;/li&gt;&lt;li&gt;Affects plugin: Nomad&lt;/li&gt;&lt;li&gt;Affects plugin: SAML&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-06-30</title>
+      <pubDate>Wed, 30 Jun 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-06-30/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-06-30</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: CAS&lt;/li&gt;&lt;li&gt;Affects plugin: requests-plugin&lt;/li&gt;&lt;li&gt;Affects plugin: Selenium HTML report&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-06-18</title>
+      <pubDate>Fri, 18 Jun 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-06-18/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-06-18</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Generic Webhook Trigger&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-06-16</title>
+      <pubDate>Wed, 16 Jun 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-06-16/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-06-16</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Scriptler&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-06-10</title>
+      <pubDate>Thu, 10 Jun 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-06-10/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-06-10</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Kiuwan&lt;/li&gt;&lt;li&gt;Affects plugin: Kubernetes CLI&lt;/li&gt;&lt;li&gt;Affects plugin: XebiaLabs XL Deploy&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-05-25</title>
+      <pubDate>Tue, 25 May 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-05-25/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-05-25</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Filesystem Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: Markdown Formatter&lt;/li&gt;&lt;li&gt;Affects plugin: Nuget&lt;/li&gt;&lt;li&gt;Affects plugin: URLTrigger&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-05-11</title>
+      <pubDate>Tue, 11 May 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-05-11/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-05-11</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Credentials&lt;/li&gt;&lt;li&gt;Affects plugin: Dashboard View&lt;/li&gt;&lt;li&gt;Affects plugin: P4&lt;/li&gt;&lt;li&gt;Affects plugin: S3 publisher&lt;/li&gt;&lt;li&gt;Affects plugin: Xcode integration&lt;/li&gt;&lt;li&gt;Affects plugin: Xray - Test Management for Jira&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-04-21</title>
+      <pubDate>Wed, 21 Apr 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-04-21/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-04-21</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: CloudBees CD&lt;/li&gt;&lt;li&gt;Affects plugin: Config File Provider&lt;/li&gt;&lt;li&gt;Affects plugin: Templating Engine&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-04-20</title>
+      <pubDate>Tue, 20 Apr 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-04-20/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-04-20</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-04-07</title>
+      <pubDate>Wed, 07 Apr 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-04-07/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-04-07</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: OpenText Application Automation Tools&lt;/li&gt;&lt;li&gt;Affects plugin: promoted builds&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-03-30</title>
+      <pubDate>Tue, 30 Mar 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-03-30/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-03-30</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Build With Parameters&lt;/li&gt;&lt;li&gt;Affects plugin: Cloud Statistics&lt;/li&gt;&lt;li&gt;Affects plugin: Extra Columns&lt;/li&gt;&lt;li&gt;Affects plugin: Jabber (XMPP) notifier and control&lt;/li&gt;&lt;li&gt;Affects plugin: OWASP Dependency-Track&lt;/li&gt;&lt;li&gt;Affects plugin: REST List Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Team Foundation Server&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-03-18</title>
+      <pubDate>Thu, 18 Mar 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-03-18/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-03-18</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: AWS Credentials&lt;/li&gt;&lt;li&gt;Affects plugin: Libvirt Agents&lt;/li&gt;&lt;li&gt;Affects plugin: Matrix Authorization Strategy&lt;/li&gt;&lt;li&gt;Affects plugin: Role-based Authorization Strategy&lt;/li&gt;&lt;li&gt;Affects plugin: Warnings&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-02-24</title>
+      <pubDate>Wed, 24 Feb 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-02-24/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-02-24</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Active Choices&lt;/li&gt;&lt;li&gt;Affects plugin: Artifact Repository Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Claim&lt;/li&gt;&lt;li&gt;Affects plugin: Configuration Slicing&lt;/li&gt;&lt;li&gt;Affects plugin: Repository Connector&lt;/li&gt;&lt;li&gt;Affects plugin: Support Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-02-19</title>
+      <pubDate>Fri, 19 Feb 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-02-19/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-02-19</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-01-26</title>
+      <pubDate>Tue, 26 Jan 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-01-26/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-01-26</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2021-01-13</title>
+      <pubDate>Wed, 13 Jan 2021 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2021-01-13/</link>
+      <guid isPermaLink="false">jenkins-advisory-2021-01-13</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Bumblebee HP ALM&lt;/li&gt;&lt;li&gt;Affects plugin: TICS&lt;/li&gt;&lt;li&gt;Affects plugin: tracetronic ecu.test&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-12-03</title>
+      <pubDate>Thu, 03 Dec 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-12-03/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-12-03</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Chaos Monkey&lt;/li&gt;&lt;li&gt;Affects plugin: CVS&lt;/li&gt;&lt;li&gt;Affects plugin: Shelve Project&lt;/li&gt;&lt;li&gt;Affects Plugin Installation Manager Tool&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-11-04</title>
+      <pubDate>Wed, 04 Nov 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-11-04/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-11-04</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Active Directory&lt;/li&gt;&lt;li&gt;Affects plugin: Ansible&lt;/li&gt;&lt;li&gt;Affects plugin: AppSpider&lt;/li&gt;&lt;li&gt;Affects plugin: AWS Global Configuration&lt;/li&gt;&lt;li&gt;Affects plugin: Azure Key Vault&lt;/li&gt;&lt;li&gt;Affects plugin: FindBugs&lt;/li&gt;&lt;li&gt;Affects plugin: Kubernetes&lt;/li&gt;&lt;li&gt;Affects plugin: Mail Commander Plugin for Jenkins-ci&lt;/li&gt;&lt;li&gt;Affects plugin: Mercurial&lt;/li&gt;&lt;li&gt;Affects plugin: SQLPlus Script Runner&lt;/li&gt;&lt;li&gt;Affects plugin: Static Analysis Utilities&lt;/li&gt;&lt;li&gt;Affects plugin: Subversion&lt;/li&gt;&lt;li&gt;Affects plugin: Visualworks Store&lt;/li&gt;&lt;li&gt;Affects plugin: VMware Lab Manager Slaves&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-10-08</title>
+      <pubDate>Thu, 08 Oct 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-10-08/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-10-08</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Active Choices&lt;/li&gt;&lt;li&gt;Affects plugin: Audit Trail&lt;/li&gt;&lt;li&gt;Affects plugin: couchdb-statistics&lt;/li&gt;&lt;li&gt;Affects plugin: Maven Cascade Release&lt;/li&gt;&lt;li&gt;Affects plugin: Nerrvana&lt;/li&gt;&lt;li&gt;Affects plugin: Persona&lt;/li&gt;&lt;li&gt;Affects plugin: Release&lt;/li&gt;&lt;li&gt;Affects plugin: Role-based Authorization Strategy&lt;/li&gt;&lt;li&gt;Affects plugin: Shared Objects&lt;/li&gt;&lt;li&gt;Affects plugin: SMS Notification&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-09-23</title>
+      <pubDate>Wed, 23 Sep 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-09-23/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-09-23</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Implied Labels&lt;/li&gt;&lt;li&gt;Affects plugin: Liquibase Runner&lt;/li&gt;&lt;li&gt;Affects plugin: Lockable Resources&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: warnings&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-09-16</title>
+      <pubDate>Wed, 16 Sep 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-09-16/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-09-16</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: android-lint&lt;/li&gt;&lt;li&gt;Affects plugin: Blue Ocean&lt;/li&gt;&lt;li&gt;Affects plugin: chosen-views-tabbar&lt;/li&gt;&lt;li&gt;Affects plugin: ClearCase Release&lt;/li&gt;&lt;li&gt;Affects plugin: computer-queue-plugin&lt;/li&gt;&lt;li&gt;Affects plugin: Copy data to workspace&lt;/li&gt;&lt;li&gt;Affects plugin: Coverage/Complexity Scatter Plot&lt;/li&gt;&lt;li&gt;Affects plugin: Custom Job Icon&lt;/li&gt;&lt;li&gt;Affects plugin: Description Column&lt;/li&gt;&lt;li&gt;Affects plugin: ElasTest&lt;/li&gt;&lt;li&gt;Affects plugin: Email Extension&lt;/li&gt;&lt;li&gt;Affects plugin: Health Advisor by CloudBees&lt;/li&gt;&lt;li&gt;Affects plugin: Locked Files Report&lt;/li&gt;&lt;li&gt;Affects plugin: Mailer&lt;/li&gt;&lt;li&gt;Affects plugin: MongoDB&lt;/li&gt;&lt;li&gt;Affects plugin: perfecto&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline Maven Integration&lt;/li&gt;&lt;li&gt;Affects plugin: Radiator View&lt;/li&gt;&lt;li&gt;Affects plugin: Selection tasks&lt;/li&gt;&lt;li&gt;Affects plugin: Storable Configs&lt;/li&gt;&lt;li&gt;Affects plugin: Validating String Parameter&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-09-01</title>
+      <pubDate>Tue, 01 Sep 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-09-01/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-09-01</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Build Failure Analyzer&lt;/li&gt;&lt;li&gt;Affects plugin: Cadence vManager&lt;/li&gt;&lt;li&gt;Affects plugin: Database&lt;/li&gt;&lt;li&gt;Affects plugin: Git Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: JSGames&lt;/li&gt;&lt;li&gt;Affects plugin: Klocwork Analysis&lt;/li&gt;&lt;li&gt;Affects plugin: Parameterized Remote Trigger&lt;/li&gt;&lt;li&gt;Affects plugin: ReadyAPI Functional Testing&lt;/li&gt;&lt;li&gt;Affects plugin: tfs&lt;/li&gt;&lt;li&gt;Affects plugin: Valgrind&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-08-17</title>
+      <pubDate>Mon, 17 Aug 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-08-17/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-08-17</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-08-12</title>
+      <pubDate>Wed, 12 Aug 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-08-12/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-08-12</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Email Extension&lt;/li&gt;&lt;li&gt;Affects plugin: Flaky Test Handler&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline Maven Integration&lt;/li&gt;&lt;li&gt;Affects plugin: Yet Another Build Visualizer&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-07-15</title>
+      <pubDate>Wed, 15 Jul 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-07-15/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-07-15</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Deployer Framework&lt;/li&gt;&lt;li&gt;Affects plugin: GitLab Authentication&lt;/li&gt;&lt;li&gt;Affects plugin: Matrix Authorization Strategy&lt;/li&gt;&lt;li&gt;Affects plugin: Matrix Project&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-07-02</title>
+      <pubDate>Thu, 02 Jul 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-07-02/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-07-02</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Compatibility Action Storage&lt;/li&gt;&lt;li&gt;Affects plugin: ElasticBox Jenkins Kubernetes CI/CD&lt;/li&gt;&lt;li&gt;Affects plugin: Fortify on Demand&lt;/li&gt;&lt;li&gt;Affects plugin: GitHub Coverage Reporter&lt;/li&gt;&lt;li&gt;Affects plugin: HP ALM Quality Center&lt;/li&gt;&lt;li&gt;Affects plugin: Link Column&lt;/li&gt;&lt;li&gt;Affects plugin: Slack Upload&lt;/li&gt;&lt;li&gt;Affects plugin: Sonargraph Integration&lt;/li&gt;&lt;li&gt;Affects plugin: Stash Branch Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: TestComplete support&lt;/li&gt;&lt;li&gt;Affects plugin: VncRecorder&lt;/li&gt;&lt;li&gt;Affects plugin: VncViewer&lt;/li&gt;&lt;li&gt;Affects plugin: whitesource&lt;/li&gt;&lt;li&gt;Affects plugin: ZAP Pipeline&lt;/li&gt;&lt;li&gt;Affects plugin: Zephyr for JIRA Test Management&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-06-03</title>
+      <pubDate>Wed, 03 Jun 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-06-03/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-06-03</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Compact Columns&lt;/li&gt;&lt;li&gt;Affects plugin: ECharts API&lt;/li&gt;&lt;li&gt;Affects plugin: Play Framework&lt;/li&gt;&lt;li&gt;Affects plugin: Project Inheritance&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: Selenium&lt;/li&gt;&lt;li&gt;Affects plugin: Subversion Partial Release Manager&lt;/li&gt;&lt;li&gt;Affects plugin: Swarm&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-05-06</title>
+      <pubDate>Wed, 06 May 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-05-06/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-05-06</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Amazon EC2&lt;/li&gt;&lt;li&gt;Affects plugin: Copy Artifact&lt;/li&gt;&lt;li&gt;Affects plugin: Credentials Binding&lt;/li&gt;&lt;li&gt;Affects plugin: CVS&lt;/li&gt;&lt;li&gt;Affects plugin: SCM Filter Jervis&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-04-16</title>
+      <pubDate>Thu, 16 Apr 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-04-16/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-04-16</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: AWS SAM&lt;/li&gt;&lt;li&gt;Affects plugin: Copr&lt;/li&gt;&lt;li&gt;Affects plugin: Parasoft Findings&lt;/li&gt;&lt;li&gt;Affects plugin: Yaml Axis&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-04-07</title>
+      <pubDate>Tue, 07 Apr 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-04-07/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-04-07</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: AWSEB Deployment&lt;/li&gt;&lt;li&gt;Affects plugin: Code Coverage&lt;/li&gt;&lt;li&gt;Affects plugin: FitNesse&lt;/li&gt;&lt;li&gt;Affects plugin: Gatling&lt;/li&gt;&lt;li&gt;Affects plugin: useMango Runner&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-03-25</title>
+      <pubDate>Wed, 25 Mar 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-03-25/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-03-25</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Artifactory&lt;/li&gt;&lt;li&gt;Affects plugin: Azure Container Service&lt;/li&gt;&lt;li&gt;Affects plugin: OpenShift Pipeline&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: AWS Steps&lt;/li&gt;&lt;li&gt;Affects plugin: Queue cleanup&lt;/li&gt;&lt;li&gt;Affects plugin: RapidDeploy&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-03-09</title>
+      <pubDate>Mon, 09 Mar 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-03-09/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-03-09</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Audit Trail&lt;/li&gt;&lt;li&gt;Affects plugin: Backlog&lt;/li&gt;&lt;li&gt;Affects plugin: Cobertura&lt;/li&gt;&lt;li&gt;Affects plugin: CryptoMove&lt;/li&gt;&lt;li&gt;Affects plugin: DeployHub&lt;/li&gt;&lt;li&gt;Affects plugin: Git&lt;/li&gt;&lt;li&gt;Affects plugin: Literate&lt;/li&gt;&lt;li&gt;Affects plugin: Logstash&lt;/li&gt;&lt;li&gt;Affects plugin: Mac&lt;/li&gt;&lt;li&gt;Affects plugin: OpenShift Deployer&lt;/li&gt;&lt;li&gt;Affects plugin: P4&lt;/li&gt;&lt;li&gt;Affects plugin: Quality Gates&lt;/li&gt;&lt;li&gt;Affects plugin: Repository Connector&lt;/li&gt;&lt;li&gt;Affects plugin: Rundeck&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: Skytap Cloud CI&lt;/li&gt;&lt;li&gt;Affects plugin: Sonar Quality Gates&lt;/li&gt;&lt;li&gt;Affects plugin: Subversion Release Manager&lt;/li&gt;&lt;li&gt;Affects plugin: Timestamper&lt;/li&gt;&lt;li&gt;Affects plugin: Zephyr Enterprise Test Management&lt;/li&gt;&lt;li&gt;Affects plugin: Zephyr for JIRA Test Management&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-02-12</title>
+      <pubDate>Wed, 12 Feb 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-02-12/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-02-12</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Applatix&lt;/li&gt;&lt;li&gt;Affects plugin: BMC Release Package and Deployment&lt;/li&gt;&lt;li&gt;Affects plugin: brakeman&lt;/li&gt;&lt;li&gt;Affects plugin: debian-package-builder&lt;/li&gt;&lt;li&gt;Affects plugin: DigitalOcean&lt;/li&gt;&lt;li&gt;Affects plugin: Dynamic Extended Choice Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Eagle Tester&lt;/li&gt;&lt;li&gt;Affects plugin: ECX Copy Data Management&lt;/li&gt;&lt;li&gt;Affects plugin: FitNesse&lt;/li&gt;&lt;li&gt;Affects plugin: Git Parameter&lt;/li&gt;&lt;li&gt;Affects plugin: Google Kubernetes Engine&lt;/li&gt;&lt;li&gt;Affects plugin: Harvest SCM&lt;/li&gt;&lt;li&gt;Affects plugin: Microsoft Entra ID (previously Azure AD)&lt;/li&gt;&lt;li&gt;Affects plugin: NUnit&lt;/li&gt;&lt;li&gt;Affects plugin: Parasoft Environment Manager&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline GitHub Notify Step&lt;/li&gt;&lt;li&gt;Affects plugin: Pipeline: Groovy&lt;/li&gt;&lt;li&gt;Affects plugin: RadarGun&lt;/li&gt;&lt;li&gt;Affects plugin: S3 publisher&lt;/li&gt;&lt;li&gt;Affects plugin: Script Security&lt;/li&gt;&lt;li&gt;Affects plugin: Subversion&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-01-29</title>
+      <pubDate>Wed, 29 Jan 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-01-29/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-01-29</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects Jenkins Core&lt;/li&gt;&lt;li&gt;Affects plugin: Code Coverage&lt;/li&gt;&lt;li&gt;Affects plugin: Fortify&lt;/li&gt;&lt;li&gt;Affects plugin: WebSphere Deployer&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Jenkins Security Advisory 2020-01-15</title>
+      <pubDate>Wed, 15 Jan 2020 12:00:00 GMT</pubDate>
+      <link>https://www.jenkins.io/security/advisory/2020-01-15/</link>
+      <guid isPermaLink="false">jenkins-advisory-2020-01-15</guid>
+      <description>&lt;ul&gt;&lt;li&gt;Affects plugin: Amazon EC2&lt;/li&gt;&lt;li&gt;Affects plugin: gitlab-hook&lt;/li&gt;&lt;li&gt;Affects plugin: Health Advisor by CloudBees&lt;/li&gt;&lt;li&gt;Affects plugin: Redgate SQL Change Automation&lt;/li&gt;&lt;li&gt;Affects plugin: Robot Framework&lt;/li&gt;&lt;li&gt;Affects plugin: Sounds&lt;/li&gt;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

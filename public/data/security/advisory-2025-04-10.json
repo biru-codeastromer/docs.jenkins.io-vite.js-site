@@ -1,0 +1,38 @@
+{
+  "title": "Jenkins Security Advisory 2025-04-10",
+  "date": "2025-04-10",
+  "url": "/security/advisory/2025-04-10/",
+  "kind": "other",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-3565",
+      "reporter": "Abhishek Reddypalle",
+      "title": "Host key reuse in SSH build agent Docker images",
+      "cve": "CVE-2025-32754 (jenkins/ssh-agent), CVE-2025-32755 (jenkins/ssh-slave)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L"
+      },
+      "description_adoc": "The https://hub.docker.com/r/jenkins/ssh-agent[jenkins/ssh-agent] and deprecated https://hub.docker.com/r/jenkins/ssh-slave[jenkins/ssh-slave] Docker images can be used to set up a build agent for use via the plugin:ssh-slaves[SSH Build Agents] plugin.\n\nIn jenkins/ssh-agent 6.11.1 and earlier and all versions of jenkins/ssh-slave, SSH host keys are generated on image creation for images based on Debian.\nThis affects the following image variants:\n\n* jenkins/ssh-agent:\n  - All not explicitly specifying an OS, including all `-jdk*` and `-jdk*-preview` suffixes (all before 2025-04-10)\n  - All containing `debian`, `stretch`, `bullseye`, or `bookworm` (all before 2025-04-10)\n* jenkins/ssh-slave: The tags `latest`, `jdk11`, `latest-jdk11`, `revert-22-jdk11-JENKINS-52279`\n\nThe following image variants are unaffected:\n\n* jenkins/ssh-agent: All containing `alpine`, `nanoserver`, or `windows`\n* jenkins/ssh-slave: The tag `alpine`\n\nAs a result, all containers based on images of the same version use the same SSH host keys.\nThis allows attackers able to insert themselves into the network path between the SSH client (typically the Jenkins controller) and SSH build agent to impersonate the latter.\n\nThe jenkins/ssh-agent 6.11.2 Docker images based on Debian delete the automatically generated SSH host keys created during image creation.\nNew host keys are generated on the first container startup.\n\njenkins/ssh-slave is deprecated and will not be updated.\nUse jenkins/ssh-agent instead.",
+      "plugins": [],
+      "components": [
+        {
+          "name": "jenkins/ssh-agent",
+          "title": "jenkins/ssh-agent Docker images",
+          "previous": "6.11.1",
+          "fixed": "6.11.2"
+        },
+        {
+          "name": "jenkins/ssh-slave",
+          "title": "jenkins/ssh-slave Docker images",
+          "previous": "all versions"
+        }
+      ],
+      "description_html": "<div class=\"paragraph\">\n<p>The <a href=\"https://hub.docker.com/r/jenkins/ssh-agent\">jenkins/ssh-agent</a> and deprecated <a href=\"https://hub.docker.com/r/jenkins/ssh-slave\">jenkins/ssh-slave</a> Docker images can be used to set up a build agent for use via the plugin:ssh-slaves[SSH Build Agents] plugin.</p>\n</div>\n<div class=\"paragraph\">\n<p>In jenkins/ssh-agent 6.11.1 and earlier and all versions of jenkins/ssh-slave, SSH host keys are generated on image creation for images based on Debian.\nThis affects the following image variants:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>jenkins/ssh-agent:</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>All not explicitly specifying an OS, including all <code>-jdk*</code> and <code>-jdk*-preview</code> suffixes (all before 2025-04-10)</p>\n</li>\n<li>\n<p>All containing <code>debian</code>, <code>stretch</code>, <code>bullseye</code>, or <code>bookworm</code> (all before 2025-04-10)</p>\n</li>\n</ul>\n</div>\n</li>\n<li>\n<p>jenkins/ssh-slave: The tags <code>latest</code>, <code>jdk11</code>, <code>latest-jdk11</code>, <code>revert-22-jdk11-JENKINS-52279</code></p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>The following image variants are unaffected:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>jenkins/ssh-agent: All containing <code>alpine</code>, <code>nanoserver</code>, or <code>windows</code></p>\n</li>\n<li>\n<p>jenkins/ssh-slave: The tag <code>alpine</code></p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>As a result, all containers based on images of the same version use the same SSH host keys.\nThis allows attackers able to insert themselves into the network path between the SSH client (typically the Jenkins controller) and SSH build agent to impersonate the latter.</p>\n</div>\n<div class=\"paragraph\">\n<p>The jenkins/ssh-agent 6.11.2 Docker images based on Debian delete the automatically generated SSH host keys created during image creation.\nNew host keys are generated on the first container startup.</p>\n</div>\n<div class=\"paragraph\">\n<p>jenkins/ssh-slave is deprecated and will not be updated.\nUse jenkins/ssh-agent instead.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

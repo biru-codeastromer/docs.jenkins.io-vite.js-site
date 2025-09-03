@@ -1,0 +1,180 @@
+{
+  "title": "Jenkins Security Advisory 2019-07-11",
+  "date": "2019-07-11",
+  "url": "/security/advisory/2019-07-11/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-1010",
+      "reporter": "Oleg Nenashev, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission check in PLUGIN_NAME allowed capturing credentials",
+      "cve": "CVE-2019-10340 (CSRF), CVE-2019-10341 (permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME did not perform permission checks on a method implementing form validation.\nThis allowed users with Overall/Read access to Jenkins to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.\n\nAdditionally, this form validation method did not require POST requests, resulting in a cross-site request forgery vulnerability.\n\nThis form validation method now requires POST requests and Overall/Administer or Item/Configure permission, as appropriate.",
+      "plugins": [
+        {
+          "name": "docker-plugin",
+          "title": "Docker",
+          "previous": "1.1.6",
+          "fixed": "1.1.7"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Docker Plugin did not perform permission checks on a method implementing form validation.\nThis allowed users with Overall/Read access to Jenkins to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this form validation method did not require POST requests, resulting in a cross-site request forgery vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>This form validation method now requires POST requests and Overall/Administer or Item/Configure permission, as appropriate.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1400",
+      "reporter": null,
+      "title": "Users with Overall/Read access could enumerate credential IDs in PLUGIN_NAME",
+      "cve": "CVE-2019-10342",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME provides a list of applicable credential IDs to allow users configuring the plugin to select the one to use.\n\nThis functionality did not correctly check permissions, allowing any user with Overall/Read permission to get a list of valid credentials IDs.\nThose could be used as part of an attack to capture the credentials using another vulnerability.\n\nAn enumeration of credentials IDs in this plugin now requires the appropriate permission, typically Overall/Administer or Item/Configure.",
+      "plugins": [
+        {
+          "name": "docker-plugin",
+          "title": "Docker",
+          "previous": "1.1.6",
+          "fixed": "1.1.7"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Docker Plugin provides a list of applicable credential IDs to allow users configuring the plugin to select the one to use.</p>\n</div>\n<div class=\"paragraph\">\n<p>This functionality did not correctly check permissions, allowing any user with Overall/Read permission to get a list of valid credentials IDs.\nThose could be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>An enumeration of credentials IDs in this plugin now requires the appropriate permission, typically Overall/Administer or Item/Configure.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1419",
+      "reporter": "Dhiru Pandey",
+      "title": "Reflected XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2019-10346",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME did not sanitize arguments provided in the query string, resulting in a reflected cross-site scripting vulnerability.\n\nArguments are now sanitized.",
+      "plugins": [
+        {
+          "name": "embeddable-build-status",
+          "title": "Embeddable Build Status",
+          "previous": "2.0.1",
+          "fixed": "2.0.2"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Embeddable Build Status Plugin did not sanitize arguments provided in the query string, resulting in a reflected cross-site scripting vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>Arguments are now sanitized.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-775",
+      "reporter": null,
+      "title": "PLUGIN_NAME stored credentials in plain text",
+      "cve": "CVE-2019-10347",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME stored SonarQube credentials unencrypted on the Jenkins controller.\nThese credentials could be viewed by users with access to the Jenkins controller file system.\n\nPLUGIN_NAME now stores these credentials encrypted.",
+      "plugins": [
+        {
+          "name": "mashup-portlets-plugin",
+          "title": null,
+          "previous": "1.0.9",
+          "fixed": "1.1.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>mashup-portlets-plugin Plugin stored SonarQube credentials unencrypted on the Jenkins controller.\nThese credentials could be viewed by users with access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>mashup-portlets-plugin Plugin now stores these credentials encrypted.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1438",
+      "reporter": "David Fiser of Trend Micro Nebula working with Trend Micro's Zero Day Initiative",
+      "title": "PLUGIN_NAME stored credentials in plain text",
+      "cve": "CVE-2019-10348",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME stored credentials unencrypted in job `config.xml` files on the Jenkins controller.\nThese credentials could be viewed by users with Extended Read permission, or access to the Jenkins controller file system.\n\nPLUGIN_NAME now stores credentials encrypted.",
+      "plugins": [
+        {
+          "name": "gogs-webhook",
+          "title": "Gogs",
+          "previous": "1.0.14",
+          "fixed": "1.0.15"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Gogs Plugin stored credentials unencrypted in job <code>config.xml</code> files on the Jenkins controller.\nThese credentials could be viewed by users with Extended Read permission, or access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>Gogs Plugin now stores credentials encrypted.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1177",
+      "reporter": "Ishaq Mohammed (https://about.me/security-prince)",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2019-10349",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME does not correctly escape the Display Name value for jobs in Jenkins, resulting in a stored cross-site scripting vulnerability.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "depgraph-view",
+          "title": "Dependency Graph Viewer",
+          "previous": 0.13,
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Dependency Graph Viewer Plugin does not correctly escape the Display Name value for jobs in Jenkins, resulting in a stored cross-site scripting vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1441",
+      "reporter": "David Fiser of Trend Micro Nebula working with Trend Micro's Zero Day Initiative",
+      "title": "PLUGIN_NAME stores credentials in plain text",
+      "cve": "CVE-2019-10350",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins controller.\nThese credentials can be viewed by users with Extended Read permission, or access to the Jenkins controller file system.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "port-allocator",
+          "title": "Port Allocator",
+          "previous": 1.8,
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Port Allocator Plugin stores credentials unencrypted in job <code>config.xml</code> files on the Jenkins controller.\nThese credentials can be viewed by users with Extended Read permission, or access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-1437",
+      "reporter": "David Fiser of Trend Micro Nebula working with Trend Micro's Zero Day Initiative",
+      "title": "PLUGIN_NAME stores credentials in plain text",
+      "cve": "CVE-2019-10351",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME stores credentials unencrypted in job `config.xml` files on the Jenkins controller.\nThese credentials can be viewed by users with Extended Read permission, or access to the Jenkins controller file system.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "caliper-ci",
+          "title": "Caliper CI",
+          "previous": 2.3,
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Caliper CI Plugin stores credentials unencrypted in job <code>config.xml</code> files on the Jenkins controller.\nThese credentials can be viewed by users with Extended Read permission, or access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

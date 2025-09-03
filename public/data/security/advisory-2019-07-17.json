@@ -1,0 +1,63 @@
+{
+  "title": "Jenkins Security Advisory 2019-07-17",
+  "date": "2019-07-17",
+  "url": "/security/advisory/2019-07-17/",
+  "kind": "core",
+  "core": {
+    "lts": {
+      "previous": "2.176.1",
+      "fixed": "2.176.2"
+    },
+    "weekly": {
+      "previous": "2.185",
+      "fixed": "2.186"
+    }
+  },
+  "issues": [
+    {
+      "id": "SECURITY-1424",
+      "reporter": "Conor O'Neill of Tenable",
+      "title": "Arbitrary file write vulnerability using file parameter definitions",
+      "cve": "CVE-2019-10352",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
+      },
+      "description_adoc": "Users with Job/Configure permission could specify a relative path escaping the base directory in the file name portion of a file parameter definition. \nThis path would be used to store the uploaded file on the Jenkins controller, resulting in an arbitrary file write vulnerability.\n\nFile parameters that escape the base directory are no longer accepted and the build will fail.\n\nThis vulnerability is the result of an incomplete fix for link:/security/advisory/2018-10-10/#SECURITY-1074[SECURITY-1074].",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Users with Job/Configure permission could specify a relative path escaping the base directory in the file name portion of a file parameter definition.\nThis path would be used to store the uploaded file on the Jenkins controller, resulting in an arbitrary file write vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>File parameters that escape the base directory are no longer accepted and the build will fail.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability is the result of an incomplete fix for <a href=\"/security/advisory/2018-10-10/#SECURITY-1074\">SECURITY-1074</a>.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-626",
+      "reporter": null,
+      "title": "CSRF protection tokens did not expire",
+      "cve": "CVE-2019-10353",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:L"
+      },
+      "description_adoc": "By default, CSRF tokens in Jenkins only checked user authentication and IP address. \nThis allowed attackers able to obtain a CSRF token for another user to implement CSRF attacks as long as the victim's IP address remained unchanged.\n\nCSRF tokens will now also check the web session ID to confirm they were created in the same session. \nOnce that's invalidated or expired, corresponding CSRF tokens will become invalid as well.\n\nNOTE: This fix may impact scripts that obtain a crumb from the crumb issuer API. They may need to be updated to retain the session ID for subsequent requests.\nFor further information, see the link:/doc/upgrade-guide/2.176/#SECURITY-626[LTS upgrade guide].\n\nWe also publish the plugin:strict-crumb-issuer[Strict Crumb Issuer Plugin] which contains additional protection mechanisms that give administrators more fine-grained control over the validity of CSRF tokens.\nWe plan to improve the built-in default crumb issuer based on user feedback of this implementation.",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>By default, CSRF tokens in Jenkins only checked user authentication and IP address.\nThis allowed attackers able to obtain a CSRF token for another user to implement CSRF attacks as long as the victim&#8217;s IP address remained unchanged.</p>\n</div>\n<div class=\"paragraph\">\n<p>CSRF tokens will now also check the web session ID to confirm they were created in the same session.\nOnce that&#8217;s invalidated or expired, corresponding CSRF tokens will become invalid as well.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis fix may impact scripts that obtain a crumb from the crumb issuer API. They may need to be updated to retain the session ID for subsequent requests.\nFor further information, see the <a href=\"/doc/upgrade-guide/2.176/#SECURITY-626\">LTS upgrade guide</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>We also publish the plugin:strict-crumb-issuer[Strict Crumb Issuer Plugin] which contains additional protection mechanisms that give administrators more fine-grained control over the validity of CSRF tokens.\nWe plan to improve the built-in default crumb issuer based on user feedback of this implementation.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-534",
+      "reporter": "Jesse Glick, CloudBees, Inc.",
+      "title": "Unauthorized view fragment access",
+      "cve": "CVE-2019-10354",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "Jenkins uses the Stapler web framework to render its UI views.\nThese views are frequently composed of several view fragments, enabling plugins to extend existing views with more content.\n\nIn some cases attackers could directly access a view fragment containing sensitive information, bypassing any permission checks in the corresponding view.\n\nThe Stapler web framework has been extended with a Service Provider Interface (SPI) that allows preventing views from being rendered.\nThe implementation of that SPI in Jenkins now prevents view fragments from being rendered.\nFurther details are available in the link:/doc/developer/views/SECURITY-534[developer documentation].\n\nMost views in Jenkins and Jenkins plugins should be compatible with this change.\nWe track known affected plugins and their status in link:https://wiki.jenkins.io/display/JENKINS/Plugins+affected+by+the+SECURITY-534+fix[the Jenkins wiki].\n\nIn rare cases, it may be desirable to disable this fix.\nTo do so, set the Java system property `jenkins.security.stapler.StaplerDispatchValidator.disabled` to `true`.\nlink:/doc/book/managing/system-properties/[Learn more about system properties in Jenkins].",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins uses the Stapler web framework to render its UI views.\nThese views are frequently composed of several view fragments, enabling plugins to extend existing views with more content.</p>\n</div>\n<div class=\"paragraph\">\n<p>In some cases attackers could directly access a view fragment containing sensitive information, bypassing any permission checks in the corresponding view.</p>\n</div>\n<div class=\"paragraph\">\n<p>The Stapler web framework has been extended with a Service Provider Interface (SPI) that allows preventing views from being rendered.\nThe implementation of that SPI in Jenkins now prevents view fragments from being rendered.\nFurther details are available in the <a href=\"/doc/developer/views/SECURITY-534\">developer documentation</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Most views in Jenkins and Jenkins plugins should be compatible with this change.\nWe track known affected plugins and their status in <a href=\"https://wiki.jenkins.io/display/JENKINS/Plugins+affected+by+the+SECURITY-534+fix\">the Jenkins wiki</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>In rare cases, it may be desirable to disable this fix.\nTo do so, set the Java system property <code>jenkins.security.stapler.StaplerDispatchValidator.disabled</code> to <code>true</code>.\n<a href=\"/doc/book/managing/system-properties/\">Learn more about system properties in Jenkins</a>.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

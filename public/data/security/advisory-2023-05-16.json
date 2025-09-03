@@ -1,0 +1,600 @@
+{
+  "title": "Jenkins Security Advisory 2023-05-16",
+  "date": "2023-05-16",
+  "url": "/security/advisory/2023-05-16/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-3042",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-32977",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1292.v27d8cc3e2602 and earlier does not escape the display name of the build that caused an earlier build to be aborted, when \"Do not allow concurrent builds\" is set.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to set build display names immediately.\n\nNOTE: The Jenkins security team is not aware of any plugins that allow the exploitation of this vulnerability, as the build name must be set before the build starts.\n\nPLUGIN_NAME 1295.v395eb_7400005 escapes the display name of the build that caused an earlier build to be aborted.",
+      "plugins": [
+        {
+          "name": "workflow-job",
+          "title": "Pipeline: Job",
+          "previous": "1292.v27d8cc3e2602",
+          "fixed": "1295.v395eb_7400005"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline: Job Plugin 1292.v27d8cc3e2602 and earlier does not escape the display name of the build that caused an earlier build to be aborted, when \"Do not allow concurrent builds\" is set.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to set build display names immediately.</p>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThe Jenkins security team is not aware of any plugins that allow the exploitation of this vulnerability, as the build name must be set before the build starts.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline: Job Plugin 1295.v395eb_7400005 escapes the display name of the build that caused an earlier build to be aborted.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3046",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "CSRF vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-32978",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 673.v034ec70ec2b_b_ and earlier does not require POST requests for a form validation method, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nThis vulnerability allows attackers to connect to an attacker-specified LDAP server using attacker-specified credentials.\n\nPLUGIN_NAME 676.vfa_64cf6b_b_002 requires POST requests for the affected form validation method.",
+      "plugins": [
+        {
+          "name": "ldap",
+          "title": "LDAP",
+          "previous": "673.v034ec70ec2b_b_",
+          "fixed": "676.vfa_64cf6b_b_002"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>LDAP Plugin 673.v034ec70ec2b_b_ and earlier does not require POST requests for a form validation method, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers to connect to an attacker-specified LDAP server using attacker-specified credentials.</p>\n</div>\n<div class=\"paragraph\">\n<p>LDAP Plugin 676.vfa_64cf6b_b_002 requires POST requests for the affected form validation method.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3088 (1)",
+      "reporter": null,
+      "title": "Missing permission check in PLUGIN_NAME",
+      "cve": "CVE-2023-32979",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.96 and earlier does not perform a permission check in a method implementing form validation.\n\nThis allows attackers with Overall/Read permission to check for the existence of files in the `email-templates/` directory in the Jenkins home directory on the controller file system.\n\nThis form validation method requires the appropriate permission in PLUGIN_NAME 2.96.1.",
+      "plugins": [
+        {
+          "name": "email-ext",
+          "title": "Email Extension",
+          "previous": "2.96",
+          "fixed": "2.96.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Email Extension Plugin 2.96 and earlier does not perform a permission check in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to check for the existence of files in the <code>email-templates/</code> directory in the Jenkins home directory on the controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>This form validation method requires the appropriate permission in Email Extension Plugin 2.96.1.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3088 (2)",
+      "reporter": null,
+      "title": "CSRF vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-32980",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.96 and earlier does not require POST requests for an HTTP endpoint, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nThis allows attackers to make another user stop watching an attacker-specified job.\n\nPLUGIN_NAME 2.96.1 requires POST requests for the affected HTTP endpoint.",
+      "plugins": [
+        {
+          "name": "email-ext",
+          "title": "Email Extension",
+          "previous": "2.96",
+          "fixed": "2.96.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Email Extension Plugin 2.96 and earlier does not require POST requests for an HTTP endpoint, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers to make another user stop watching an attacker-specified job.</p>\n</div>\n<div class=\"paragraph\">\n<p>Email Extension Plugin 2.96.1 requires POST requests for the affected HTTP endpoint.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2196",
+      "reporter": "Trung Pham, and, independently, Tony Torralba (@atorralba), GitHub Security Lab",
+      "title": "Arbitrary file write vulnerability on agents in PLUGIN_NAME",
+      "cve": "CVE-2023-32981",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L"
+      },
+      "description_adoc": "PLUGIN_NAME provides the `untar` and `unzip` Pipeline steps to extract archives into job workspaces.\n\nPLUGIN_NAME 2.15.2 and earlier does not validate or limit file paths of files contained within these archives.\n\nThis allows attackers able to provide crafted archives as parameters to create or replace arbitrary files on the agent file system with attacker-specified content.\n\nPLUGIN_NAME 2.15.3 rejects extraction of files in `tar` and `zip` archives that would be placed outside the expected destination directory.",
+      "plugins": [
+        {
+          "name": "pipeline-utility-steps",
+          "title": "Pipeline Utility Steps",
+          "previous": "2.15.2",
+          "fixed": "2.15.3"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Pipeline Utility Steps Plugin provides the <code>untar</code> and <code>unzip</code> Pipeline steps to extract archives into job workspaces.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline Utility Steps Plugin 2.15.2 and earlier does not validate or limit file paths of files contained within these archives.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers able to provide crafted archives as parameters to create or replace arbitrary files on the agent file system with attacker-specified content.</p>\n</div>\n<div class=\"paragraph\">\n<p>Pipeline Utility Steps Plugin 2.15.3 rejects extraction of files in <code>tar</code> and <code>zip</code> archives that would be placed outside the expected destination directory.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3017",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Secrets stored and displayed in plain text by PLUGIN_NAME",
+      "cve": "CVE-2023-32982 (storage), CVE-2023-32983 (masking)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME allows the specification of extra variables that can be passed to Ansible.\nThese extra variables are commonly used to pass secrets.\n\nPLUGIN_NAME 204.v8191fd551eb_f and earlier stores these extra variables unencrypted in job `config.xml` files on the Jenkins controller as part of its configuration.\n\nThese extra variables can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system.\n\nAdditionally, the job configuration form does not mask these extra variables, increasing the potential for attackers to observe and capture them.\n\nPLUGIN_NAME 205.v4cb_c48657c21 masks extra variables displayed on the configuration form, and stores them encrypted once job configurations are saved again.",
+      "plugins": [
+        {
+          "name": "ansible",
+          "title": "Ansible",
+          "previous": "204.v8191fd551eb_f",
+          "fixed": "205.v4cb_c48657c21"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Ansible Plugin allows the specification of extra variables that can be passed to Ansible.\nThese extra variables are commonly used to pass secrets.</p>\n</div>\n<div class=\"paragraph\">\n<p>Ansible Plugin 204.v8191fd551eb_f and earlier stores these extra variables unencrypted in job <code>config.xml</code> files on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>These extra variables can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, the job configuration form does not mask these extra variables, increasing the potential for attackers to observe and capture them.</p>\n</div>\n<div class=\"paragraph\">\n<p>Ansible Plugin 205.v4cb_c48657c21 masks extra variables displayed on the configuration form, and stores them encrypted once job configurations are saved again.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3047",
+      "reporter": "Valdes Che Zogou",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-32984",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 730.v4c5283037693 and earlier does not escape several values that are parsed from TestNG report files and displayed on the plugin's test information pages.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to provide a crafted TestNG report file.\n\nPLUGIN_NAME 730.732.v959a_3a_a_eb_a_72 escapes the affected values that are parsed from TestNG report files.",
+      "plugins": [
+        {
+          "name": "testng-plugin",
+          "title": "TestNG Results",
+          "previous": "730.v4c5283037693",
+          "fixed": "730.732.v959a_3a_a_eb_a_72"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>TestNG Results Plugin 730.v4c5283037693 and earlier does not escape several values that are parsed from TestNG report files and displayed on the plugin&#8217;s test information pages.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to provide a crafted TestNG report file.</p>\n</div>\n<div class=\"paragraph\">\n<p>TestNG Results Plugin 730.732.v959a_3a_a_eb_a_72 escapes the affected values that are parsed from TestNG report files.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3125",
+      "reporter": "Tony Torralba (@atorralba), GitHub Security Lab",
+      "title": "Path traversal vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-32985",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME allows specifying files in the `userContent/` directory for use as link icons.\n\nPLUGIN_NAME 2.2.1 and earlier does not restrict the path of files in a method implementing form validation.\n\nThis allows attackers with Overall/Read permission to check for the existence of an attacker-specified file path on the Jenkins controller file system.\n\nPLUGIN_NAME 2.2.2 ensures that only files located within the expected `userContent/` directory can be accessed.",
+      "plugins": [
+        {
+          "name": "sidebar-link",
+          "title": "Sidebar Link",
+          "previous": "2.2.1",
+          "fixed": "2.2.2"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Sidebar Link Plugin allows specifying files in the <code>userContent/</code> directory for use as link icons.</p>\n</div>\n<div class=\"paragraph\">\n<p>Sidebar Link Plugin 2.2.1 and earlier does not restrict the path of files in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to check for the existence of an attacker-specified file path on the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>Sidebar Link Plugin 2.2.2 ensures that only files located within the expected <code>userContent/</code> directory can be accessed.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3123",
+      "reporter": "Tony Torralba (@atorralba), GitHub Security Lab",
+      "title": "Arbitrary file write vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-32986",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 285.v757c5b_67a_c25 and earlier does not restrict the name (and resulting uploaded file name) of Stashed File Parameters.\n\nThis allows attackers with Item/Configure permission to create or replace arbitrary files on the Jenkins controller file system with attacker-specified content.\n\nPLUGIN_NAME 285.287.v4b_7b_29d3469d restricts the name (and resulting uploaded file name) of Stashed File Parameters.",
+      "plugins": [
+        {
+          "name": "file-parameters",
+          "title": "File Parameter",
+          "previous": "285.v757c5b_67a_c25",
+          "fixed": "285.287.v4b_7b_29d3469d"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>File Parameter Plugin 285.v757c5b_67a_c25 and earlier does not restrict the name (and resulting uploaded file name) of Stashed File Parameters.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Configure permission to create or replace arbitrary files on the Jenkins controller file system with attacker-specified content.</p>\n</div>\n<div class=\"paragraph\">\n<p>File Parameter Plugin 285.287.v4b_7b_29d3469d restricts the name (and resulting uploaded file name) of Stashed File Parameters.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3002",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc. and Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "CSRF vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-32987",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.7.4 and earlier does not require POST requests for a form validation method, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nThis vulnerability allows attackers to connect to an attacker-specified LDAP server using attacker-specified credentials.\n\nPLUGIN_NAME 1.7.5 requires POST requests for the affected form validation method.",
+      "plugins": [
+        {
+          "name": "reverse-proxy-auth-plugin",
+          "title": "Reverse Proxy Auth",
+          "previous": "1.7.4",
+          "fixed": "1.7.5"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Reverse Proxy Auth Plugin 1.7.4 and earlier does not require POST requests for a form validation method, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers to connect to an attacker-specified LDAP server using attacker-specified credentials.</p>\n</div>\n<div class=\"paragraph\">\n<p>Reverse Proxy Auth Plugin 1.7.5 requires POST requests for the affected form validation method.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2855 (1)",
+      "reporter": "Valdes Che Zogou, CloudBees, Inc.",
+      "title": "Missing permission check in PLUGIN_NAME allows enumerating credentials IDs",
+      "cve": "CVE-2023-32988",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 852.v8d35f0960a_43 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.\n\nAn enumeration of credentials IDs in PLUGIN_NAME 853.v4a_1a_dd947520 requires Overall/Administer permission.",
+      "plugins": [
+        {
+          "name": "azure-vm-agents",
+          "title": "Azure VM Agents",
+          "previous": "852.v8d35f0960a_43",
+          "fixed": "853.v4a_1a_dd947520"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Azure VM Agents Plugin 852.v8d35f0960a_43 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to enumerate credentials IDs of credentials stored in Jenkins.\nThose can be used as part of an attack to capture the credentials using another vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>An enumeration of credentials IDs in Azure VM Agents Plugin 853.v4a_1a_dd947520 requires Overall/Administer permission.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2855 (2)",
+      "reporter": "Valdes Che Zogou, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME",
+      "cve": "CVE-2023-32989 (CSRF), CVE-2023-32990 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 852.v8d35f0960a_43 and earlier does not perform permission checks in several HTTP endpoints.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified Azure Cloud server using attacker-specified credentials IDs obtained through another method.\n\nAdditionally, these HTTP endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nPLUGIN_NAME 853.v4a_1a_dd947520 requires POST requests and the appropriate permissions for the affected HTTP endpoints.",
+      "plugins": [
+        {
+          "name": "azure-vm-agents",
+          "title": "Azure VM Agents",
+          "previous": "852.v8d35f0960a_43",
+          "fixed": "853.v4a_1a_dd947520"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Azure VM Agents Plugin 852.v8d35f0960a_43 and earlier does not perform permission checks in several HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified Azure Cloud server using attacker-specified credentials IDs obtained through another method.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these HTTP endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>Azure VM Agents Plugin 853.v4a_1a_dd947520 requires POST requests and the appropriate permissions for the affected HTTP endpoints.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2993",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc. and, independently, Alvaro Muñoz (@pwntester), GitHub Security Lab",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME allow XXE",
+      "cve": "CVE-2023-32991 (CSRF), CVE-2023-32992 (missing permission check)",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.2 and earlier does not perform permission checks in multiple HTTP endpoints.\n\nThis allows attackers with Overall/Read permission to send an HTTP request to an attacker-specified URL and parse the response as XML, or parse a local file on the Jenkins controller as XML.\n\nAs the plugin does not configure its XML parser to prevent XML external entity (XXE) attacks, attackers can have Jenkins parse a crafted XML response that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.\n\nAdditionally, these HTTP endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nPLUGIN_NAME 2.1.0 requires POST requests and Overall/Administer permission for the affected HTTP endpoints.",
+      "plugins": [
+        {
+          "name": "miniorange-saml-sp",
+          "title": "SAML Single Sign On(SSO)",
+          "previous": "2.0.2",
+          "fixed": "2.1.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>SAML Single Sign On(SSO) Plugin 2.0.2 and earlier does not perform permission checks in multiple HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to send an HTTP request to an attacker-specified URL and parse the response as XML, or parse a local file on the Jenkins controller as XML.</p>\n</div>\n<div class=\"paragraph\">\n<p>As the plugin does not configure its XML parser to prevent XML external entity (XXE) attacks, attackers can have Jenkins parse a crafted XML response that uses external entities for extraction of secrets from the Jenkins controller or server-side request forgery.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these HTTP endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>SAML Single Sign On(SSO) Plugin 2.1.0 requires POST requests and Overall/Administer permission for the affected HTTP endpoints.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3001 (1)",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Missing hostname validation in PLUGIN_NAME",
+      "cve": "CVE-2023-32993",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.2 and earlier does not perform hostname validation when connecting to miniOrange or the configured IdP to retrieve SAML metadata.\n\nThis lack of validation could be abused using a man-in-the-middle attack to intercept these connections.\n\nPLUGIN_NAME 2.1.0 performs hostname validation when connecting to miniOrange or the configured IdP to retrieve SAML metadata.",
+      "plugins": [
+        {
+          "name": "miniorange-saml-sp",
+          "title": "SAML Single Sign On(SSO)",
+          "previous": "2.0.2",
+          "fixed": "2.1.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>SAML Single Sign On(SSO) Plugin 2.0.2 and earlier does not perform hostname validation when connecting to miniOrange or the configured IdP to retrieve SAML metadata.</p>\n</div>\n<div class=\"paragraph\">\n<p>This lack of validation could be abused using a man-in-the-middle attack to intercept these connections.</p>\n</div>\n<div class=\"paragraph\">\n<p>SAML Single Sign On(SSO) Plugin 2.1.0 performs hostname validation when connecting to miniOrange or the configured IdP to retrieve SAML metadata.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3001 (2)",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "SSL/TLS certificate validation unconditionally disabled by PLUGIN_NAME",
+      "cve": "CVE-2023-32994",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.1.0 and earlier unconditionally disables SSL/TLS certificate validation for connections to miniOrange or the configured IdP to retrieve SAML metadata.\n\nThis lack of validation could be abused using a man-in-the-middle attack to intercept these connections.\n\nPLUGIN_NAME 2.2.0 performs SSL/TLS certificate validation when connecting to miniOrange or the configured IdP to retrieve SAML metadata.",
+      "plugins": [
+        {
+          "name": "miniorange-saml-sp",
+          "title": "SAML Single Sign On(SSO)",
+          "previous": "2.1.0",
+          "fixed": "2.2.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>SAML Single Sign On(SSO) Plugin 2.1.0 and earlier unconditionally disables SSL/TLS certificate validation for connections to miniOrange or the configured IdP to retrieve SAML metadata.</p>\n</div>\n<div class=\"paragraph\">\n<p>This lack of validation could be abused using a man-in-the-middle attack to intercept these connections.</p>\n</div>\n<div class=\"paragraph\">\n<p>SAML Single Sign On(SSO) Plugin 2.2.0 performs SSL/TLS certificate validation when connecting to miniOrange or the configured IdP to retrieve SAML metadata.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2994",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission check in PLUGIN_NAME",
+      "cve": "CVE-2023-32995 (CSRF), CVE-2023-32996 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.0 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to send an HTTP POST request with JSON body containing attacker-specified content, to miniOrange's API for sending emails.\n\nAdditionally, this HTTP endpoint does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nPLUGIN_NAME 2.0.1 removes the affected HTTP endpoint.",
+      "plugins": [
+        {
+          "name": "miniorange-saml-sp",
+          "title": "SAML Single Sign On(SSO)",
+          "previous": "2.0.0",
+          "fixed": "2.0.1"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>SAML Single Sign On(SSO) Plugin 2.0.0 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to send an HTTP POST request with JSON body containing attacker-specified content, to miniOrange&#8217;s API for sending emails.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this HTTP endpoint does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>SAML Single Sign On(SSO) Plugin 2.0.1 removes the affected HTTP endpoint.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3000",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Session fixation vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-32997",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.6.2 and earlier does not invalidate the existing session on login.\n\nThis allows attackers to use social engineering techniques to gain administrator access to Jenkins.\n\nPLUGIN_NAME 1.6.3 invalidates the existing session on login.",
+      "plugins": [
+        {
+          "name": "cas-plugin",
+          "title": "CAS",
+          "previous": "1.6.2",
+          "fixed": "1.6.3"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>CAS Plugin 1.6.2 and earlier does not invalidate the existing session on login.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers to use social engineering techniques to gain administrator access to Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>CAS Plugin 1.6.3 invalidates the existing session on login.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3118",
+      "reporter": "Alvaro Muñoz (@pwntester), GitHub Security Lab",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME",
+      "cve": "CVE-2023-2195 (CSRF), CVE-2023-2631 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.1.0 and earlier does not perform permission checks in several HTTP endpoints.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified URL.\n\nAdditionally, these HTTP endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nPLUGIN_NAME 4.0.0 requires POST requests and the appropriate permissions for the affected HTTP endpoints.",
+      "plugins": [
+        {
+          "name": "codedx",
+          "title": "Code Dx",
+          "previous": "3.1.0",
+          "fixed": "4.0.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Code Dx Plugin 3.1.0 and earlier does not perform permission checks in several HTTP endpoints.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified URL.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, these HTTP endpoints do not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>Code Dx Plugin 4.0.0 requires POST requests and the appropriate permissions for the affected HTTP endpoints.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3145",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Missing permission checks in PLUGIN_NAME",
+      "cve": "CVE-2023-2196",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.1.0 and earlier does not perform a permission check in a method implementing form validation.\n\nThis allows attackers with Item/Read permission to check for the existence of an attacker-specified file path on an agent file system.\n\nPLUGIN_NAME 4.0.0 requires Item/Configure permission for this form validation method and ensures that only files located within the workspace can be checked.",
+      "plugins": [
+        {
+          "name": "codedx",
+          "title": "Code Dx",
+          "previous": "3.1.0",
+          "fixed": "4.0.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Code Dx Plugin 3.1.0 and earlier does not perform a permission check in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Item/Read permission to check for the existence of an attacker-specified file path on an agent file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>Code Dx Plugin 4.0.0 requires Item/Configure permission for this form validation method and ensures that only files located within the workspace can be checked.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3146",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "API keys stored and displayed in plain text by PLUGIN_NAME",
+      "cve": "CVE-2023-2632 (storage), CVE-2023-2633 (masking)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 3.1.0 and earlier stores Code Dx server API keys unencrypted in job `config.xml` files on the Jenkins controller as part of its configuration.\n\nThese API keys can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system.\n\nAdditionally, the job configuration form does not mask these API keys, increasing the potential for attackers to observe and capture them.\n\nPLUGIN_NAME 4.0.0 no longer stores the API keys directly, instead accessing them through its newly added plugin:credentials[Credentials Plugin] integration.\nAffected jobs need to be reconfigured.",
+      "plugins": [
+        {
+          "name": "codedx",
+          "title": "Code Dx",
+          "previous": "3.1.0",
+          "fixed": "4.0.0"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Code Dx Plugin 3.1.0 and earlier stores Code Dx server API keys unencrypted in job <code>config.xml</code> files on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>These API keys can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, the job configuration form does not mask these API keys, increasing the potential for attackers to observe and capture them.</p>\n</div>\n<div class=\"paragraph\">\n<p>Code Dx Plugin 4.0.0 no longer stores the API keys directly, instead accessing them through its newly added plugin:credentials[Credentials Plugin] integration.\nAffected jobs need to be reconfigured.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3121",
+      "reporter": "Alvaro Muñoz (@pwntester), GitHub Security Lab",
+      "title": "CSRF vulnerability and missing permission check in PLUGIN_NAME",
+      "cve": "CVE-2023-32998 (CSRF), CVE-2023-32999 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0.15 and earlier does not perform a permission check in a method implementing form validation.\n\nThis allows attackers with Overall/Read permission to connect to an attacker-specified URL and send an HTTP POST request with a JSON payload consisting of attacker-specified credentials.\n\nAdditionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nPLUGIN_NAME 1.0.16 requires POST requests and Overall/Administer permission for the affected form validation method.",
+      "plugins": [
+        {
+          "name": "jenkinsci-appspider-plugin",
+          "title": "AppSpider",
+          "previous": "1.0.15",
+          "fixed": "1.0.16"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>AppSpider Plugin 1.0.15 and earlier does not perform a permission check in a method implementing form validation.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to connect to an attacker-specified URL and send an HTTP POST request with a JSON payload consisting of attacker-specified credentials.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this form validation method does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>AppSpider Plugin 1.0.16 requires POST requests and Overall/Administer permission for the affected form validation method.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2962",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Credentials displayed without masking by PLUGIN_NAME",
+      "cve": "CVE-2023-33000",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME stores credentials in job `config.xml` files on the Jenkins controller as part of its configuration.\n\nWhile these credentials are stored encrypted on disk, in PLUGIN_NAME 4.8.0.149 and earlier, the job configuration form does not mask these credentials, increasing the potential for attackers to observe and capture them.\n\nPLUGIN_NAME 4.11.0.48 masks credentials displayed on the configuration form.",
+      "plugins": [
+        {
+          "name": "cavisson-ns-nd-integration",
+          "title": "NS-ND Integration Performance Publisher",
+          "previous": "4.8.0.149",
+          "fixed": "4.11.0.48"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>NS-ND Integration Performance Publisher Plugin stores credentials in job <code>config.xml</code> files on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>While these credentials are stored encrypted on disk, in NS-ND Integration Performance Publisher Plugin 4.8.0.149 and earlier, the job configuration form does not mask these credentials, increasing the potential for attackers to observe and capture them.</p>\n</div>\n<div class=\"paragraph\">\n<p>NS-ND Integration Performance Publisher Plugin 4.11.0.48 masks credentials displayed on the configuration form.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3077",
+      "reporter": null,
+      "title": "Improper masking of credentials in PLUGIN_NAME",
+      "cve": "CVE-2023-33001",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 360.v0a_1c04cf807d and earlier does not properly mask (i.e., replace with asterisks) credentials printed in the build log from Pipeline steps like `sh` and `bat`, when both of the following conditions are met:\n\n* The credentials are printed in build steps executing on an agent (typically inside a `node` block).\n* Push mode for durable task logging is enabled.\n  This is a hidden option in https://plugins.jenkins.io/workflow-durable-task-step/[Pipeline: Nodes and Processes] that can be enabled through the https://www.jenkins.io/doc/book/managing/system-properties/[Java system property] `org.jenkinsci.plugins.workflow.steps.durable_task.DurableTaskStep.USE_WATCHING`.\n  It is also automatically enabled by some plugins, e.g., https://plugins.jenkins.io/opentelemetry/[OpenTelemetry] and https://plugins.jenkins.io/pipeline-cloudwatch-logs/[Pipeline Logging over CloudWatch].\n\nNOTE: An improvement in https://plugins.jenkins.io/credentials-binding/[Credentials Binding] 523.525.vb_72269281873 implements a workaround that applies build log masking even in affected plugins.\nThis workaround is temporary and potentially incomplete, so it is still recommended that affected plugins be updated to resolve this issue.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "hashicorp-vault-plugin",
+          "title": "HashiCorp Vault",
+          "previous": "360.v0a_1c04cf807d",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>HashiCorp Vault Plugin 360.v0a_1c04cf807d and earlier does not properly mask (i.e., replace with asterisks) credentials printed in the build log from Pipeline steps like <code>sh</code> and <code>bat</code>, when both of the following conditions are met:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>The credentials are printed in build steps executing on an agent (typically inside a <code>node</code> block).</p>\n</li>\n<li>\n<p>Push mode for durable task logging is enabled.\nThis is a hidden option in <a href=\"https://plugins.jenkins.io/workflow-durable-task-step/\">Pipeline: Nodes and Processes</a> that can be enabled through the <a href=\"https://www.jenkins.io/doc/book/managing/system-properties/\">Java system property</a> <code>org.jenkinsci.plugins.workflow.steps.durable_task.DurableTaskStep.USE_WATCHING</code>.\nIt is also automatically enabled by some plugins, e.g., <a href=\"https://plugins.jenkins.io/opentelemetry/\">OpenTelemetry</a> and <a href=\"https://plugins.jenkins.io/pipeline-cloudwatch-logs/\">Pipeline Logging over CloudWatch</a>.</p>\n</li>\n</ul>\n</div>\n<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nAn improvement in <a href=\"https://plugins.jenkins.io/credentials-binding/\">Credentials Binding</a> 523.525.vb_72269281873 implements a workaround that applies build log masking even in affected plugins.\nThis workaround is temporary and potentially incomplete, so it is still recommended that affected plugins be updated to resolve this issue.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2892",
+      "reporter": "Valdes Che Zogou, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-33002",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 2.8.1 and earlier does not escape the TestComplete project name in its test result page.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "TestComplete",
+          "title": "TestComplete support",
+          "previous": "2.8.1",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>TestComplete support Plugin 2.8.1 and earlier does not escape the TestComplete project name in its test result page.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-3083",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "CSRF vulnerability and missing permission checks in PLUGIN_NAME",
+      "cve": "CVE-2023-33003 (CSRF), CVE-2023-33004 (missing permission check)",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 0.2 and earlier does not perform a permission check in an HTTP endpoint.\n\nThis allows attackers with Overall/Read permission to reset profiler statistics.\n\nAdditionally, this HTTP endpoint does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "tag-profiler",
+          "title": "Tag Profiler",
+          "previous": "0.2",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Tag Profiler Plugin 0.2 and earlier does not perform a permission check in an HTTP endpoint.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers with Overall/Read permission to reset profiler statistics.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, this HTTP endpoint does not require POST requests, resulting in a cross-site request forgery (CSRF) vulnerability.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2991",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Session fixation vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-33005",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0 and earlier does not invalidate the existing session on login.\n\nThis allows attackers to use social engineering techniques to gain administrator access to Jenkins.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "wso2id-oauth",
+          "title": null,
+          "previous": "1.0",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>wso2id-oauth Plugin 1.0 and earlier does not invalidate the existing session on login.</p>\n</div>\n<div class=\"paragraph\">\n<p>This allows attackers to use social engineering techniques to gain administrator access to Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2990",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "CSRF vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-33006",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0 and earlier does not implement a state parameter in its OAuth flow, a unique and non-guessable value associated with each authentication request.\n\nThis vulnerability allows attackers to trick users into logging in to the attacker's account.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "wso2id-oauth",
+          "title": null,
+          "previous": "1.0",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>wso2id-oauth Plugin 1.0 and earlier does not implement a state parameter in its OAuth flow, a unique and non-guessable value associated with each authentication request.</p>\n</div>\n<div class=\"paragraph\">\n<p>This vulnerability allows attackers to trick users into logging in to the attacker&#8217;s account.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2903",
+      "reporter": "Yaroslav Afenkin, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2023-33007",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1.0 and earlier does not escape the LoadComplete test name in its test result page.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.\n\nAs of publication of this advisory, there is no fix.\nlink:/security/plugins/#unresolved[Learn why we announce this.]",
+      "plugins": [
+        {
+          "name": "loadcomplete",
+          "title": "LoadComplete support",
+          "previous": "1.0",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>LoadComplete support Plugin 1.0 and earlier does not escape the LoadComplete test name in its test result page.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.\n<a href=\"/security/plugins/#unresolved\">Learn why we announce this.</a></p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}
