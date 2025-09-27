@@ -43,7 +43,12 @@ export default function ReleaseHeader({ release, entry = false, linkToWeekly = t
         </div>
       </div>
 
-      {banner ? <div className="app-banner">{banner}</div> : null}
+      {banner ? (
+          <div 
+            className="app-banner" 
+            dangerouslySetInnerHTML={{ __html: banner }} 
+          />
+        ) : null}
     </>
   );
 }
