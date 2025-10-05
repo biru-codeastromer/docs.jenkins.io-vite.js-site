@@ -140,6 +140,10 @@ function ymdFromTitle(title) {
   const pluginTitle = await fetchUpdateCenter();
 
   const files = await fg([`${SRC_DIR}/*.{ad,adoc}`], { dot: false });
+  if (!files || files.length === 0) {
+    console.log('SKIP: No advisory sources found in', SRC_DIR, '- skipping security build to avoid overwriting prebuilt data.');
+    return;
+  }
   const advisories = [];
   await ensureDir(DATA_DIR);
   await ensureDir(path.join(PUBLIC_DIR, 'security/advisories'));
