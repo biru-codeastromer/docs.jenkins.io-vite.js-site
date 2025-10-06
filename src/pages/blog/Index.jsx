@@ -65,10 +65,7 @@ function BlogCard({ post, authorsMeta }) {
           ) : null}
         </div>
         <h5 className="app-card__title">{post.title}</h5>
-        <div 
-          className="app-card__teaser" 
-          dangerouslySetInnerHTML={{ __html: post.summary || '' }}
-        />
+        <p className="app-card__teaser">{post.summary}</p>
       </a>
       <div className="app-card__details">
         <AuthorChips post={post} authorsMeta={authorsMeta} />

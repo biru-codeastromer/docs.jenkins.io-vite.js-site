@@ -66,6 +66,7 @@ const takeWords = (s, w=60) => {
   const parts = String(s).split(/\s+/);
   return parts.length <= w ? s : parts.slice(0, w).join(' ') + '…';
 };
+
 function decodeHtmlEntities(text) {
   if (!text) return text;
   
@@ -193,22 +194,45 @@ async function build() {
     const og = meta.opengraph || key(meta, 'opengraph') || {};
     const opengraph_image = og.image || '/images/logo-title-opengraph.png';
 
+    // FIXED: Better summary extraction that excludes code blocks and CSS
     function extractCleanSummary(html, wordCount = 60) {
       if (!html) return '';
       
+      // Remove code blocks, style blocks, and script blocks first
       let cleanHtml = html
-        .replace(/plugin:[^\[]+\[[^\]]*\]/gi, '')
-        .replace(/author:[^\[]+\[[^\]]*\]/gi, '')
-        .replace(/<[^>]*>/g, ' ')
-        .replace(/\s+/g, ' ')
+        .replace(/<style[\s\S]*?<\/style>/gi, '')  // Remove <style> blocks
+        .replace(/<script[\s\S]*?<\/script>/gi, '') // Remove <script> blocks  
+        .replace(/<pre[\s\S]*?<\/pre>/gi, '')      // Remove <pre> blocks
+        .replace(/<code[\s\S]*?<\/code>/gi, '')    // Remove <code> blocks
+        .replace(/```[\s\S]*?```/g, '')            // Remove markdown code blocks
+        .replace(/`[^`]*`/g, '')                   // Remove inline code
+        .replace(/plugin:[^\[]+\[[^\]]*\]/gi, '')  // Remove plugin macros
+        .replace(/author:[^\[]+\[[^\]]*\]/gi, '')  // Remove author macros
+        .replace(/<[^>]*>/g, ' ')                  // Remove all other HTML tags
+        .replace(/\s+/g, ' ')                      // Normalize whitespace
+        .trim();
+      
+      // Remove CSS variable declarations and other code-like patterns
+      cleanHtml = cleanHtml
+        .replace(/:root\s*\{[^}]*\}/g, '')         // Remove :root{...} CSS blocks
+        .replace(/--[a-zA-Z-]+:\s*[^;]+;/g, '')    // Remove CSS variable declarations
+        .replace(/[\{\}];/g, ' ')                  // Remove remaining CSS syntax
+        .replace(/\s+/g, ' ')                      // Normalize whitespace again
         .trim();
         
       cleanHtml = decodeHtmlEntities(cleanHtml);
+      
+      // If we have nothing left after cleaning, provide a fallback
+      if (!cleanHtml) {
+        return `Read more about ${title}...`;
+      }
       
       return takeWords(cleanHtml, wordCount);
     }
 
     const content_html = decodeHtmlEntities(await adocToHtmlFragment(body));
+    
+    // FIXED: Use description if available, otherwise extract from content
     const summary = description ? 
       decodeHtmlEntities(String(description).trim()) : 
       extractCleanSummary(content_html, 60);
