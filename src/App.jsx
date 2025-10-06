@@ -27,7 +27,6 @@ import ArtworkPage from './pages/artwork';
 import ChatPage from './pages/chat/index';
 import MailingListsPage from './pages/mailing-lists/index';
 import AwardsPage from './pages/awards/index';
-
 import ConductPage from './pages/project/conduct';
 
 import BlogIndex from './pages/blog/Index';
@@ -36,7 +35,11 @@ import BlogPageN from './pages/blog/PageN';
 import BlogPost from './pages/blog/Post';
 import AuthorsIndex from './pages/blog/AuthorsIndex';
 import AuthorDetail from './pages/blog/AuthorDetail';
-
+import ChangelogStablePage from './pages/changelog-stable';
+import ChangelogStableOldPage from './pages/changelog-stable-old';
+import ChangelogWeeklyPage from './pages/changelog';
+import ChangelogWeeklyOldPage from './pages/changelog-old';
+import ChangelogEntryPage from './pages/changelog-entry';
 function App() {
   return (
     <Routes>
@@ -75,6 +78,11 @@ function App() {
         <Route path="blog/authors" element={<AuthorsIndex />} />
         <Route path="blog/authors/:id" element={<AuthorDetail />} />
         <Route path="blog/:yyyy/:mm/:dd/:slug" element={<BlogPost />} />
+        <Route path="changelog-stable" element={<ChangelogStablePage />} />
+        <Route path="changelog-stable-old" element={<ChangelogStableOldPage />} />
+        <Route path="changelog" element={<ChangelogWeeklyPage />} />
+        <Route path="changelog-old" element={<ChangelogWeeklyOldPage />} />
+        <Route path="changelog/:version" element={<ChangelogEntryPage />} />
       </Route>
     </Routes>
   );
