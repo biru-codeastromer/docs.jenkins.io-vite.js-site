@@ -5,9 +5,18 @@ import BlogFrame from '../../components/blog/BlogFrame';
 
 function applyJenkinsShortcodes(html) {
   if (!html) return html;
-  return html.replace(/author:([a-z0-9_-]+)\[([^\]]+)\]/gi, (_m, id, label) => {
+  
+  let processed = html;
+  
+  processed = processed.replace(/author:([a-z0-9_-]+)\[([^\]]+)\]/gi, (_m, id, label) => {
     return `<a href="/blog/authors/${id}/">${label}</a>`;
   });
+  processed = processed.replace(/plugin:([a-zA-Z0-9-]+)\[([^\]]*)\]/gi, (_m, pluginName, linkText) => {
+    const text = linkText || pluginName;
+    return `<a href="https://plugins.jenkins.io/${pluginName}" target="_blank" rel="noopener noreferrer" class="plugin-macro-link">${text}</a>`;
+  });
+  
+  return processed;
 }
 
 function MaskIcon({ src }) {
@@ -81,7 +90,17 @@ function AuthorBlock({ id, meta }) {
             src={a.avatar}
             alt={a.name}
             loading="lazy"
-            onLoad={(e) => (e.currentTarget.style.opacity = '1')}
+            style={{ opacity: 0, transition: 'opacity 0.3s ease' }}
+            onLoad={(e) => {
+              e.currentTarget.style.opacity = '1';
+              e.currentTarget.classList.add('is-loaded');
+            }}
+            onError={(e) => {
+              setTimeout(() => {
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.classList.add('is-loaded');
+              }, 100);
+            }}
           />
         ) : null}
       </div>
@@ -196,7 +215,17 @@ export default function BlogPost() {
                         src={avatar}
                         alt={label}
                         loading="lazy"
-                        onLoad={(e) => (e.currentTarget.style.opacity = '1')}
+                        style={{ opacity: 0, transition: 'opacity 0.3s ease' }}
+                        onLoad={(e) => {
+                          e.currentTarget.style.opacity = '1';
+                          e.currentTarget.classList.add('is-loaded');
+                        }}
+                        onError={(e) => {
+                          setTimeout(() => {
+                            e.currentTarget.style.opacity = '1';
+                            e.currentTarget.classList.add('is-loaded');
+                          }, 100);
+                        }}
                       />
                     ) : null}
                   </span>
@@ -309,6 +338,20 @@ export default function BlogPost() {
             -webkit-mask-repeat: no-repeat; mask-repeat:no-repeat;
             -webkit-mask-position:center; mask-position:center;
             -webkit-mask-size:contain; mask-size:contain;
+          }
+          .plugin-macro-link {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 0.9em;
+          }
+
+          .plugin-macro-link:hover {
+            background: #e0e0e0;
+            text-decoration: underline;
           }
         `}</style>
       </article>

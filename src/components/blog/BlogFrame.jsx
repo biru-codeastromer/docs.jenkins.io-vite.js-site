@@ -54,6 +54,32 @@ export default function BlogFrame({ title, description, children }) {
           }
 
           .app-app-bar__controls .app-button:hover img{ opacity:1; }
+
+          .app-avatar__image,
+          .app-card__preview img,
+          .app-author img {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            max-width: 100%;
+            height: auto;
+          }
+
+          .app-avatar__image.is-loaded,
+          .app-card__preview img.is-loaded,
+          .app-author img.is-loaded {
+            opacity: 1;
+          }
+
+          .app-avatar {
+            display: inline-block;
+            overflow: hidden;
+          }
+          
+          .app-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         `}</style>
       </Helmet>
 
@@ -72,17 +98,45 @@ export default function BlogFrame({ title, description, children }) {
         dangerouslySetInnerHTML={{
           __html: `
           (function(){
-            function mark(img){ try{ img.style.opacity = 1; img.classList.add('is-loaded'); }catch(e){} }
+            function mark(img){ 
+              try{ 
+                img.style.opacity = 1; 
+                img.classList.add('is-loaded'); 
+              }catch(e){}
+            }
+            
             function watch(img){
               if (!img) return;
-              if (img.complete) { mark(img); return; }
-              img.addEventListener('load', function h(){ mark(img); img.removeEventListener('load', h); }, { once:true });
+              
+              img.style.opacity = '0';
+              
+              if (img.complete) { 
+                mark(img); 
+                return; 
+              }
+              
+              img.addEventListener('load', function h(){ 
+                mark(img); 
+                img.removeEventListener('load', h); 
+              }, { once:true });
+              
+              img.addEventListener('error', function h() {
+                setTimeout(() => { mark(img); }, 100);
+                img.removeEventListener('error', h);
+              }, { once: true });
             }
-            document.querySelectorAll('img.app-avatar__image, .app-card__preview img').forEach(watch);
+            
+            document.addEventListener('DOMContentLoaded', function() {
+              document.querySelectorAll('img.app-avatar__image, .app-card__preview img, .app-author img').forEach(watch);
+            });
+            
             document.addEventListener('load', function(e){
               var t = e.target;
-              if (t && t.tagName === 'IMG' && (t.classList.contains('app-avatar__image') || (t.closest && t.closest('.app-card__preview')))){
-                mark(t);
+              if (t && t.tagName === 'IMG' && (
+                t.classList.contains('app-avatar__image') || 
+                (t.closest && (t.closest('.app-card__preview') || t.closest('.app-author')))
+              )){
+                watch(t);
               }
             }, true);
           })();

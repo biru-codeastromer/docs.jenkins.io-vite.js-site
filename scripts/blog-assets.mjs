@@ -2,8 +2,11 @@
 import fs from 'fs/promises';
 import path from 'path';
 import https from 'https';
+import { fileURLToPath } from 'url';
 
-const root = path.resolve(new URL('.', import.meta.url).pathname, '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const root = path.resolve(__dirname, '..');
 const PUBLIC = path.join(root, 'public');
 
 const files = [
@@ -28,19 +31,12 @@ const files = [
 
   { url: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
     out: 'css/font-awesome.min.css' },
-  { url: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2',
-    out: 'fonts/fontawesome-webfont.woff2' },
-  { url: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff',
-    out: 'fonts/fontawesome-webfont.woff' },
-  { url: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf',
-    out: 'fonts/fontawesome-webfont.ttf' },
-  { url: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg',
-    out: 'fonts/fontawesome-webfont.svg' },
-  { url: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot',
-    out: 'fonts/fontawesome-webfont.eot' },
 ];
 
-async function ensureDir(p) { await fs.mkdir(path.dirname(p), { recursive: true }); }
+const ensureDir = async (p) => {
+  const dir = path.dirname(p);
+  await fs.mkdir(dir, { recursive: true });
+};
 
 function download(url, dest) {
   return new Promise((resolve, reject) => {

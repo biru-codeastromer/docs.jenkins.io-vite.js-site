@@ -66,6 +66,29 @@ const takeWords = (s, w=60) => {
   const parts = String(s).split(/\s+/);
   return parts.length <= w ? s : parts.slice(0, w).join(' ') + '…';
 };
+function decodeHtmlEntities(text) {
+  if (!text) return text;
+  
+  const entityMap = {
+    '&amp;': '&',
+    '&lt;': '<', 
+    '&gt;': '>',
+    '&quot;': '"',
+    '&#39;': "'",
+    '&#8217;': "'",
+    '&#8216;': "'", 
+    '&#8220;': '"',
+    '&#8221;': '"',
+    '&#8230;': '…',
+    '&#8211;': '–',
+    '&#8212;': '—',
+    '&nbsp;': ' ',
+  };
+  
+  return text.replace(/&[#a-zA-Z0-9]+;/g, (match) => {
+    return entityMap[match] || match;
+  });
+}
 
 function key(meta, k) {
   return meta[k] ?? meta[`:${k}`];
@@ -123,18 +146,21 @@ function parsePostPath(p) {
 
   let dd, slug;
 
-  if (parts.length >= 5 && /^index\.(ad|adoc|md)$/i.test(parts[parts.length - 1])) {
+  if (parts.length >= 4 && /\.(ad|adoc|md)$/i.test(parts[parts.length - 1])) {
     dd = parts[2];
-    slug = parts[3];
-  } else if (parts.length >= 4) {
-    dd = /^\d{2}$/.test(parts[2]) ? parts[2] : '01';
     const file = parts[parts.length - 1] || '';
     slug = file.replace(/\.(ad|adoc|md)$/i, '');
-  } else if (parts.length === 3) {
+  }
+  else if (parts.length >= 5 && /^index\.(ad|adoc|md)$/i.test(parts[parts.length - 1])) {
+    dd = parts[2];
+    slug = parts[3];
+  }
+  else if (parts.length === 3) {
     dd = '01';
     const file = parts[2] || '';
     slug = file.replace(/\.(ad|adoc|md)$/i, '');
-  } else {
+  }
+  else {
     return {};
   }
 
@@ -158,7 +184,7 @@ async function build() {
     const meta = fm.data || {};
     const body = fm.content || '';
 
-    const title = key(meta, 'title') || slugifyLoose(slug).replace(/-/g, ' ');
+    const title = decodeHtmlEntities(key(meta, 'title') || slugifyLoose(slug).replace(/-/g, ' '));
     const date = key(meta, 'date') || `${yyyy}-${mm}-${dd || '01'}`;
     const authorSingle = key(meta, 'author') || null;
     const authorsField = meta.authors || (authorSingle ? [authorSingle] : []);
@@ -167,8 +193,25 @@ async function build() {
     const og = meta.opengraph || key(meta, 'opengraph') || {};
     const opengraph_image = og.image || '/images/logo-title-opengraph.png';
 
-    const content_html = await adocToHtmlFragment(body);
-    const summary = description ? String(description).trim() : takeWords(stripHtml(content_html), 60);
+    function extractCleanSummary(html, wordCount = 60) {
+      if (!html) return '';
+      
+      let cleanHtml = html
+        .replace(/plugin:[^\[]+\[[^\]]*\]/gi, '')
+        .replace(/author:[^\[]+\[[^\]]*\]/gi, '')
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+        
+      cleanHtml = decodeHtmlEntities(cleanHtml);
+      
+      return takeWords(cleanHtml, wordCount);
+    }
+
+    const content_html = decodeHtmlEntities(await adocToHtmlFragment(body));
+    const summary = description ? 
+      decodeHtmlEntities(String(description).trim()) : 
+      extractCleanSummary(content_html, 60);
 
     const url = `/blog/${yyyy}/${mm}/${dd || '01'}/${slug}/`;
     const outDir = path.join(DATA_DIR, 'posts', yyyy, mm, slug);
@@ -177,7 +220,8 @@ async function build() {
       id: `${yyyy}-${mm}-${slug}`,
       url, title, date,
       authors: authorsField,
-      tags, summary, opengraph_image, content_html
+      tags, summary, opengraph_image, 
+      content_html
     }, null, 2));
 
     posts.push({

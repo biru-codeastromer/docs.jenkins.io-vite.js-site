@@ -18,7 +18,17 @@ function AuthorChips({ post, authorsMeta }) {
                   src={avatar}
                   alt={label}
                   loading="lazy"
-                  onLoad={(e)=>{ e.currentTarget.style.opacity = 1; }}
+                  style={{ opacity: 0, transition: 'opacity 0.3s ease' }}
+                  onLoad={(e) => {
+                    e.currentTarget.style.opacity = '1';
+                    e.currentTarget.classList.add('is-loaded');
+                  }}
+                  onError={(e) => {
+                    setTimeout(() => {
+                      e.currentTarget.style.opacity = '1';
+                      e.currentTarget.classList.add('is-loaded');
+                    }, 100);
+                  }}
                 />
               ) : null}
             </span>
@@ -35,10 +45,30 @@ function BlogCard({ post, authorsMeta }) {
     <li className="app-card">
       <a href={post.url}>
         <div className="app-card__preview">
-          {post.opengraph_image ? <img src={post.opengraph_image} loading="lazy" alt={post.title} onLoad={(e)=>e.currentTarget.style.opacity=1} /> : null}
+          {post.opengraph_image ? (
+            <img 
+              src={post.opengraph_image} 
+              loading="lazy" 
+              alt={post.title} 
+              style={{ opacity: 0, transition: 'opacity 0.3s ease' }}
+              onLoad={(e) => {
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.classList.add('is-loaded');
+              }}
+              onError={(e) => {
+                setTimeout(() => {
+                  e.currentTarget.style.opacity = '1';
+                  e.currentTarget.classList.add('is-loaded');
+                }, 100);
+              }}
+            /> 
+          ) : null}
         </div>
         <h5 className="app-card__title">{post.title}</h5>
-        <p className="app-card__teaser">{post.summary}</p>
+        <div 
+          className="app-card__teaser" 
+          dangerouslySetInnerHTML={{ __html: post.summary || '' }}
+        />
       </a>
       <div className="app-card__details">
         <AuthorChips post={post} authorsMeta={authorsMeta} />
@@ -47,6 +77,7 @@ function BlogCard({ post, authorsMeta }) {
     </li>
   );
 }
+
 
 function buildPageModel(current, total) {
   if (total <= 10) return Array.from({ length: total }, (_, i) => i + 1);
