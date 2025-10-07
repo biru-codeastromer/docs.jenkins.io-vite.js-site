@@ -21,17 +21,9 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
         content = (
           <>
             <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >Mailing list for users of Jenkins. Post your questions on how to use Jenkins and Jenkins plugins here.</Typography>
-            <Box sx={{
-              backgroundColor: theme.palette.mode === 'dark' ? theme.palette.jenkins.lightGray : '#f8f9fa',
-              padding: '1rem',
-              margin: '1rem 0',
-              borderLeft: `4px solid ${theme.palette.mode === 'dark' ? theme.palette.jenkins.darkGray : '#6c757d'}`,
-              borderRadius: '4px',
-            }}>
-              <Note>
-                If you're not sure which list is correct, post here.
-              </Note>
-            </Box>
+            <Note>
+              If you're not sure which list is correct, post here.
+            </Note>
           </>
         );
         break;
@@ -69,17 +61,9 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
             <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >
               Mailing list to contact <Link href="https://www.jenkins.io/project/board/" target="_blank">Jenkins board members</Link>.
             </Typography>
-            <Box sx={{
-              backgroundColor: theme.palette.mode === 'dark' ? theme.palette.jenkins.lightGray : '#f8f9fa',
-              padding: '1rem',
-              margin: '1rem 0',
-              borderLeft: `4px solid ${theme.palette.mode === 'dark' ? theme.palette.jenkins.darkGray : '#6c757d'}`,
-              borderRadius: '4px',
-            }}>
               <Note>
                 The subscription to this mailing list is reserved to Jenkins board members. Do not send messages to this list for support with your Jenkins instance or plugins.
               </Note>
-            </Box>
           </>
         );
         break;
