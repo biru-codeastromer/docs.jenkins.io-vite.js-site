@@ -1,6 +1,6 @@
 import { Box, Typography, Link, List, ListItem, ListItemText, useTheme } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
-
+import Note from "../../components/Note";
 
 const TestPage = () => {
   const theme = useTheme();
@@ -49,10 +49,10 @@ const TestPage = () => {
         Testing
       </Typography>
       
-      <Typography variant="body1" sx={{ mb: 2, fontSize: '1rem', fontWeight: 500 }}>
-        NOTE: This page is under development, there will be more content added soon.
+      <Note>
+        This page is under development, there will be more content added soon.
         See the <Link href="https://issues.jenkins.io/browse/WEBSITE-662">WEBSITE-662</Link> EPIC for tasks related to this page, contributions are welcome!
-      </Typography>
+      </Note>
 
       <Typography
         variant="h5"
