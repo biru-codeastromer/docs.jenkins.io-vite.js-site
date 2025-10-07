@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Link, useTheme } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
+import Note from '../../components/Note';
 
 const MailingListGroup = ({ name, description, isReadOnly = false }) => {
   const theme = useTheme();
@@ -20,17 +21,9 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
         content = (
           <>
             <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >Mailing list for users of Jenkins. Post your questions on how to use Jenkins and Jenkins plugins here.</Typography>
-            <Box sx={{
-              backgroundColor: theme.palette.mode === 'dark' ? theme.palette.jenkins.lightGray : '#f8f9fa',
-              padding: '1rem',
-              margin: '1rem 0',
-              borderLeft: `4px solid ${theme.palette.mode === 'dark' ? theme.palette.jenkins.darkGray : '#6c757d'}`,
-              borderRadius: '4px',
-            }}>
-              <Typography sx={{ fontWeight: 600, color: theme.palette.text.primary }}>
-                NOTE: If you're not sure which list is correct, post here.
-              </Typography>
-            </Box>
+            <Note>
+              If you're not sure which list is correct, post here.
+            </Note>
           </>
         );
         break;
@@ -68,17 +61,9 @@ const MailingListGroup = ({ name, description, isReadOnly = false }) => {
             <Typography sx={{ fontWeight: 500, color: theme.palette.text.primary }} >
               Mailing list to contact <Link href="https://www.jenkins.io/project/board/" target="_blank">Jenkins board members</Link>.
             </Typography>
-            <Box sx={{
-              backgroundColor: theme.palette.mode === 'dark' ? theme.palette.jenkins.lightGray : '#f8f9fa',
-              padding: '1rem',
-              margin: '1rem 0',
-              borderLeft: `4px solid ${theme.palette.mode === 'dark' ? theme.palette.jenkins.darkGray : '#6c757d'}`,
-              borderRadius: '4px',
-            }}>
-              <Typography sx={{ fontWeight: 600, color: theme.palette.text.primary }}>
-                NOTE: The subscription to this mailing list is reserved to Jenkins board members. Do not send messages to this list for support with your Jenkins instance or plugins.
-              </Typography>
-            </Box>
+              <Note>
+                The subscription to this mailing list is reserved to Jenkins board members. Do not send messages to this list for support with your Jenkins instance or plugins.
+              </Note>
           </>
         );
         break;
