@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Box, Link, useTheme } from '@mui/material';
+import Note from '../../components/Note';
 
 export default function HacktoberfestFaq() {
   const theme = useTheme();
@@ -26,13 +27,13 @@ export default function HacktoberfestFaq() {
       >
         Hacktoberfest in Jenkins FAQ
       </Typography>
-      <Typography variant="body1" sx={{ mb: 2, fontSize: '1rem', fontWeight: 500 }}>
-        NOTE: You can find Hacktoberfest FAQ{' '}
+      <Note>
+        You can find Hacktoberfest FAQ{' '}
         <Link href="https://hacktoberfest.com/about/" target="_blank" rel="noopener noreferrer" underline="hover">
           here
         </Link>.
         Below you can find answers to some Jenkins-specific questions.
-      </Typography>
+      </Note>
 
       <Typography
         variant="h5"
