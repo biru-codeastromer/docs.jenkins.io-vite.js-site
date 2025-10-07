@@ -6185,15 +6185,5 @@
     "index_details_html": null,
     "plugins": [],
     "components": []
-  },
-  {
-    "title": "index",
-    "date": "0000-00-00",
-    "url": "/security/advisory/0000-00-00/",
-    "kind": null,
-    "core": false,
-    "index_details_html": null,
-    "plugins": [],
-    "components": []
   }
 ]
