@@ -155,26 +155,24 @@ export default function ForMaintainersPage() {
         <p>
           Edit all applicable <code>pom.xml</code> files (usually just one) and add a prefix corresponding to the baseline version prefix to the <code>&lt;version&gt;</code>. <em>mvn versions:set does not work, it really needs to be done manually.</em> For example:
         </p>
-        <pre><code>--- a/pom.xml
+        <pre><code>{`--- a/pom.xml
 +++ b/pom.xml
 @@ -10,12 +10,12 @@
-   &lt;artifactId&gt;very-cool-plugin&lt;/artifactId&gt;
--  &lt;version&gt;${changelist}&lt;/version&gt;
-+  &lt;version&gt;12345.${changelist}&lt;/version&gt;
-   &lt;packaging&gt;hpi&lt;/packaging&gt;
-</code></pre>
+   <artifactId>very-cool-plugin</artifactId>
+-  <version>$` + `{changelist}</version>
++  <version>12345.$` + `{changelist}</version>
+   <packaging>hpi</packaging>`}</code></pre>
         <p>
           Commit this change, e.g.: <code>git commit -a -m "Prepare for 12345.x"</code> As a result, the backport will typically have a version like <code>12345.12347.vabdef123</code>.
         </p>
         <p><strong>NOTE</strong></p>
-        <pre><code>--- a/pom.xml
+        <pre><code>{`--- a/pom.xml
 +++ b/pom.xml
 @@ -10,12 +10,12 @@
-  &lt;artifactId&gt;very-cool-plugin&lt;/artifactId&gt;
--  &lt;version&gt;${revision}.${changelist}&lt;/version&gt;
-+  &lt;version&gt;${revision}.12345.${changelist}&lt;/version&gt;
-  &lt;packaging&gt;hpi&lt;/packaging&gt;
-</code></pre>
+  <artifactId>very-cool-plugin</artifactId>
+-  <version>$` + `{revision}.$` + `{changelist}</version>
++  <version>$` + `{revision}.12345.$` + `{changelist}</version>
+  <packaging>hpi</packaging>`}</code></pre>
 
         <h5>Applying the Fix</h5>
         <p>
@@ -214,8 +212,7 @@ export default function ForMaintainersPage() {
         <pre><code># Command format
 git push &lt;remote&gt; [&lt;branch or tag&gt; ...]
 # Example
-git push jenkinsci-cert master v2.6.3.x matrix-auth-2.6.6 matrix-auth-2.6.3.1
-</code></pre>
+git push jenkinsci-cert master v2.6.3.x matrix-auth-2.6.6 matrix-auth-2.6.3.1</code></pre>
         <p>
           The Jenkins security team will typically push these tags and branches to the public repository after the security advisory has been published, or will comment on the private SECURITY issue asking the maintainer to do it otherwise.
         </p>
