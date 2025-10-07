@@ -1,0 +1,63 @@
+{
+  "title": "Jenkins Security Advisory 2018-02-14",
+  "date": "2018-02-14",
+  "url": "/security/advisory/2018-02-14/",
+  "kind": "core",
+  "core": {
+    "lts": {
+      "previous": "2.89.3",
+      "fixed": "2.89.4"
+    },
+    "weekly": {
+      "previous": 2.106,
+      "fixed": 2.107
+    }
+  },
+  "issues": [
+    {
+      "id": "SECURITY-506",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Improperly secured form validation for proxy configuration allowed Server-Side Request Forgery",
+      "cve": "CVE-2018-1000067 (formerly CVE-2018-1000102, do not use)",
+      "cvss": {
+        "severity": "medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N"
+      },
+      "description_adoc": "The form validation for the proxy configuration form did not check the permission of the user accessing it, allowing anyone with Overall/Read access to Jenkins to cause Jenkins to send a GET request to a specified URL, optionally with a specified proxy configuration.\n\nIf that request's HTTP response code indicates success, the form validation is returning a generic success message, otherwise the HTTP status code is returned.\nIt was not possible to reuse an existing proxy configuration to send those requests; that configuration had to be provided by the attacker.\n\nThe form validation now properly requires the Overall/Administer permission.\n",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>The form validation for the proxy configuration form did not check the permission of the user accessing it, allowing anyone with Overall/Read access to Jenkins to cause Jenkins to send a GET request to a specified URL, optionally with a specified proxy configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>If that request&#8217;s HTTP response code indicates success, the form validation is returning a generic success message, otherwise the HTTP status code is returned.\nIt was not possible to reuse an existing proxy configuration to send those requests; that configuration had to be provided by the attacker.</p>\n</div>\n<div class=\"paragraph\">\n<p>The form validation now properly requires the Overall/Administer permission.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-705",
+      "reporter": "Kapil Kulkarni",
+      "title": "Path traversal vulnerability allows access to files outside plugin resources",
+      "cve": "CVE-2018-6356",
+      "cvss": {
+        "severity": "medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+      },
+      "description_adoc": "Jenkins did not properly prevent specifying relative paths that escape a base directory for URLs accessing plugin resource files.\nThis allowed users with Overall/Read permission to download files from the Jenkins controller they should not have access to.\n\nOn Windows, any file accessible to the Jenkins controller process could be downloaded.\nOn other operating systems, any file within the Jenkins home directory accessible to the Jenkins controller process could be downloaded.\n\nJenkins now prevents specifying paths containing `..` and other character sequences that could be used to access files outside the plugins resource directory.\n",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins did not properly prevent specifying relative paths that escape a base directory for URLs accessing plugin resource files.\nThis allowed users with Overall/Read permission to download files from the Jenkins controller they should not have access to.</p>\n</div>\n<div class=\"paragraph\">\n<p>On Windows, any file accessible to the Jenkins controller process could be downloaded.\nOn other operating systems, any file within the Jenkins home directory accessible to the Jenkins controller process could be downloaded.</p>\n</div>\n<div class=\"paragraph\">\n<p>Jenkins now prevents specifying paths containing <code>..</code> and other character sequences that could be used to access files outside the plugins resource directory.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-717",
+      "reporter": "Daniel Beck, CloudBees, Inc.",
+      "title": "Improper input validation allows unintended access to plugin resource files on case-insensitive file systems",
+      "cve": "CVE-2018-1000068 (formerly CVE-2018-1000103, do not use)",
+      "cvss": {
+        "severity": "medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "Jenkins did not take into account case-insensitive file systems when preventing access to plugin resource files that should not be accessible.\nThis allowed users with Overall/Read permission to download plugin resource files in `META-INF` and `WEB-INF` directories, such as the plugins' JAR files, which could contain hardcoded secrets.\n\nThis was caused by an incomplete fix to link:../2014-10-01/#SECURITY-155[SECURITY-155].\n",
+      "plugins": [],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Jenkins did not take into account case-insensitive file systems when preventing access to plugin resource files that should not be accessible.\nThis allowed users with Overall/Read permission to download plugin resource files in <code>META-INF</code> and <code>WEB-INF</code> directories, such as the plugins' JAR files, which could contain hardcoded secrets.</p>\n</div>\n<div class=\"paragraph\">\n<p>This was caused by an incomplete fix to <a href=\"../2014-10-01/#SECURITY-155\">SECURITY-155</a>.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

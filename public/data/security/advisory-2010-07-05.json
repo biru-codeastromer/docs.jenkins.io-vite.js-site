@@ -1,0 +1,11 @@
+{
+  "title": "Hudson Security Advisory 2010-07-05",
+  "date": "2010-07-05",
+  "url": "/security/advisory/2010-07-05/",
+  "kind": "core",
+  "core": null,
+  "issues": [],
+  "components": [],
+  "index_details_html": null,
+  "content_html": "<div class=\"sect1\">\n<h2 id=\"vulnerability\"><a class=\"anchor\" href=\"#vulnerability\"></a>Vulnerability</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>This vulnerability allows an attacker to read arbitrary files in the server file system whose path names are known, by sending malicious HTTP GET requests. While such access is still subject to the normal access control enforced by the operating system, Hudson can still leak \"secrets\" possessed by Hudson, hence the critical rating.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"affected-versions\"><a class=\"anchor\" href=\"#affected-versions\"></a>Affected Versions</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>This vulnerability affects your Hudson if all of the following conditions are met:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Hudson version 1.364 or earlier</p>\n</li>\n<li>\n<p>Hudson is run on the built-in Winstone servlet container. This includes the RPM and DEB packages.</p>\n</li>\n<li>\n<p>Attacker has a direct access to the TCP/IP port that Hudson listens to, without going through an HTTP proxy of some kind, such as Apache.</p>\n</li>\n</ul>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"fix\"><a class=\"anchor\" href=\"#fix\"></a>Fix</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>One of the following actions will fix the problem.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Upgrade to Hudson 1.365 or later, which contains a fix to this problem.</p>\n</li>\n<li>\n<p>Run Hudson in a servlet container other than Winstone, such as Jetty, Tomcat, or GlassFish.</p>\n</li>\n<li>\n<p>Run Hudson behind a reverse HTTP proxy, such as apache.</p>\n</li>\n</ul>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"future-advisories\"><a class=\"anchor\" href=\"#future-advisories\"></a>Future Advisories</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>See <a href=\"/security/\">the security page</a> for how to subscribe to future security advisories.</p>\n</div>\n</div>\n</div>"
+}
