@@ -32,7 +32,6 @@ export default function TeamPage() {
           Contact the Jenkins security team via email to the private <code>jenkinsci-cert@googlegroups.com</code> mailing list if you're interested.
         </p>
         <p>
-          <em>// TODO Does it make sense to keep this on the dev list? For visibility probably? OTOH, people might not contact us due to the potential for public rejection.</em>
         </p>
 
         <h3>Expectations</h3>

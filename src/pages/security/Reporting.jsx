@@ -180,7 +180,6 @@ export default function ReportingPage() {
 
         <h2>Attribution Policy</h2>
         <p>We will credit reporters who informed us in private about security vulnerabilities in security advisories.</p>
-        <p><em>// TODO more detail</em></p>
 
         <h2>Bug bounty / Reward / Gift</h2>
         <p>Currently there is no program to reward vulnerability reporters.</p>
