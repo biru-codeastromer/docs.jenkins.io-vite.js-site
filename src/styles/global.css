@@ -187,6 +187,11 @@ p {
   --table-border: #e9ecef;
   --filter-bg: #f8f9fa;
   --filter-border: #e9ecef;
+  --yellow: #efc663;
+  --cyan: #00acc1;
+  --color--secondary: var(--text-secondary); /* needed by rate.js */
+  --yellow: #efc663; /* weather sunny stroke */
+  --cyan: #00acc1;   /* storm dots */
 }
 
 /* Dark mode specific styles */
@@ -205,6 +210,11 @@ p {
     --table-border: #3a3a3a;
     --filter-bg: #2a2a2a;
     --filter-border: #3a3a3a;
+    --yellow: #efc663;
+    --cyan: #00acc1;
+    --color--secondary: var(--text-secondary);
+    --yellow: #efc663;
+    --cyan: #00acc1;
   }
 
   .roadmap-table th {
@@ -446,4 +456,258 @@ a {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif !important;
   line-height: 1.65;
+}
+
+.app-container--changelog {
+  max-width: 1060px;
+}
+
+.app-app-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.app-app-bar__content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.app-app-bar__content h1 { margin-bottom: 0; }
+.app-app-bar__controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.app-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app-upgrade-btn {
+  --pill-bg: color-mix(in srgb, var(--link-color), transparent 88%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 18px;
+  background: var(--pill-bg);
+  border: 0;
+  color: var(--link-color);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+}
+.app-upgrade-btn:hover {
+  --pill-bg: color-mix(in srgb, var(--link-color), transparent 84%);
+}
+.app-upgrade-btn svg {
+  display: block;
+  width: 22px; height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 32;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.app-rss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0; border: 0; background: transparent;
+}
+.app-rss:hover {
+  background: color-mix(in srgb, var(--text-color), transparent 92%);
+}
+.app-rss svg {
+  width: 22px; height: 22px;
+  display: block;
+}
+
+.app-button {
+  --button-bg: color-mix(in srgb, var(--text-color), transparent 92%);
+  --button-color: var(--text-color);
+  --button-border: color-mix(in srgb, var(--text-color), transparent 80%);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .9rem;
+  border-radius: .66rem;
+  font-weight: 600;
+  font-size: .85rem;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--button-color);
+  background: var(--button-bg);
+  border: 1px solid var(--button-border);
+}
+.app-button--primary {
+  --button-bg: var(--link-color);
+  --button-color: #fff;
+  --button-border: var(--link-color);
+}
+.app-button--tertiary {
+  --button-bg: color-mix(in srgb, var(--text-color), transparent 94%);
+  --button-color: var(--text-color);
+  --button-border: color-mix(in srgb, var(--text-color), transparent 85%);
+}
+
+*[data-tooltip] { position: relative; }
+@media (hover: hover) {
+  *[data-tooltip]:hover::before {
+    opacity: 1; scale: 1; translate: -50% -2px;
+  }
+}
+*[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -35px; left: 50%;
+  --tooltip-color: var(--text-color);
+  --tooltip-bg: var(--banner-bg);
+  --tooltip-shadow:
+    0 0 8px 2px rgba(0, 0, 30, 0.05),
+    0 0 1px 1px rgba(0, 0, 20, 0.025),
+    0 10px 20px rgba(0, 0, 20, 0.15);
+  color: var(--tooltip-color);
+  background: var(--tooltip-bg);
+  box-shadow: var(--tooltip-shadow);
+  padding: .4rem .75rem;
+  border-radius: .66rem;
+  font-weight: 500;
+  font-size: .7rem;
+  z-index: 2;
+  opacity: 0; scale: .9; translate: -50% 5px;
+  transition: .2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.app-status-container {
+  display: flex; flex-direction: column; align-items: end; gap: 2px;
+  animation: fade-in-container .35s ease both;
+}
+.app-status-container__icons { display: flex; gap: 10px; }
+.app-status-container__icons .app-button {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 6px 8px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color .15s ease;
+}
+.app-status-container__icons .app-button:hover {
+  background: color-mix(in srgb, var(--text-color), transparent 94%);
+}
+.app-status-container__icons .app-button span {
+  font-weight: 600;
+  font-size: .95rem;
+  line-height: 1;
+}
+.app-status-container__icons .sunny svg { transition: 1s ease; }
+.app-status-container__icons .sunny:hover svg { rotate: 180deg; }
+.app-status-container__icons .cloudy svg { scale: .9; }
+.app-status-container__icons .cloudy svg * { stroke-width: 1.65px; }
+.app-status-container__icons .app-button svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.app-status-container__issues {
+  display: block; margin-right: 12px; color: var(--text-secondary);
+  font-weight: 500; font-size: .85rem; max-width: 650px; overflow: hidden;
+  text-align: right;
+}
+@media (max-width: 768px) {
+  .app-status-container { align-items: start; gap: 15px; }
+  .app-status-container__issues { text-align: left; margin-right: 0; }
+}
+@keyframes fade-in-container { from { opacity: 0; } }
+
+.app-releases__list__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0 .5rem;
+}
+.app-releases__item__title { font-size: 2rem; font-weight: 800; margin: 0; }
+.app-releases__item__title a {
+  text-decoration: none;
+  color: inherit;
+}
+.app-releases__item__title a:hover { text-decoration: underline; }
+.app-releases__item__date {
+  margin-top: .25rem; color: var(--text-secondary); font-weight: 500; font-size: .95rem;
+}
+
+.app-releases__list code {
+  color: #e16070;
+  background: transparent;
+  padding: 0;
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.app-releases__notable-changes {
+  margin: 1rem 0 .25rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.app-releases__list__items { margin: .5rem 0 2rem; }
+
+.app-releases__tag {
+  display: inline-block;
+  padding: .2rem .55rem;
+  border-radius: .66rem;
+  font-weight: 700;
+  font-size: .65rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  margin: .35rem 0 .25rem;
+  background: color-mix(in srgb, var(--text-color), transparent 92%);
+  color: var(--text-color);
+}
+.app-releases__tag--bug,
+.app-releases__tag--bugfix { background: #fce7e9; color: #b3261e; }
+.app-releases__tag--majorbug { background: #fbd1d6; color: #92261f; }
+.app-releases__tag--rfe,
+.app-releases__tag--enhancement { background: #e6f4ea; color: #137333; }
+.app-releases__tag--majorrfe { background: #d9efe0; color: #0e5a28; }
+.app-releases__tag--security { background: #fbe7f1; color: #a51b63; }
+
+.app-releases__list {
+  list-style: disc;
+  padding-left: 1.35rem;
+  margin: .25rem 0 1.25rem;
+}
+.app-releases__list li { margin: .35rem 0; }
+.app-releases__references {
+  margin-left: .35rem;
+  font-size: .95rem;
+}
+
+.app-banner {
+  padding: 1rem;
+  margin: 2rem 0;
+  border-left: 4px solid var(--banner-border);
+  border-radius: 4px;
+  background: var(--banner-bg);
+}
+
+.app-status-container__icons + .app-status-container__issues {
+  margin-top: 2px;
 }

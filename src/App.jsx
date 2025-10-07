@@ -44,7 +44,11 @@ import ReportingPage from './pages/security/Reporting';
 import SchedulingPage from './pages/security/Scheduling';
 import TeamPage from './pages/security/Team';
 import TerminologyPage from './pages/security/Terminology';
-import VulnerabilitiesPage from './pages/security/Vulnerabilities';
+import VulnerabilitiesPage from './pages/security/Vulnerabilities';import ChangelogStablePage from './pages/changelog-stable';
+import ChangelogStableOldPage from './pages/changelog-stable-old';
+import ChangelogWeeklyPage from './pages/changelog';
+import ChangelogWeeklyOldPage from './pages/changelog-old';
+import ChangelogEntryPage from './pages/changelog-entry';
 function App() {
   return (
     <Routes>
@@ -96,6 +100,11 @@ function App() {
         <Route path="security/team" element={<TeamPage />} />
         <Route path="security/terminology" element={<TerminologyPage />} />
         <Route path="security/vulnerabilities" element={<VulnerabilitiesPage />} />
+        <Route path="changelog-stable" element={<ChangelogStablePage />} />
+        <Route path="changelog-stable-old" element={<ChangelogStableOldPage />} />
+        <Route path="changelog" element={<ChangelogWeeklyPage />} />
+        <Route path="changelog-old" element={<ChangelogWeeklyOldPage />} />
+        <Route path="changelog/:version" element={<ChangelogEntryPage />} />
       </Route>
     </Routes>
   );
