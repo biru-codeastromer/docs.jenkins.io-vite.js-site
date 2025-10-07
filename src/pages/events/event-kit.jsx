@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Box, Link, useTheme } from '@mui/material';
+import Note from '../../components/Note';
 
 export default function HacktoberfestEventKit() {
   const theme = useTheme();
@@ -27,13 +28,13 @@ export default function HacktoberfestEventKit() {
         Hacktoberfest. Jenkins Event Kit
       </Typography>
 
-      <Typography variant="body1" sx={{ mb: 2, fontSize: '1rem', fontWeight: 500, fontStyle: 'italic' }}>
-        NOTE: This page is an extension of the standard{' '}
+      <Note>
+        This page is an extension of the standard{' '}
         <Link href="https://hacktoberfest.com/events/#organizers" target="_blank" rel="noopener noreferrer" underline="hover">
           Hacktoberfest Event Kit
         </Link>.
         Please refer to this page for the base guidelines.
-      </Typography>
+      </Note>
 
       <Typography
         variant="h5"
