@@ -70,6 +70,11 @@ export default function Home() {
           Blog
         </Link>
       </Typography>
+      <Typography>
+        <Link href="/security" variant="body1">
+          Security
+        </Link>
+      </Typography>
     </Box>
   );
 }

@@ -35,7 +35,23 @@ import BlogPageN from './pages/blog/PageN';
 import BlogPost from './pages/blog/Post';
 import AuthorsIndex from './pages/blog/AuthorsIndex';
 import AuthorDetail from './pages/blog/AuthorDetail';
-import ChangelogStablePage from './pages/changelog-stable';
+import AdvisoriesIndex from './pages/security/AdvisoriesIndex';
+import AdvisoryDetail from './pages/security/AdvisoryDetail';
+import IssuesIndex from './pages/security/IssuesIndex';
+
+import SecurityIndex from './pages/security/Index';
+import CnaPage from './pages/security/Cna';
+import FixingPage from './pages/security/Fixing';
+import ForAdministratorsPage from './pages/security/ForAdministrators';
+import ForMaintainersPage from './pages/security/ForMaintainers';
+import ImprovementsPage from './pages/security/Improvements';
+import GiftRedirect from './pages/security/Gift';
+import PluginsPage from './pages/security/Plugins';
+import ReportingPage from './pages/security/Reporting';
+import SchedulingPage from './pages/security/Scheduling';
+import TeamPage from './pages/security/Team';
+import TerminologyPage from './pages/security/Terminology';
+import VulnerabilitiesPage from './pages/security/Vulnerabilities';import ChangelogStablePage from './pages/changelog-stable';
 import ChangelogStableOldPage from './pages/changelog-stable-old';
 import ChangelogWeeklyPage from './pages/changelog';
 import ChangelogWeeklyOldPage from './pages/changelog-old';
@@ -78,6 +94,25 @@ function App() {
         <Route path="blog/authors" element={<AuthorsIndex />} />
         <Route path="blog/authors/:id" element={<AuthorDetail />} />
         <Route path="blog/:yyyy/:mm/:dd/:slug" element={<BlogPost />} />
+        <Route path="security/advisories" element={<AdvisoriesIndex />} />
+        <Route path="security/advisory/:date/*" element={<AdvisoryDetail />} />
+        <Route path="security/issues" element={<IssuesIndex />} />
+        <Route path="security" element={<SecurityIndex />} />
+        <Route path="security/cna" element={<CnaPage />} />
+        <Route path="security/fixing" element={<FixingPage />} />
+        <Route path="security/for-administrators" element={<ForAdministratorsPage />} />
+        <Route path="security/for-maintainers" element={<ForMaintainersPage />} />
+        <Route path="security/improvements" element={<ImprovementsPage />} />
+        <Route path="security/gift" element={<GiftRedirect />} />
+        <Route path="security/advisories" element={<AdvisoriesIndex />} />
+        <Route path="security/advisory/:date/*" element={<AdvisoryDetail />} />
+        <Route path="security/issues" element={<IssuesIndex />} />
+        <Route path="security/plugins" element={<PluginsPage />} />
+        <Route path="security/reporting" element={<ReportingPage />} />
+        <Route path="security/scheduling" element={<SchedulingPage />} />
+        <Route path="security/team" element={<TeamPage />} />
+        <Route path="security/terminology" element={<TerminologyPage />} />
+        <Route path="security/vulnerabilities" element={<VulnerabilitiesPage />} />
         <Route path="changelog-stable" element={<ChangelogStablePage />} />
         <Route path="changelog-stable-old" element={<ChangelogStableOldPage />} />
         <Route path="changelog" element={<ChangelogWeeklyPage />} />

@@ -1,0 +1,192 @@
+{
+  "title": "Jenkins Security Advisory 2018-01-22",
+  "date": "2018-01-22",
+  "url": "/security/advisory/2018-01-22/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-507",
+      "reporter": "Oleg Nenashev, CloudBees, Inc.",
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "low",
+        "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "translation",
+          "title": "Translation Assistance",
+          "previous": 1.15,
+          "fixed": 1.16
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "SECURITY-607",
+      "reporter": "Jesse Glick, CloudBees, Inc.",
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "release",
+          "title": "Release",
+          "previous": 2.9,
+          "fixed": 2.1
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "SECURITY-655",
+      "reporter": "Adith Sudhakar",
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "high",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "pmd",
+          "title": null,
+          "previous": 1.7,
+          "fixed": 1.8
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "SECURITY-656",
+      "reporter": "Adith Sudhakar",
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "high",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "checkstyle",
+          "title": null,
+          "previous": 3.49,
+          "fixed": 3.5
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "SECURITY-657",
+      "reporter": "Adith Sudhakar",
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "high",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "dry",
+          "title": null,
+          "previous": 2.49,
+          "fixed": 2.5
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "SECURITY-658",
+      "reporter": "Adith Sudhakar",
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "high",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "findbugs",
+          "title": null,
+          "previous": 4.71,
+          "fixed": 4.72
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "SECURITY-695",
+      "reporter": null,
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "warnings",
+          "title": null,
+          "previous": 4.64,
+          "fixed": 4.65
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "SECURITY-694",
+      "reporter": null,
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "medium",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "ant",
+          "title": "Ant",
+          "previous": 1.7,
+          "fixed": 1.8
+        }
+      ],
+      "components": []
+    },
+    {
+      "id": "SECURITY-675",
+      "reporter": "Jesse Glick, CloudBees, Inc.",
+      "title": null,
+      "cve": null,
+      "cvss": {
+        "severity": "high",
+        "vector": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L"
+      },
+      "description_adoc": null,
+      "plugins": [
+        {
+          "name": "workflow-durable-task-step",
+          "title": "Pipeline: Nodes and Processes",
+          "previous": 2.17,
+          "fixed": 2.18
+        }
+      ],
+      "components": []
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": "<div class=\"sect1\">\n<h2 id=\"description\"><a class=\"anchor\" href=\"#description\"></a>Description</h2>\n<div class=\"sectionbody\">\n<div class=\"sect2\">\n<h3 id=\"xxe-vulnerabilities-in-multiple-static-analysis-plugins\"><a class=\"anchor\" href=\"#xxe-vulnerabilities-in-multiple-static-analysis-plugins\"></a>XXE vulnerabilities in multiple static analysis plugins</h3>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><strong>SECURITY-655 / CVE-2018-1000008</strong> (PMD)</p>\n</li>\n<li>\n<p><strong>SECURITY-656 / CVE-2018-1000009</strong> (Checkstyle)</p>\n</li>\n<li>\n<p><strong>SECURITY-657 / CVE-2018-1000010</strong> (DRY)</p>\n</li>\n<li>\n<p><strong>SECURITY-658 / CVE-2018-1000011</strong> (FindBugs)</p>\n</li>\n<li>\n<p><strong>SECURITY-695 / CVE-2018-1000012</strong> (Warnings)</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Multiple plugins based on plugin:analysis-core[Static Analysis Utilities] plugin are affected by an XML External Entity (XXE) processing vulnerability.\nThis allows attacker to configure build processes such that one of these plugins parses a maliciously crafted file that uses external entities for extraction of secrets from the Jenkins controller, server-side request forgery, or denial-of-service attacks.</p>\n</div>\n<div class=\"paragraph\">\n<p>External entity resolution has been disabled for these plugins.</p>\n</div>\n</div>\n<div class=\"sect2\">\n<h3 id=\"csrf-vulnerability-in-release-plugin\"><a class=\"anchor\" href=\"#csrf-vulnerability-in-release-plugin\"></a>CSRF vulnerability in Release plugin</h3>\n<div class=\"paragraph\">\n<p><strong>SECURITY-607 / CVE-2018-1000013</strong></p>\n</div>\n<div class=\"paragraph\">\n<p>Release plugin did not require form submissions to be submitted via POST, resulting in a CSRF vulnerability allowing attackers to trigger release builds.</p>\n</div>\n<div class=\"paragraph\">\n<p>Access to the form action URL now requires POST.</p>\n</div>\n</div>\n<div class=\"sect2\">\n<h3 id=\"csrf-vulnerability-in-translation-assistance-plugin\"><a class=\"anchor\" href=\"#csrf-vulnerability-in-translation-assistance-plugin\"></a>CSRF vulnerability in Translation Assistance plugin</h3>\n<div class=\"paragraph\">\n<p><strong>SECURITY-507 / CVE-2018-1000014</strong></p>\n</div>\n<div class=\"paragraph\">\n<p>Translation Assistance plugin did not require form submissions to be submitted via POST, resulting in a CSRF vulnerability allowing attackers to override localized strings displayed to all users on the current Jenkins instance if the victim is a Jenkins administrator.</p>\n</div>\n<div class=\"paragraph\">\n<p>Access to the form action URL now requires POST.</p>\n</div>\n</div>\n<div class=\"sect2\">\n<h3 id=\"incorrect-permission-checks-in-pipeline-nodes-and-processes-plugin-allows-executing-builds-on-agents-while-lacking-computerbuild-permission\"><a class=\"anchor\" href=\"#incorrect-permission-checks-in-pipeline-nodes-and-processes-plugin-allows-executing-builds-on-agents-while-lacking-computerbuild-permission\"></a>Incorrect permission checks in Pipeline: Nodes and Processes plugin allows executing builds on agents while lacking Computer/Build permission</h3>\n<div class=\"paragraph\">\n<p><strong>SECURITY-675 / CVE-2018-1000015</strong></p>\n</div>\n<div class=\"paragraph\">\n<p>On instances with plugin:authorize-project[Authorize Project plugin], the authentication associated with a build may lack the Computer/Build permission on some agents.\nThis did not prevent the execution of <code>node</code> blocks on those agents due to incorrect permissions checks in Pipeline: Nodes and Processes plugin.</p>\n</div>\n<div class=\"paragraph\">\n<p>Build permissions on agents are now properly enforced for <code>node</code> steps.</p>\n</div>\n</div>\n<div class=\"sect2\">\n<h3 id=\"xss-vulnerability-in-job-configuration-forms-in-ant-plugin\"><a class=\"anchor\" href=\"#xss-vulnerability-in-job-configuration-forms-in-ant-plugin\"></a>XSS vulnerability in job configuration forms in Ant plugin</h3>\n<div class=\"paragraph\">\n<p><strong>SECURITY-624 and SECURITY-694</strong></p>\n</div>\n<div class=\"paragraph\">\n<p>Ant plugin failed to escape tool names it shows on job configuration screens, resulting in a cross-site scripting (XSS) vulnerability that is exploitable only by Jenkins administrators.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is the same vulnerability that was announced without a fix on <a href=\"/security/advisory/2017-12-05/\">2017-12-05</a>.\nContrary to what we wrote in that security advisory, Ant Plugin shows both the JDK and Ant tools on the configuration screen, and the vulnerability in Ant plugin was responsible for both problems we confirmed in the previous advisory.</p>\n</div>\n<div class=\"paragraph\">\n<p>Ant plugin now correctly escapes tool names shown on the job configuration screen.</p>\n</div>\n</div>\n</div>\n</div>"
+}

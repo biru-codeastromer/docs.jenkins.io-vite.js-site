@@ -1,5 +1,6 @@
 import { Box, Typography, Link, List, ListItem, ListItemText, useTheme } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
+import Note from "../../components/Note";
 
 const ReviewChangesPage = () => {
   const theme = useTheme();
@@ -85,9 +86,9 @@ const ReviewChangesPage = () => {
         </ListItem>
       </List>
       
-      <Typography variant="body1" sx={{ mb: 2, fontSize: '1rem', fontWeight: 500 }}>
-        <b>NOTE:</b> You will only be able to see the linked teams if you belong to the corresponding GitHub Team.
-      </Typography>
+      <Note>
+        You will only be able to see the linked teams if you belong to the corresponding GitHub Team.
+      </Note>
 
       <Typography
         variant="h5"

@@ -1,0 +1,96 @@
+{
+  "title": "Jenkins Security Advisory 2022-08-23",
+  "date": "2022-08-23",
+  "url": "/security/advisory/2022-08-23/",
+  "kind": "plugins",
+  "core": null,
+  "issues": [
+    {
+      "id": "SECURITY-2796",
+      "reporter": "Peter Darton, i2group.com, and independently, Stefano Mazzucco, Mindera",
+      "title": "Improper masking of credentials in PLUGIN_NAME",
+      "cve": "CVE-2022-38663",
+      "cvss": {
+        "severity": "Medium",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 4.11.4 and earlier does not properly mask (i.e., replace with asterisks) credentials in the build log provided by the Git Username and Password (`gitUsernamePassword`) credentials binding.\nUsernames are masked instead of passwords in cases when usernames are not set to be treated as secret.\n\nPLUGIN_NAME 4.11.5 properly masks credentials in the build log provided by the Git Username and Password (`gitUsernamePassword`) credentials binding.\nAs a side effect of the fix, usernames currently set to be not masked will lose their current (unintentional) masking.",
+      "plugins": [
+        {
+          "name": "git",
+          "title": "Git",
+          "previous": "4.11.4",
+          "fixed": "4.11.5"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Git Plugin 4.11.4 and earlier does not properly mask (i.e., replace with asterisks) credentials in the build log provided by the Git Username and Password (<code>gitUsernamePassword</code>) credentials binding.\nUsernames are masked instead of passwords in cases when usernames are not set to be treated as secret.</p>\n</div>\n<div class=\"paragraph\">\n<p>Git Plugin 4.11.5 properly masks credentials in the build log provided by the Git Username and Password (<code>gitUsernamePassword</code>) credentials binding.\nAs a side effect of the fix, usernames currently set to be not masked will lose their current (unintentional) masking.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2765",
+      "reporter": "Kevin Guerroudj, CloudBees, Inc.",
+      "title": "Stored XSS vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2022-38664",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 1165.v8cc9fd1f4597 and earlier does not escape the job name on the System Configuration History page.\n\nThis results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to configure job names.\n\nPLUGIN_NAME 1166.vc9f255f45b_8a escapes the job name on the System Configuration History page.",
+      "plugins": [
+        {
+          "name": "jobConfigHistory",
+          "title": "Job Configuration History",
+          "previous": "1165.v8cc9fd1f4597",
+          "fixed": "1166.vc9f255f45b_8a"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Job Configuration History Plugin 1165.v8cc9fd1f4597 and earlier does not escape the job name on the System Configuration History page.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a stored cross-site scripting (XSS) vulnerability exploitable by attackers able to configure job names.</p>\n</div>\n<div class=\"paragraph\">\n<p>Job Configuration History Plugin 1166.vc9f255f45b_8a escapes the job name on the System Configuration History page.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2157",
+      "reporter": "Son Nguyen (@s0nnguy3n_)",
+      "title": "RabbitMQ password stored in plain text by PLUGIN_NAME",
+      "cve": "CVE-2022-38665",
+      "cvss": {
+        "severity": "Low",
+        "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "description_adoc": "PLUGIN_NAME 2.0.8 and earlier stores a RabbitMQ password unencrypted in its global configuration file `hudson.plugins.collabnet.share.TeamForgeShare.xml` on the Jenkins controller as part of its configuration.\n\nThis password can be viewed by users with access to the Jenkins controller file system.\n\nPLUGIN_NAME 2.0.9 no longer includes the EventQ feature that accepts RabbitMQ credentials.\nThe RabbitMQ password will be removed from the configuration file once it is saved again.",
+      "plugins": [
+        {
+          "name": "collabnet",
+          "title": "CollabNet Plugins",
+          "previous": "2.0.8",
+          "fixed": "2.0.9"
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>CollabNet Plugins Plugin 2.0.8 and earlier stores a RabbitMQ password unencrypted in its global configuration file <code>hudson.plugins.collabnet.share.TeamForgeShare.xml</code> on the Jenkins controller as part of its configuration.</p>\n</div>\n<div class=\"paragraph\">\n<p>This password can be viewed by users with access to the Jenkins controller file system.</p>\n</div>\n<div class=\"paragraph\">\n<p>CollabNet Plugins Plugin 2.0.9 no longer includes the EventQ feature that accepts RabbitMQ credentials.\nThe RabbitMQ password will be removed from the configuration file once it is saved again.</p>\n</div>"
+    },
+    {
+      "id": "SECURITY-2448",
+      "reporter": "Jordy Versmissen",
+      "title": "RCE vulnerability in PLUGIN_NAME",
+      "cve": "CVE-2021-25738",
+      "cvss": {
+        "severity": "High",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "description_adoc": "PLUGIN_NAME 2.3.1 and earlier bundles a version of Kubernetes Java Client library with the vulnerability https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25738[CVE-2021-25738] that does not configure its YAML parser to prevent the instantiation of arbitrary types.\n\nThis results in a remote code execution (RCE) vulnerability exploitable by users able to provide YAML input files to PLUGIN_NAME's build step.\n\nAs of publication of this advisory, there is no fix.",
+      "plugins": [
+        {
+          "name": "kubernetes-cd",
+          "title": "Kubernetes Continuous Deploy",
+          "previous": "2.3.1",
+          "fixed": null
+        }
+      ],
+      "components": [],
+      "description_html": "<div class=\"paragraph\">\n<p>Kubernetes Continuous Deploy Plugin 2.3.1 and earlier bundles a version of Kubernetes Java Client library with the vulnerability <a href=\"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25738\">CVE-2021-25738</a> that does not configure its YAML parser to prevent the instantiation of arbitrary types.</p>\n</div>\n<div class=\"paragraph\">\n<p>This results in a remote code execution (RCE) vulnerability exploitable by users able to provide YAML input files to Kubernetes Continuous Deploy Plugin&#8217;s build step.</p>\n</div>\n<div class=\"paragraph\">\n<p>As of publication of this advisory, there is no fix.</p>\n</div>"
+    }
+  ],
+  "components": [],
+  "index_details_html": null,
+  "content_html": null
+}

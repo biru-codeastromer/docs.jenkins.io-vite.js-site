@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "predev": "node scripts/blog-assets.mjs",
-    "prebuild": "node scripts/blog-assets.mjs",
+    "prebuild": "node scripts/blog-assets.mjs && node scripts/security-build.mjs",
     "dev": "vite",
     "preview": "vite preview",
     "blog-build": "node scripts/blog-build.mjs",
@@ -20,6 +20,9 @@
     "@webcomponents/webcomponentsjs": "^2.8.0",
     "fast-glob": "^3.3.2",
     "gray-matter": "^4.0.3",
+    "asciidoctor": "^3.0.4",
+    "fast-glob": "^3.3.3",
+    "gray-matter": "^4.0.3",
     "papaparse": "^5.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,7 +30,7 @@
     "react-router-dom": "^6.30.1",
     "slugify": "^1.6.6",
     "tinycolor2": "^1.6.0",
-    "yaml": "^2.8.0"
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
