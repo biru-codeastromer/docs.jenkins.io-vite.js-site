@@ -1,0 +1,15 @@
+{
+  "id": "2018-12-2018-12-10-the-official-Docker-image",
+  "url": "/blog/2018/12/01/2018-12-10-the-official-Docker-image/",
+  "title": "Official Jenkins image to use from Docker Hub",
+  "date": "2018-12-01",
+  "authors": [
+    "batmat"
+  ],
+  "tags": [
+    "docker"
+  ],
+  "summary": "There are now three different Docker Hub repositories that are or have been used as the \"official\" Jenkins image. This article aims at providing a clarification about which one is the current official one (as of December 2018 :-)). The official one docker pull jenkins/jenkins i.e. https://hub.docker.com/r/jenkins/jenkins/ is the right repository to use. I also documented some time ago on…",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>There are now three different Docker Hub repositories that are or have been used as the \"official\" Jenkins image.\nThis article aims at providing a clarification about which one is the current official one (as of December 2018 :-)).</p>\n</div>\n<div class=\"sect1\">\n<h2 id=\"the-official-one\"><a class=\"anchor\" href=\"#the-official-one\"></a>The official one</h2>\n<div class=\"sectionbody\">\n<div class=\"listingblock\">\n<div class=\"content\">\n<pre class=\"highlight\"><code>docker pull jenkins/jenkins</code></pre>\n</div>\n</div>\n<div class=\"paragraph\">\n<p>i.e. <a href=\"https://hub.docker.com/r/jenkins/jenkins/\" class=\"bare\">https://hub.docker.com/r/jenkins/jenkins/</a> is the right repository to use.</p>\n</div>\n<div class=\"paragraph\">\n<p>I also documented some time ago on my blog the <a href=\"http://batmat.net/2018/09/07/how-to-run-and-upgrade-jenkins-using-the-official-docker-image/\">recommended way to run Jenkins using the official Docker image</a>.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"the-deprecated-ones\"><a class=\"anchor\" href=\"#the-deprecated-ones\"></a>The deprecated ones</h2>\n<div class=\"sectionbody\">\n<div class=\"dlist\">\n<dl>\n<dt class=\"hdlist1\"><a href=\"https://hub.docker.com/_/jenkins/\"><code>jenkins</code></a></dt>\n<dd>\n<p>Deprecated since a long time already.\nA short version of why we stopped using and updating this image is that we never had a way to get our images published without having each time to go through a manual process.</p>\n</dd>\n<dt class=\"hdlist1\"><a href=\"https://hub.docker.com/r/jenkinsci/jenkins\"><code>jenkinsci/jenkins</code></a></dt>\n<dd>\n<p>Deprecated since a long time too, but for easing transition, we had kept updating both <code>jenkins/jenkins</code> (the right one) and <code>jenkinsci/jenkins</code> together.\nWe stopped updating <code>jenkinsci/jenkins</code> in early December 2018 (cf. <a href=\"https://issues.jenkins.io/browse/INFRA-1934\">INFRA-1934</a> for details if you are interested)</p>\n</dd>\n</dl>\n</div>\n<div class=\"paragraph\">\n<p>Thanks for reading!</p>\n</div>\n</div>\n</div>"
+}

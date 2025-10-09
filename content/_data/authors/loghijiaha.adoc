@@ -1,0 +1,8 @@
+---
+name: "Loghi Perinpanayagam"
+twitter: loghi5
+github: lper1582
+linkedin: loghi
+---
+
+He was a GSoC 2020 student, contributor and maintainer for plugin:machine-learning[Machine Learning] for Jenkins project. Highly interested and contributing on open source projects.

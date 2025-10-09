@@ -1,0 +1,18 @@
+{
+  "id": "2022-03-2022-03-29-jenkins-contributor-awards",
+  "url": "/blog/2022/03/01/2022-03-29-jenkins-contributor-awards/",
+  "title": "Jenkins Contributor Awards - Nominations Extended",
+  "date": "2022-03-01",
+  "authors": [
+    "cdfoundation"
+  ],
+  "tags": [
+    "awards",
+    "jenkins",
+    "cdcon",
+    "community"
+  ],
+  "summary": "Nominate someone for the Jenkins Contributor Awards. Deadline is April 11, 2022.",
+  "opengraph_image": "/images/post-images/2022/jenkins-awards-2022.png",
+  "content_html": "<div class=\"paragraph\">\n<p>Jenkins Contributor Awards for 2022 are being run by the Continuous Delivery Foundation (CDF) along with many other <a href=\"https://cd.foundation/cdf-community-awards/\">CDF Community Awards</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The nominations are open and are being accepted using GitHub issues to make the process transparent.\nAny contributor is eligible!\nThe deadline to nominate someone has been extended to April 11, 2022.\nVoting will open later in April.</p>\n</div>\n<div class=\"paragraph\">\n<p>Nominate contributors or vote with reactions/comments for all three Jenkins awards:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"https://github.com/cdfoundation/foundation/issues/366\">Most Valuable Jenkins Contributor</a></p>\n</li>\n<li>\n<p><a href=\"https://github.com/cdfoundation/foundation/issues/368\">Most Valuable Jenkins Advocate</a></p>\n</li>\n<li>\n<p><a href=\"https://github.com/cdfoundation/foundation/issues/367\">Jenkins Security MVP</a></p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>The winners will be announced at cdCon 2022 on June 7.</p>\n</div>\n<div class=\"paragraph\">\n<p>You can also nominate Jenkins community members for global awards like \"Top CDF Ambassador\", \"Top CDF Contributor\", or \"Top CDF End User\"!\nFor all CDF Community Awards and more details, visit the <a href=\"https://cd.foundation/cdf-community-awards/\">CDF Award Page</a>.</p>\n</div>\n<div class=\"imageblock\">\n<div class=\"content\">\n<img src=\"/images/post-images/2022/jenkins-awards-2022.png\" alt=\"https://cd.foundation/cdf-community-awards/\">\n</div>\n</div>"
+}

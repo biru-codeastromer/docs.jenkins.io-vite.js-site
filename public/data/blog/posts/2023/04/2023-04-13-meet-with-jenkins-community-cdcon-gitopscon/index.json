@@ -1,0 +1,20 @@
+{
+  "id": "2023-04-2023-04-13-meet-with-jenkins-community-cdcon-gitopscon",
+  "url": "/blog/2023/04/13/2023-04-13-meet-with-jenkins-community-cdcon-gitopscon/",
+  "title": "Meet with Jenkins Community at cdCon + GitOpsCon 2023",
+  "date": "2023-04-13",
+  "authors": [
+    "cdfoundation"
+  ],
+  "tags": [
+    "jenkins",
+    "cdcon",
+    "conference",
+    "continuous delivery",
+    "cicd",
+    "gitops"
+  ],
+  "summary": "The Continuous Delivery Foundation (CDF) is happy to host its fourth flagship event, cdCon, taking place on May 8–9, 2023 in Vancouver, Canada as cdCon + GitOpsCon , co-organized with the Cloud Native Computing Foundation (CNCF) , making it the must-attend event for anyone who is involved in CD, DevOps, and GitOps. By combining the two events, cdCon + GitOpsCon…",
+  "opengraph_image": "/images/post-images/2023/04/13/2023-04-13-meet-with-jenkins-community-cdcon-gitopscon/meet-with-jenkins-community-cdcon-gitopscon.png",
+  "content_html": "<div class=\"paragraph\">\n<p><span class=\"image\"><img src=\"/images/post-images/2023/04/13/2023-04-13-meet-with-jenkins-community-cdcon-gitopscon/meet-with-jenkins-community-cdcon-gitopscon.png\" alt=\"cdCon + GitOpsCon 2023 Visual with Jenkins\"></span></p>\n</div>\n<div class=\"paragraph\">\n<p>The <a href=\"https://cd.foundation\">Continuous Delivery Foundation (CDF)</a> is happy to host its fourth flagship event, cdCon, taking place on May 8–9, 2023 in Vancouver, Canada as <a href=\"https://events.linuxfoundation.org/cdcon-gitopscon/\">cdCon + GitOpsCon</a>, co-organized with the <a href=\"https://cncf.io\">Cloud Native Computing Foundation (CNCF)</a>, making it the must-attend event for anyone who is involved in CD, DevOps, and GitOps.</p>\n</div>\n<div class=\"paragraph\">\n<p>By combining the two events, cdCon + GitOpsCon aims to bring their communities together to collaborate and build the future of GitOps and CD.\nThe program committees reviewed more than 250 submissions and selected over 60 sessions that will span topics from technical challenges and deep dives, to end-user stories and introductory content.</p>\n</div>\n<div class=\"paragraph\">\n<p>The <a href=\"https://events.linuxfoundation.org/cdcon-gitopscon/program/schedule/\">cdCon + GitOpsCon program</a> contains sessions from the most widely used CI/CD and GitOps technologies.\nThe Jenkins Community will be there with project updates and various talks from our community members and users.\nHere are some of the sessions you don’t want to miss.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"https://sched.co/1Jp7p\">Fidelity’s Software Delivery Platform - Frictionless Approach to Achieve Autonomic DevOps &amp; Enhanced Security/Compliance Practices</a> - Jamie Plower &amp; Evan Elms, Fidelity Investments</p>\n</li>\n<li>\n<p><a href=\"https://sched.co/1Jp87\">Testing 100’s of OS Images with Jenkins: A Journey from Pull Request to Production Release</a> - Vipul Gupta, balena</p>\n</li>\n<li>\n<p><a href=\"https://sched.co/1JpAU\">CI/CD for Data - Building Dev/Test Data Environments with Open Source Stacks</a> - Vinodhini Duraisamy, Treeverse</p>\n</li>\n<li>\n<p><a href=\"https://sched.co/1Jp9i\">Continuous Delivery on Arm: A Practical Approach</a> - Pranay Bakre, Arm Inc.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>In addition to these sessions, Mark Waite of CloudBees, a member of the Jenkins Governance Board and a long-time Jenkins user and contributor will take part in <a href=\"https://sched.co/1Js9F\">the Graduated Projects Keynote Panel</a>, discussing Jenkins Community’s experiences with graduation and sharing his thoughts on why graduation matters for the community and users of Jenkins.</p>\n</div>\n<div class=\"paragraph\">\n<p>We look forward to an awesome event and we hope to see you there!</p>\n</div>"
+}

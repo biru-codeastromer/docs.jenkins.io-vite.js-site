@@ -1,0 +1,13 @@
+{
+  "id": "2024-01-2024-01-29-nominate-someone-2024-jenkins-contributor-awards",
+  "url": "/blog/2024/01/01/2024-01-29-nominate-someone-2024-jenkins-contributor-awards/",
+  "title": "Nominate Someone – 2024 Jenkins Contributor Awards",
+  "date": "2024-01-01",
+  "authors": [
+    "alyssat"
+  ],
+  "tags": [],
+  "summary": "Brief summary to nominate Jenkins community members for awards",
+  "opengraph_image": "/images/post-images/2024/community_awards_2024_jenkins_nominate_1.png",
+  "content_html": "<div class=\"paragraph\">\n<p><span class=\"image\"><img src=\"/images/post-images/2024/community_awards_2024_jenkins_nominate_1.png\" alt=\"Nominate Someone – 2024 Jenkins Contributor Awards\"></span></p>\n</div>\n<div class=\"paragraph\">\n<p>Jenkins Contributor Awards for 2024 are being run by the Continuous Delivery Foundation (CDF) along with many other <a href=\"https://cd.foundation/cdf-community-awards-2024/\">CDF Community Awards</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The nominations are open and are being accepted using GitHub issues to make the process transparent.\nAny contributor is eligible!\nThe deadline to nominate someone is February 19, 2024.\nVoting will open on February 22 and close on Friday, March 22.\nYou can vote using <a href=\"https://docs.google.com/forms/d/e/1FAIpQLScUHeNX-4H5jboVo6nRxo0-JtMiA8pLvMq2VkNYceax4frHPQ/viewform?pli=1\">this Google form</a> that lists all of the awards and nominees.</p>\n</div>\n<div class=\"paragraph\">\n<p>Nominate contributors or vote with reactions/comments for all three Jenkins awards:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"https://github.com/jenkins-infra/jenkins.io/issues/7028\">Most Valuable Jenkins Contributor</a></p>\n</li>\n<li>\n<p><a href=\"https://github.com/jenkins-infra/jenkins.io/issues/7030\">Most Valuable Jenkins Advocate</a></p>\n</li>\n<li>\n<p><a href=\"https://github.com/jenkins-infra/jenkins.io/issues/7029\">Jenkins Security MVP</a></p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>The winners will be announced at cdCon 2024 on April 16 - 18, 2024.</p>\n</div>\n<div class=\"paragraph\">\n<p>You can also nominate Jenkins community members for global awards like \"Top CDF Ambassador\", \"Top CDF Contributor\", or \"Top CDF End User\"!\nFor all CDF Community Awards and more details, visit the <a href=\"https://cd.foundation/cdf-community-awards-2024/\">CDF Award Page</a>.</p>\n</div>"
+}
