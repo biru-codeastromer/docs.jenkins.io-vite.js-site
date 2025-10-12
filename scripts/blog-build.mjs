@@ -194,48 +194,50 @@ async function build() {
     const og = meta.opengraph || key(meta, 'opengraph') || {};
     const opengraph_image = og.image || '/images/logo-title-opengraph.png';
 
-    // FIXED: Better summary extraction that excludes code blocks and CSS
     function extractCleanSummary(html, wordCount = 60) {
       if (!html) return '';
       
-      // Remove code blocks, style blocks, and script blocks first
       let cleanHtml = html
-        .replace(/<style[\s\S]*?<\/style>/gi, '')  // Remove <style> blocks
-        .replace(/<script[\s\S]*?<\/script>/gi, '') // Remove <script> blocks  
-        .replace(/<pre[\s\S]*?<\/pre>/gi, '')      // Remove <pre> blocks
-        .replace(/<code[\s\S]*?<\/code>/gi, '')    // Remove <code> blocks
-        .replace(/```[\s\S]*?```/g, '')            // Remove markdown code blocks
-        .replace(/`[^`]*`/g, '')                   // Remove inline code
-        .replace(/plugin:[^\[]+\[[^\]]*\]/gi, '')  // Remove plugin macros
-        .replace(/author:[^\[]+\[[^\]]*\]/gi, '')  // Remove author macros
-        .replace(/<[^>]*>/g, ' ')                  // Remove all other HTML tags
-        .replace(/\s+/g, ' ')                      // Normalize whitespace
+        .replace(/<style[\s\S]*?<\/style>/gi, '')
+        .replace(/<script[\s\S]*?<\/script>/gi, '') 
+        .replace(/<pre[\s\S]*?<\/pre>/gi, '')
+        .replace(/<code[\s\S]*?<\/code>/gi, '')
+        .replace(/```[\s\S]*?```/g, '')
+        .replace(/`[^`]*`/g, '')
+        .replace(/plugin:[^\[]+\[[^\]]*\]/gi, '')
+        .replace(/author:[^\[]+\[[^\]]*\]/gi, '')
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
         .trim();
       
-      // Remove CSS variable declarations and other code-like patterns
       cleanHtml = cleanHtml
-        .replace(/:root\s*\{[^}]*\}/g, '')         // Remove :root{...} CSS blocks
-        .replace(/--[a-zA-Z-]+:\s*[^;]+;/g, '')    // Remove CSS variable declarations
-        .replace(/[\{\}];/g, ' ')                  // Remove remaining CSS syntax
-        .replace(/\s+/g, ' ')                      // Normalize whitespace again
+        .replace(/:root\s*\{[^}]*\}/g, '')
+        .replace(/--[a-zA-Z-]+:\s*[^;]+;/g, '')
+        .replace(/[\{\}];/g, ' ')
+        .replace(/\s+/g, ' ')
         .trim();
         
       cleanHtml = decodeHtmlEntities(cleanHtml);
-      
-      // If we have nothing left after cleaning, provide a fallback
       if (!cleanHtml) {
         return `Read more about ${title}...`;
       }
+      const sentences = cleanHtml.split(/[.!?]+/).filter(s => s.trim().length > 20);
+      if (sentences.length > 0) {
+        let firstSentence = sentences[0].trim();
+        if (!firstSentence.endsWith('.')) {
+          firstSentence += '.';
+        }
+        return firstSentence;
+      }
       
-      return takeWords(cleanHtml, wordCount);
+      return cleanHtml.length > 200 ? cleanHtml.substring(0, 200) + '…' : cleanHtml;
     }
 
     const content_html = decodeHtmlEntities(await adocToHtmlFragment(body));
-    
-    // FIXED: Use description if available, otherwise extract from content
+
     const summary = description ? 
       decodeHtmlEntities(String(description).trim()) : 
-      extractCleanSummary(content_html, 60);
+      extractCleanSummary(content_html);
 
     const url = `/blog/${yyyy}/${mm}/${dd || '01'}/${slug}/`;
     const outDir = path.join(DATA_DIR, 'posts', yyyy, mm, slug);
