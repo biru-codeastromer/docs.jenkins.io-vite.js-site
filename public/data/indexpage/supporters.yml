@@ -1,0 +1,53 @@
+---
+- logo: cloudbees.svg
+  name: CloudBees, Inc.
+  url: https://cloudbees.com
+- logo: osuosl.svg
+  name: Oregon State University Open Source Lab
+  url: https://osuosl.org
+- logo: cdf.svg
+  name: Continuous Delivery Foundation
+  url: https://cd.foundation/
+- logo: aws.svg
+  name: AWS
+  url: https://aws.amazon.com/
+- logo: github.svg
+  name: GitHub, Inc.
+  url: https://github.com
+- logo: jfrog.svg
+  name: JFrog
+  url: https://jfrog.com
+- name: Atlassian
+  url: https://atlassian.com
+- name: Datadog
+  url: https://www.datadoghq.com
+- name: DigitalOcean
+  url: https://www.digitalocean.com/
+- name: Discourse
+  url: https://www.discourse.org/
+- name: Fastly
+  url: https://www.fastly.com
+- name: IBM
+  url: https://www.ibm.com
+- name: Netlify
+  url: https://www.netlify.com/
+- name: PagerDuty
+  url: https://pagerduty.com
+- name: Sentry
+  url: https://sentry.io
+- name: Tsinghua University
+  url: https://www.tsinghua.edu.cn
+- name: XMission
+  url: https://xmission.com
+- name: Belnet
+  url: https://belnet.be/
+- name: RWTH Aachen University
+  url: https://www.rwth-aachen.de/
+- name: Hostico
+  url: https://hostico.ro/
+- name: FreeDif
+  url: http://freedif.org/
+- name: Servana
+  url: https://servanamanaged.com/
+- name: Yamagata University
+  url: https://www.yamagata-u.ac.jp/en/
