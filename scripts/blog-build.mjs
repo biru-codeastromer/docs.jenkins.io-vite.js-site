@@ -168,6 +168,83 @@ function parsePostPath(p) {
   return { yyyy, mm, dd, slug };
 }
 
+function removePassthroughBlocks(content) {
+  if (!content) return '';
+  
+  let cleanContent = content.replace(/\+\+\+\+[\s\S]*?\+\+\+\+/g, '');
+  
+  cleanContent = cleanContent.replace(/\[subs?=".*?"\]\s*`\+\+\+`[\s\S]*?`\+\+\+`/g, '');
+  
+  return cleanContent;
+}
+
+function extractCleanTextForExcerpt(rawContent) {
+  if (!rawContent) return '';
+  
+  let cleanContent = removePassthroughBlocks(rawContent);
+  
+  cleanContent = cleanContent
+    .replace(/^:.*$/gm, '')
+    .replace(/^\[.*\]$/gm, '')
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/`[^`]*`/g, '')
+    .replace(/include::.*\[\]$/gm, '')
+    .replace(/link:.*\[[^\]]*\]/g, '')
+    .replace(/image::.*\[\]$/gm, '')
+    .replace(/\n+/g, ' ')
+    .trim();
+  
+  return cleanContent;
+}
+
+function validateExcerpt(excerpt) {
+  if (!excerpt) return { valid: false, reason: 'Empty excerpt' };
+  
+  const forbiddenPatterns = [
+    { pattern: /^:root\s*\{/, name: 'CSS root block' },
+    { pattern: /^--[a-z-]+:\s*/i, name: 'CSS variable declaration' },
+    { pattern: /^radial-gradient\(/, name: 'CSS gradient' },
+    { pattern: /^<style/, name: 'HTML style tag' },
+    { pattern: /^@import/, name: 'CSS import' },
+    { pattern: /^var\(--/, name: 'CSS variable usage' },
+    { pattern: /^[\{\}];?$/, name: 'CSS syntax' },
+    { pattern: /^#([a-fA-F0-9]{3}|[a-fA-F0-9]{6})\s*$/, name: 'CSS color code' },
+    { pattern: /^[a-z-]+\s*:\s*[^;]+;?$/i, name: 'CSS declaration' },
+    { pattern: /^\+\+\+\+/, name: 'AsciiDoc passthrough block' }
+  ];
+  
+  for (const { pattern, name } of forbiddenPatterns) {
+    if (pattern.test(excerpt.trim())) {
+      return { valid: false, reason: `Contains ${name}` };
+    }
+  }
+  
+  return { valid: true };
+}
+
+function extractFirstParagraphFromRawContent(rawContent) {
+  if (!rawContent) return '';
+  
+  const cleanContent = extractCleanTextForExcerpt(rawContent);
+  
+  const paragraphs = cleanContent.split(/\n\n+/);
+  
+  for (const paragraph of paragraphs) {
+    const trimmed = paragraph.trim();
+    
+    if (trimmed.length > 50 && 
+        !trimmed.match(/^[=#\-*]\s/) &&
+        !trimmed.match(/^\[[^\]]+\]$/) &&
+        validateExcerpt(trimmed).valid &&
+        trimmed.match(/[a-zA-Z]{3,}/) &&
+        trimmed.length > 30) {
+      return takeWords(trimmed, 60);
+    }
+  }
+  
+  return '';
+}
+
 async function build() {
   await ensureDir(DATA_DIR);
   const avatarMap = await scanAvatars();
@@ -175,6 +252,7 @@ async function build() {
 
   const files = await fg([`${SRC_POSTS}/**/*.{ad,adoc}`], { dot: false });
   const posts = [];
+  let excerptWarnings = 0;
 
   for (const file of files) {
     const { yyyy, mm, dd, slug } = parsePostPath(file);
@@ -194,50 +272,57 @@ async function build() {
     const og = meta.opengraph || key(meta, 'opengraph') || {};
     const opengraph_image = og.image || '/images/logo-title-opengraph.png';
 
-    function extractCleanSummary(html, wordCount = 60) {
-      if (!html) return '';
-      
-      let cleanHtml = html
-        .replace(/<style[\s\S]*?<\/style>/gi, '')
-        .replace(/<script[\s\S]*?<\/script>/gi, '') 
-        .replace(/<pre[\s\S]*?<\/pre>/gi, '')
-        .replace(/<code[\s\S]*?<\/code>/gi, '')
-        .replace(/```[\s\S]*?```/g, '')
-        .replace(/`[^`]*`/g, '')
-        .replace(/plugin:[^\[]+\[[^\]]*\]/gi, '')
-        .replace(/author:[^\[]+\[[^\]]*\]/gi, '')
-        .replace(/<[^>]*>/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-      
-      cleanHtml = cleanHtml
-        .replace(/:root\s*\{[^}]*\}/g, '')
-        .replace(/--[a-zA-Z-]+:\s*[^;]+;/g, '')
-        .replace(/[\{\}];/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-        
-      cleanHtml = decodeHtmlEntities(cleanHtml);
-      if (!cleanHtml) {
-        return `Read more about ${title}...`;
-      }
-      const sentences = cleanHtml.split(/[.!?]+/).filter(s => s.trim().length > 20);
-      if (sentences.length > 0) {
-        let firstSentence = sentences[0].trim();
-        if (!firstSentence.endsWith('.')) {
-          firstSentence += '.';
-        }
-        return firstSentence;
-      }
-      
-      return cleanHtml.length > 200 ? cleanHtml.substring(0, 200) + '…' : cleanHtml;
-    }
-
     const content_html = decodeHtmlEntities(await adocToHtmlFragment(body));
 
-    const summary = description ? 
-      decodeHtmlEntities(String(description).trim()) : 
-      extractCleanSummary(content_html);
+    let summary = '';
+    
+    if (description) {
+      summary = decodeHtmlEntities(String(description).trim());
+    } 
+    else {
+      summary = extractFirstParagraphFromRawContent(body);
+      
+      if (!summary) {
+        let cleanHtml = content_html
+          .replace(/<pre[\s\S]*?<\/pre>/gi, '')
+          .replace(/<code[\s\S]*?<\/code>/gi, '')
+          .replace(/<style[\s\S]*?<\/style>/gi, '')
+          .replace(/<script[\s\S]*?<\/script>/gi, '')
+          .replace(/<[^>]*>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+        
+        cleanHtml = decodeHtmlEntities(cleanHtml);
+        
+        if (cleanHtml && cleanHtml.length > 20) {
+          const sentences = cleanHtml.split(/[.!?]+/).filter(s => {
+            const trimmed = s.trim();
+            return trimmed.length > 30 && validateExcerpt(trimmed).valid;
+          });
+          
+          if (sentences.length > 0) {
+            let firstSentence = sentences[0].trim();
+            if (!firstSentence.endsWith('.') && !firstSentence.endsWith('!') && !firstSentence.endsWith('?')) {
+              firstSentence += '.';
+            }
+            summary = firstSentence;
+          } else {
+            summary = cleanHtml.length > 150 ? cleanHtml.substring(0, 150) + '…' : cleanHtml;
+          }
+        }
+      }
+    }
+    
+    if (!summary || !validateExcerpt(summary).valid) {
+      summary = `Read more about ${title}...`;
+    }
+    
+    const validation = validateExcerpt(summary);
+    if (!validation.valid && summary !== `Read more about ${title}...`) {
+      console.warn(`⚠️  Excerpt issue in "${title}": ${validation.reason}`);
+      console.warn(`   Generated excerpt: "${summary}"`);
+      excerptWarnings++;
+    }
 
     const url = `/blog/${yyyy}/${mm}/${dd || '01'}/${slug}/`;
     const outDir = path.join(DATA_DIR, 'posts', yyyy, mm, slug);
@@ -305,7 +390,10 @@ async function build() {
   await ensureDir(path.dirname(RSS_PATH));
   await write(RSS_PATH, rss);
 
-  console.log(`Blog build: ${posts.length} posts, ${tags.length} tags, ${Object.keys(authors).length} authors. RSS written.`);
+  if (excerptWarnings > 0) {
+    console.warn(`\n⚠️  ${excerptWarnings} posts had excerpt generation issues`);
+  }
+  console.log(`✅ Blog build: ${posts.length} posts, ${tags.length} tags, ${Object.keys(authors).length} authors. RSS written.`);
 }
 
 build().catch((e) => {

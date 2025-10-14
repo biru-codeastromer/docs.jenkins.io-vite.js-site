@@ -112,6 +112,10 @@
     "count": 22
   },
   {
+    "tag": "build-tools",
+    "count": 1
+  },
+  {
     "tag": "casc",
     "count": 1
   },
@@ -177,7 +181,7 @@
   },
   {
     "tag": "community",
-    "count": 168
+    "count": 169
   },
   {
     "tag": "community-bridge",
@@ -236,6 +240,10 @@
     "count": 1
   },
   {
+    "tag": "convention-plugin",
+    "count": 1
+  },
+  {
     "tag": "conventionalcommits",
     "count": 2
   },
@@ -270,6 +278,10 @@
   {
     "tag": "developer",
     "count": 49
+  },
+  {
+    "tag": "developer-tools",
+    "count": 1
   },
   {
     "tag": "development",
@@ -336,6 +348,10 @@
     "count": 1
   },
   {
+    "tag": "dsl",
+    "count": 1
+  },
+  {
     "tag": "durable-task",
     "count": 1
   },
@@ -357,7 +373,7 @@
   },
   {
     "tag": "event",
-    "count": 42
+    "count": 43
   },
   {
     "tag": "events",
@@ -440,8 +456,16 @@
     "count": 19
   },
   {
+    "tag": "gradle",
+    "count": 1
+  },
+  {
+    "tag": "groovy",
+    "count": 1
+  },
+  {
     "tag": "gsoc",
-    "count": 107
+    "count": 108
   },
   {
     "tag": "gsoc2017",
@@ -480,6 +504,10 @@
     "count": 7
   },
   {
+    "tag": "gsoc2025-endterm",
+    "count": 1
+  },
+  {
     "tag": "gsoc2025-midterm",
     "count": 5
   },
@@ -501,7 +529,7 @@
   },
   {
     "tag": "hacktoberfest",
-    "count": 12
+    "count": 13
   },
   {
     "tag": "health",
@@ -553,7 +581,7 @@
   },
   {
     "tag": "java",
-    "count": 3
+    "count": 4
   },
   {
     "tag": "java10",
@@ -593,7 +621,7 @@
   },
   {
     "tag": "jenkins",
-    "count": 119
+    "count": 120
   },
   {
     "tag": "Jenkins User Conference",
@@ -728,6 +756,10 @@
     "count": 3
   },
   {
+    "tag": "kotlin",
+    "count": 1
+  },
+  {
     "tag": "kubecon",
     "count": 1
   },
@@ -804,6 +836,10 @@
     "count": 1
   },
   {
+    "tag": "metadata-storage",
+    "count": 1
+  },
+  {
     "tag": "microservices",
     "count": 1
   },
@@ -849,7 +885,7 @@
   },
   {
     "tag": "newcomer",
-    "count": 11
+    "count": 12
   },
   {
     "tag": "newsletter",
@@ -869,7 +905,7 @@
   },
   {
     "tag": "open-rewrite",
-    "count": 3
+    "count": 4
   },
   {
     "tag": "open-source",
@@ -897,7 +933,7 @@
   },
   {
     "tag": "outreach-programs",
-    "count": 15
+    "count": 16
   },
   {
     "tag": "outreachy",
@@ -956,12 +992,16 @@
     "count": 22
   },
   {
+    "tag": "plugin-development",
+    "count": 1
+  },
+  {
     "tag": "plugin-health-scoring",
     "count": 1
   },
   {
     "tag": "plugin-modernization",
-    "count": 3
+    "count": 4
   },
   {
     "tag": "pluginmanagement",
