@@ -184,13 +184,18 @@ function extractCleanTextForExcerpt(rawContent) {
   let cleanContent = removePassthroughBlocks(rawContent);
   
   cleanContent = cleanContent
-    .replace(/^:.*$/gm, '')
+    .replace(/^=+ .*$/gm, '')
+    .replace(/^\. .*$/gm, '')
     .replace(/^\[.*\]$/gm, '')
+    .replace(/<<[^>]*>>/g, '')
+    .replace(/^:.*$/gm, '')
     .replace(/```[\s\S]*?```/g, '')
     .replace(/`[^`]*`/g, '')
     .replace(/include::.*\[\]$/gm, '')
-    .replace(/link:.*\[[^\]]*\]/g, '')
+    .replace(/image:.*\[[^\]]*\]/g, '')
+    .replace(/link:.*\[([^\]]*)\]/g, '$1')
     .replace(/image::.*\[\]$/gm, '')
+    .replace(/\*{2,}([^*]+)\*{2,}/g, '$1')
     .replace(/\n+/g, ' ')
     .trim();
   
@@ -210,7 +215,11 @@ function validateExcerpt(excerpt) {
     { pattern: /^[\{\}];?$/, name: 'CSS syntax' },
     { pattern: /^#([a-fA-F0-9]{3}|[a-fA-F0-9]{6})\s*$/, name: 'CSS color code' },
     { pattern: /^[a-z-]+\s*:\s*[^;]+;?$/i, name: 'CSS declaration' },
-    { pattern: /^\+\+\+\+/, name: 'AsciiDoc passthrough block' }
+    { pattern: /^\+\+\+\+/, name: 'AsciiDoc passthrough block' },
+    { pattern: /^== /, name: 'AsciiDoc section header' },
+    { pattern: /^\. /, name: 'AsciiDoc list item' },
+    { pattern: /<<[^>]*>>/, name: 'AsciiDoc cross-reference' },
+    { pattern: /^Table of Contents/, name: 'Table of Contents heading' }
   ];
   
   for (const { pattern, name } of forbiddenPatterns) {
@@ -227,18 +236,25 @@ function extractFirstParagraphFromRawContent(rawContent) {
   
   const cleanContent = extractCleanTextForExcerpt(rawContent);
   
-  const paragraphs = cleanContent.split(/\n\n+/);
+  const sentences = cleanContent.split(/[.!?]+/);
   
-  for (const paragraph of paragraphs) {
-    const trimmed = paragraph.trim();
+  for (const sentence of sentences) {
+    const trimmed = sentence.trim();
     
-    if (trimmed.length > 50 && 
-        !trimmed.match(/^[=#\-*]\s/) &&
-        !trimmed.match(/^\[[^\]]+\]$/) &&
+    if (trimmed.length > 40 && 
+        !trimmed.match(/^(Table of Contents|Summary|TL;DR|Acknowledgements|Useful Links)/i) &&
+        !trimmed.match(/^[=#\-*]\s?/) &&
+        !trimmed.match(/^\[/) &&
+        !trimmed.match(/<<.*>>/) &&
         validateExcerpt(trimmed).valid &&
-        trimmed.match(/[a-zA-Z]{3,}/) &&
-        trimmed.length > 30) {
-      return takeWords(trimmed, 60);
+        trimmed.match(/[a-zA-Z]{4,}/) && 
+        trimmed.split(' ').length > 5) {
+      
+      let cleanSentence = trimmed;
+      if (!cleanSentence.endsWith('.') && !cleanSentence.endsWith('!') && !cleanSentence.endsWith('?')) {
+        cleanSentence += '.';
+      }
+      return takeWords(cleanSentence, 60);
     }
   }
   
@@ -393,7 +409,7 @@ async function build() {
   if (excerptWarnings > 0) {
     console.warn(`\n⚠️  ${excerptWarnings} posts had excerpt generation issues`);
   }
-  console.log(`✅ Blog build: ${posts.length} posts, ${tags.length} tags, ${Object.keys(authors).length} authors. RSS written.`);
+  console.log(`Blog build: ${posts.length} posts, ${tags.length} tags, ${Object.keys(authors).length} authors. RSS written.`);
 }
 
 build().catch((e) => {

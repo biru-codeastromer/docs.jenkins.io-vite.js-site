@@ -10,7 +10,7 @@
     "core",
     "security"
   ],
-  "summary": "We just released security updates to Jenkins, versions 2.116 and 2.107.2, that fix two security vulnerabilities. For an overview of what was fixed, see the . Subscribe to the  to receive important notifications related to Jenkins security.",
+  "summary": "We just released security updates to Jenkins, versions 2.",
   "opengraph_image": "/images/logo-title-opengraph.png",
   "content_html": "<div class=\"paragraph\">\n<p>We just released security updates to Jenkins, versions 2.116 and 2.107.2, that fix two security vulnerabilities.</p>\n</div>\n<div class=\"paragraph\">\n<p>For an overview of what was fixed, see the <a href=\"/security/advisory/2018-04-11\">security advisory</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Subscribe to the <a href=\"/mailing-lists\">jenkinsci-advisories mailing list</a> to receive important notifications related to Jenkins security.</p>\n</div>"
 }
