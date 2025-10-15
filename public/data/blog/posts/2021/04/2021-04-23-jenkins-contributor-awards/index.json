@@ -1,0 +1,18 @@
+{
+  "id": "2021-04-2021-04-23-jenkins-contributor-awards",
+  "url": "/blog/2021/04/01/2021-04-23-jenkins-contributor-awards/",
+  "title": "Jenkins Contributor Awards - Nominations Open",
+  "date": "2021-04-01",
+  "authors": [
+    "cdfoundation"
+  ],
+  "tags": [
+    "awards",
+    "jenkins",
+    "cdcon",
+    "community"
+  ],
+  "summary": "Nominate someone for the Jenkins Contributor Awards. Deadline is May 14.",
+  "opengraph_image": "/images/post-images/2021/jenkins-awards-2021.png",
+  "content_html": "<div class=\"paragraph\">\n<p>This year, the Jenkins Contributor Awards will be run by the Continuous Delivery Foundation (CDF) along with many other <a href=\"https://cd.foundation/cdf-community-awards/\">CDF Community Awards</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The nominations are currently open and are being accepted using GitHub issues to make the process more transparent. Any contributor is eligible this time around! The deadline to nominate someone is May 14, 2021, and voting will open in May.</p>\n</div>\n<div class=\"paragraph\">\n<p>Nominate contributors or vote with reactions/comments for all three Jenkins awards:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"https://github.com/cdfoundation/foundation/issues/318\">Most Valuable Jenkins Contributor</a></p>\n</li>\n<li>\n<p><a href=\"https://github.com/cdfoundation/foundation/issues/320\">Most Valuable Jenkins Advocate</a></p>\n</li>\n<li>\n<p><a href=\"https://github.com/cdfoundation/foundation/issues/319\">Jenkins Security MVP</a></p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>The winners will be announced at cdCon 2021, where we're also co-locating the <a href=\"/events/contributor-summit/\">Jenkins Contributor Summit</a> on June 25, 2021!</p>\n</div>\n<div class=\"paragraph\">\n<p>You can also nominate Jenkins community members for global awards like \"Top CDF Ambassador\" or \"Top GitOps Evangelist\"!\nFor all CDF Community Awards and more details, visit the <a href=\"https://cd.foundation/cdf-community-awards/\">CDF Award Page</a>.</p>\n</div>\n<div class=\"imageblock\">\n<div class=\"content\">\n<img src=\"/images/post-images/2021/jenkins-awards-2021.png\" alt=\"https://cd.foundation/cdf-community-awards/\">\n</div>\n</div>"
+}

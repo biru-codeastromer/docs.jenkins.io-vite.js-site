@@ -1,0 +1,18 @@
+{
+  "id": "2020-01-2020-01-10-fosdem-is-coming",
+  "url": "/blog/2020/01/01/2020-01-10-fosdem-is-coming/",
+  "title": "FOSDEM 2020 is coming",
+  "date": "2020-01-01",
+  "authors": [
+    "olblak"
+  ],
+  "tags": [
+    "fosdem",
+    "events",
+    "community",
+    "outreach-programs"
+  ],
+  "summary": "FOSDEM 2020 is coming and with it, a lot of great folks come in town.",
+  "opengraph_image": "/images/logos/atomium/256.png",
+  "content_html": "<div class=\"imageblock center\">\n<div class=\"content\">\n<img src=\"/images/post-images/fosdem\" alt=\"FOSDEM\">\n</div>\n</div>\n<div class=\"paragraph\">\n<p><a href=\"https://fosdem.org/2020/\">FOSDEM</a> 2020 is coming and with it, a lot of great folks come in town.\nIt’s always a great moment to meet Jenkins community members, share stories and get inspired.\nI hope that this year will be as great as it always been and for that, we organize a few things</p>\n</div>\n<div class=\"sect1\">\n<h2 id=\"things-well-do\"><a class=\"anchor\" href=\"#things-well-do\"></a>Things we'll do</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>During the whole event, we'll be virtually on the <a href=\"https://app.gitter.im/#/room/#jenkinsci_fosdem:gitter.im\">Gitter</a></p>\n</div>\n<div class=\"paragraph\">\n<p>On the Thursday 30 of January, there will be two workshops one about <a href=\"https://www.eventbrite.com/e/jenkins-pipeline-fundamentals-training-tickets-87080214265\">Jenkins Pipelines</a> lead by Mark Waite, and a second one about <a href=\"https://www.eventbrite.com/e/workshop-cloud-native-kubernetes-first-serverless-continuous-delivery-with-jenkins-x-kubernetes-and-tickets-87082627483\">JenkinsX</a> by Viktor Farcic.</p>\n</div>\n<div class=\"paragraph\">\n<p>On the Friday 31 of January, the Jenkins project will hold a <a href=\"https://www.meetup.com/jenkinsmeetup/events/267684785/\">Contributor Summit</a> where we invite active contributors and those who are interested in working on foundation projects, e.g. key architecture changes and projects (UX, JCasC, Cloud native Jenkins, etc.), governance, infrastructure. There will be no user-focused topics (no presentations, no trainings, etc.) but we will focus on defining key priorities for the project, building a roadmap and resolving issues we have in the project at the moment.\nWe'll end up the day with our now traditional Orval and flemish beef stew at <a href=\"http://roydespagne.be/fr/index.php\">Le Roy d'Espagne</a></p>\n</div>\n<div class=\"paragraph\">\n<p>Finally the FOSDEM, the 01 and 02 of February, we’ll all be at FOSDEM. So come and say \"hi\" at the Jenkins/JenkinsX <a href=\"https://fosdem.org/2020/stands/\">stand</a>, inside the <a href=\"https://fosdem.org/2020/schedule/track/continuous_integration_and_continuous_deployment/\">CICD Devroom</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Or just come and share beers</p>\n</div>\n<div class=\"paragraph\">\n<p>Cheers</p>\n</div>\n<div class=\"imageblock center\">\n<div class=\"content\">\n<img src=\"/images/logos/atomium/256.png\" alt=\"Atomium\">\n</div>\n</div>\n</div>\n</div>"
+}

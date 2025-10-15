@@ -1,0 +1,17 @@
+{
+  "id": "2019-02-2019-02-17-remoting-cli-removed",
+  "url": "/blog/2019/02/01/2019-02-17-remoting-cli-removed/",
+  "title": "Remoting-based CLI removed from Jenkins",
+  "date": "2019-02-01",
+  "authors": [
+    "jglick"
+  ],
+  "tags": [
+    "core",
+    "security",
+    "remoting"
+  ],
+  "summary": "Close to two years ago, we announced in New, safer CLI in 2.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>Close to two years ago, we announced in\n<a href=\"/blog/2017/04/11/new-cli/\">New, safer CLI in 2.54</a>\nthat the traditional “Remoting” operation mode of the Jenkins command-line interface\nwas being deprecated for a variety of reasons, especially its very poor security record.\nToday in Jenkins 2.165 support for this mode is finally being removed altogether,\nin both the server and bundled <code>jenkins-cli.jar</code> client.\nThe projected June 5th LTS release will reflect this removal,\nat which point the Jenkins project will no longer maintain this feature\nnor investigate security vulnerabilities in it.</p>\n</div>\n<div class=\"paragraph\">\n<p>This change makes the code in Jenkins core related to the CLI considerably simpler and more maintainable.\n(There are still two <em>transports</em>—HTTP(S) and SSH—but they have similar capabilities and behavior.)\nIt also reduces the “attack surface” the Jenkins security team must consider.\nAmong other issues, a compromised <em>server</em> could freely attack a developer’s laptop if <code>-remoting</code> were used.</p>\n</div>\n<div class=\"paragraph\">\n<p>The\n<a href=\"/doc/upgrade-guide/2.46/\">2.46.x upgrade guide</a>\nalready urged administrators to disable Remoting mode on the server.\nThose Jenkins users who rely on the CLI for remote scripting (as opposed to the HTTP(S) REST APIs)\nwould be affected only if they were still using the <code>-remoting</code> CLI flag,\nsince the default has long been to use HTTP(S) mode.</p>\n</div>\n<div class=\"paragraph\">\n<p>Most CLI features have long worked fine without <code>-remoting</code>,\nin some cases using slightly different syntax such as requiring shell redirects to access local files.\nAs part of this change, some CLI commands, options, and option types in Jenkins core have been removed, other than <code>-remoting</code> itself:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>The <code>login</code> and <code>logout</code> commands, and the <code>--username</code> and <code>--password</code> options.</p>\n</li>\n<li>\n<p>The <code>-p</code> option to select a proxy. (The CLI in default <code>-http</code> mode accesses Jenkins no differently than any other HTTP client.)</p>\n</li>\n<li>\n<p>The <code>install-tool</code>, <code>set-build-parameter</code>, and <code>set-build-result</code> commands relied on a fundamentally insecure idiom that is no longer supportable.</p>\n</li>\n<li>\n<p>Command options or arguments which took either a local file or <code>=</code> for standard input/output (e.g., <code>install-plugin</code>, <code>build -p</code>, <code>support</code>) now only accept the latter.</p>\n</li>\n<li>\n<p>Some features of relatively little-used plugins will no longer work, such as:</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>plugin:distfork[DistFork]</p>\n</li>\n<li>\n<p>plugin:remote-terminal-access[Remote Terminal Access]</p>\n</li>\n<li>\n<p>plugin:build-env-propagator[Build Env Propagator]</p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>"
+}

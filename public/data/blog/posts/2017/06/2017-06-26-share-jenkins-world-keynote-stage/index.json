@@ -1,0 +1,17 @@
+{
+  "id": "2017-06-2017-06-26-share-jenkins-world-keynote-stage",
+  "url": "/blog/2017/06/01/2017-06-26-share-jenkins-world-keynote-stage/",
+  "title": "Come Share the Jenkins World Keynote Stage with Me!",
+  "date": "2017-06-01",
+  "authors": [
+    "kohsuke"
+  ],
+  "tags": [
+    "event",
+    "jenkinsworld",
+    "jenkinsworld2017"
+  ],
+  "summary": "Jenkins World is approaching fast, and the event staff are all busy preparing.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p><a href=\"https://www.cloudbees.com/jenkinsworld\">Jenkins World</a> is approaching fast,\nand the event staff are all busy preparing.\nI've decided to do something different this year as part of my keynote:\nI want to invite a few Jenkins users like you come up on stage with me.</p>\n</div>\n<div class=\"paragraph\">\n<p>There have been amazing developments in Jenkins over the past year.\nFor my keynote, I want highlight how the new Jenkins\n(Pipeline as code with the <code>Jenkinsfile</code>, no more creating jobs,\n<a href=\"/projects/blueocean\">Blue Ocean</a>)\nis different and better than the old Jenkins (freestyle jobs, chaining jobs together, etc.).\nAll these developments have helped Jenkins users,\nand it would be more meaningful to have fellow users, like you, share their stories\nabout how recent Jenkins improvements like Pipeline and Blue Ocean have positively impacted them.</p>\n</div>\n<div class=\"paragraph\">\n<p>If you're interested sharing your story, please complete\n<a href=\"https://docs.google.com/forms/d/e/1FAIpQLScMpoJNDwpDmAqwNUhZT1oRzPs9YZMuPivlUWrMTbI9ZKAOhA/viewform?c=0&w=1\">this form</a>\nso that I can contact you.\nThis is a great opportunity to let\nthe rest of the world (and your boss!) hear about your accomplishments.\nYou’ll also get into Jenkins World for free and get to join me backstage.\nIf you concerns about traveling to Jenkins World,\nI'm happy to discuss helping with that as well.</p>\n</div>\n<div class=\"paragraph\">\n<p>I look forward to hearing from you.</p>\n</div>"
+}

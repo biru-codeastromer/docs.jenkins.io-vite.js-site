@@ -1,0 +1,17 @@
+{
+  "id": "2018-05-2018-05-09-security-advisory",
+  "url": "/blog/2018/05/01/2018-05-09-security-advisory/",
+  "title": "Security updates for Jenkins core and plugins",
+  "date": "2018-05-01",
+  "authors": [
+    "daniel-beck"
+  ],
+  "tags": [
+    "core",
+    "plugins",
+    "security"
+  ],
+  "summary": "We just released security updates to Jenkins, versions 2.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>We just released security updates to Jenkins, versions 2.121 and 2.107.3, that fix multiple security vulnerabilities.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, we announce previously published security issues and corresponding fixes in these plugins:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>plugin:blackduck-hub[Black Duck Hub]</p>\n</li>\n<li>\n<p>plugin:groovy-postbuild[Groovy Postbuild]</p>\n</li>\n<li>\n<p>plugin:gitlab-hook[Gitlab Hook] (fix unreleased)</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>For an overview of what was fixed, see the <a href=\"/security/advisory/2018-05-09\">security advisory</a>.\nFor an overview on the possible impact of these changes on upgrading Jenkins LTS, see our <a href=\"/doc/upgrade-guide/2.107/#upgrading-to-jenkins-lts-2-107-3\">LTS upgrade guide</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Subscribe to the <a href=\"/mailing-lists\">jenkinsci-advisories mailing list</a> to receive important notifications related to Jenkins security.</p>\n</div>"
+}

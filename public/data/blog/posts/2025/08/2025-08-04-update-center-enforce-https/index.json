@@ -1,0 +1,18 @@
+{
+  "id": "2025-08-2025-08-04-update-center-enforce-https",
+  "url": "/blog/2025/08/04/2025-08-04-update-center-enforce-https/",
+  "title": "Enforced HTTPS for Update Center",
+  "date": "2025-08-04",
+  "authors": [
+    "dduportal"
+  ],
+  "tags": [
+    "infrastructure",
+    "update-center",
+    "updates.jenkins.io",
+    "jenkins"
+  ],
+  "summary": "io will enforce HTTPS protocol beginning Wednesday 06 August 2025.",
+  "opengraph_image": "/images/post-images/2023/01/12/jenkins-newsletter/infrastructure.png",
+  "content_html": "<div class=\"sect1\">\n<h2 id=\"summary-tldr\"><a class=\"anchor\" href=\"#summary-tldr\"></a>Summary (<a href=\"https://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read\">TL;DR</a>)</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>The service <a href=\"https://updates.jenkins.io\">https://updates.jenkins.io</a> will enforce HTTPS protocol beginning Wednesday 06 August 2025.</p>\n</div>\n<div class=\"paragraph\">\n<p>All Jenkins users are impacted but should not see any functional change.</p>\n</div>\n<div class=\"paragraph\">\n<p>Any plain-HTTP request made to the Jenkins update center will be redirected to the same location but upgraded to HTTPS scheme.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"what-is-the-update-center\"><a class=\"anchor\" href=\"#what-is-the-update-center\"></a>What is the \"Update Center\"?</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>Jenkins <a href=\"https://updates.jenkins.io\">Update Center</a> is a web server at the core of the Jenkins public infrastructure that distributes the plugins, tool installers, and versions index to all Jenkins servers across the world.</p>\n</div>\n<div class=\"paragraph\">\n<p>From the installation wizard to regular plugin updates, if you run Jenkins, then you use this service under the hood.</p>\n</div>\n<div class=\"paragraph\">\n<p>Today, it serves around 50 Tb of data (outbound bandwidth) each month from a network of mirrors spread across 3 cloud providers and 2 continents.</p>\n</div>\n<div class=\"paragraph\">\n<p>Additional information is available in the <a href=\"https://github.com/jenkins-infra/helpdesk/issues/4758\">GitHub issue</a>.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"what-does-it-change-for-me\"><a class=\"anchor\" href=\"#what-does-it-change-for-me\"></a>What Does It Change for Me?</h2>\n<div class=\"sectionbody\">\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Short answer: <strong>Nothing</strong></p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Since October 2024 with <a href=\"https://www.jenkins.io/changelog-old/#v2.480\">Jenkins Weekly 2.480</a> and <a href=\"https://www.jenkins.io/changelog-stable/#v2.479.1\">Jenkins LTS 2.479.1</a>, Jenkins automatically migrates the Update Center URL from HTTP to HTTPS.</p>\n</li>\n</ul>\n</div>\n</li>\n<li>\n<p>Long answer:</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Your Jenkins controllers should already be using HTTPS for the Update Center since January 2025.</p>\n</li>\n<li>\n<p>Any other tool or old configuration using the plain-HTTP requests will be redirected to HTTPS.</p>\n</li>\n<li>\n<p>If you are still using a Jenkins version released before 2025 with an old Update Center configuration:</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>In the Web Interface: browse to \"Manage Jenkins\" > \"Plugins\" > \"Advanced settings\" and click the \"Reset\" link in the \"Update site\" section to automatically update the outdated URL.</p>\n</li>\n<li>\n<p>Or replace <code>http://</code> by <code>https://</code> in your Jenkins Configuration as Code.</p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n</div>\n</div>"
+}

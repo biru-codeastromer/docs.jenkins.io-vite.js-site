@@ -1,0 +1,17 @@
+{
+  "id": "2017-04-2017-04-11-new-cli",
+  "url": "/blog/2017/04/01/2017-04-11-new-cli/",
+  "title": "New, safer CLI in 2.54",
+  "date": "2017-04-01",
+  "authors": [
+    "daniel-beck"
+  ],
+  "tags": [
+    "plugins",
+    "security",
+    "remoting"
+  ],
+  "summary": "In response to the zero-day vulnerability we fixed in November, I wrote the following: ____ Moving forward, the Jenkins security team is revisiting the design of the Jenkins CLI over the coming weeks to prevent this class of vulnerability in the future.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>In response to the <a href=\"/blog/2016/11/16/security-updates-addressing-zero-day/\">zero-day vulnerability we fixed in November</a>, I wrote the following:</p>\n</div>\n<div class=\"quoteblock\">\n<blockquote>\n<div class=\"paragraph\">\n<p>Moving forward, the Jenkins security team is revisiting the design of the Jenkins CLI over the coming weeks to prevent this class of vulnerability in the future.\nIf you are interested in participating in that discussion, please join in on the jenkinsci-dev@ mailing list.</p>\n</div>\n</blockquote>\n</div>\n<div class=\"paragraph\">\n<p>In early February, several <a href=\"/blog/2017/03/16/fosdem-event-report\">project contributors met after FOSDEM for a one day hackathon</a>.\nI looked into the feasibility of a purely SSH-based CLI.\nWhile I considered <a href=\"https://github.com/daniel-beck/jenkins-ssh-cli\">the experiment</a> to be a success, it was far from ready to be used in a production environment.</p>\n</div>\n<div class=\"paragraph\">\n<p>A few weeks later, long-time contributor and Jenkins security team member <a href=\"https://github.com/jglick/\">Jesse Glick</a> <a href=\"https://groups.google.com/d/msg/jenkinsci-dev/ijnIr8LhBG0/CrdANP8eEAAJ\">took over</a>, and <a href=\"https://gist.github.com/jglick/9721427da892a9b2f75dc5bc09f8e6b3\">published a detailed proposal for a new, simple CLI protocol without remoting</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>In just a month, he implemented his proposal, and I'm very happy to announce that this new implementation of the Jenkins CLI has now made it into 2.54!</p>\n</div>\n<div class=\"paragraph\">\n<p>Existing <code>jenkins-cli.jar</code> clients should continue working as before, unless an administrator disables the remoting connection mode in <em>Configure Global Security</em>.\nThat said, we recommend you download the new <code>jenkins-cli.jar</code> in Jenkins, and use its new <code>-http</code> mode.\nWith few (now deprecated) exceptions, CLI commands work like before.\nThis will allow you to disable the remoting mode for the CLI on the Jenkins controller to prevent similar vulnerabilities in the future.</p>\n</div>\n<div class=\"paragraph\">\n<p>SSH-based CLI use should be unaffected by this change.\nNote that new Jenkins instances now start with the SSH server port disabled, and the configuration option for that was moved into <em>Configure Global Security</em>.</p>\n</div>\n<div class=\"paragraph\">\n<p>You can learn all about the CLI and its new behavior in <a href=\"/doc/book/managing/cli\">the Jenkins handbook</a>.</p>\n</div>"
+}

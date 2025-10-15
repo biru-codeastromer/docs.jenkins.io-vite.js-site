@@ -1,0 +1,19 @@
+{
+  "id": "2017-04-2017-04-12-welcome-to-blue-ocean-dashboard",
+  "url": "/blog/2017/04/01/2017-04-12-welcome-to-blue-ocean-dashboard/",
+  "title": "Getting Started with the Blue Ocean Dashboard",
+  "date": "2017-04-01",
+  "authors": [
+    "lnewman"
+  ],
+  "tags": [
+    "blueocean",
+    "ux",
+    "pipeline",
+    "tutorial",
+    "screencast"
+  ],
+  "summary": "Blue Ocean is a new user experience for Jenkins, and version 1.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis is a guest post by <a href=\"https://github.com/bitwiseman\">Liam Newman</a>,\nTechnical Evangelist at <a href=\"https://cloudbees.com\">CloudBees</a>.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Blue Ocean is a new user experience for Jenkins,\nand version 1.0 is now live!\nBlue Ocean makes Jenkins, and continuous delivery, approachable to all team members.\nIn my <a href=\"/blog/2017/04/11/welcome-to-blue-ocean-pipeline-activity\">previous post</a>,\nI used the Blue Ocean Activity View to track the state of branches and\nPull Requests in one project.\nIn this video, I'll use the Blue Ocean Dashboard get a personalized view of the\nareas that of my project that are most important to me,\nand also to monitor multiple projects.\nPlease Enjoy!</p>\n</div>\n<center>\n<iframe width=\"853\" height=\"480\"\n    src=\"https://www.youtube-nocookie.com/embed/sm1jLj5lbwk\"\n    frameborder=\"0\" allowfullscreen>\n</iframe>\n</center>"
+}

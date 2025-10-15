@@ -1,0 +1,17 @@
+{
+  "id": "2023-04-2023-04-12-digital-ocean-continued-sponsorship",
+  "url": "/blog/2023/04/12/2023-04-12-digital-ocean-continued-sponsorship/",
+  "title": "DigitalOcean and Jenkins partnership continues to grow!",
+  "date": "2023-04-12",
+  "authors": [
+    "kmartens27"
+  ],
+  "tags": [
+    "jenkins",
+    "digitalocean",
+    "community"
+  ],
+  "summary": "DigitalOcean increases Jenkins sponsorship",
+  "opengraph_image": "/images/post-images/2022-05-DigitalOcean-sponsors-Jenkins.png",
+  "content_html": "<div class=\"paragraph\">\n<p><span class=\"image\"><a class=\"image\" href=\"https://www.digitalocean.com\"><img src=\"/images/post-images/2022-09-19-digital-ocean-sponsorship/DO-horizontal.png\" alt=\"DO horizontal\"></a></span></p>\n</div>\n<div class=\"paragraph\">\n<p>The Jenkins project wants to acknowledge and share massive thanks to DigitalOcean for their continued sponsorship.</p>\n</div>\n<div class=\"paragraph\">\n<p>Between August 2022 and March 2023, Jenkins had been using roughly $1,300 credits a month.\nDuring March, we encountered a severe increase in our DigitalOcean workloads.\nThis was a result of much heavier reliance on DigitalOcean, as we worked to resolve other infrastructure concerns.\nIn addition to this reliance, there was increased activity on the Jenkins Bill Of Material repository.\nUnfortunately, the increased activity and reliance combined to push Jenkins over our normal budget.</p>\n</div>\n<div class=\"paragraph\">\n<p>However, DigitalOcean has provided the Jenkins project with an additional <strong>$8,400</strong> credit for the next six months.\nThis ensures that we are able to manage our resources and DigitalOcean workloads, without worry of interruption.\nOur deepest thanks go out to DigitalOcean, as they continue to show how supportive they are to both Jenkins and the Open Source community.</p>\n</div>"
+}

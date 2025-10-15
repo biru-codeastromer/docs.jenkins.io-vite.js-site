@@ -1,0 +1,18 @@
+{
+  "id": "2019-09-2019-09-25-board-elections",
+  "url": "/blog/2019/09/01/2019-09-25-board-elections/",
+  "title": "2019 Jenkins Board and Officer elections. Nominations are open!",
+  "date": "2019-09-01",
+  "authors": [
+    "kohsuke"
+  ],
+  "tags": [
+    "community",
+    "governance",
+    "governance-board",
+    "elections"
+  ],
+  "summary": "Minor changes were applied to reflect the posting date and to provide more links.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis is a repost of the <a href=\"https://groups.google.com/forum/#!msg/jenkinsci-dev/v8kmEQMT0ts/l8yQ43WNAwAJ\">original announcement</a> made by <a href=\"https://github.com/kohsuke/\">Kohsuke Kawaguchi</a> in the Jenkins Developer mailing list.\nMinor changes were applied to reflect the posting date and to provide more links.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Nominations for the 2019 Jenkins Board elections open for three governing board positions and five officer positions, namely: Security, Events, Release, Infrastructure and Documentation.</p>\n</div>\n<div class=\"paragraph\">\n<p>The terms of office for these positions are:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Officer positions (1 year): November 4, 2019 to November 3, 2020</p>\n</li>\n<li>\n<p>Governing board members (2 years): November 4, 2019 to November 3, 2021</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>To nominate someone, simply send an email to <a href=\"mailto:jenkinsci-board@googlegroups.com\">jenkinsci-board@googlegroups.com</a> with their name and position you nominate them for.\nPlease share any information on why you are making the nomination.\nSelf nominations are also welcome.</p>\n</div>\n<div class=\"paragraph\">\n<p>The board positions and officer roles are an essential part of Jenkins' community governance and well-being.\nI highly encourage everyone to consider participating.</p>\n</div>\n<div class=\"sect2\">\n<h3 id=\"key-dates\"><a class=\"anchor\" href=\"#key-dates\"></a>Key dates</h3>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Oct 04, 2019: Nominations close</p>\n</li>\n<li>\n<p>Oct 08, 2019: List of nominees posted to mailing list</p>\n</li>\n<li>\n<p>Oct 11, 2019: Nominees’ personal statements made available</p>\n</li>\n<li>\n<p>Oct 14, 2019: Voting begins</p>\n</li>\n<li>\n<p>Oct 27, 2019: Voting closes at 5pm Pacific Time</p>\n</li>\n<li>\n<p>Nov 04, 2019: New representatives announced</p>\n</li>\n</ul>\n</div>\n</div>\n<div class=\"sect2\">\n<h3 id=\"references\"><a class=\"anchor\" href=\"#references\"></a>References</h3>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"/project/board\">Jenkins Governance Board</a></p>\n</li>\n<li>\n<p><a href=\"/project/board-election-process\">Jenkins Board Election Process</a></p>\n</li>\n<li>\n<p><a href=\"https://wiki.jenkins.io/display/JENKINS/Team+Leads\">Jenkins Officers</a></p>\n</li>\n<li>\n<p><a href=\"https://groups.google.com/forum/#!msg/jenkinsci-dev/v8kmEQMT0ts/l8yQ43WNAwAJ\">Announcement in the developer mailing list</a></p>\n</li>\n<li>\n<p><a href=\"https://groups.google.com/forum/#!msg/jenkinsci-dev/vKi9JpxTQxY/4O4lmqfdAgAJ\">2019 elections proposal in the developer mailing list</a></p>\n</li>\n</ul>\n</div>\n</div>"
+}

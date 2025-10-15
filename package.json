@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "node scripts/security-build.mjs",
+    "predev": "node scripts/blog-assets.mjs",
+    "prebuild": "node scripts/blog-assets.mjs && node scripts/security-build.mjs",
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "blog-build": "node scripts/blog-build.mjs",
+    "build": "vite build && node scripts/blog-build.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -31,6 +33,7 @@
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
     "@vitejs/plugin-react": "^4.2.1",
+    "asciidoctor": "^3.0.4",
     "vite": "^7.1.5"
   }
 }

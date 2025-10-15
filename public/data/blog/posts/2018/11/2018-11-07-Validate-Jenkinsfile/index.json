@@ -1,0 +1,20 @@
+{
+  "id": "2018-11-2018-11-07-Validate-Jenkinsfile",
+  "url": "/blog/2018/11/01/2018-11-07-Validate-Jenkinsfile/",
+  "title": "Validate your Jenkinsfile from within VS Code",
+  "date": "2018-11-01",
+  "authors": [
+    "janjoerke"
+  ],
+  "tags": [
+    "jenkinsfile",
+    "validation",
+    "vscode",
+    "pipeline",
+    "pipeline authoring",
+    "development"
+  ],
+  "summary": "In my daily work I often have to create or modify Jenkinsfiles and more often than I would like, I make mistakes.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>In my daily work I often have to create or modify Jenkinsfiles and more often than I would like, I make mistakes. It is a very tedious workflow when you make a change to your Jenkinsfile, create a commit, push the commit and wait for your Jenkins Server to tell you, that you have missed a bracket.</p>\n</div>\n<div class=\"paragraph\">\n<p><a href=\"/doc/book/pipeline/development/\">The Command-line Pipeline Linter</a> does a great job of reducing the turnaround times when writing a Jenkinsfile, but its usage has its own inconveniences. You need tools like curl or ssh to make a connection to your Jenkins Server and you need to remember the correct command to validate your Jenkinsfile. I still did not like the solution.</p>\n</div>\n<div class=\"paragraph\">\n<p>As VS Code is my daily driver, I started to look at writing extensions for it and out of it came a little extension which makes validating Jenkinsfiles just a little bit more comfortable.</p>\n</div>\n<div class=\"paragraph\">\n<p>What the 'Jenkins Pipeline Linter Connector' does is, that it takes the file that you have currently opened, pushes it to your Jenkins Server and displays the validation result in VS Code.</p>\n</div>\n<div class=\"imageblock\">\n<div class=\"content\">\n<img src=\"/images/post-images/vscode-pipeline-linter/example1.gif\" alt=\"Jenkins Pipeline Linter Connector | Example 1\" width=\"800\">\n</div>\n</div>\n<div class=\"imageblock\">\n<div class=\"content\">\n<img src=\"/images/post-images/vscode-pipeline-linter/example2.gif\" alt=\"Jenkins Pipeline Linter Connector | Example 2\" width=\"800\">\n</div>\n</div>\n<div class=\"paragraph\">\n<p>​You can find the extension from within the VS Code extension browser or at the following url: <a href=\"https://marketplace.visualstudio.com/items?itemName=janjoerke.jenkins-pipeline-linter-connector\" class=\"bare\">https://marketplace.visualstudio.com/items?itemName=janjoerke.jenkins-pipeline-linter-connector</a></p>\n</div>\n<div class=\"paragraph\">\n<p>The extension adds four settings entries to VS Code which you have to use to configure the Jenkins Server you want to use for validation.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><code>jenkins.pipeline.linter.connector.url</code> is the endpoint at which your Jenkins Server expects the POST request, containing your Jenkinsfile which you want to validate. Typically this points to <em><a href=\"http://<your_jenkins_server:port>/pipeline-model-converter/validate\" class=\"bare\">http://<your_jenkins_server:port>/pipeline-model-converter/validate</a></em>.</p>\n</li>\n<li>\n<p><code>jenkins.pipeline.linter.connector.user</code> allows you to specify your Jenkins username.</p>\n</li>\n<li>\n<p><code>jenkins.pipeline.linter.connector.pass</code> allows you to specify your Jenkins password.</p>\n</li>\n<li>\n<p><code>jenkins.pipeline.linter.connector.crumbUrl</code> has to be specified if your Jenkins Server has CRSF protection enabled. Typically this points to <em><a href=\"http://<your_jenkins_server:port>/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb\" class=\"bare\">http://<your_jenkins_server:port>/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb</a>)</em>.\n​</p>\n</li>\n</ul>\n</div>"
+}

@@ -66,6 +66,11 @@ export default function Home() {
         </Link>
       </Typography>
       <Typography>
+        <Link href="/blog" variant="body1">
+          Blog
+        </Link>
+      </Typography>
+      <Typography>
         <Link href="/security" variant="body1">
           Security
         </Link>

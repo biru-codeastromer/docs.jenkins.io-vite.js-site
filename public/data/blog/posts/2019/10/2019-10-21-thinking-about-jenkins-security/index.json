@@ -1,0 +1,20 @@
+{
+  "id": "2019-10-2019-10-21-thinking-about-jenkins-security",
+  "url": "/blog/2019/10/01/2019-10-21-thinking-about-jenkins-security/",
+  "title": "Thinking About Jenkins Security - DevOps World | Jenkins World 2019",
+  "date": "2019-10-01",
+  "authors": [
+    "markewaite",
+    "wadeck",
+    "stackscribe"
+  ],
+  "tags": [
+    "jenkins world",
+    "jenkinsworld",
+    "devopsworld2019",
+    "security"
+  ],
+  "summary": "We'll review the layers that secure Jenkins and describe techniques that you can use to protect your Jenkins server.",
+  "opengraph_image": "/images/security/do-not-run-malicious-code.png",
+  "content_html": "<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis is a speaker blogpost for a DevOps World | Jenkins World 2019 talk in Lisbon, Portugal\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>Come join us at <a href=\"https://www.cloudbees.com/devops-world/lisbon\">DevOps World | Jenkins World 2019</a> for \"<a href=\"https://sched.co/UXWy\"><strong>Thinking about Jenkins Security</strong></a>\", a talk about securing your Jenkins server.\nWe'll review the layers that secure Jenkins and describe techniques that you can use to protect your Jenkins server.</p>\n</div>\n<div class=\"paragraph\">\n<p>Topics will include:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>The <strong>secure by default</strong> configuration that Jenkins provides</p>\n</li>\n<li>\n<p>Risks associated with reducing default security settings</p>\n</li>\n<li>\n<p>Authentication and authorization alternatives</p>\n</li>\n<li>\n<p>Using \"<strong>least privilege</strong>\" principles</p>\n</li>\n<li>\n<p>Jenkins <strong>credentials</strong> and trusted access to resources</p>\n</li>\n<li>\n<p>Software updates and Jenkins project security notices</p>\n</li>\n</ul>\n</div>\n<div class=\"imageblock\">\n<div class=\"content\">\n<img src=\"/images/security/do-not-run-malicious-code.png\" alt=\"do not run malicious code\">\n</div>\n</div>\n<div class=\"paragraph\">\n<p>We'll intermix descriptions of good practices with some security horror stories.\nThe horror stories remind us of our mistakes; we will discuss how to detect them and how to prevent them.</p>\n</div>\n<div class=\"paragraph\">\n<p>Come join us for the presentation in Lisbon!</p>\n</div>\n<div class=\"sect1\">\n<h2 id=\"slides\"><a class=\"anchor\" href=\"#slides\"></a>Slides</h2>\n<div class=\"sectionbody\">\n<iframe src=\"https://drive.google.com/file/d/1RisjNUfu-3_VOyTIvY0cdWWzM8HKDtY9/preview\" width=\"800\" height=\"460\"></iframe>\n</div>\n</div>"
+}

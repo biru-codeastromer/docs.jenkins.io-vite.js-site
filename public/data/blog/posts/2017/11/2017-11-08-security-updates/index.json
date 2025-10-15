@@ -1,0 +1,16 @@
+{
+  "id": "2017-11-2017-11-08-security-updates",
+  "url": "/blog/2017/11/01/2017-11-08-security-updates/",
+  "title": "Security updates for Jenkins core",
+  "date": "2017-11-01",
+  "authors": [
+    "daniel-beck"
+  ],
+  "tags": [
+    "core",
+    "security"
+  ],
+  "summary": "We just released security updates to Jenkins, versions 2.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>We just released security updates to Jenkins, versions 2.89 and 2.73.3, that fix two low-severity security vulnerabilities.</p>\n</div>\n<div class=\"paragraph\">\n<p>For an overview of what was fixed, see the <a href=\"/security/advisory/2017-11-08\">security advisory</a>.\nFor an overview on the possible impact of these changes on upgrading Jenkins LTS, see our <a href=\"/doc/upgrade-guide/2.73/#upgrading-to-jenkins-lts-2-73-3\">LTS upgrade guide</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Subscribe to the <a href=\"/mailing-lists\">jenkinsci-advisories mailing list</a> to receive important notifications related to Jenkins security.</p>\n</div>"
+}
