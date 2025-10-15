@@ -1,0 +1,17 @@
+{
+  "id": "2022-09-2022-09-19-digital-ocean-sponsorship",
+  "url": "/blog/2022/09/01/2022-09-19-digital-ocean-sponsorship/",
+  "title": "Digital Ocean and Jenkins partnership continues to grow!",
+  "date": "2022-09-01",
+  "authors": [
+    "kmartens27"
+  ],
+  "tags": [
+    "jenkins",
+    "digitalocean",
+    "community"
+  ],
+  "summary": "DigitalOcean increases Jenkins sponsorship",
+  "opengraph_image": "/images/post-images/2022-05-DigitalOcean-sponsors-Jenkins.png",
+  "content_html": "<div class=\"paragraph\">\n<p><span class=\"image\"><a class=\"image\" href=\"https://www.digitalocean.com\"><img src=\"/images/post-images/2022-09-19-digital-ocean-sponsorship/DO-horizontal.png\" alt=\"DO horizontal\"></a></span></p>\n</div>\n<div class=\"paragraph\">\n<p>We are excited to announce that the relationship between DigitalOcean and Jenkins continues to grow!\nWe want to thank DigitalOcean for providing such incredible support to the Jenkins project.</p>\n</div>\n<div class=\"paragraph\">\n<p>DigitalOcean has provided a substantial donation of $18,000 to the Jenkins project.\nThis is in addition to their <a href=\"/blog/2022/05/04/DigitalOcean/\">previous sponsorship</a>.\nCombining these, DigitalOcean has granted over <strong>$20,000</strong> to the Jenkins project.\nThe funding aspect is clear, but there are several other benefits to working with DigitalOcean in this capacity.\nJenkins has access to more resources than ever before, such as utilizing the DigitalOcean platform to continue development and share progress made.\nWe can dedicate our time and resources more fully, allowing users to engage and make an impact.</p>\n</div>\n<div class=\"paragraph\">\n<p>This sponsorship also increases the impact that we can have as a community, when it comes to ongoing projects and events like <a href=\"https://hacktoberfest.com/\">Hacktoberfest</a>, which DigitalOcean organizes and hosts.\nDigitalOcean is proving their commitment to open source, which matches our desire to improve Jenkins in any way and by any means.</p>\n</div>\n<div class=\"paragraph\">\n<p>If you are new to <a href=\"https://digitalocean.com/\">DigitalOcean</a> and would like to learn more, use our promo code <code>DOJENKINS100</code> to get $100 credit to use over your first 60 days (only valid for new accounts).</p>\n</div>"
+}

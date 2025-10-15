@@ -1,0 +1,1310 @@
+[
+  {
+    "tag": "aarch64",
+    "count": 3
+  },
+  {
+    "tag": "advocacy-and-outreach",
+    "count": 2
+  },
+  {
+    "tag": "agent",
+    "count": 1
+  },
+  {
+    "tag": "agentic-systems",
+    "count": 1
+  },
+  {
+    "tag": "agents",
+    "count": 3
+  },
+  {
+    "tag": "ai",
+    "count": 3
+  },
+  {
+    "tag": "AI",
+    "count": 1
+  },
+  {
+    "tag": "alexa",
+    "count": 1
+  },
+  {
+    "tag": "alpha-omega",
+    "count": 3
+  },
+  {
+    "tag": "alpha-release",
+    "count": 1
+  },
+  {
+    "tag": "android",
+    "count": 6
+  },
+  {
+    "tag": "announcement",
+    "count": 32
+  },
+  {
+    "tag": "antora",
+    "count": 1
+  },
+  {
+    "tag": "api",
+    "count": 4
+  },
+  {
+    "tag": "appreciation",
+    "count": 1
+  },
+  {
+    "tag": "arm32",
+    "count": 1
+  },
+  {
+    "tag": "artifactory",
+    "count": 4
+  },
+  {
+    "tag": "artwork",
+    "count": 1
+  },
+  {
+    "tag": "asktheexpert",
+    "count": 1
+  },
+  {
+    "tag": "awards",
+    "count": 9
+  },
+  {
+    "tag": "aws",
+    "count": 4
+  },
+  {
+    "tag": "aws-ec2-mac",
+    "count": 2
+  },
+  {
+    "tag": "azure",
+    "count": 6
+  },
+  {
+    "tag": "baremetal",
+    "count": 1
+  },
+  {
+    "tag": "benchmark",
+    "count": 1
+  },
+  {
+    "tag": "bintray",
+    "count": 1
+  },
+  {
+    "tag": "bitbucket",
+    "count": 2
+  },
+  {
+    "tag": "blueocean",
+    "count": 22
+  },
+  {
+    "tag": "build-tools",
+    "count": 1
+  },
+  {
+    "tag": "casc",
+    "count": 1
+  },
+  {
+    "tag": "case-study",
+    "count": 2
+  },
+  {
+    "tag": "casestudies",
+    "count": 1
+  },
+  {
+    "tag": "cdcon",
+    "count": 12
+  },
+  {
+    "tag": "cdf",
+    "count": 7
+  },
+  {
+    "tag": "cfp",
+    "count": 1
+  },
+  {
+    "tag": "chat",
+    "count": 1
+  },
+  {
+    "tag": "chatbot",
+    "count": 2
+  },
+  {
+    "tag": "chinese",
+    "count": 3
+  },
+  {
+    "tag": "cicd",
+    "count": 9
+  },
+  {
+    "tag": "cli",
+    "count": 4
+  },
+  {
+    "tag": "cloud",
+    "count": 1
+  },
+  {
+    "tag": "cloud-native",
+    "count": 14
+  },
+  {
+    "tag": "cloud-native-sig",
+    "count": 1
+  },
+  {
+    "tag": "cloudevents",
+    "count": 1
+  },
+  {
+    "tag": "codecoverage",
+    "count": 1
+  },
+  {
+    "tag": "community",
+    "count": 169
+  },
+  {
+    "tag": "community-bridge",
+    "count": 2
+  },
+  {
+    "tag": "communitybonding",
+    "count": 3
+  },
+  {
+    "tag": "compliance",
+    "count": 1
+  },
+  {
+    "tag": "conditional-build-step",
+    "count": 1
+  },
+  {
+    "tag": "conference",
+    "count": 3
+  },
+  {
+    "tag": "configuration as code",
+    "count": 1
+  },
+  {
+    "tag": "configuration-as-code",
+    "count": 3
+  },
+  {
+    "tag": "containers",
+    "count": 1
+  },
+  {
+    "tag": "continuous delivery",
+    "count": 3
+  },
+  {
+    "tag": "contribute",
+    "count": 41
+  },
+  {
+    "tag": "contributing",
+    "count": 7
+  },
+  {
+    "tag": "contributor-summit",
+    "count": 3
+  },
+  {
+    "tag": "contributors",
+    "count": 1
+  },
+  {
+    "tag": "contributorsummit",
+    "count": 1
+  },
+  {
+    "tag": "convention-plugin",
+    "count": 1
+  },
+  {
+    "tag": "conventionalcommits",
+    "count": 2
+  },
+  {
+    "tag": "core",
+    "count": 38
+  },
+  {
+    "tag": "credential-provider",
+    "count": 1
+  },
+  {
+    "tag": "credentials",
+    "count": 3
+  },
+  {
+    "tag": "csp",
+    "count": 3
+  },
+  {
+    "tag": "datascience",
+    "count": 4
+  },
+  {
+    "tag": "declarative",
+    "count": 9
+  },
+  {
+    "tag": "deprecation",
+    "count": 2
+  },
+  {
+    "tag": "developer",
+    "count": 49
+  },
+  {
+    "tag": "developer-tools",
+    "count": 1
+  },
+  {
+    "tag": "development",
+    "count": 5
+  },
+  {
+    "tag": "devops",
+    "count": 3
+  },
+  {
+    "tag": "devopsworld",
+    "count": 8
+  },
+  {
+    "tag": "devopsworld2019",
+    "count": 6
+  },
+  {
+    "tag": "devopsworld2020",
+    "count": 1
+  },
+  {
+    "tag": "devopsworld2022",
+    "count": 9
+  },
+  {
+    "tag": "devopsworld2024",
+    "count": 1
+  },
+  {
+    "tag": "devopsworldjenkinsworld2019",
+    "count": 2
+  },
+  {
+    "tag": "devsecops",
+    "count": 1
+  },
+  {
+    "tag": "digitalocean",
+    "count": 2
+  },
+  {
+    "tag": "distribution",
+    "count": 3
+  },
+  {
+    "tag": "docker",
+    "count": 15
+  },
+  {
+    "tag": "docker-compose",
+    "count": 1
+  },
+  {
+    "tag": "docs",
+    "count": 1
+  },
+  {
+    "tag": "documentation",
+    "count": 18
+  },
+  {
+    "tag": "donation",
+    "count": 1
+  },
+  {
+    "tag": "dsl",
+    "count": 1
+  },
+  {
+    "tag": "durable-task",
+    "count": 1
+  },
+  {
+    "tag": "ebook",
+    "count": 2
+  },
+  {
+    "tag": "editor",
+    "count": 1
+  },
+  {
+    "tag": "elections",
+    "count": 17
+  },
+  {
+    "tag": "emailext",
+    "count": 1
+  },
+  {
+    "tag": "event",
+    "count": 43
+  },
+  {
+    "tag": "events",
+    "count": 66
+  },
+  {
+    "tag": "evergreen",
+    "count": 8
+  },
+  {
+    "tag": "extended-read",
+    "count": 1
+  },
+  {
+    "tag": "external-storage",
+    "count": 3
+  },
+  {
+    "tag": "feedback",
+    "count": 2
+  },
+  {
+    "tag": "fine-tuning",
+    "count": 1
+  },
+  {
+    "tag": "fingerprint",
+    "count": 3
+  },
+  {
+    "tag": "fosdem",
+    "count": 6
+  },
+  {
+    "tag": "freestyle",
+    "count": 2
+  },
+  {
+    "tag": "game-development",
+    "count": 1
+  },
+  {
+    "tag": "general",
+    "count": 8
+  },
+  {
+    "tag": "git",
+    "count": 6
+  },
+  {
+    "tag": "github",
+    "count": 7
+  },
+  {
+    "tag": "github-actions",
+    "count": 1
+  },
+  {
+    "tag": "github-branch-source",
+    "count": 1
+  },
+  {
+    "tag": "gitlab",
+    "count": 6
+  },
+  {
+    "tag": "gitops",
+    "count": 2
+  },
+  {
+    "tag": "gitpod",
+    "count": 1
+  },
+  {
+    "tag": "governance",
+    "count": 25
+  },
+  {
+    "tag": "governance-board",
+    "count": 19
+  },
+  {
+    "tag": "gradle",
+    "count": 1
+  },
+  {
+    "tag": "groovy",
+    "count": 1
+  },
+  {
+    "tag": "gsoc",
+    "count": 108
+  },
+  {
+    "tag": "gsoc2017",
+    "count": 1
+  },
+  {
+    "tag": "gsoc2018",
+    "count": 13
+  },
+  {
+    "tag": "gsoc2019",
+    "count": 19
+  },
+  {
+    "tag": "gsoc2020",
+    "count": 20
+  },
+  {
+    "tag": "gsoc2021",
+    "count": 8
+  },
+  {
+    "tag": "gsoc2022",
+    "count": 9
+  },
+  {
+    "tag": "gsoc2023",
+    "count": 20
+  },
+  {
+    "tag": "gsoc2024",
+    "count": 8
+  },
+  {
+    "tag": "gsoc2025",
+    "count": 7
+  },
+  {
+    "tag": "gsoc2025-endterm",
+    "count": 1
+  },
+  {
+    "tag": "gsoc2025-midterm",
+    "count": 5
+  },
+  {
+    "tag": "gsoc21",
+    "count": 1
+  },
+  {
+    "tag": "gsod",
+    "count": 3
+  },
+  {
+    "tag": "gsod2020",
+    "count": 3
+  },
+  {
+    "tag": "hackergarten",
+    "count": 1
+  },
+  {
+    "tag": "hacktoberfest",
+    "count": 13
+  },
+  {
+    "tag": "health",
+    "count": 2
+  },
+  {
+    "tag": "healthcheck",
+    "count": 2
+  },
+  {
+    "tag": "healthscore",
+    "count": 9
+  },
+  {
+    "tag": "helm",
+    "count": 4
+  },
+  {
+    "tag": "hipchat",
+    "count": 1
+  },
+  {
+    "tag": "infra",
+    "count": 1
+  },
+  {
+    "tag": "infrastructure",
+    "count": 17
+  },
+  {
+    "tag": "installers",
+    "count": 3
+  },
+  {
+    "tag": "interoperability",
+    "count": 2
+  },
+  {
+    "tag": "iOS",
+    "count": 1
+  },
+  {
+    "tag": "issues",
+    "count": 2
+  },
+  {
+    "tag": "jam",
+    "count": 2
+  },
+  {
+    "tag": "java",
+    "count": 4
+  },
+  {
+    "tag": "java10",
+    "count": 4
+  },
+  {
+    "tag": "java11",
+    "count": 7
+  },
+  {
+    "tag": "java17",
+    "count": 1
+  },
+  {
+    "tag": "java8",
+    "count": 2
+  },
+  {
+    "tag": "javadoc",
+    "count": 1
+  },
+  {
+    "tag": "jcasc",
+    "count": 4
+  },
+  {
+    "tag": "JCasC",
+    "count": 2
+  },
+  {
+    "tag": "jcli",
+    "count": 1
+  },
+  {
+    "tag": "jdk21",
+    "count": 1
+  },
+  {
+    "tag": "jenkins",
+    "count": 120
+  },
+  {
+    "tag": "Jenkins User Conference",
+    "count": 1
+  },
+  {
+    "tag": "jenkins world",
+    "count": 3
+  },
+  {
+    "tag": "jenkins-community-day-paris",
+    "count": 2
+  },
+  {
+    "tag": "jenkins-infra",
+    "count": 8
+  },
+  {
+    "tag": "jenkins-is-the-way",
+    "count": 6
+  },
+  {
+    "tag": "jenkins-minute",
+    "count": 1
+  },
+  {
+    "tag": "jenkins-plugin",
+    "count": 2
+  },
+  {
+    "tag": "jenkins-user-conference",
+    "count": 1
+  },
+  {
+    "tag": "jenkins-world",
+    "count": 4
+  },
+  {
+    "tag": "jenkins-x",
+    "count": 8
+  },
+  {
+    "tag": "jenkins.io",
+    "count": 3
+  },
+  {
+    "tag": "jenkinsevergreen",
+    "count": 2
+  },
+  {
+    "tag": "jenkinsfile",
+    "count": 2
+  },
+  {
+    "tag": "jenkinsfile-runner",
+    "count": 2
+  },
+  {
+    "tag": "jenkinsistheway",
+    "count": 2
+  },
+  {
+    "tag": "Jenkinsistheway",
+    "count": 1
+  },
+  {
+    "tag": "jenkinsonlinemeetup",
+    "count": 1
+  },
+  {
+    "tag": "jenkinsuserconference",
+    "count": 1
+  },
+  {
+    "tag": "Jenkinsuserstories",
+    "count": 3
+  },
+  {
+    "tag": "jenkinsworld",
+    "count": 39
+  },
+  {
+    "tag": "JenkinsWorld",
+    "count": 2
+  },
+  {
+    "tag": "jenkinsworld2017",
+    "count": 8
+  },
+  {
+    "tag": "jenkinsworld2018",
+    "count": 13
+  },
+  {
+    "tag": "jenkinsworld2019",
+    "count": 1
+  },
+  {
+    "tag": "jenkinsx",
+    "count": 2
+  },
+  {
+    "tag": "jetbrains",
+    "count": 1
+  },
+  {
+    "tag": "jfrog",
+    "count": 2
+  },
+  {
+    "tag": "jira",
+    "count": 4
+  },
+  {
+    "tag": "jmh",
+    "count": 1
+  },
+  {
+    "tag": "juc",
+    "count": 2
+  },
+  {
+    "tag": "junit",
+    "count": 1
+  },
+  {
+    "tag": "jupyter",
+    "count": 1
+  },
+  {
+    "tag": "kafka",
+    "count": 3
+  },
+  {
+    "tag": "kotlin",
+    "count": 1
+  },
+  {
+    "tag": "kubecon",
+    "count": 1
+  },
+  {
+    "tag": "kubernetes",
+    "count": 23
+  },
+  {
+    "tag": "layout",
+    "count": 1
+  },
+  {
+    "tag": "lifx",
+    "count": 1
+  },
+  {
+    "tag": "linux",
+    "count": 4
+  },
+  {
+    "tag": "llama2",
+    "count": 1
+  },
+  {
+    "tag": "llm",
+    "count": 2
+  },
+  {
+    "tag": "LLM",
+    "count": 1
+  },
+  {
+    "tag": "localization",
+    "count": 1
+  },
+  {
+    "tag": "logging",
+    "count": 2
+  },
+  {
+    "tag": "mac",
+    "count": 3
+  },
+  {
+    "tag": "machinelearning",
+    "count": 5
+  },
+  {
+    "tag": "macos",
+    "count": 1
+  },
+  {
+    "tag": "matrix",
+    "count": 2
+  },
+  {
+    "tag": "maven",
+    "count": 1
+  },
+  {
+    "tag": "meetup",
+    "count": 1
+  },
+  {
+    "tag": "mentor",
+    "count": 3
+  },
+  {
+    "tag": "merge queue",
+    "count": 1
+  },
+  {
+    "tag": "Mergify",
+    "count": 1
+  },
+  {
+    "tag": "metadata-storage",
+    "count": 1
+  },
+  {
+    "tag": "microservices",
+    "count": 1
+  },
+  {
+    "tag": "midterm",
+    "count": 1
+  },
+  {
+    "tag": "miniJen",
+    "count": 2
+  },
+  {
+    "tag": "mirrors",
+    "count": 4
+  },
+  {
+    "tag": "mobile",
+    "count": 1
+  },
+  {
+    "tag": "mobile-game",
+    "count": 1
+  },
+  {
+    "tag": "monitoring",
+    "count": 1
+  },
+  {
+    "tag": "msi",
+    "count": 1
+  },
+  {
+    "tag": "multibranch",
+    "count": 1
+  },
+  {
+    "tag": "natural-language-processing",
+    "count": 2
+  },
+  {
+    "tag": "new-year-blogpost",
+    "count": 5
+  },
+  {
+    "tag": "newcomer",
+    "count": 12
+  },
+  {
+    "tag": "newsletter",
+    "count": 17
+  },
+  {
+    "tag": "nightwatch",
+    "count": 1
+  },
+  {
+    "tag": "node",
+    "count": 1
+  },
+  {
+    "tag": "notifications",
+    "count": 1
+  },
+  {
+    "tag": "open-rewrite",
+    "count": 4
+  },
+  {
+    "tag": "open-source",
+    "count": 8
+  },
+  {
+    "tag": "open-telemetry",
+    "count": 1
+  },
+  {
+    "tag": "opensource",
+    "count": 3
+  },
+  {
+    "tag": "operator",
+    "count": 1
+  },
+  {
+    "tag": "outage",
+    "count": 1
+  },
+  {
+    "tag": "outreach",
+    "count": 2
+  },
+  {
+    "tag": "outreach-programs",
+    "count": 16
+  },
+  {
+    "tag": "outreachy",
+    "count": 4
+  },
+  {
+    "tag": "outreachy2018",
+    "count": 1
+  },
+  {
+    "tag": "packaging",
+    "count": 3
+  },
+  {
+    "tag": "performance",
+    "count": 11
+  },
+  {
+    "tag": "pipeline",
+    "count": 58
+  },
+  {
+    "tag": "pipeline authoring",
+    "count": 1
+  },
+  {
+    "tag": "pipeline-authoring",
+    "count": 1
+  },
+  {
+    "tag": "Pipeline-Authoring",
+    "count": 1
+  },
+  {
+    "tag": "pipelines",
+    "count": 1
+  },
+  {
+    "tag": "platform",
+    "count": 6
+  },
+  {
+    "tag": "platform-sig",
+    "count": 21
+  },
+  {
+    "tag": "platforms",
+    "count": 1
+  },
+  {
+    "tag": "pluggable-storage",
+    "count": 2
+  },
+  {
+    "tag": "plugin",
+    "count": 22
+  },
+  {
+    "tag": "plugin-development",
+    "count": 1
+  },
+  {
+    "tag": "plugin-health-scoring",
+    "count": 1
+  },
+  {
+    "tag": "plugin-modernization",
+    "count": 4
+  },
+  {
+    "tag": "pluginmanagement",
+    "count": 3
+  },
+  {
+    "tag": "plugins",
+    "count": 72
+  },
+  {
+    "tag": "PostgreSQL",
+    "count": 1
+  },
+  {
+    "tag": "postman",
+    "count": 1
+  },
+  {
+    "tag": "postmortem",
+    "count": 1
+  },
+  {
+    "tag": "powershell",
+    "count": 1
+  },
+  {
+    "tag": "probes",
+    "count": 9
+  },
+  {
+    "tag": "puppet",
+    "count": 1
+  },
+  {
+    "tag": "quality",
+    "count": 1
+  },
+  {
+    "tag": "rag",
+    "count": 1
+  },
+  {
+    "tag": "RAG",
+    "count": 1
+  },
+  {
+    "tag": "react",
+    "count": 2
+  },
+  {
+    "tag": "redis",
+    "count": 2
+  },
+  {
+    "tag": "remoting",
+    "count": 13
+  },
+  {
+    "tag": "repo.jenkins-ci.org",
+    "count": 1
+  },
+  {
+    "tag": "restyling",
+    "count": 1
+  },
+  {
+    "tag": "risc-v",
+    "count": 1
+  },
+  {
+    "tag": "riscv",
+    "count": 2
+  },
+  {
+    "tag": "ruby",
+    "count": 2
+  },
+  {
+    "tag": "saucelabs",
+    "count": 1
+  },
+  {
+    "tag": "scalability",
+    "count": 5
+  },
+  {
+    "tag": "screencast",
+    "count": 3
+  },
+  {
+    "tag": "scripted",
+    "count": 1
+  },
+  {
+    "tag": "security",
+    "count": 52
+  },
+  {
+    "tag": "selenium",
+    "count": 1
+  },
+  {
+    "tag": "serverless",
+    "count": 2
+  },
+  {
+    "tag": "service",
+    "count": 3
+  },
+  {
+    "tag": "sharedlibrary",
+    "count": 3
+  },
+  {
+    "tag": "sig",
+    "count": 1
+  },
+  {
+    "tag": "SIG",
+    "count": 1
+  },
+  {
+    "tag": "slack",
+    "count": 1
+  },
+  {
+    "tag": "sonarqube",
+    "count": 1
+  },
+  {
+    "tag": "sponsor",
+    "count": 3
+  },
+  {
+    "tag": "sponsors",
+    "count": 2
+  },
+  {
+    "tag": "ssh",
+    "count": 1
+  },
+  {
+    "tag": "stability",
+    "count": 2
+  },
+  {
+    "tag": "stats",
+    "count": 1
+  },
+  {
+    "tag": "steps",
+    "count": 2
+  },
+  {
+    "tag": "supporters",
+    "count": 1
+  },
+  {
+    "tag": "survey",
+    "count": 1
+  },
+  {
+    "tag": "svg-migration",
+    "count": 1
+  },
+  {
+    "tag": "system-read",
+    "count": 1
+  },
+  {
+    "tag": "systemd",
+    "count": 1
+  },
+  {
+    "tag": "talks",
+    "count": 3
+  },
+  {
+    "tag": "tekton",
+    "count": 4
+  },
+  {
+    "tag": "telemetry",
+    "count": 1
+  },
+  {
+    "tag": "template",
+    "count": 1
+  },
+  {
+    "tag": "termux",
+    "count": 1
+  },
+  {
+    "tag": "testing",
+    "count": 1
+  },
+  {
+    "tag": "tools",
+    "count": 3
+  },
+  {
+    "tag": "trigger",
+    "count": 1
+  },
+  {
+    "tag": "tutorial",
+    "count": 13
+  },
+  {
+    "tag": "tutorials",
+    "count": 1
+  },
+  {
+    "tag": "twistlock",
+    "count": 1
+  },
+  {
+    "tag": "type-2-virtualization",
+    "count": 1
+  },
+  {
+    "tag": "ui",
+    "count": 6
+  },
+  {
+    "tag": "update-center",
+    "count": 8
+  },
+  {
+    "tag": "updates.jenkins.io",
+    "count": 1
+  },
+  {
+    "tag": "upgrade",
+    "count": 8
+  },
+  {
+    "tag": "user-experience",
+    "count": 8
+  },
+  {
+    "tag": "ux",
+    "count": 17
+  },
+  {
+    "tag": "validation",
+    "count": 1
+  },
+  {
+    "tag": "vienna",
+    "count": 1
+  },
+  {
+    "tag": "vitejs",
+    "count": 1
+  },
+  {
+    "tag": "vscode",
+    "count": 1
+  },
+  {
+    "tag": "VSCode",
+    "count": 2
+  },
+  {
+    "tag": "vulnerabilities",
+    "count": 1
+  },
+  {
+    "tag": "warnings",
+    "count": 1
+  },
+  {
+    "tag": "webhooks",
+    "count": 2
+  },
+  {
+    "tag": "wiki",
+    "count": 1
+  },
+  {
+    "tag": "windows",
+    "count": 8
+  },
+  {
+    "tag": "winsw",
+    "count": 3
+  },
+  {
+    "tag": "workshops",
+    "count": 2
+  },
+  {
+    "tag": "xunit",
+    "count": 1
+  },
+  {
+    "tag": "yaml",
+    "count": 5
+  },
+  {
+    "tag": "yourkit",
+    "count": 1
+  }
+]

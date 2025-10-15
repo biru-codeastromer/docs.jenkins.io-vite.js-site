@@ -1,0 +1,16 @@
+{
+  "id": "2018-10-2018-10-10-security-updates",
+  "url": "/blog/2018/10/01/2018-10-10-security-updates/",
+  "title": "Important security updates for Jenkins",
+  "date": "2018-10-01",
+  "authors": [
+    "daniel-beck"
+  ],
+  "tags": [
+    "core",
+    "security"
+  ],
+  "summary": "We just released security updates to Jenkins, versions 2.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>We just released security updates to Jenkins, versions 2.146 and 2.138.2, that fix multiple security vulnerabilities.</p>\n</div>\n<div class=\"paragraph\">\n<p>For an overview of what was fixed, see the <a href=\"/security/advisory/2018-10-10\">security advisory</a>.\nFor an overview on the possible impact of these changes on upgrading Jenkins LTS, see our <a href=\"/doc/upgrade-guide/2.138/#upgrading-to-jenkins-lts-2-138-2\">LTS upgrade guide</a>.</p>\n</div>\n<div class=\"sect2\">\n<h3 id=\"further-improvements\"><a class=\"anchor\" href=\"#further-improvements\"></a>Further improvements</h3>\n<div class=\"paragraph\">\n<p>In addition to the security fixes listed in the security advisory, we also applied multiple improvements that make future security vulnerabilities more difficult, or even impossible to exploit.</p>\n</div>\n<div class=\"paragraph\">\n<p>One such improvement concerns cross-site scripting vulnerabilities, and comes with a risk of regressions.</p>\n</div>\n<div class=\"paragraph\">\n<p>Jenkins uses a fork of <a href=\"https://commons.apache.org/proper/commons-jelly/\">Jelly</a> for the vast majority of the views it renders.\nSince 2011, it includes a feature that lets view authors opt in or out of automatic escaping of variable values for rendering in HTML, and since 2016, the plugin build tooling requires that views explicitly specify whether to apply this automatic escaping.\nDetails are available in <a href=\"/doc/developer/security/xss-prevention/\">the developer documentation</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Until now, if views do not declare whether to automatically escape, they were rendered without automatic escaping, and developers were expected to explicitly escape every variable reference that was not supposed to contain markup.\nThis has resulted in a number of cross-site scripting (XSS) vulnerabilities, most recently <a href=\"/security/advisory/2018-09-25/#SECURITY-1130\">SECURITY-1130 in Job Config History Plugin</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>For that reason, we have decided to enable this automatic escaping by default if plugins do not specify a preference.\nThis can result in problems with some plugins if they need their output to remain unescaped.\nWe expect that those plugins will adapt pretty quickly to this change, as the fix is typically straightforward.\nWe track known affected plugins and their status on <a href=\"https://wiki.jenkins.io/display/JENKINS/Plugins+affected+by+2018-10-10+Stapler+security+hardening\">the Jenkins wiki</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>In the mean time, users can set the <a href=\"/doc/book/managing/system-properties/\">system property</a> <code>org.kohsuke.stapler.jelly.CustomJellyContext.escapeByDefault</code> to <code>false</code> to disable this additional protection.</p>\n</div>\n</div>"
+}

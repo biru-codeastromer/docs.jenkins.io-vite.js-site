@@ -1,0 +1,16 @@
+{
+  "id": "2020-07-2020-07-15-xss-severity",
+  "url": "/blog/2020/07/01/2020-07-15-xss-severity/",
+  "title": "Severity of cross-site scripting vulnerabilities",
+  "date": "2020-07-01",
+  "authors": [
+    "daniel-beck"
+  ],
+  "tags": [
+    "security",
+    "announcement"
+  ],
+  "summary": "Eagle-eyed readers of today's security advisory may already have noticed that we consider the cross-site scripting (XSS) vulnerabilities to be 'High' severity.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>Eagle-eyed readers of today's <a href=\"/security/advisory/2020-07-15/\">security advisory</a> may already have noticed that we consider the cross-site scripting (XSS) vulnerabilities to be 'High' severity.\nThis is a change from previous security advisories, in which similar vulnerabilities got a 'Medium' score.</p>\n</div>\n<div class=\"paragraph\">\n<p>We follow the guidelines of <a href=\"https://www.first.org/cvss/calculator/3.0\">CVSS version 3.0</a> for the severity we assign to these issues.\nTheir examples for XSS vulnerabilities, as well as XSS vulnerabilities in other software, consider the most severe, immediate impact to be a modification of the HTML output, possibly also the extraction of the session cookie (something Jenkins prevents by declaring it to be <code>HttpOnly</code>).</p>\n</div>\n<div class=\"paragraph\">\n<p>Unfortunately, this does not adequately model the impact that a successful XSS exploitation in Jenkins can have:\nJenkins administrators can perform far more sensitive actions than e.g. the admins of most content management systems could, as it is designed to allow users to execute code to build, test, and deploy their software.\nSo this kind of vulnerability, that allows attackers to do <em>anything</em> their victims have permission to do, in Jenkins can mean execution of arbitrary code, perhaps via the script console, if the victim has the Overall/Administer permission.\nNone of this requires chaining different actions in an attack, a well-chosen XSS payload will accomplish this.</p>\n</div>\n<div class=\"paragraph\">\n<p>Therefore, starting today, we score XSS vulnerabilities by the highest immediate impact a successful attack can have, which is a complete system compromise if admins can be attacked.\nFor stored XSS requiring some permissions, like the ability to configure jobs, a typical score would be <a href=\"https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H\">8.0</a>.\nReflected XSS, which don't require any permissions to exploit, will usually score <a href=\"https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\">8.8</a>.</p>\n</div>"
+}

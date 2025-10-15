@@ -1,0 +1,16 @@
+{
+  "id": "2018-02-2018-02-05-security-updates",
+  "url": "/blog/2018/02/01/2018-02-05-security-updates/",
+  "title": "Security updates for multiple Jenkins plugins",
+  "date": "2018-02-01",
+  "authors": [
+    "daniel-beck"
+  ],
+  "tags": [
+    "plugins",
+    "security"
+  ],
+  "summary": "Multiple Jenkins plugins received updates today that fix several security vulnerabilities.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>Multiple Jenkins plugins received updates today that fix several security vulnerabilities.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>plugin:android-lint[Android Lint]</p>\n</li>\n<li>\n<p>plugin:ccm[CCM]</p>\n</li>\n<li>\n<p>plugin:credentials-binding[Credentials Binding]</p>\n</li>\n<li>\n<p>plugin:junit[JUnit]</p>\n</li>\n<li>\n<p>plugin:workflow-support[Pipeline: Supporting APIs]</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>For an overview of these security fixes, see the <a href=\"/security/advisory/2018-02-05\">security advisory</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Subscribe to the <a href=\"/mailing-lists\">jenkinsci-advisories mailing list</a> to receive important future notifications related to Jenkins security.</p>\n</div>"
+}

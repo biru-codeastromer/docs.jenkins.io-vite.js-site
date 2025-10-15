@@ -1,0 +1,16 @@
+{
+  "id": "2018-07-2018-07-10-jenkins-essentials-on-aws",
+  "url": "/blog/2018/07/01/2018-07-10-jenkins-essentials-on-aws/",
+  "title": "Jenkins Essentials flavor for AWS",
+  "date": "2018-07-01",
+  "authors": [
+    "batmat"
+  ],
+  "tags": [
+    "jenkinsevergreen",
+    "evergreen"
+  ],
+  "summary": "Jenkins Essentials is about providing a distribution of Jenkins in less than five minutes and five clicks.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"admonitionblock tip\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-tip\" title=\"Tip\"></i>\n</td>\n<td class=\"content\">\n<em>Jenkins Essentials</em> has been renamed to <em>Jenkins <strong>Evergreen</strong></em> since this was written.\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p><span class=\"image right\"><img src=\"/images/logos/magician/256.png\" alt=\"Jenkins Essentials\"></span></p>\n</div>\n<div class=\"paragraph\">\n<p>Jenkins Essentials is about providing a <a href=\"/blog/2018/04/06/jenkins-essentials/\">distribution of Jenkins in less than five minutes and five clicks</a>.\nOne of the main ideas to make this a reality is that Jenkins will be autoconfigured with sane defaults for the environment it is running in.</p>\n</div>\n<div class=\"paragraph\">\n<p>We are happy to report we recently merged the <a href=\"https://github.com/jenkins-infra/evergreen/pull/128\">change that provides this feature for AWS</a>.\nWe use an <em><a href=\"https://aws.amazon.com/cloudformation\">AWS CloudFormation template</a></em> to provision a working version of <em>Jenkins Essentials</em>, automatically configured to:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>dynamically provision EC2 agents, using the <a href=\"https://plugins.jenkins.io/ec2\">EC2 plugin</a>;</p>\n</li>\n<li>\n<p>use the <a href=\"https://plugins.jenkins.io/artifact-manager-s3\">Artifact Manager on S3</a> plugin, so that artifacts are not stored anymore on the controller's file system, but directly in an S3 bucket.</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>I recorded a short demo video last week showing the basics of this:</p>\n</div>\n<div class=\"videoblock\">\n<div class=\"content\">\n<iframe src=\"https://www.youtube.com/embed/966OiFW2gow?rel=0\" frameborder=\"0\" allowfullscreen></iframe>\n</div>\n</div>\n<div class=\"paragraph\">\n<p>While there are still many items to complete to provide a usable version for end-users, we are making steady progress towards it.</p>\n</div>\n<hr>\n<div class=\"paragraph\">\n<p>You can learn more about Jenkins Essentials from the\n<a href=\"https://github.com/jenkins-infra/evergreen\">GitHub repository</a>, or join us\non our\n<a href=\"https://app.gitter.im/#/room/#jenkins-infra_evergreen:gitter.im\">Gitter channel</a>.</p>\n</div>"
+}

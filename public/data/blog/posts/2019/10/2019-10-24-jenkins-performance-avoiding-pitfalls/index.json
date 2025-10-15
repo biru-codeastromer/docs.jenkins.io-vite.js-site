@@ -1,0 +1,18 @@
+{
+  "id": "2019-10-2019-10-24-jenkins-performance-avoiding-pitfalls",
+  "url": "/blog/2019/10/01/2019-10-24-jenkins-performance-avoiding-pitfalls/",
+  "title": "Jenkins Performance: Avoiding Pitfalls, Diagnosing Issues, and Scaling for Growth - DevOps World | Jenkins World 2019",
+  "date": "2019-10-01",
+  "authors": [
+    "ryansmith303"
+  ],
+  "tags": [
+    "jenkins world",
+    "jenkinsworld",
+    "devopsworld2019",
+    "performance"
+  ],
+  "summary": "Are you suffering from Jenkins performance issues.",
+  "opengraph_image": "/images/performance/gc-unhealthy.png",
+  "content_html": "<div class=\"admonitionblock note\">\n<table>\n<tr>\n<td class=\"icon\">\n<i class=\"fa icon-note\" title=\"Note\"></i>\n</td>\n<td class=\"content\">\nThis is a speaker blogpost for a DevOps World | Jenkins World 2019 talk in Lisbon, Portugal\n</td>\n</tr>\n</table>\n</div>\n<div class=\"paragraph\">\n<p>With Halloween upon us, there's no better time to discuss Jenkinstein!\nAre you suffering from Jenkins performance issues?\nAre users complaining about a slow UI or even scarier, is Jenkins going down frequently?</p>\n</div>\n<div class=\"imageblock right\">\n<div class=\"content\">\n<img src=\"/images/logos/jenkinstein/256.png\" alt=\"Jenkinstein\">\n</div>\n</div>\n<div class=\"paragraph\">\n<p>Come join me at <a href=\"https://www.cloudbees.com/devops-world/lisbon\">DevOps World | Jenkins World 2019</a> for \"<a href=\"https://sched.co/UVVp\"><strong>Jenkins Performance: Avoiding Pitfalls, Diagnosing Issues, and Scaling for Growth</strong></a>\", a talk about JVM administration and best practices from the front lines of supporting thousands of Jenkins installations worldwide.\nDuring this talk we'll cover how to prevent your Jenkins instance from becoming a Jenkinstein!</p>\n</div>\n<div class=\"paragraph\">\n<p>Topics we will be discussing:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>JVM administration best practices</p>\n</li>\n<li>\n<p>Horizontal scaling</p>\n</li>\n<li>\n<p>Analyzing thread dumps, GC logs, and heap dumps</p>\n</li>\n<li>\n<p>Real world data showing 3500% performance increases</p>\n</li>\n<li>\n<p>Garbage collection</p>\n</li>\n</ul>\n</div>\n<div class=\"imageblock\">\n<div class=\"content\">\n<img src=\"/images/performance/gc-unhealthy.png\" alt=\"gc unhealthy\">\n</div>\n</div>\n<div class=\"paragraph\">\n<p>We'll be discussing how you can forecast for growth, and baseline using key performance indicators like application throughput and latency, by analyzing spooky data like Garbage Collection logs!</p>\n</div>\n<div class=\"paragraph\">\n<p>Come join me for the presentation in Lisbon! There will be candy!</p>\n</div>\n<div class=\"sect1\">\n<h2 id=\"slides\"><a class=\"anchor\" href=\"#slides\"></a>Slides</h2>\n<div class=\"sectionbody\">\n<iframe src=\"https://drive.google.com/file/d/1qNHGcDN5YQGPJ38vRRU-l1_TFMB3NmKo/preview\" width=\"800\" height=\"460\"></iframe>\n</div>\n</div>"
+}

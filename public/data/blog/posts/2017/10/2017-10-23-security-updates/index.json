@@ -1,0 +1,16 @@
+{
+  "id": "2017-10-2017-10-23-security-updates",
+  "url": "/blog/2017/10/01/2017-10-23-security-updates/",
+  "title": "Security updates for multiple Jenkins plugins",
+  "date": "2017-10-01",
+  "authors": [
+    "daniel-beck"
+  ],
+  "tags": [
+    "plugins",
+    "security"
+  ],
+  "summary": "Multiple Jenkins plugins received updates today that fix several security vulnerabilities.",
+  "opengraph_image": "/images/logo-title-opengraph.png",
+  "content_html": "<div class=\"paragraph\">\n<p>Multiple Jenkins plugins received updates today that fix several security vulnerabilities.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>plugin:uno-choice[Active Choices] (uno-choice)</p>\n</li>\n<li>\n<p>plugin:build-publisher[Build-Publisher]</p>\n</li>\n<li>\n<p>plugin:depgraph-view[Dependency Graph Viewer]</p>\n</li>\n<li>\n<p>plugin:global-build-stats[global-build-stats]</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Additionally, the plugin:jenkins-multijob-plugin[Multijob Plugin] also received a security update several weeks ago.</p>\n</div>\n<div class=\"paragraph\">\n<p>For an overview of these security fixes, see the <a href=\"/security/advisory/2017-10-23\">security advisory</a>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Active Choices Plugin distribution had been suspended since April due to its mandatory dependency on the suspended Scriptler Plugin.\nThat dependency has been made optional, so Active Choices can be used without having Scriptler installed.\nThis means we are able to resume distribution of Active Choices Plugin again.\nIt should be available on update sites later today.</p>\n</div>\n<div class=\"paragraph\">\n<p>We also announced a medium severity security vulnerability in SCP publisher plugin that does not have a fix at this time.</p>\n</div>\n<div class=\"paragraph\">\n<p>Subscribe to the <a href=\"/mailing-lists\">jenkinsci-advisories mailing list</a> to receive important future notifications related to Jenkins security.</p>\n</div>"
+}
