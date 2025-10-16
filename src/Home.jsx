@@ -56,7 +56,7 @@ export default function Home() {
       {/* Video Section */}
       <VideoSection />
 
-      {/* Blogs Section - Will be fully functional after blog PR merge */}
+      {/* Blogs Section */}
       <BlogsSection />
 
       {/* Sponsors Block */}

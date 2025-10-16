@@ -1,39 +1,60 @@
-import React from 'react';
-import { Box, Container, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import BlogCardList from './BlogCardList';
+import BlogFrame from '../blog/BlogFrame';
 
 export default function BlogsSection() {
-  return (
-    <Container sx={{ py: 8 }}>
-      <Box className="section">
-        <Typography variant="h2" sx={{ mb: 4 }}>
-          Recent posts
-        </Typography>
+  const [recentPosts, setRecentPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadRecentPosts = async () => {
+      try {
+        const response = await fetch('/data/blog/index.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch blog posts');
+        }
+        const allPosts = await response.json();
         
-        {/* Placeholder until blog system is implemented */}
-        <Box sx={{ 
-          textAlign: 'center', 
-          py: 6,
-          border: '2px dashed',
-          borderColor: 'divider',
-          borderRadius: 2
-        }}>
-          <Typography variant="h6" sx={{ mb: 2 }}>
-            Blog posts coming soon
-          </Typography>
-          <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-            The blog system is currently being integrated. Recent posts will appear here once available.
-          </Typography>
-          <Button 
-            component={Link}
-            to="/blog"
-            variant="outlined"
-            className="app-button"
-          >
-            Visit Blog
-          </Button>
-        </Box>
-      </Box>
-    </Container>
+        const recent = allPosts.slice(0, 9);
+        setRecentPosts(recent);
+      } catch (error) {
+        console.error('Error loading recent posts:', error);
+        setRecentPosts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadRecentPosts();
+  }, []);
+
+  if (loading) {
+    return (
+      <BlogFrame title="Recent Posts">
+        <div className="container" style={{ padding: '4rem 0' }}>
+          <div className="section">
+            <h2 className="app-events__heading">Recent posts</h2>
+            <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+              <p>Loading recent posts...</p>
+            </div>
+          </div>
+        </div>
+      </BlogFrame>
+    );
+  }
+
+  if (recentPosts.length === 0) {
+    return null;
+  }
+
+  return (
+    <BlogFrame title="Recent Posts">
+      <div className="container" style={{ padding: '4rem 0' }}>
+        <div className="section">
+          <h2 className="app-events__heading">Recent posts</h2>
+          <BlogCardList posts={recentPosts} />
+        </div>
+      </div>
+    </BlogFrame>
   );
 }
