@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 export default function ProjectCarousel({ slides = [] }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [carouselId] = useState(() => Math.floor(Math.random() * 1000));
+  const [carouselId] = useState(() => `project-carousel-${Math.floor(Math.random() * 1000)}`);
 
   useEffect(() => {
     if (slides.length > 1) {
@@ -51,32 +51,40 @@ export default function ProjectCarousel({ slides = [] }) {
 
   return (
     <Box 
-      id={`ProjectCarousel_${carouselId}`}
-      className={`carousel slide carousel_${carouselId}`}
+      id={carouselId}
       sx={{
-        '--color': 'white',
-        background: `${carouselBackground} url(${carouselBackgroundImage}) no-repeat center`,
-        backgroundSize: 'cover !important',
-        color: 'white',
-        position: 'relative',
-        minHeight: '500px',
-        display: 'flex',
-        alignItems: 'center',
-        '& a': {
-          color: 'var(--color)',
+        [`&.${carouselId}`]: {
+          background: `${carouselBackground} url(${carouselBackgroundImage}) no-repeat center !important`,
+          backgroundSize: 'cover !important',
+          color: 'white !important',
+          position: 'relative',
+          minHeight: '500px',
+          display: 'flex',
+          alignItems: 'center',
+        },
+        [`& .${carouselId}-link`]: {
+          color: 'white !important',
           textDecoration: 'none !important',
         },
-        '& img': {
-          display: 'block',
-          marginLeft: 'auto',
-          marginRight: 'auto',
+        [`& .${carouselId}-image`]: {
+          display: 'block !important',
+          marginLeft: 'auto !important',
+          marginRight: 'auto !important',
+        },
+        [`& .${carouselId}-text`]: {
+          color: 'white !important',
+        },
+        [`& .${carouselId}-button`]: {
+          color: 'white !important',
+          borderColor: 'white !important',
         }
       }}
+      className={carouselId}
     >
       <Container sx={{ position: 'relative', zIndex: 1 }}>
         {/* Carousel Indicators */}
         {normalizedSlides.length > 1 && (
-          <Box className="carousel-indicators" sx={{ 
+          <Box sx={{ 
             display: 'flex', 
             justifyContent: 'center', 
             position: 'absolute',
@@ -88,7 +96,6 @@ export default function ProjectCarousel({ slides = [] }) {
             {normalizedSlides.map((_, index) => (
               <Button
                 key={index}
-                className={index === activeIndex ? 'active' : ''}
                 onClick={() => goToSlide(index)}
                 sx={{
                   width: 12,
@@ -109,7 +116,7 @@ export default function ProjectCarousel({ slides = [] }) {
         )}
         
         {/* Carousel Items */}
-        <Box className={`carousel-inner carousel_${carouselId}`}>
+        <Box>
           {normalizedSlides.map((slide, index) => {
             const normalizedSlide = normalizeSlide(slide);
             if (!normalizedSlide) return null;
@@ -117,7 +124,6 @@ export default function ProjectCarousel({ slides = [] }) {
             return (
               <Box
                 key={index}
-                className={`carousel-item carousel_${carouselId} ${index === activeIndex ? 'active' : ''}`}
                 sx={{
                   display: index === activeIndex ? 'block' : 'none',
                   height: '500px',
@@ -126,6 +132,7 @@ export default function ProjectCarousel({ slides = [] }) {
               >
                 <Container sx={{ height: '100%', display: 'flex', alignItems: 'center' }}>
                   <Grid container spacing={4} alignItems="center" sx={{ height: '100%' }}>
+                    {/* Image Column */}
                     <Grid item xs={12} lg={8} sx={{ 
                       order: { xs: 2, lg: 2 },
                       display: 'flex',
@@ -141,10 +148,14 @@ export default function ProjectCarousel({ slides = [] }) {
                           alignItems: 'center',
                           justifyContent: 'center'
                         }}>
-                          <Link to={normalizedSlide.href || '#'}>
+                          <Link 
+                            to={normalizedSlide.href || '#'} 
+                            className={`${carouselId}-link`}
+                          >
                             <img 
                               src={normalizedSlide.image.src} 
                               alt=""
+                              className={`${carouselId}-image`}
                               style={{ 
                                 height: normalizedSlide.image.height || '300px',
                                 maxWidth: '100%',
@@ -158,6 +169,7 @@ export default function ProjectCarousel({ slides = [] }) {
                       )}
                     </Grid>
                     
+                    {/* Content Column */}
                     <Grid item xs={12} lg={4} sx={{ 
                       order: { xs: 1, lg: 1 },
                       height: { xs: 'auto', lg: '100%' },
@@ -166,23 +178,32 @@ export default function ProjectCarousel({ slides = [] }) {
                       justifyContent: 'center'
                     }}>
                       <Box>
-                        <Link to={normalizedSlide.href || '#'}>
+                        <Link 
+                          to={normalizedSlide.href || '#'} 
+                          className={`${carouselId}-link`}
+                        >
                           <Typography 
                             variant="h2" 
+                            className={`${carouselId}-text`}
                             sx={{ 
                               mb: 2, 
                               fontSize: { xs: '1.75rem', md: '2.25rem', lg: '2.5rem' },
                               fontWeight: 'bold',
-                              lineHeight: 1.2
+                              lineHeight: 1.2,
+                              color: 'white !important'
                             }}
                           >
                             {normalizedSlide.title}
                           </Typography>
-                          <Typography sx={{ 
-                            mb: 3, 
-                            fontSize: '1.1rem',
-                            lineHeight: 1.6
-                          }}>
+                          <Typography 
+                            className={`${carouselId}-text`}
+                            sx={{ 
+                              mb: 3, 
+                              fontSize: '1.1rem',
+                              lineHeight: 1.6,
+                              color: 'white !important'
+                            }}
+                          >
                             {normalizedSlide.intro}
                           </Typography>
                         </Link>
@@ -193,17 +214,18 @@ export default function ProjectCarousel({ slides = [] }) {
                               component={Link}
                               to={normalizedSlide.call_to_action.href}
                               variant="outlined"
-                              className="app-button"
+                              className={`${carouselId}-button`}
                               sx={{
-                                color: 'white',
-                                borderColor: 'white',
+                                color: 'white !important',
+                                borderColor: 'white !important',
                                 backdropFilter: 'blur(10px)',
                                 backgroundColor: 'rgba(255,255,255,0.1)',
                                 fontSize: '1rem',
                                 padding: '10px 20px',
                                 '&:hover': {
                                   backgroundColor: 'rgba(255,255,255,0.2)',
-                                  borderColor: 'white'
+                                  borderColor: 'white !important',
+                                  color: 'white !important'
                                 }
                               }}
                             >
@@ -225,15 +247,17 @@ export default function ProjectCarousel({ slides = [] }) {
           <>
             <IconButton
               onClick={prevSlide}
+              className={`${carouselId}-button`}
               sx={{
                 position: 'absolute',
                 left: 16,
                 top: '50%',
                 transform: 'translateY(-50%)',
-                color: 'white',
+                color: 'white !important',
                 backgroundColor: 'rgba(0,0,0,0.5)',
                 '&:hover': {
-                  backgroundColor: 'rgba(0,0,0,0.7)'
+                  backgroundColor: 'rgba(0,0,0,0.7)',
+                  color: 'white !important'
                 },
                 zIndex: 2
               }}
@@ -242,15 +266,17 @@ export default function ProjectCarousel({ slides = [] }) {
             </IconButton>
             <IconButton
               onClick={nextSlide}
+              className={`${carouselId}-button`}
               sx={{
                 position: 'absolute',
                 right: 16,
                 top: '50%',
                 transform: 'translateY(-50%)',
-                color: 'white',
+                color: 'white !important',
                 backgroundColor: 'rgba(0,0,0,0.5)',
                 '&:hover': {
-                  backgroundColor: 'rgba(0,0,0,0.7)'
+                  backgroundColor: 'rgba(0,0,0,0.7)',
+                  color: 'white !important'
                 },
                 zIndex: 2
               }}
@@ -262,22 +288,58 @@ export default function ProjectCarousel({ slides = [] }) {
       </Container>
 
       <style>{`
-        .carousel_${carouselId} {
-          --color: white;
+        #${carouselId} {
+          background: #000000 url(/images/cdf/cdf-background-wide.jpg) no-repeat center !important;
           background-size: cover !important;
+          color: white !important;
         }
-        .carousel_${carouselId} a {
-          color: var(--color);
+        
+        #${carouselId} * {
+          color: white !important;
+        }
+        
+        #${carouselId} a {
+          color: white !important;
           text-decoration: none !important;
         }
-        .carousel_${carouselId} img {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
+        
+        #${carouselId} a:hover {
+          color: white !important;
+          text-decoration: none !important;
         }
-        #ProjectCarousel_${carouselId} {
-          background: #000000 url(/images/cdf/cdf-background-wide.jpg) no-repeat center;
-          background-size: cover !important;
+        
+        #${carouselId} .MuiTypography-root {
+          color: white !important;
+        }
+        
+        #${carouselId} .MuiButton-root {
+          color: white !important;
+          border-color: white !important;
+        }
+        
+        #${carouselId} .MuiButton-root:hover {
+          color: white !important;
+          border-color: white !important;
+        }
+        
+        #${carouselId} img {
+          display: block !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        
+        #${carouselId},
+        #${carouselId} *,
+        #${carouselId} h1,
+        #${carouselId} h2, 
+        #${carouselId} h3,
+        #${carouselId} h4,
+        #${carouselId} h5,
+        #${carouselId} h6,
+        #${carouselId} p,
+        #${carouselId} span,
+        #${carouselId} div {
+          color: white !important;
         }
       `}</style>
     </Box>
