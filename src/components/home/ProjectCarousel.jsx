@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Container, Grid, Typography, Button, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 export default function ProjectCarousel({ slides = [] }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -58,9 +57,12 @@ export default function ProjectCarousel({ slides = [] }) {
           backgroundSize: 'cover !important',
           color: 'white !important',
           position: 'relative',
-          minHeight: '500px',
+          minHeight: { xs: '400px', md: '480px' },
           display: 'flex',
           alignItems: 'center',
+        },
+        [`&.${carouselId}, &.${carouselId} *`]: {
+          fontFamily: `"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`,
         },
         [`& .${carouselId}-link`]: {
           color: 'white !important',
@@ -81,35 +83,36 @@ export default function ProjectCarousel({ slides = [] }) {
       }}
       className={carouselId}
     >
-      <Container sx={{ position: 'relative', zIndex: 1 }}>
+      <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1, px: { xs: 3, md: 6 } }}>
         {/* Carousel Indicators */}
         {normalizedSlides.length > 1 && (
           <Box sx={{ 
             display: 'flex', 
             justifyContent: 'center', 
             position: 'absolute',
-            bottom: 20,
+            bottom: { xs: 18, md: 28 },
             left: 0,
             right: 0,
-            zIndex: 2
+            zIndex: 2,
+            gap: 2
           }}>
             {normalizedSlides.map((_, index) => (
               <Button
                 key={index}
                 onClick={() => goToSlide(index)}
                 sx={{
-                  width: 12,
-                  height: 12,
-                  borderRadius: '50%',
-                  border: 0,
-                  backgroundColor: index === activeIndex ? 'white' : 'rgba(255,255,255,0.5)',
-                  margin: '0 4px',
+                  width: { xs: 20, md: 24 },
+                  height: { xs: 4, md: 4 },
+                  borderRadius: 1,
                   minWidth: 'auto',
                   padding: 0,
+                  backgroundColor: index === activeIndex ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.25)',
+                  boxShadow: 'none',
                   '&:hover': {
-                    backgroundColor: 'white'
+                    backgroundColor: 'rgba(255,255,255,0.95)'
                   }
                 }}
+                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </Box>
@@ -126,58 +129,22 @@ export default function ProjectCarousel({ slides = [] }) {
                 key={index}
                 sx={{
                   display: index === activeIndex ? 'block' : 'none',
-                  height: '500px',
-                  py: 4
+                  height: { xs: 'auto', md: '480px' },
+                  py: { xs: 3, md: 4 }
                 }}
               >
-                <Container sx={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-                  <Grid container spacing={4} alignItems="center" sx={{ height: '100%' }}>
-                    {/* Image Column */}
-                    <Grid item xs={12} lg={8} sx={{ 
-                      order: { xs: 2, lg: 2 },
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      height: { xs: 'auto', lg: '100%' }
-                    }}>
-                      {normalizedSlide.image && (
-                        <Box sx={{ 
-                          textAlign: 'center',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}>
-                          <Link 
-                            to={normalizedSlide.href || '#'} 
-                            className={`${carouselId}-link`}
-                          >
-                            <img 
-                              src={normalizedSlide.image.src} 
-                              alt=""
-                              className={`${carouselId}-image`}
-                              style={{ 
-                                height: normalizedSlide.image.height || '300px',
-                                maxWidth: '100%',
-                                maxHeight: '350px',
-                                objectFit: 'contain'
-                              }}
-                              role="presentation"
-                            />
-                          </Link>
-                        </Box>
-                      )}
-                    </Grid>
-                    
+                <Container maxWidth="xl" sx={{ height: '100%', display: 'flex', alignItems: 'center', px: 0 }}>
+                  <Grid container spacing={{ xs: 2, md: 6 }} alignItems="center" sx={{ height: '100%', alignItems: 'center' }}>
                     {/* Content Column */}
                     <Grid item xs={12} lg={4} sx={{ 
                       order: { xs: 1, lg: 1 },
                       height: { xs: 'auto', lg: '100%' },
                       display: 'flex',
                       flexDirection: 'column',
-                      justifyContent: 'center'
+                      justifyContent: 'center',
+                      pl: { md: 6 },
                     }}>
-                      <Box>
+                      <Box sx={{ maxWidth: { xs: '100%', md: 480 } }}>
                         <Link 
                           to={normalizedSlide.href || '#'} 
                           className={`${carouselId}-link`}
@@ -187,10 +154,11 @@ export default function ProjectCarousel({ slides = [] }) {
                             className={`${carouselId}-text`}
                             sx={{ 
                               mb: 2, 
-                              fontSize: { xs: '1.75rem', md: '2.25rem', lg: '2.5rem' },
-                              fontWeight: 'bold',
-                              lineHeight: 1.2,
-                              color: 'white !important'
+                              fontSize: { xs: '1.5rem', md: '2rem', lg: '2.2rem' },
+                              fontWeight: 700,
+                              lineHeight: { xs: 1.12, md: 1.05 },
+                              color: 'white !important',
+                              letterSpacing: '-0.5px'
                             }}
                           >
                             {normalizedSlide.title}
@@ -198,10 +166,11 @@ export default function ProjectCarousel({ slides = [] }) {
                           <Typography 
                             className={`${carouselId}-text`}
                             sx={{ 
-                              mb: 3, 
-                              fontSize: '1.1rem',
+                              mb: 4, 
+                              fontSize: { xs: '0.95rem', md: '1rem' },
                               lineHeight: 1.6,
-                              color: 'white !important'
+                              color: 'rgba(255,255,255,0.92) !important',
+                              maxWidth: { xs: '100%', md: 420 }
                             }}
                           >
                             {normalizedSlide.intro}
@@ -217,14 +186,16 @@ export default function ProjectCarousel({ slides = [] }) {
                               className={`${carouselId}-button`}
                               sx={{
                                 color: 'white !important',
-                                borderColor: 'white !important',
-                                backdropFilter: 'blur(10px)',
-                                backgroundColor: 'rgba(255,255,255,0.1)',
-                                fontSize: '1rem',
-                                padding: '10px 20px',
+                                borderColor: 'rgba(255,255,255,0.18) !important',
+                                backdropFilter: 'blur(6px)',
+                                backgroundColor: 'rgba(255,255,255,0.06)',
+                                fontSize: '0.9rem',
+                                padding: '8px 16px',
+                                borderRadius: 2,
+                                textTransform: 'none',
                                 '&:hover': {
-                                  backgroundColor: 'rgba(255,255,255,0.2)',
-                                  borderColor: 'white !important',
+                                  backgroundColor: 'rgba(255,255,255,0.12)',
+                                  borderColor: 'rgba(255,255,255,0.22) !important',
                                   color: 'white !important'
                                 }
                               }}
@@ -235,6 +206,47 @@ export default function ProjectCarousel({ slides = [] }) {
                         )}
                       </Box>
                     </Grid>
+
+                    <Grid item xs={12} lg={8} sx={{ 
+                      order: { xs: 2, lg: 2 },
+                      display: 'flex',
+                      justifyContent: { xs: 'center', lg: 'center' },
+                      alignItems: 'center',
+                      height: { xs: 'auto', lg: '100%' }
+                    }}>
+                      {normalizedSlide.image && (
+                        <Box sx={{ 
+                          textAlign: 'center',
+                          height: '100%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: { xs: 'center', lg: 'center' },
+                          width: '100%',
+                          pr: { md: 4 }
+                        }}>
+                          <Link 
+                            to={normalizedSlide.href || '#'} 
+                            className={`${carouselId}-link`}
+                          >
+                            <img 
+                              src={normalizedSlide.image.src} 
+                              alt=""
+                              className={`${carouselId}-image`}
+                              style={{ 
+                                width: '100%',
+                                maxWidth: normalizedSlide.image.width || '760px',
+                                height: normalizedSlide.image.height || '320px',
+                                maxHeight: '360px',
+                                objectFit: 'cover',
+                                display: 'block',
+                                borderRadius: 2
+                              }}
+                              role="presentation"
+                            />
+                          </Link>
+                        </Box>
+                      )}
+                    </Grid>
                   </Grid>
                 </Container>
               </Box>
@@ -242,104 +254,66 @@ export default function ProjectCarousel({ slides = [] }) {
           })}
         </Box>
 
-        {/* Navigation Arrows */}
-        {normalizedSlides.length > 1 && (
-          <>
-            <IconButton
-              onClick={prevSlide}
-              className={`${carouselId}-button`}
-              sx={{
-                position: 'absolute',
-                left: 16,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: 'white !important',
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                '&:hover': {
-                  backgroundColor: 'rgba(0,0,0,0.7)',
-                  color: 'white !important'
-                },
-                zIndex: 2
-              }}
-            >
-              <ChevronLeft />
-            </IconButton>
-            <IconButton
-              onClick={nextSlide}
-              className={`${carouselId}-button`}
-              sx={{
-                position: 'absolute',
-                right: 16,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: 'white !important',
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                '&:hover': {
-                  backgroundColor: 'rgba(0,0,0,0.7)',
-                  color: 'white !important'
-                },
-                zIndex: 2
-              }}
-            >
-              <ChevronRight />
-            </IconButton>
-          </>
-        )}
       </Container>
 
       <style>{`
         #${carouselId} {
-          background: #000000 url(/images/cdf/cdf-background-wide.jpg) no-repeat center !important;
+          background: #000000 url(${carouselBackgroundImage}) no-repeat center !important;
           background-size: cover !important;
           color: white !important;
         }
-        
-        #${carouselId} * {
+
+        #${carouselId}, #${carouselId} * {
+          font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
           color: white !important;
         }
-        
+
         #${carouselId} a {
           color: white !important;
           text-decoration: none !important;
         }
-        
+
         #${carouselId} a:hover {
           color: white !important;
           text-decoration: none !important;
         }
-        
+
         #${carouselId} .MuiTypography-root {
           color: white !important;
         }
-        
+
         #${carouselId} .MuiButton-root {
           color: white !important;
-          border-color: white !important;
+          border-color: rgba(255,255,255,0.18) !important;
         }
-        
-        #${carouselId} .MuiButton-root:hover {
-          color: white !important;
-          border-color: white !important;
-        }
-        
+
         #${carouselId} img {
           display: block !important;
           margin-left: auto !important;
           margin-right: auto !important;
         }
-        
-        #${carouselId},
-        #${carouselId} *,
+
         #${carouselId} h1,
         #${carouselId} h2, 
         #${carouselId} h3,
         #${carouselId} h4,
         #${carouselId} h5,
-        #${carouselId} h6,
+        #${carouselId} h6 {
+          color: white !important;
+          margin: 0;
+        }
+
         #${carouselId} p,
         #${carouselId} span,
         #${carouselId} div {
           color: white !important;
+        }
+
+        @media (min-width: 960px) {
+          #${carouselId} .MuiContainer-root {
+            padding-left: 48px;
+            padding-right: 48px;
+          }
         }
       `}</style>
     </Box>
