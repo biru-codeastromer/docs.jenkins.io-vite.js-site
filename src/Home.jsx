@@ -1,81 +1,69 @@
-import React from 'react';
-import { Typography, Box, Link } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Box, Container, Grid, Typography, useTheme } from '@mui/material';
+import { loadYamlData } from './utils/loadData';
+import DownloadBanner from './components/home/DownloadBanner';
+import ProjectCarousel from './components/home/ProjectCarousel';
+import FeatureList from './components/home/FeatureList';
+import VideoSection from './components/home/VideoSection';
+import BlogsSection from './components/home/BlogsSection';
+import SponsorsBlock from './components/home/SponsorsBlock';
+import ThankYouNote from './components/home/ThankYouNote';
 
 export default function Home() {
+  const [carouselData, setCarouselData] = useState([]);
+  const [supportersData, setSupportersData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const theme = useTheme();
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const [carousel, supporters] = await Promise.all([
+          loadYamlData('indexpage/carousel.yml'),
+          loadYamlData('indexpage/supporters.yml')
+        ]);
+        setCarouselData(carousel || []);
+        setSupportersData(supporters || []);
+      } catch (error) {
+        console.error('Error loading homepage data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  if (loading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}>
+        <Typography>Loading...</Typography>
+      </Box>
+    );
+  }
+
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Jenkins Documentation
-      </Typography>
-      <Typography paragraph>
-        Welcome to the Jenkins documentation site
-      </Typography>
-      <Typography>
-        <Link href="/project/roadmap" variant="body1">
-          View Roadmap
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/download" variant="body1">
-          Download Jenkins
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/events" variant="body1">
-          Events
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/books" variant="body1">
-          Books
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/press" variant="body1">
-          Press Information
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/awards" variant="body1">
-          Awards
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/chat" variant="body1">
-          Chat
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/project/conduct" variant="body1">
-          Code of Conduct
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/artwork" variant="body1">
-          Artwork
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/participate" variant="body1">
-          Participate and Contribute
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/mailing-lists" variant="body1">
-          Mailing Lists
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/blog" variant="body1">
-          Blog
-        </Link>
-      </Typography>
-      <Typography>
-        <Link href="/security" variant="body1">
-          Security
-        </Link>
-      </Typography>
+    <Box sx={{ overflow: 'hidden' }}>
+      {/* Download Banner */}
+      <DownloadBanner />
+
+      {/* Project Carousel */}
+      <ProjectCarousel slides={carouselData} />
+
+      {/* Feature List */}
+      <FeatureList />
+
+      {/* Video Section */}
+      <VideoSection />
+
+      {/* Blogs Section */}
+      <BlogsSection />
+
+      {/* Sponsors Block */}
+      <SponsorsBlock supporters={supportersData} />
+
+      {/* Thank You Note */}
+      <ThankYouNote />
     </Box>
   );
 }
-
