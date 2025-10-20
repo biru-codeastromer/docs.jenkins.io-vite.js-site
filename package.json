@@ -34,6 +34,6 @@
     "@rollup/plugin-yaml": "^4.1.2",
     "@vitejs/plugin-react": "^4.2.1",
     "asciidoctor": "^3.0.4",
-    "vite": "^7.1.5"
+    "vite": "^7.1.11"
   }
 }
